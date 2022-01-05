@@ -1,5 +1,11 @@
+## January 5th, 2022
+* Looking into AWS S3 for video uploads, so we can get a Url to display on our app
+
 ## January 4th, 2022
 * Generated app via jhipster and successfully deployed to Heroku
+1. First ran into issues trying to create a jhipster app via the `jhipster heroku` option, so instead just created a jhipster app through the typical route using `jhipster`
+2. Then ran into issue deploying GitHub branch with project to Heroku due to Maven java runtime version
+2. Fix included adding a `system.properties` specifying the java runtime version such as `java.runtime.version=11`
 
 ## January 3rd, 2022
 * CAMP-team: Carnell, Amanda, Mike, Paul
