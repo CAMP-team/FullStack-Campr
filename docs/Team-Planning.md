@@ -1,4 +1,7 @@
-# January 3rd, 2022
+## January 4th, 2022
+* Generated app via jhipster and successfully deployed to Heroku
+
+## January 3rd, 2022
 * CAMP-team: Carnell, Amanda, Mike, Paul
 
 * **Planning Notes**:
