@@ -1,3 +1,14 @@
+## January 7th, 2022
+* Making progress on entity and relationship mapping in jdl - refer to [progress file](jdl-entity-files/jdl-progress-log.md) for more details.
+* Performed the following actions to run the application successfully with each change:
+    ```
+    1. Command Line: mvn clean install
+    2. Save jdl file to root directory
+    3. Command Line: jhipster import-jdl filename.jdl
+    4. Command Line: ./mvnw
+    5. Run localhost:8080 in browser
+    6. Check to see if changes occurred
+    ```
 ## January 5th, 2022
 * Looking into AWS S3 for video uploads, so we can get a Url to display on our app
 
