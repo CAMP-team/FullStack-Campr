@@ -71,3 +71,40 @@ relationship ManyToOne {
 
 service all with serviceImpl
 ```
+
+4. Added Genres and mapped Genres to Video (ManyToMany)
+```
+entity UserComment {
+	commentBody String
+}
+
+entity Video {
+	title String,
+    imageUrl String,
+    videoUrl String,
+    description String
+}
+
+entity Genre {
+	name String
+}
+
+entity AppUser {
+	
+}
+
+relationship OneToOne {
+  AppUser{internalUser} to User
+}
+
+relationship ManyToOne {
+	UserComment to AppUser,
+    UserComment to Video
+}
+
+relationship ManyToMany {
+	Video{genre(name)} to Genre{video}
+}
+
+service all with serviceImpl
+```
