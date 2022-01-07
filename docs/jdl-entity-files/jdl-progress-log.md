@@ -108,3 +108,49 @@ relationship ManyToMany {
 
 service all with serviceImpl
 ```
+
+5. Added UserUpload and mapped UserUpload to AppUser (OneToOne) and Video to UserUpload (ManyToOne)
+```
+
+
+entity UserComment {
+	commentBody String
+}
+
+entity Video {
+	title String,
+    imageUrl String,
+    videoUrl String,
+    description String
+}
+
+entity Genre {
+	apiId Integer,
+	name String
+}
+
+entity UserUpload {
+	
+}
+
+entity AppUser {
+	
+}
+
+relationship OneToOne {
+  AppUser{internalUser} to User,
+  UserUpload to AppUser
+}
+
+relationship ManyToOne {
+	UserComment to AppUser,
+    UserComment to Video,
+    Video to UserUpload
+}
+
+relationship ManyToMany {
+	Video{genre(name)} to Genre{video}
+}
+
+service all with serviceImpl
+```
