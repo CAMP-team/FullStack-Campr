@@ -35,7 +35,7 @@ export const PasswordResetInit = () => {
           <h1>
             <Translate contentKey="reset.request.title">Reset your password</Translate>
           </h1>
-          <Alert color="warning">
+          <Alert color="light">
             <p>
               <Translate contentKey="reset.request.messages.info">Enter the email address you used to register</Translate>
             </p>
