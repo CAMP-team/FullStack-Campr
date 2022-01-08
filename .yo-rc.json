@@ -40,6 +40,8 @@
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en"],
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["AppUser", "Video", "UserComment", "Genre", "UserFavorites", "UserUpload", "WatchHistory"],
+    "lastLiquibaseTimestamp": 1641613417000
   }
 }

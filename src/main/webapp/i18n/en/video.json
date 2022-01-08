@@ -1,0 +1,33 @@
+{
+  "camprApp": {
+    "video": {
+      "home": {
+        "title": "Videos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Video",
+        "createOrEditLabel": "Create or edit a Video",
+        "notFound": "No Videos found"
+      },
+      "created": "A new Video is created with identifier {{ param }}",
+      "updated": "A Video is updated with identifier {{ param }}",
+      "deleted": "A Video is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Video {{ id }}?"
+      },
+      "detail": {
+        "title": "Video"
+      },
+      "id": "ID",
+      "title": "Title",
+      "imageUrl": "Image Url",
+      "videoUrl": "Video Url",
+      "trailerId": "Trailer Id",
+      "description": "Description",
+      "userUpload": "User Upload",
+      "genre": "Genre",
+      "userComment": "User Comment",
+      "watchhistory": "Watchhistory",
+      "userfavorites": "Userfavorites"
+    }
+  }
+}
