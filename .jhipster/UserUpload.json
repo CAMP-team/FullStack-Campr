@@ -1,0 +1,34 @@
+{
+  "name": "UserUpload",
+  "fields": [
+    {
+      "fieldName": "dateUploaded",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "appUser",
+      "otherEntityRelationshipName": "userUpload",
+      "relationshipName": "appUser",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "video",
+      "otherEntityRelationshipName": "userUpload",
+      "relationshipName": "video"
+    }
+  ],
+  "entityTableName": "user_upload",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220108034336"
+}
