@@ -165,7 +165,7 @@ export const UserManagementUpdate = (props: RouteComponentProps<{ login: string 
                 </span>
               </Button>
               &nbsp;
-              <Button color="primary" type="submit" disabled={isInvalid || updating}>
+              <Button color="secondary" type="submit" disabled={isInvalid || updating}>
                 <FontAwesomeIcon icon="save" />
                 &nbsp;
                 <Translate contentKey="entity.action.save">Save</Translate>

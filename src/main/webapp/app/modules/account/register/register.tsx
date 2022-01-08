@@ -101,12 +101,12 @@ export const RegisterPage = () => {
               }}
               data-cy="secondPassword"
             />
-            <Button id="register-submit" color="primary" type="submit" data-cy="submit">
+            <Button id="register-submit" color="secondary" type="submit" data-cy="submit">
               <Translate contentKey="register.form.button">Register</Translate>
             </Button>
           </ValidatedForm>
           <p>&nbsp;</p>
-          <Alert color="warning">
+          <Alert color="light">
             <span>
               <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
             </span>
