@@ -64,7 +64,7 @@ export const WatchHistoryDetail = (props: RouteComponentProps<{ id: string }>) =
           </span>
         </Button>
         &nbsp;
-        <Button tag={Link} to={`/watch-history/${watchHistoryEntity.id}/edit`} replace color="primary">
+        <Button tag={Link} to={`/watch-history/${watchHistoryEntity.id}/edit`} replace color="secondary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
             <Translate contentKey="entity.action.edit">Edit</Translate>

@@ -135,7 +135,7 @@ export const UserUpload = (props: RouteComponentProps<{ url: string }>) => {
                       <Button
                         tag={Link}
                         to={`${match.url}/${userUpload.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="primary"
+                        color="secondary"
                         size="sm"
                         data-cy="entityEditButton"
                       >

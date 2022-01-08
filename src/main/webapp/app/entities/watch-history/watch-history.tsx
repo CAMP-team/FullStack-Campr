@@ -135,7 +135,7 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
                       <Button
                         tag={Link}
                         to={`${match.url}/${watchHistory.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="primary"
+                        color="secondary"
                         size="sm"
                         data-cy="entityEditButton"
                       >
@@ -147,7 +147,7 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
                       <Button
                         tag={Link}
                         to={`${match.url}/${watchHistory.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="danger"
+                        color="secondary"
                         size="sm"
                         data-cy="entityDeleteButton"
                       >

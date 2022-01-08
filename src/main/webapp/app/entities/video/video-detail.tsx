@@ -77,14 +77,14 @@ export const VideoDetail = (props: RouteComponentProps<{ id: string }>) => {
               : null}
           </dd>
         </dl>
-        <Button tag={Link} to="/video" replace color="info" data-cy="entityDetailsBackButton">
+        <Button tag={Link} to="/video" replace color="secondary" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}
           <span className="d-none d-md-inline">
             <Translate contentKey="entity.action.back">Back</Translate>
           </span>
         </Button>
         &nbsp;
-        <Button tag={Link} to={`/video/${videoEntity.id}/edit`} replace color="primary">
+        <Button tag={Link} to={`/video/${videoEntity.id}/edit`} replace color="secondary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
             <Translate contentKey="entity.action.edit">Edit</Translate>

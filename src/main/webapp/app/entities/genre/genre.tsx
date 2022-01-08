@@ -84,11 +84,11 @@ export const Genre = (props: RouteComponentProps<{ url: string }>) => {
       <h2 id="genre-heading" data-cy="GenreHeading">
         <Translate contentKey="camprApp.genre.home.title">Genres</Translate>
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="secondary" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="camprApp.genre.home.refreshListLabel">Refresh List</Translate>
           </Button>
-          <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+          <Link to={`${match.url}/new`} className="btn btn-secondary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
             <Translate contentKey="camprApp.genre.home.createLabel">Create new Genre</Translate>
@@ -124,7 +124,7 @@ export const Genre = (props: RouteComponentProps<{ url: string }>) => {
                   <td>{genre.name}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${genre.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button tag={Link} to={`${match.url}/${genre.id}`} color="secondary" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.view">View</Translate>
@@ -133,7 +133,7 @@ export const Genre = (props: RouteComponentProps<{ url: string }>) => {
                       <Button
                         tag={Link}
                         to={`${match.url}/${genre.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="primary"
+                        color="secondary"
                         size="sm"
                         data-cy="entityEditButton"
                       >
