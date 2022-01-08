@@ -84,11 +84,11 @@ export const AppUser = (props: RouteComponentProps<{ url: string }>) => {
       <h2 id="app-user-heading" data-cy="AppUserHeading">
         <Translate contentKey="camprApp.appUser.home.title">App Users</Translate>
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="secondary" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="camprApp.appUser.home.refreshListLabel">Refresh List</Translate>
           </Button>
-          <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+          <Link to={`${match.url}/new`} className="btn btn-secondary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
             <Translate contentKey="camprApp.appUser.home.createLabel">Create new App User</Translate>
@@ -120,7 +120,7 @@ export const AppUser = (props: RouteComponentProps<{ url: string }>) => {
                   <td>{appUser.internalUser ? appUser.internalUser.id : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${appUser.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button tag={Link} to={`${match.url}/${appUser.id}`} color="secondary" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.view">View</Translate>
@@ -129,7 +129,7 @@ export const AppUser = (props: RouteComponentProps<{ url: string }>) => {
                       <Button
                         tag={Link}
                         to={`${match.url}/${appUser.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="primary"
+                        color="secondary"
                         size="sm"
                         data-cy="entityEditButton"
                       >
@@ -141,7 +141,7 @@ export const AppUser = (props: RouteComponentProps<{ url: string }>) => {
                       <Button
                         tag={Link}
                         to={`${match.url}/${appUser.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="danger"
+                        color="secondary"
                         size="sm"
                         data-cy="entityDeleteButton"
                       >
