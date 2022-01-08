@@ -9,6 +9,8 @@
     5. Run localhost:8080 in browser
     6. Check to see if changes occurred
     ```
+* Need to do a fresh install of jhipster (login issues for default accounts) and re-deploy to Heroku
+
 ## January 5th, 2022
 * Looking into AWS S3 for video uploads, so we can get a Url to display on our app
 

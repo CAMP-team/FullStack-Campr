@@ -1,5 +1,5 @@
 ## January 7th, 2022
-* Refer [entity-screenshots] folder
+* Refer [entity-screenshots](./entity-screenshots) folder
 
 ### Progress Log
 1. UserComment and AppUser connected successfully
@@ -151,6 +151,71 @@ relationship ManyToOne {
 relationship ManyToMany {
 	Video{genre(name)} to Genre{video}
 }
+
+service all with serviceImpl
+```
+
+6. Added WatchHistory and UserFavorites, both mapped to Video (ManyToMany)
+    - WatchHistory mapped to AppUser (OneToOne)
+    - UserFavorites mapped to AppUser (OneToOne)
+    - Added Pagination
+
+```
+
+entity AppUser {
+	
+}
+
+entity Video {
+	title String,
+    imageUrl String,
+    videoUrl String,
+    trailerId String,
+    description String
+}
+
+entity UserComment {
+	commentBody String,
+    commentDate Instant
+}
+
+entity Genre {
+	apiId Integer,
+	name String
+}
+
+entity UserFavorites {
+	dateAdded Instant
+}
+
+entity UserUpload {
+	dateUploaded Instant
+}
+
+entity WatchHistory {
+	dateWatched Instant
+}
+
+relationship OneToOne {
+  AppUser{internalUser} to User,
+  UserUpload to AppUser,
+  WatchHistory to AppUser,
+  UserFavorites to AppUser
+}
+
+relationship ManyToOne {
+	UserComment to AppUser,
+    UserComment to Video,
+  	Video to UserUpload
+}
+
+relationship ManyToMany {
+	Video{genre(name)} to Genre{video},
+    WatchHistory{video(title)} to Video{watchhistory},
+    UserFavorites{video(title)} to Video{userfavorites}
+}
+
+paginate Video, UserComment, WatchHistory, UserFavorite, UserUpload, Genre, AppUser with pagination
 
 service all with serviceImpl
 ```

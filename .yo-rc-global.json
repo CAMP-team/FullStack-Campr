@@ -1,8 +1,0 @@
-{
-  "generator-jhipster:7.4.1": {
-    "promptValues": {
-      "packageName": "com.camp.campr",
-      "nativeLanguage": "en"
-    }
-  }
-}
