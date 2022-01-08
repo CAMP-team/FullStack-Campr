@@ -13,7 +13,7 @@
     "blueprints": [],
     "otherModules": [],
     "pages": [],
-    "creationTimestamp": 1641348950882,
+    "creationTimestamp": 1641611878217,
     "serviceDiscoveryType": "no",
     "reactive": false,
     "authenticationType": "jwt",
@@ -22,7 +22,7 @@
     "cacheProvider": "ehcache",
     "enableHibernateCache": true,
     "databaseType": "sql",
-    "devDatabaseType": "postgresql",
+    "devDatabaseType": "h2Disk",
     "prodDatabaseType": "postgresql",
     "buildTool": "maven",
     "serverSideOptions": [],
@@ -35,11 +35,13 @@
     "clientTheme": "none",
     "enableTranslation": true,
     "nativeLanguage": "en",
-    "jwtSecretKey": "OGZlMGRlMjgxYmRkNzgyMzJjODA5NGUwNmM4MjZkZTZkYTFmNmNlYTUzMTJlZDNmNzliMDBlNTExZTcwN2NlNzIzNzU5MWI2NjM1MDZiYTY1NjZlODI4NDYwOTFjYTVjMjMxMDNmZmE4YTY2M2UwNjU5NTg1NmFjYjIyOGI4ZTQ=",
+    "jwtSecretKey": "NjcyYzU2NmJmNzI2M2UwNjViNTlhZjJkMDUxZGZkNTVlYmVkZGM5ZDAxZmMzY2JhNDY4NzY3MDRkNTMwZTU5YjVlYTc4ZDc4N2NkMzZmYTM1ZGYyMzlhYjBhNzA5MzZhMzgzZjA0Njk5ZjViZDQwNDdhOWYxNjkyNzVmOGYxNjU=",
     "devServerPort": 9060,
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
     "languages": ["en"],
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["AppUser", "Video", "UserComment", "Genre", "UserFavorites", "UserUpload", "WatchHistory"],
+    "lastLiquibaseTimestamp": 1641613417000
   }
 }
