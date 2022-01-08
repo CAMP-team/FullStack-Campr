@@ -50,7 +50,7 @@ export const AppUserDeleteDialog = (props: RouteComponentProps<{ id: string }>) 
           &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
         </Button>
-        <Button id="jhi-confirm-delete-appUser" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-appUser" data-cy="entityConfirmDeleteButton" color="secondary" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
           <Translate contentKey="entity.action.delete">Delete</Translate>

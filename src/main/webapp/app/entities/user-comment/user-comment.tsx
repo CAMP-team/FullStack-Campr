@@ -187,7 +187,7 @@ export const UserComment = (props: RouteComponentProps<{ url: string }>) => {
             <JhiPagination
               activePage={paginationState.activePage}
               onSelect={handlePagination}
-              maxButtons={5}
+              maxButtons={5}   
               itemsPerPage={paginationState.itemsPerPage}
               totalItems={totalItems}
             />

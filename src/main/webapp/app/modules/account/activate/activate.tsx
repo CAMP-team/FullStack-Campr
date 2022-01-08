@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { activateAction, reset } from './activate.reducer';
 
 const successAlert = (
-  <Alert color="success">
+  <Alert color="light">
     <Translate contentKey="activate.messages.success">
       <strong>Your user account has been activated.</strong> Please
     </Translate>
