@@ -1,0 +1,32 @@
+{
+  "name": "Genre",
+  "fields": [
+    {
+      "fieldName": "apiId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "video",
+      "otherEntityRelationshipName": "genre",
+      "relationshipName": "video",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "genre",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220108034334"
+}

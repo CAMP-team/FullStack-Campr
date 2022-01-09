@@ -1,0 +1,36 @@
+{
+  "name": "WatchHistory",
+  "fields": [
+    {
+      "fieldName": "dateWatched",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "appUser",
+      "otherEntityRelationshipName": "watchHistory",
+      "relationshipName": "appUser",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "video",
+      "otherEntityRelationshipName": "watchhistory",
+      "relationshipName": "video",
+      "otherEntityField": "title",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "watch_history",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220108034337"
+}
