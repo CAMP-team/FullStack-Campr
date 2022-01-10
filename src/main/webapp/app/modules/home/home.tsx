@@ -97,9 +97,7 @@ function videoSearch() {
                 <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
               </Link>
             </Alert>
-            <div>
-              <Translate contentKey="home.title">Welcome to Campr</Translate>
-            </div>
+            <div></div>
           </div>
         )}
       </Col>
