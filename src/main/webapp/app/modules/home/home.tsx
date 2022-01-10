@@ -5,21 +5,18 @@ import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
 import Axios from 'axios';
 import { useAppSelector } from 'app/config/store';
-
 import './VideoTile.css';
 import './App.css';
-
+/* eslint-disable */
 function videoSearch() {
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
 
-  // const YOUR_APP_KEY = '616093e66ab252685ad921e5c4680152';
-
-  const url =
-    // `https://api.themoviedb.org/3/search/movie?api_key${YOUR_APP_KEY}=&q=${query}`;
-    `https://api.themoviedb.org/3/search/movie?api_key=616093e66ab252685ad921e5c4680152&query=marvel`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
   async function getVideos() {
-    const result = await Axios.get(url);
+    var result = await Axios.get(url);
+    // return result.data;
+    console.log(result.data);
     setvideos(result.data.results);
     // console.log(result.data);
   }
@@ -59,17 +56,19 @@ function videoSearch() {
               <div className="app__videos">
                 {videos.map(video => {
                   return (
-                    <>
-                      <div
-                        className="VideoTile"
-                        onClick={() => {
-                          window.open(video['video']['url']);
-                        }}
-                      >
-                        <img src={`https://image.tmdb.org/t/p/w185${url}`} alt="card image" style={{ width: '100%', height: 360 }} />
-                        <p className="videoTile__name">{video['video']['label']}</p>
-                      </div>
-                    </>
+                    <div
+                      key={video.id}
+                      className="VideoTile"
+                      onClick={() => {
+                        window.open(video[video.video]);
+                      }}
+                    >
+                      <img
+                        src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
+                        alt="card image"
+                        style={{ width: '100%', height: 360 }}
+                      />
+                    </div>
                   );
                 })}
               </div>
