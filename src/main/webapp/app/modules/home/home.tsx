@@ -1,20 +1,39 @@
-import './home.scss';
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
-
+import Axios from 'axios';
 import { useAppSelector } from 'app/config/store';
+import './home.scss';
+import './VideoTile.css';
+import './App.css';
 
-export const Home = () => {
+/* eslint-disable */
+
+function videoSearch() {
+  const [query, setquery] = useState(''); // use state is updating the value in the frontend
+  const [videos, setvideos] = useState([]);
+
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
+  const testUrl = `https://www.youtube.com/`;
+  async function getVideos() {
+    var result = await Axios.get(url);
+    // return result.data;
+    console.log(result.data);
+    setvideos(result.data.results);
+    // console.log(result.data);
+  }
+
+  const onSubmit = e => {
+    e.preventDefault(); // prevent page from reloading
+    getVideos();
+  };
+
   const account = useAppSelector(state => state.authentication.account);
 
   return (
     <Row>
-      <Col md="3" className="pad">
-    
-      </Col>
+      <Col md="3" className="pad"></Col>
       <Col md="9">
         <h2>
           <Translate contentKey="home.title">Welcome to Campr</Translate>
@@ -24,11 +43,40 @@ export const Home = () => {
         </p>
         {account?.login ? (
           <div>
-            <Alert color="light">
-              <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
-                You are logged in as user {account.login}.
-              </Translate>
-            </Alert>
+            <Col md="5">
+              <div className="app">
+                <form className="app__searchForm" onSubmit={onSubmit}>
+                  <input
+                    type="text"
+                    className="app__input"
+                    placeholder="Find Videos"
+                    value={query}
+                    onChange={e => setquery(e.target.value)}
+                  />
+                  <input className="app__submit" type="submit" value="Search" />
+                </form>
+              </div>
+              <div className="app__videos">
+                {videos.map(video => {
+                  return (
+                    <div
+                      key={video.id}
+                      className="VideoTile"
+                      onClick={() => {
+                        window.open(testUrl);
+                      }}
+                    >
+                      <img
+                        src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
+                        alt="card image"
+                        style={{ width: '100%', height: 360 }}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </Col>
+            <Alert color="light"></Alert>
           </div>
         ) : (
           <div>
@@ -51,12 +99,12 @@ export const Home = () => {
                 <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
               </Link>
             </Alert>
+            <div></div>
           </div>
         )}
- 
       </Col>
     </Row>
   );
-};
+}
 
-export default Home;
+export default videoSearch;
