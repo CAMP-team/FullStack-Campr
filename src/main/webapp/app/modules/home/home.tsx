@@ -1,18 +1,21 @@
-import './home.scss';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
 import Axios from 'axios';
 import { useAppSelector } from 'app/config/store';
+import './home.scss';
 import './VideoTile.css';
 import './App.css';
+
 /* eslint-disable */
+
 function videoSearch() {
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
 
   const url = `https://api.themoviedb.org/3/search/movie?api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
+  const testUrl = `https://www.youtube.com/`;
   async function getVideos() {
     var result = await Axios.get(url);
     // return result.data;
@@ -60,7 +63,7 @@ function videoSearch() {
                       key={video.id}
                       className="VideoTile"
                       onClick={() => {
-                        window.open(video[video.video]);
+                        window.open(testUrl);
                       }}
                     >
                       <img
