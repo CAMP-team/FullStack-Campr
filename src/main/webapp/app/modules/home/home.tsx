@@ -10,14 +10,15 @@ import './App.css';
 
 /* eslint-disable */
 
-function videoSearch() {
+function posterSearch() {
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
 
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
+  const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
+
   const testUrl = `https://www.youtube.com/`;
-  async function getVideos() {
-    var result = await Axios.get(url);
+  async function getPoster() {
+    var result = await Axios.get(posterUrl);
     // return result.data;
     console.log(result.data);
     setvideos(result.data.results);
@@ -26,7 +27,7 @@ function videoSearch() {
 
   const onSubmit = e => {
     e.preventDefault(); // prevent page from reloading
-    getVideos();
+    getPoster();
   };
 
   const account = useAppSelector(state => state.authentication.account);
@@ -67,6 +68,7 @@ function videoSearch() {
                       }}
                     >
                       <img
+                        className="videoTile__img"
                         src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
                         alt="card image"
                         style={{ width: '100%', height: 360 }}
@@ -92,7 +94,6 @@ function videoSearch() {
                 <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
               </Translate>
             </Alert>
-
             <Alert color="light">
               <Translate contentKey="global.messages.info.register.noaccount">You do not have an account yet?</Translate>&nbsp;
               <Link to="/account/register" className="alert-link">
@@ -107,4 +108,4 @@ function videoSearch() {
   );
 }
 
-export default videoSearch;
+export default posterSearch;
