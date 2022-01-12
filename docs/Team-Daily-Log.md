@@ -1,3 +1,12 @@
+## January 11th, 2022
+* Added a project board to track todos
+* In Progress:
+    - Trying to route on-click event to open a video on our app
+    - Navigation bar in progress
+    - On-click event to add to user favorites
+    - User profile for favorites, uploads, history
+* Blockers: predominantly understanding React and TypeScript
+
 ## January 7th, 2022
 * Making progress on entity and relationship mapping in jdl - refer to [progress file](jdl-entity-files/jdl-progress-log.md) for more details.
 * Performed the following actions to run the application successfully with each change:
