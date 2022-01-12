@@ -1,0 +1,19 @@
+.videoTile {
+  cursor: pointer;
+  /* // add cursor over photos for weblink */
+}
+
+.videoTile__img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+}
+
+.videoTile__img:hover {
+  box-shadow: 0 0 5px 1px rgb(92, 92, 92);
+}
