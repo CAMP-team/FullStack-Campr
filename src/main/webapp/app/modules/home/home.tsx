@@ -65,7 +65,11 @@ function posterSearch() {
                       key={video.id}
                       className="VideoTile"
                       onClick={() => {
-                        window.open(`https://www.youtube.com/watch?v=${videoDisplay.results['0']['key']}`);
+                        {
+                          video.poster_path == null
+                            ? window.open(`https://www.youtube.com/results?search_query=${query}`)
+                            : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                        }
                       }}
                     >
                       <div className="row">
