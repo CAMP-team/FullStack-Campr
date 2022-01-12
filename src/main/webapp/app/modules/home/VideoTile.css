@@ -1,5 +1,6 @@
 .videoTile {
   cursor: pointer;
+  display: grid;
   /* // add cursor over photos for weblink */
 }
 
@@ -17,3 +18,16 @@
 .videoTile__img:hover {
   box-shadow: 0 0 5px 1px rgb(92, 92, 92);
 }
+
+.faveButton {
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  display: block;
+  left: 0px;
+}
+/**
+.videoTile__img.show .faveButton{
+	display: block;
+}
+*/

@@ -13,7 +13,10 @@ import './App.css';
 function posterSearch() {
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
-
+  const [showButton, setShowButton] = useState(false);
+  const addToFavorites = () => {
+    console.log('Added to favorites!');
+  };
   const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
 
   const testUrl = `https://www.youtube.com/`;
@@ -24,14 +27,13 @@ function posterSearch() {
     setvideos(result.data.results);
     // console.log(result.data);
   }
-
   const onSubmit = e => {
     e.preventDefault(); // prevent page from reloading
     getPoster();
   };
 
   const account = useAppSelector(state => state.authentication.account);
-
+  const handleVideoTileToggle = () => setShowButton(!showButton);
   return (
     <Row>
       <Col md="3" className="pad"></Col>
@@ -63,6 +65,7 @@ function posterSearch() {
                     <div
                       key={video.id}
                       className="VideoTile"
+                      onMouseEnter={handleVideoTileToggle}
                       onClick={() => {
                         window.open(testUrl);
                       }}
@@ -73,6 +76,11 @@ function posterSearch() {
                         alt="card image"
                         style={{ width: '100%', height: 360 }}
                       />
+                      {showButton && (
+                        <button type="button" className="FaveButton" onClick={addToFavorites}>
+                          Favorite
+                        </button>
+                      )}
                     </div>
                   );
                 })}
