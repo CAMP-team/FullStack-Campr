@@ -145,5 +145,6 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
+
   "footer": "Project maintained by the CAMP-team on <a href=https://github.com/CAMP-team/FullStack-Campr target=_blank rel=noopener noreferrer>GitHub</a>."
 }

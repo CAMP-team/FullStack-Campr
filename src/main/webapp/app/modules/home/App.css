@@ -1,48 +1,59 @@
 .app {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 40px 24px;
+  justify-content: left;
+  padding: 0px 50px;
   border-radius: 8px;
 }
 
-/* .app__searchForm {
-    margin-top: 18px;
-    margin-left: 85px;
-  }
-  
-  .app__input {
-    padding: 6px 16px;
-    min-width: 400px;
-    max-width: 100vw;
-    font-size: 14px;
-  } */
-
-/* .app__submit {
-    position: absolute;
-    top: 142px;
-    padding: 6px 25px;
-    font-size: 14px;
-    margin-left: 405px;
-    background-color: rgb(139, 139, 138);
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 4px;
-    color: black;
-  } */
-/* .app__submit:hover {
-    position: absolute;
-    top: 142px;
-    padding: 6px 25px;
-    font-size: 14px;
-    margin-left: 405px;
-    background-color: rgb(252, 251, 249);
-    border: 2px solid rgb(85, 85, 84);
-    border-radius: 4px;
-    color: black;
-  } */
 .app__videos {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: 230px 230px 230px 230px;
-  align-items: baseline;
+  justify-content: space-evenly;
+  grid-template-columns: 250px 250px 250px 250px;
 }
+
+.playBtn {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 50%;
+  top: 50%;
+  margin-left: -48px; /*half of the width */
+  margin-top: -48px; /*half of the height */
+}
+
+/* .app__searchForm {
+  margin-top: 18px;
+  margin-left: 85px;
+}
+
+.app__input {
+  padding: 6px 16px;
+  min-width: 400px;
+  max-width: 100vw;
+  font-size: 14px;
+}  */
+
+/* .app__submit {
+  position: absolute;
+  top: 142px;
+  padding: 6px 25px;
+  font-size: 14px;
+  margin-left: 405px;
+  background-color: rgb(139, 139, 138);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  color: black;
+}  */
+/* .app__submit:hover {
+  position: absolute;
+  top: 142px;
+  padding: 6px 25px;
+  font-size: 14px;
+  margin-left: 405px;
+  background-color: rgb(252, 251, 249);
+  border: 2px solid rgb(85, 85, 84);
+  border-radius: 4px;
+  color: black;
+}  */
