@@ -71,8 +71,8 @@ function posterSearch() {
                       <img
                         className="videoTile__img"
                         src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
-                        alt="card image"
                         style={{ width: '100%', height: 360 }}
+                        alt="card image"
                       />
                     </div>
                   );

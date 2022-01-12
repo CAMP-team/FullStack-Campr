@@ -14,6 +14,16 @@
   height: auto;
 }
 
+.playBtn {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 50%;
+  top: 50%;
+  margin-left: -48px; /*half of the width */
+  margin-top: -48px; /*half of the height */
+}
+
 .videoTile__img:hover {
   box-shadow: 0 0 5px 2px rgb(73, 72, 72);
 }

@@ -10,7 +10,17 @@
   margin-top: 24px;
   display: grid;
   justify-content: space-evenly;
-  grid-template-columns: 250px 250px 250px 250px 250px 250px;
+  grid-template-columns: 250px 250px 250px 250px;
+}
+
+.playBtn {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 50%;
+  top: 50%;
+  margin-left: -48px; /*half of the width */
+  margin-top: -48px; /*half of the height */
 }
 
 /* .app__searchForm {
