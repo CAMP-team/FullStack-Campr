@@ -19,13 +19,9 @@ function posterSearch() {
   };
   const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
 
-  const testUrl = `https://www.youtube.com/`;
   async function getPoster() {
-    var result = await Axios.get(posterUrl);
-    // return result.data;
-    console.log(result.data);
+    const result = await Axios.get(posterUrl);
     setvideos(result.data.results);
-    // console.log(result.data);
   }
   const onSubmit = e => {
     e.preventDefault(); // prevent page from reloading
@@ -61,26 +57,48 @@ function posterSearch() {
               </div>
               <div className="app__videos">
                 {videos.map(video => {
+                  const value = video.id;
+                  const url = `https://api.themoviedb.org/3/movie/${value}/videos?api_key=616093e66ab252685ad921e5c4680152`;
+                  var videoDisplay;
+                  fetch(url)
+                    .then(res => res.json())
+                    .then(data => (videoDisplay = data))
+                    .then(() => console.log(videoDisplay));
                   return (
                     <div
                       key={video.id}
                       className="VideoTile"
                       onMouseEnter={handleVideoTileToggle}
                       onClick={() => {
-                        window.open(testUrl);
+                        {
+                          video.poster_path == null
+                            ? window.open(`https://www.youtube.com/results?search_query=${query}`)
+                            : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                        }
                       }}
                     >
-                      <img
-                        className="videoTile__img"
-                        src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
-                        alt="card image"
-                        style={{ width: '100%', height: 360 }}
-                      />
-                      {showButton && (
-                        <button type="button" className="FaveButton" onClick={addToFavorites}>
-                          Favorite
-                        </button>
-                      )}
+                      <div className="row">
+                        {video.poster_path == null ? (
+                          <img
+                            className="videoTile__img"
+                            src={`https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`}
+                            alt="card image"
+                            style={{ width: '100%', height: 360 }}
+                          />
+                        ) : (
+                          <img
+                            className="videoTile__img"
+                            src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
+                            alt="card image"
+                            style={{ width: '100%', height: 360 }}
+                          />
+                        )}
+                        {showButton && video.poster_path != null && (
+                          <button type="button" className="FaveButton" onClick={addToFavorites}>
+                            Favorite
+                          </button>
+                        )}
+                      </div>
                     </div>
                   );
                 })}

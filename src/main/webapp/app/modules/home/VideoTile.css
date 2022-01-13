@@ -9,14 +9,20 @@
   width: 200px;
   object-fit: cover;
   border-radius: 8px;
-  border: 3px solid rgb(255, 255, 255);
+  border: 5px solid rgb(255, 255, 255);
   border-radius: 4px;
   max-width: 100%;
   height: auto;
 }
 
-.videoTile__img:hover {
-  box-shadow: 0 0 5px 1px rgb(92, 92, 92);
+.playBtn {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  left: 50%;
+  top: 50%;
+  margin-left: -48px; /*half of the width */
+  margin-top: -48px; /*half of the height */
 }
 
 .faveButton {
@@ -26,8 +32,11 @@
   display: block;
   left: 0px;
 }
-/**
-.videoTile__img.show .faveButton{
-	display: block;
+
+.videoTile__img:hover {
+  box-shadow: 0 0 5px 2px rgb(73, 72, 72);
 }
-*/
+
+.videoTile__img.show .faveButton {
+  display: block;
+}
