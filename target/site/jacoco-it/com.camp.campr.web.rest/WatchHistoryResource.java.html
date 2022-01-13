@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WatchHistoryResource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.web.rest</a> &gt; <span class="el_source">WatchHistoryResource.java</span></div><h1>WatchHistoryResource.java</h1><pre class="source lang-java linenums">package com.camp.campr.web.rest;
+
+import com.camp.campr.domain.WatchHistory;
+import com.camp.campr.repository.WatchHistoryRepository;
+import com.camp.campr.service.WatchHistoryService;
+import com.camp.campr.web.rest.errors.BadRequestAlertException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import tech.jhipster.web.util.HeaderUtil;
+import tech.jhipster.web.util.PaginationUtil;
+import tech.jhipster.web.util.ResponseUtil;
+
+/**
+ * REST controller for managing {@link com.camp.campr.domain.WatchHistory}.
+ */
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class WatchHistoryResource {
+
+<span class="fc" id="L33">    private final Logger log = LoggerFactory.getLogger(WatchHistoryResource.class);</span>
+
+    private static final String ENTITY_NAME = &quot;watchHistory&quot;;
+
+    @Value(&quot;${jhipster.clientApp.name}&quot;)
+    private String applicationName;
+
+    private final WatchHistoryService watchHistoryService;
+
+    private final WatchHistoryRepository watchHistoryRepository;
+
+<span class="fc" id="L44">    public WatchHistoryResource(WatchHistoryService watchHistoryService, WatchHistoryRepository watchHistoryRepository) {</span>
+<span class="fc" id="L45">        this.watchHistoryService = watchHistoryService;</span>
+<span class="fc" id="L46">        this.watchHistoryRepository = watchHistoryRepository;</span>
+<span class="fc" id="L47">    }</span>
+
+    /**
+     * {@code POST  /watch-histories} : Create a new watchHistory.
+     *
+     * @param watchHistory the watchHistory to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new watchHistory, or with status {@code 400 (Bad Request)} if the watchHistory has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping(&quot;/watch-histories&quot;)
+    public ResponseEntity&lt;WatchHistory&gt; createWatchHistory(@RequestBody WatchHistory watchHistory) throws URISyntaxException {
+<span class="fc" id="L58">        log.debug(&quot;REST request to save WatchHistory : {}&quot;, watchHistory);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if (watchHistory.getId() != null) {</span>
+<span class="fc" id="L60">            throw new BadRequestAlertException(&quot;A new watchHistory cannot already have an ID&quot;, ENTITY_NAME, &quot;idexists&quot;);</span>
+        }
+<span class="fc" id="L62">        WatchHistory result = watchHistoryService.save(watchHistory);</span>
+<span class="fc" id="L63">        return ResponseEntity</span>
+<span class="fc" id="L64">            .created(new URI(&quot;/api/watch-histories/&quot; + result.getId()))</span>
+<span class="fc" id="L65">            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))</span>
+<span class="fc" id="L66">            .body(result);</span>
+    }
+
+    /**
+     * {@code PUT  /watch-histories/:id} : Updates an existing watchHistory.
+     *
+     * @param id the id of the watchHistory to save.
+     * @param watchHistory the watchHistory to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated watchHistory,
+     * or with status {@code 400 (Bad Request)} if the watchHistory is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the watchHistory couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PutMapping(&quot;/watch-histories/{id}&quot;)
+    public ResponseEntity&lt;WatchHistory&gt; updateWatchHistory(
+        @PathVariable(value = &quot;id&quot;, required = false) final Long id,
+        @RequestBody WatchHistory watchHistory
+    ) throws URISyntaxException {
+<span class="fc" id="L84">        log.debug(&quot;REST request to update WatchHistory : {}, {}&quot;, id, watchHistory);</span>
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if (watchHistory.getId() == null) {</span>
+<span class="nc" id="L86">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        if (!Objects.equals(id, watchHistory.getId())) {</span>
+<span class="fc" id="L89">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (!watchHistoryRepository.existsById(id)) {</span>
+<span class="fc" id="L93">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="fc" id="L96">        WatchHistory result = watchHistoryService.save(watchHistory);</span>
+<span class="fc" id="L97">        return ResponseEntity</span>
+<span class="fc" id="L98">            .ok()</span>
+<span class="fc" id="L99">            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, watchHistory.getId().toString()))</span>
+<span class="fc" id="L100">            .body(result);</span>
+    }
+
+    /**
+     * {@code PATCH  /watch-histories/:id} : Partial updates given fields of an existing watchHistory, field will ignore if it is null
+     *
+     * @param id the id of the watchHistory to save.
+     * @param watchHistory the watchHistory to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated watchHistory,
+     * or with status {@code 400 (Bad Request)} if the watchHistory is not valid,
+     * or with status {@code 404 (Not Found)} if the watchHistory is not found,
+     * or with status {@code 500 (Internal Server Error)} if the watchHistory couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PatchMapping(value = &quot;/watch-histories/{id}&quot;, consumes = { &quot;application/json&quot;, &quot;application/merge-patch+json&quot; })
+    public ResponseEntity&lt;WatchHistory&gt; partialUpdateWatchHistory(
+        @PathVariable(value = &quot;id&quot;, required = false) final Long id,
+        @RequestBody WatchHistory watchHistory
+    ) throws URISyntaxException {
+<span class="fc" id="L119">        log.debug(&quot;REST request to partial update WatchHistory partially : {}, {}&quot;, id, watchHistory);</span>
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">        if (watchHistory.getId() == null) {</span>
+<span class="nc" id="L121">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        if (!Objects.equals(id, watchHistory.getId())) {</span>
+<span class="fc" id="L124">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="fc bfc" id="L127" title="All 2 branches covered.">        if (!watchHistoryRepository.existsById(id)) {</span>
+<span class="fc" id="L128">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="fc" id="L131">        Optional&lt;WatchHistory&gt; result = watchHistoryService.partialUpdate(watchHistory);</span>
+
+<span class="fc" id="L133">        return ResponseUtil.wrapOrNotFound(</span>
+            result,
+<span class="fc" id="L135">            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, watchHistory.getId().toString())</span>
+        );
+    }
+
+    /**
+     * {@code GET  /watch-histories} : get all the watchHistories.
+     *
+     * @param pageable the pagination information.
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of watchHistories in body.
+     */
+    @GetMapping(&quot;/watch-histories&quot;)
+    public ResponseEntity&lt;List&lt;WatchHistory&gt;&gt; getAllWatchHistories(
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable,
+        @RequestParam(required = false, defaultValue = &quot;false&quot;) boolean eagerload
+    ) {
+<span class="fc" id="L151">        log.debug(&quot;REST request to get a page of WatchHistories&quot;);</span>
+        Page&lt;WatchHistory&gt; page;
+<span class="pc bpc" id="L153" title="1 of 2 branches missed.">        if (eagerload) {</span>
+<span class="nc" id="L154">            page = watchHistoryService.findAllWithEagerRelationships(pageable);</span>
+        } else {
+<span class="fc" id="L156">            page = watchHistoryService.findAll(pageable);</span>
+        }
+<span class="fc" id="L158">        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);</span>
+<span class="fc" id="L159">        return ResponseEntity.ok().headers(headers).body(page.getContent());</span>
+    }
+
+    /**
+     * {@code GET  /watch-histories/:id} : get the &quot;id&quot; watchHistory.
+     *
+     * @param id the id of the watchHistory to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the watchHistory, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping(&quot;/watch-histories/{id}&quot;)
+    public ResponseEntity&lt;WatchHistory&gt; getWatchHistory(@PathVariable Long id) {
+<span class="fc" id="L170">        log.debug(&quot;REST request to get WatchHistory : {}&quot;, id);</span>
+<span class="fc" id="L171">        Optional&lt;WatchHistory&gt; watchHistory = watchHistoryService.findOne(id);</span>
+<span class="fc" id="L172">        return ResponseUtil.wrapOrNotFound(watchHistory);</span>
+    }
+
+    /**
+     * {@code DELETE  /watch-histories/:id} : delete the &quot;id&quot; watchHistory.
+     *
+     * @param id the id of the watchHistory to delete.
+     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     */
+    @DeleteMapping(&quot;/watch-histories/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteWatchHistory(@PathVariable Long id) {
+<span class="fc" id="L183">        log.debug(&quot;REST request to delete WatchHistory : {}&quot;, id);</span>
+<span class="fc" id="L184">        watchHistoryService.delete(id);</span>
+<span class="fc" id="L185">        return ResponseEntity</span>
+<span class="fc" id="L186">            .noContent()</span>
+<span class="fc" id="L187">            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))</span>
+<span class="fc" id="L188">            .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

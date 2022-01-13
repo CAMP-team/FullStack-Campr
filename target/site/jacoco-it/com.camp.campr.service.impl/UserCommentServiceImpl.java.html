@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserCommentServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.service.impl</a> &gt; <span class="el_source">UserCommentServiceImpl.java</span></div><h1>UserCommentServiceImpl.java</h1><pre class="source lang-java linenums">package com.camp.campr.service.impl;
+
+import com.camp.campr.domain.UserComment;
+import com.camp.campr.repository.UserCommentRepository;
+import com.camp.campr.service.UserCommentService;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * Service Implementation for managing {@link UserComment}.
+ */
+@Service
+@Transactional
+public class UserCommentServiceImpl implements UserCommentService {
+
+<span class="fc" id="L21">    private final Logger log = LoggerFactory.getLogger(UserCommentServiceImpl.class);</span>
+
+    private final UserCommentRepository userCommentRepository;
+
+<span class="fc" id="L25">    public UserCommentServiceImpl(UserCommentRepository userCommentRepository) {</span>
+<span class="fc" id="L26">        this.userCommentRepository = userCommentRepository;</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public UserComment save(UserComment userComment) {
+<span class="fc" id="L31">        log.debug(&quot;Request to save UserComment : {}&quot;, userComment);</span>
+<span class="fc" id="L32">        return userCommentRepository.save(userComment);</span>
+    }
+
+    @Override
+    public Optional&lt;UserComment&gt; partialUpdate(UserComment userComment) {
+<span class="fc" id="L37">        log.debug(&quot;Request to partially update UserComment : {}&quot;, userComment);</span>
+
+<span class="fc" id="L39">        return userCommentRepository</span>
+<span class="fc" id="L40">            .findById(userComment.getId())</span>
+<span class="fc" id="L41">            .map(existingUserComment -&gt; {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                if (userComment.getCommentBody() != null) {</span>
+<span class="fc" id="L43">                    existingUserComment.setCommentBody(userComment.getCommentBody());</span>
+                }
+<span class="fc bfc" id="L45" title="All 2 branches covered.">                if (userComment.getCommentDate() != null) {</span>
+<span class="fc" id="L46">                    existingUserComment.setCommentDate(userComment.getCommentDate());</span>
+                }
+
+<span class="fc" id="L49">                return existingUserComment;</span>
+            })
+<span class="fc" id="L51">            .map(userCommentRepository::save);</span>
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page&lt;UserComment&gt; findAll(Pageable pageable) {
+<span class="fc" id="L57">        log.debug(&quot;Request to get all UserComments&quot;);</span>
+<span class="fc" id="L58">        return userCommentRepository.findAll(pageable);</span>
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional&lt;UserComment&gt; findOne(Long id) {
+<span class="fc" id="L64">        log.debug(&quot;Request to get UserComment : {}&quot;, id);</span>
+<span class="fc" id="L65">        return userCommentRepository.findById(id);</span>
+    }
+
+    @Override
+    public void delete(Long id) {
+<span class="fc" id="L70">        log.debug(&quot;Request to delete UserComment : {}&quot;, id);</span>
+<span class="fc" id="L71">        userCommentRepository.deleteById(id);</span>
+<span class="fc" id="L72">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

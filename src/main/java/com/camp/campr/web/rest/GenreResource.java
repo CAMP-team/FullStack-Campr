@@ -139,7 +139,7 @@ public class GenreResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of genres in body.
      */
     @GetMapping("/genres")
-    public ResponseEntity<List<Genre>> getAllGenres(Pageable pageable) {
+    public ResponseEntity<List<Genre>> getAllGenres(@org.springdoc.api.annotations.ParameterObject Pageable pageable) {
         log.debug("REST request to get a page of Genres");
         Page<Genre> page = genreService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);

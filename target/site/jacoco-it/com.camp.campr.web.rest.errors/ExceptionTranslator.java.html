@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExceptionTranslator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.web.rest.errors</a> &gt; <span class="el_source">ExceptionTranslator.java</span></div><h1>ExceptionTranslator.java</h1><pre class="source lang-java linenums">package com.camp.campr.web.rest.errors;
+
+import java.net.URI;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.dao.ConcurrencyFailureException;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageConversionException;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.NativeWebRequest;
+import org.zalando.problem.DefaultProblem;
+import org.zalando.problem.Problem;
+import org.zalando.problem.ProblemBuilder;
+import org.zalando.problem.Status;
+import org.zalando.problem.StatusType;
+import org.zalando.problem.spring.web.advice.ProblemHandling;
+import org.zalando.problem.spring.web.advice.security.SecurityAdviceTrait;
+import org.zalando.problem.violations.ConstraintViolationProblem;
+import tech.jhipster.config.JHipsterConstants;
+import tech.jhipster.web.util.HeaderUtil;
+
+/**
+ * Controller advice to translate the server side exceptions to client-friendly json structures.
+ * The error response follows RFC7807 - Problem Details for HTTP APIs (https://tools.ietf.org/html/rfc7807).
+ */
+@ControllerAdvice
+public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait {
+
+    private static final String FIELD_ERRORS_KEY = &quot;fieldErrors&quot;;
+    private static final String MESSAGE_KEY = &quot;message&quot;;
+    private static final String PATH_KEY = &quot;path&quot;;
+    private static final String VIOLATIONS_KEY = &quot;violations&quot;;
+
+    @Value(&quot;${jhipster.clientApp.name}&quot;)
+    private String applicationName;
+
+    private final Environment env;
+
+<span class="fc" id="L52">    public ExceptionTranslator(Environment env) {</span>
+<span class="fc" id="L53">        this.env = env;</span>
+<span class="fc" id="L54">    }</span>
+
+    /**
+     * Post-process the Problem payload to add the message key for the front-end if needed.
+     */
+    @Override
+    public ResponseEntity&lt;Problem&gt; process(@Nullable ResponseEntity&lt;Problem&gt; entity, NativeWebRequest request) {
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        if (entity == null) {</span>
+<span class="nc" id="L62">            return null;</span>
+        }
+<span class="fc" id="L64">        Problem problem = entity.getBody();</span>
+<span class="pc bpc" id="L65" title="1 of 4 branches missed.">        if (!(problem instanceof ConstraintViolationProblem || problem instanceof DefaultProblem)) {</span>
+<span class="fc" id="L66">            return entity;</span>
+        }
+
+<span class="fc" id="L69">        HttpServletRequest nativeRequest = request.getNativeRequest(HttpServletRequest.class);</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">        String requestUri = nativeRequest != null ? nativeRequest.getRequestURI() : StringUtils.EMPTY;</span>
+        ProblemBuilder builder = Problem
+<span class="fc" id="L72">            .builder()</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">            .withType(Problem.DEFAULT_TYPE.equals(problem.getType()) ? ErrorConstants.DEFAULT_TYPE : problem.getType())</span>
+<span class="fc" id="L74">            .withStatus(problem.getStatus())</span>
+<span class="fc" id="L75">            .withTitle(problem.getTitle())</span>
+<span class="fc" id="L76">            .with(PATH_KEY, requestUri);</span>
+
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">        if (problem instanceof ConstraintViolationProblem) {</span>
+<span class="nc" id="L79">            builder</span>
+<span class="nc" id="L80">                .with(VIOLATIONS_KEY, ((ConstraintViolationProblem) problem).getViolations())</span>
+<span class="nc" id="L81">                .with(MESSAGE_KEY, ErrorConstants.ERR_VALIDATION);</span>
+        } else {
+<span class="fc" id="L83">            builder.withCause(((DefaultProblem) problem).getCause()).withDetail(problem.getDetail()).withInstance(problem.getInstance());</span>
+<span class="fc" id="L84">            problem.getParameters().forEach(builder::with);</span>
+<span class="pc bpc" id="L85" title="1 of 4 branches missed.">            if (!problem.getParameters().containsKey(MESSAGE_KEY) &amp;&amp; problem.getStatus() != null) {</span>
+<span class="fc" id="L86">                builder.with(MESSAGE_KEY, &quot;error.http.&quot; + problem.getStatus().getStatusCode());</span>
+            }
+        }
+<span class="fc" id="L89">        return new ResponseEntity&lt;&gt;(builder.build(), entity.getHeaders(), entity.getStatusCode());</span>
+    }
+
+    @Override
+    public ResponseEntity&lt;Problem&gt; handleMethodArgumentNotValid(MethodArgumentNotValidException ex, @Nonnull NativeWebRequest request) {
+<span class="fc" id="L94">        BindingResult result = ex.getBindingResult();</span>
+<span class="fc" id="L95">        List&lt;FieldErrorVM&gt; fieldErrors = result</span>
+<span class="fc" id="L96">            .getFieldErrors()</span>
+<span class="fc" id="L97">            .stream()</span>
+<span class="fc" id="L98">            .map(f -&gt;</span>
+<span class="fc" id="L99">                new FieldErrorVM(</span>
+<span class="fc" id="L100">                    f.getObjectName().replaceFirst(&quot;DTO$&quot;, &quot;&quot;),</span>
+<span class="fc" id="L101">                    f.getField(),</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">                    StringUtils.isNotBlank(f.getDefaultMessage()) ? f.getDefaultMessage() : f.getCode()</span>
+                )
+            )
+<span class="fc" id="L105">            .collect(Collectors.toList());</span>
+
+        Problem problem = Problem
+<span class="fc" id="L108">            .builder()</span>
+<span class="fc" id="L109">            .withType(ErrorConstants.CONSTRAINT_VIOLATION_TYPE)</span>
+<span class="fc" id="L110">            .withTitle(&quot;Method argument not valid&quot;)</span>
+<span class="fc" id="L111">            .withStatus(defaultConstraintViolationStatus())</span>
+<span class="fc" id="L112">            .with(MESSAGE_KEY, ErrorConstants.ERR_VALIDATION)</span>
+<span class="fc" id="L113">            .with(FIELD_ERRORS_KEY, fieldErrors)</span>
+<span class="fc" id="L114">            .build();</span>
+<span class="fc" id="L115">        return create(ex, problem, request);</span>
+    }
+
+    @ExceptionHandler
+    public ResponseEntity&lt;Problem&gt; handleEmailAlreadyUsedException(
+        com.camp.campr.service.EmailAlreadyUsedException ex,
+        NativeWebRequest request
+    ) {
+<span class="fc" id="L123">        EmailAlreadyUsedException problem = new EmailAlreadyUsedException();</span>
+<span class="fc" id="L124">        return create(</span>
+            problem,
+            request,
+<span class="fc" id="L127">            HeaderUtil.createFailureAlert(applicationName, true, problem.getEntityName(), problem.getErrorKey(), problem.getMessage())</span>
+        );
+    }
+
+    @ExceptionHandler
+    public ResponseEntity&lt;Problem&gt; handleUsernameAlreadyUsedException(
+        com.camp.campr.service.UsernameAlreadyUsedException ex,
+        NativeWebRequest request
+    ) {
+<span class="fc" id="L136">        LoginAlreadyUsedException problem = new LoginAlreadyUsedException();</span>
+<span class="fc" id="L137">        return create(</span>
+            problem,
+            request,
+<span class="fc" id="L140">            HeaderUtil.createFailureAlert(applicationName, true, problem.getEntityName(), problem.getErrorKey(), problem.getMessage())</span>
+        );
+    }
+
+    @ExceptionHandler
+    public ResponseEntity&lt;Problem&gt; handleInvalidPasswordException(
+        com.camp.campr.service.InvalidPasswordException ex,
+        NativeWebRequest request
+    ) {
+<span class="fc" id="L149">        return create(new InvalidPasswordException(), request);</span>
+    }
+
+    @ExceptionHandler
+    public ResponseEntity&lt;Problem&gt; handleBadRequestAlertException(BadRequestAlertException ex, NativeWebRequest request) {
+<span class="fc" id="L154">        return create(</span>
+            ex,
+            request,
+<span class="fc" id="L157">            HeaderUtil.createFailureAlert(applicationName, true, ex.getEntityName(), ex.getErrorKey(), ex.getMessage())</span>
+        );
+    }
+
+    @ExceptionHandler
+    public ResponseEntity&lt;Problem&gt; handleConcurrencyFailure(ConcurrencyFailureException ex, NativeWebRequest request) {
+<span class="fc" id="L163">        Problem problem = Problem.builder().withStatus(Status.CONFLICT).with(MESSAGE_KEY, ErrorConstants.ERR_CONCURRENCY_FAILURE).build();</span>
+<span class="fc" id="L164">        return create(ex, problem, request);</span>
+    }
+
+    @Override
+    public ProblemBuilder prepare(final Throwable throwable, final StatusType status, final URI type) {
+<span class="fc" id="L169">        Collection&lt;String&gt; activeProfiles = Arrays.asList(env.getActiveProfiles());</span>
+
+<span class="pc bpc" id="L171" title="1 of 2 branches missed.">        if (activeProfiles.contains(JHipsterConstants.SPRING_PROFILE_PRODUCTION)) {</span>
+<span class="nc bnc" id="L172" title="All 2 branches missed.">            if (throwable instanceof HttpMessageConversionException) {</span>
+<span class="nc" id="L173">                return Problem</span>
+<span class="nc" id="L174">                    .builder()</span>
+<span class="nc" id="L175">                    .withType(type)</span>
+<span class="nc" id="L176">                    .withTitle(status.getReasonPhrase())</span>
+<span class="nc" id="L177">                    .withStatus(status)</span>
+<span class="nc" id="L178">                    .withDetail(&quot;Unable to convert http message&quot;)</span>
+<span class="nc" id="L179">                    .withCause(</span>
+<span class="nc" id="L180">                        Optional.ofNullable(throwable.getCause()).filter(cause -&gt; isCausalChainsEnabled()).map(this::toProblem).orElse(null)</span>
+                    );
+            }
+<span class="nc bnc" id="L183" title="All 2 branches missed.">            if (throwable instanceof DataAccessException) {</span>
+<span class="nc" id="L184">                return Problem</span>
+<span class="nc" id="L185">                    .builder()</span>
+<span class="nc" id="L186">                    .withType(type)</span>
+<span class="nc" id="L187">                    .withTitle(status.getReasonPhrase())</span>
+<span class="nc" id="L188">                    .withStatus(status)</span>
+<span class="nc" id="L189">                    .withDetail(&quot;Failure during data access&quot;)</span>
+<span class="nc" id="L190">                    .withCause(</span>
+<span class="nc" id="L191">                        Optional.ofNullable(throwable.getCause()).filter(cause -&gt; isCausalChainsEnabled()).map(this::toProblem).orElse(null)</span>
+                    );
+            }
+<span class="nc bnc" id="L194" title="All 2 branches missed.">            if (containsPackageName(throwable.getMessage())) {</span>
+<span class="nc" id="L195">                return Problem</span>
+<span class="nc" id="L196">                    .builder()</span>
+<span class="nc" id="L197">                    .withType(type)</span>
+<span class="nc" id="L198">                    .withTitle(status.getReasonPhrase())</span>
+<span class="nc" id="L199">                    .withStatus(status)</span>
+<span class="nc" id="L200">                    .withDetail(&quot;Unexpected runtime exception&quot;)</span>
+<span class="nc" id="L201">                    .withCause(</span>
+<span class="nc" id="L202">                        Optional.ofNullable(throwable.getCause()).filter(cause -&gt; isCausalChainsEnabled()).map(this::toProblem).orElse(null)</span>
+                    );
+            }
+        }
+
+<span class="fc" id="L207">        return Problem</span>
+<span class="fc" id="L208">            .builder()</span>
+<span class="fc" id="L209">            .withType(type)</span>
+<span class="fc" id="L210">            .withTitle(status.getReasonPhrase())</span>
+<span class="fc" id="L211">            .withStatus(status)</span>
+<span class="fc" id="L212">            .withDetail(throwable.getMessage())</span>
+<span class="fc" id="L213">            .withCause(</span>
+<span class="pc" id="L214">                Optional.ofNullable(throwable.getCause()).filter(cause -&gt; isCausalChainsEnabled()).map(this::toProblem).orElse(null)</span>
+            );
+    }
+
+    private boolean containsPackageName(String message) {
+        // This list is for sure not complete
+<span class="nc" id="L220">        return StringUtils.containsAny(message, &quot;org.&quot;, &quot;java.&quot;, &quot;net.&quot;, &quot;javax.&quot;, &quot;com.&quot;, &quot;io.&quot;, &quot;de.&quot;, &quot;com.camp.campr&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

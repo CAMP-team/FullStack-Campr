@@ -143,7 +143,10 @@ public class AppUserResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of appUsers in body.
      */
     @GetMapping("/app-users")
-    public ResponseEntity<List<AppUser>> getAllAppUsers(Pageable pageable, @RequestParam(required = false) String filter) {
+    public ResponseEntity<List<AppUser>> getAllAppUsers(
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable,
+        @RequestParam(required = false) String filter
+    ) {
         if ("userupload-is-null".equals(filter)) {
             log.debug("REST request to get all AppUsers where userUpload is null");
             return new ResponseEntity<>(appUserService.findAllWhereUserUploadIsNull(), HttpStatus.OK);

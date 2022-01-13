@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Video.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.domain</a> &gt; <span class="el_source">Video.java</span></div><h1>Video.java</h1><pre class="source lang-java linenums">package com.camp.campr.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+/**
+ * A Video.
+ */
+@Entity
+@Table(name = &quot;video&quot;)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+<span class="fc" id="L17">public class Video implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;sequenceGenerator&quot;)
+    @SequenceGenerator(name = &quot;sequenceGenerator&quot;)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+
+    @Column(name = &quot;title&quot;)
+    private String title;
+
+    @Column(name = &quot;image_url&quot;)
+    private String imageUrl;
+
+    @Column(name = &quot;video_url&quot;)
+    private String videoUrl;
+
+    @Column(name = &quot;trailer_id&quot;)
+    private String trailerId;
+
+    @Column(name = &quot;description&quot;)
+    private String description;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = { &quot;appUser&quot;, &quot;videos&quot; }, allowSetters = true)
+    private UserUpload userUpload;
+
+<span class="fc" id="L46">    @ManyToMany</span>
+    @JoinTable(name = &quot;rel_video__genre&quot;, joinColumns = @JoinColumn(name = &quot;video_id&quot;), inverseJoinColumns = @JoinColumn(name = &quot;genre_id&quot;))
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { &quot;videos&quot; }, allowSetters = true)
+    private Set&lt;Genre&gt; genres = new HashSet&lt;&gt;();
+
+<span class="fc" id="L52">    @OneToMany(mappedBy = &quot;video&quot;)</span>
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { &quot;appUser&quot;, &quot;video&quot; }, allowSetters = true)
+    private Set&lt;UserComment&gt; userComments = new HashSet&lt;&gt;();
+
+<span class="fc" id="L57">    @ManyToMany(mappedBy = &quot;videos&quot;)</span>
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { &quot;appUser&quot;, &quot;videos&quot; }, allowSetters = true)
+    private Set&lt;WatchHistory&gt; watchhistories = new HashSet&lt;&gt;();
+
+<span class="fc" id="L62">    @ManyToMany(mappedBy = &quot;videos&quot;)</span>
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { &quot;appUser&quot;, &quot;videos&quot; }, allowSetters = true)
+    private Set&lt;UserFavorites&gt; userfavorites = new HashSet&lt;&gt;();
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here
+
+    public Long getId() {
+<span class="fc" id="L70">        return this.id;</span>
+    }
+
+    public Video id(Long id) {
+<span class="nc" id="L74">        this.setId(id);</span>
+<span class="nc" id="L75">        return this;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L79">        this.id = id;</span>
+<span class="fc" id="L80">    }</span>
+
+    public String getTitle() {
+<span class="fc" id="L83">        return this.title;</span>
+    }
+
+    public Video title(String title) {
+<span class="fc" id="L87">        this.setTitle(title);</span>
+<span class="fc" id="L88">        return this;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="fc" id="L92">        this.title = title;</span>
+<span class="fc" id="L93">    }</span>
+
+    public String getImageUrl() {
+<span class="fc" id="L96">        return this.imageUrl;</span>
+    }
+
+    public Video imageUrl(String imageUrl) {
+<span class="fc" id="L100">        this.setImageUrl(imageUrl);</span>
+<span class="fc" id="L101">        return this;</span>
+    }
+
+    public void setImageUrl(String imageUrl) {
+<span class="fc" id="L105">        this.imageUrl = imageUrl;</span>
+<span class="fc" id="L106">    }</span>
+
+    public String getVideoUrl() {
+<span class="fc" id="L109">        return this.videoUrl;</span>
+    }
+
+    public Video videoUrl(String videoUrl) {
+<span class="fc" id="L113">        this.setVideoUrl(videoUrl);</span>
+<span class="fc" id="L114">        return this;</span>
+    }
+
+    public void setVideoUrl(String videoUrl) {
+<span class="fc" id="L118">        this.videoUrl = videoUrl;</span>
+<span class="fc" id="L119">    }</span>
+
+    public String getTrailerId() {
+<span class="fc" id="L122">        return this.trailerId;</span>
+    }
+
+    public Video trailerId(String trailerId) {
+<span class="fc" id="L126">        this.setTrailerId(trailerId);</span>
+<span class="fc" id="L127">        return this;</span>
+    }
+
+    public void setTrailerId(String trailerId) {
+<span class="fc" id="L131">        this.trailerId = trailerId;</span>
+<span class="fc" id="L132">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L135">        return this.description;</span>
+    }
+
+    public Video description(String description) {
+<span class="fc" id="L139">        this.setDescription(description);</span>
+<span class="fc" id="L140">        return this;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L144">        this.description = description;</span>
+<span class="fc" id="L145">    }</span>
+
+    public UserUpload getUserUpload() {
+<span class="fc" id="L148">        return this.userUpload;</span>
+    }
+
+    public void setUserUpload(UserUpload userUpload) {
+<span class="nc" id="L152">        this.userUpload = userUpload;</span>
+<span class="nc" id="L153">    }</span>
+
+    public Video userUpload(UserUpload userUpload) {
+<span class="nc" id="L156">        this.setUserUpload(userUpload);</span>
+<span class="nc" id="L157">        return this;</span>
+    }
+
+    public Set&lt;Genre&gt; getGenres() {
+<span class="fc" id="L161">        return this.genres;</span>
+    }
+
+    public void setGenres(Set&lt;Genre&gt; genres) {
+<span class="nc" id="L165">        this.genres = genres;</span>
+<span class="nc" id="L166">    }</span>
+
+    public Video genres(Set&lt;Genre&gt; genres) {
+<span class="nc" id="L169">        this.setGenres(genres);</span>
+<span class="nc" id="L170">        return this;</span>
+    }
+
+    public Video addGenre(Genre genre) {
+<span class="nc" id="L174">        this.genres.add(genre);</span>
+<span class="nc" id="L175">        genre.getVideos().add(this);</span>
+<span class="nc" id="L176">        return this;</span>
+    }
+
+    public Video removeGenre(Genre genre) {
+<span class="nc" id="L180">        this.genres.remove(genre);</span>
+<span class="nc" id="L181">        genre.getVideos().remove(this);</span>
+<span class="nc" id="L182">        return this;</span>
+    }
+
+    public Set&lt;UserComment&gt; getUserComments() {
+<span class="fc" id="L186">        return this.userComments;</span>
+    }
+
+    public void setUserComments(Set&lt;UserComment&gt; userComments) {
+<span class="nc bnc" id="L190" title="All 2 branches missed.">        if (this.userComments != null) {</span>
+<span class="nc" id="L191">            this.userComments.forEach(i -&gt; i.setVideo(null));</span>
+        }
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        if (userComments != null) {</span>
+<span class="nc" id="L194">            userComments.forEach(i -&gt; i.setVideo(this));</span>
+        }
+<span class="nc" id="L196">        this.userComments = userComments;</span>
+<span class="nc" id="L197">    }</span>
+
+    public Video userComments(Set&lt;UserComment&gt; userComments) {
+<span class="nc" id="L200">        this.setUserComments(userComments);</span>
+<span class="nc" id="L201">        return this;</span>
+    }
+
+    public Video addUserComment(UserComment userComment) {
+<span class="nc" id="L205">        this.userComments.add(userComment);</span>
+<span class="nc" id="L206">        userComment.setVideo(this);</span>
+<span class="nc" id="L207">        return this;</span>
+    }
+
+    public Video removeUserComment(UserComment userComment) {
+<span class="nc" id="L211">        this.userComments.remove(userComment);</span>
+<span class="nc" id="L212">        userComment.setVideo(null);</span>
+<span class="nc" id="L213">        return this;</span>
+    }
+
+    public Set&lt;WatchHistory&gt; getWatchhistories() {
+<span class="fc" id="L217">        return this.watchhistories;</span>
+    }
+
+    public void setWatchhistories(Set&lt;WatchHistory&gt; watchHistories) {
+<span class="nc bnc" id="L221" title="All 2 branches missed.">        if (this.watchhistories != null) {</span>
+<span class="nc" id="L222">            this.watchhistories.forEach(i -&gt; i.removeVideo(this));</span>
+        }
+<span class="nc bnc" id="L224" title="All 2 branches missed.">        if (watchHistories != null) {</span>
+<span class="nc" id="L225">            watchHistories.forEach(i -&gt; i.addVideo(this));</span>
+        }
+<span class="nc" id="L227">        this.watchhistories = watchHistories;</span>
+<span class="nc" id="L228">    }</span>
+
+    public Video watchhistories(Set&lt;WatchHistory&gt; watchHistories) {
+<span class="nc" id="L231">        this.setWatchhistories(watchHistories);</span>
+<span class="nc" id="L232">        return this;</span>
+    }
+
+    public Video addWatchhistory(WatchHistory watchHistory) {
+<span class="nc" id="L236">        this.watchhistories.add(watchHistory);</span>
+<span class="nc" id="L237">        watchHistory.getVideos().add(this);</span>
+<span class="nc" id="L238">        return this;</span>
+    }
+
+    public Video removeWatchhistory(WatchHistory watchHistory) {
+<span class="nc" id="L242">        this.watchhistories.remove(watchHistory);</span>
+<span class="nc" id="L243">        watchHistory.getVideos().remove(this);</span>
+<span class="nc" id="L244">        return this;</span>
+    }
+
+    public Set&lt;UserFavorites&gt; getUserfavorites() {
+<span class="fc" id="L248">        return this.userfavorites;</span>
+    }
+
+    public void setUserfavorites(Set&lt;UserFavorites&gt; userFavorites) {
+<span class="nc bnc" id="L252" title="All 2 branches missed.">        if (this.userfavorites != null) {</span>
+<span class="nc" id="L253">            this.userfavorites.forEach(i -&gt; i.removeVideo(this));</span>
+        }
+<span class="nc bnc" id="L255" title="All 2 branches missed.">        if (userFavorites != null) {</span>
+<span class="nc" id="L256">            userFavorites.forEach(i -&gt; i.addVideo(this));</span>
+        }
+<span class="nc" id="L258">        this.userfavorites = userFavorites;</span>
+<span class="nc" id="L259">    }</span>
+
+    public Video userfavorites(Set&lt;UserFavorites&gt; userFavorites) {
+<span class="nc" id="L262">        this.setUserfavorites(userFavorites);</span>
+<span class="nc" id="L263">        return this;</span>
+    }
+
+    public Video addUserfavorites(UserFavorites userFavorites) {
+<span class="nc" id="L267">        this.userfavorites.add(userFavorites);</span>
+<span class="nc" id="L268">        userFavorites.getVideos().add(this);</span>
+<span class="nc" id="L269">        return this;</span>
+    }
+
+    public Video removeUserfavorites(UserFavorites userFavorites) {
+<span class="nc" id="L273">        this.userfavorites.remove(userFavorites);</span>
+<span class="nc" id="L274">        userFavorites.getVideos().remove(this);</span>
+<span class="nc" id="L275">        return this;</span>
+    }
+
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L282" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L283">            return true;</span>
+        }
+<span class="nc bnc" id="L285" title="All 2 branches missed.">        if (!(o instanceof Video)) {</span>
+<span class="nc" id="L286">            return false;</span>
+        }
+<span class="nc bnc" id="L288" title="All 4 branches missed.">        return id != null &amp;&amp; id.equals(((Video) o).id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+<span class="nc" id="L294">        return getClass().hashCode();</span>
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+<span class="nc" id="L300">        return &quot;Video{&quot; +</span>
+<span class="nc" id="L301">            &quot;id=&quot; + getId() +</span>
+<span class="nc" id="L302">            &quot;, title='&quot; + getTitle() + &quot;'&quot; +</span>
+<span class="nc" id="L303">            &quot;, imageUrl='&quot; + getImageUrl() + &quot;'&quot; +</span>
+<span class="nc" id="L304">            &quot;, videoUrl='&quot; + getVideoUrl() + &quot;'&quot; +</span>
+<span class="nc" id="L305">            &quot;, trailerId='&quot; + getTrailerId() + &quot;'&quot; +</span>
+<span class="nc" id="L306">            &quot;, description='&quot; + getDescription() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

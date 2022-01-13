@@ -145,7 +145,7 @@ public class UserFavoritesResource {
      */
     @GetMapping("/user-favorites")
     public ResponseEntity<List<UserFavorites>> getAllUserFavorites(
-        Pageable pageable,
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable,
         @RequestParam(required = false, defaultValue = "false") boolean eagerload
     ) {
         log.debug("REST request to get a page of UserFavorites");

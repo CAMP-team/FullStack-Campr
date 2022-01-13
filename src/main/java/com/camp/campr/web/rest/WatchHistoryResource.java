@@ -145,7 +145,7 @@ public class WatchHistoryResource {
      */
     @GetMapping("/watch-histories")
     public ResponseEntity<List<WatchHistory>> getAllWatchHistories(
-        Pageable pageable,
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable,
         @RequestParam(required = false, defaultValue = "false") boolean eagerload
     ) {
         log.debug("REST request to get a page of WatchHistories");

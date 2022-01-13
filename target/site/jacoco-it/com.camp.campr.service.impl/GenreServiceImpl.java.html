@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GenreServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.service.impl</a> &gt; <span class="el_source">GenreServiceImpl.java</span></div><h1>GenreServiceImpl.java</h1><pre class="source lang-java linenums">package com.camp.campr.service.impl;
+
+import com.camp.campr.domain.Genre;
+import com.camp.campr.repository.GenreRepository;
+import com.camp.campr.service.GenreService;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * Service Implementation for managing {@link Genre}.
+ */
+@Service
+@Transactional
+public class GenreServiceImpl implements GenreService {
+
+<span class="fc" id="L21">    private final Logger log = LoggerFactory.getLogger(GenreServiceImpl.class);</span>
+
+    private final GenreRepository genreRepository;
+
+<span class="fc" id="L25">    public GenreServiceImpl(GenreRepository genreRepository) {</span>
+<span class="fc" id="L26">        this.genreRepository = genreRepository;</span>
+<span class="fc" id="L27">    }</span>
+
+    @Override
+    public Genre save(Genre genre) {
+<span class="fc" id="L31">        log.debug(&quot;Request to save Genre : {}&quot;, genre);</span>
+<span class="fc" id="L32">        return genreRepository.save(genre);</span>
+    }
+
+    @Override
+    public Optional&lt;Genre&gt; partialUpdate(Genre genre) {
+<span class="fc" id="L37">        log.debug(&quot;Request to partially update Genre : {}&quot;, genre);</span>
+
+<span class="fc" id="L39">        return genreRepository</span>
+<span class="fc" id="L40">            .findById(genre.getId())</span>
+<span class="fc" id="L41">            .map(existingGenre -&gt; {</span>
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">                if (genre.getApiId() != null) {</span>
+<span class="fc" id="L43">                    existingGenre.setApiId(genre.getApiId());</span>
+                }
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">                if (genre.getName() != null) {</span>
+<span class="fc" id="L46">                    existingGenre.setName(genre.getName());</span>
+                }
+
+<span class="fc" id="L49">                return existingGenre;</span>
+            })
+<span class="fc" id="L51">            .map(genreRepository::save);</span>
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page&lt;Genre&gt; findAll(Pageable pageable) {
+<span class="fc" id="L57">        log.debug(&quot;Request to get all Genres&quot;);</span>
+<span class="fc" id="L58">        return genreRepository.findAll(pageable);</span>
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional&lt;Genre&gt; findOne(Long id) {
+<span class="fc" id="L64">        log.debug(&quot;Request to get Genre : {}&quot;, id);</span>
+<span class="fc" id="L65">        return genreRepository.findById(id);</span>
+    }
+
+    @Override
+    public void delete(Long id) {
+<span class="fc" id="L70">        log.debug(&quot;Request to delete Genre : {}&quot;, id);</span>
+<span class="fc" id="L71">        genreRepository.deleteById(id);</span>
+<span class="fc" id="L72">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppUserResource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.web.rest</a> &gt; <span class="el_source">AppUserResource.java</span></div><h1>AppUserResource.java</h1><pre class="source lang-java linenums">package com.camp.campr.web.rest;
+
+import com.camp.campr.domain.AppUser;
+import com.camp.campr.repository.AppUserRepository;
+import com.camp.campr.service.AppUserService;
+import com.camp.campr.web.rest.errors.BadRequestAlertException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import tech.jhipster.web.util.HeaderUtil;
+import tech.jhipster.web.util.PaginationUtil;
+import tech.jhipster.web.util.ResponseUtil;
+
+/**
+ * REST controller for managing {@link com.camp.campr.domain.AppUser}.
+ */
+@RestController
+@RequestMapping(&quot;/api&quot;)
+public class AppUserResource {
+
+<span class="fc" id="L34">    private final Logger log = LoggerFactory.getLogger(AppUserResource.class);</span>
+
+    private static final String ENTITY_NAME = &quot;appUser&quot;;
+
+    @Value(&quot;${jhipster.clientApp.name}&quot;)
+    private String applicationName;
+
+    private final AppUserService appUserService;
+
+    private final AppUserRepository appUserRepository;
+
+<span class="fc" id="L45">    public AppUserResource(AppUserService appUserService, AppUserRepository appUserRepository) {</span>
+<span class="fc" id="L46">        this.appUserService = appUserService;</span>
+<span class="fc" id="L47">        this.appUserRepository = appUserRepository;</span>
+<span class="fc" id="L48">    }</span>
+
+    /**
+     * {@code POST  /app-users} : Create a new appUser.
+     *
+     * @param appUser the appUser to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new appUser, or with status {@code 400 (Bad Request)} if the appUser has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping(&quot;/app-users&quot;)
+    public ResponseEntity&lt;AppUser&gt; createAppUser(@RequestBody AppUser appUser) throws URISyntaxException {
+<span class="fc" id="L59">        log.debug(&quot;REST request to save AppUser : {}&quot;, appUser);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (appUser.getId() != null) {</span>
+<span class="fc" id="L61">            throw new BadRequestAlertException(&quot;A new appUser cannot already have an ID&quot;, ENTITY_NAME, &quot;idexists&quot;);</span>
+        }
+<span class="fc" id="L63">        AppUser result = appUserService.save(appUser);</span>
+<span class="fc" id="L64">        return ResponseEntity</span>
+<span class="fc" id="L65">            .created(new URI(&quot;/api/app-users/&quot; + result.getId()))</span>
+<span class="fc" id="L66">            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))</span>
+<span class="fc" id="L67">            .body(result);</span>
+    }
+
+    /**
+     * {@code PUT  /app-users/:id} : Updates an existing appUser.
+     *
+     * @param id the id of the appUser to save.
+     * @param appUser the appUser to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated appUser,
+     * or with status {@code 400 (Bad Request)} if the appUser is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the appUser couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PutMapping(&quot;/app-users/{id}&quot;)
+    public ResponseEntity&lt;AppUser&gt; updateAppUser(@PathVariable(value = &quot;id&quot;, required = false) final Long id, @RequestBody AppUser appUser)
+        throws URISyntaxException {
+<span class="fc" id="L83">        log.debug(&quot;REST request to update AppUser : {}, {}&quot;, id, appUser);</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">        if (appUser.getId() == null) {</span>
+<span class="nc" id="L85">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        if (!Objects.equals(id, appUser.getId())) {</span>
+<span class="fc" id="L88">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="fc bfc" id="L91" title="All 2 branches covered.">        if (!appUserRepository.existsById(id)) {</span>
+<span class="fc" id="L92">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="fc" id="L95">        AppUser result = appUserService.save(appUser);</span>
+<span class="fc" id="L96">        return ResponseEntity</span>
+<span class="fc" id="L97">            .ok()</span>
+<span class="fc" id="L98">            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, appUser.getId().toString()))</span>
+<span class="fc" id="L99">            .body(result);</span>
+    }
+
+    /**
+     * {@code PATCH  /app-users/:id} : Partial updates given fields of an existing appUser, field will ignore if it is null
+     *
+     * @param id the id of the appUser to save.
+     * @param appUser the appUser to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated appUser,
+     * or with status {@code 400 (Bad Request)} if the appUser is not valid,
+     * or with status {@code 404 (Not Found)} if the appUser is not found,
+     * or with status {@code 500 (Internal Server Error)} if the appUser couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PatchMapping(value = &quot;/app-users/{id}&quot;, consumes = { &quot;application/json&quot;, &quot;application/merge-patch+json&quot; })
+    public ResponseEntity&lt;AppUser&gt; partialUpdateAppUser(
+        @PathVariable(value = &quot;id&quot;, required = false) final Long id,
+        @RequestBody AppUser appUser
+    ) throws URISyntaxException {
+<span class="fc" id="L118">        log.debug(&quot;REST request to partial update AppUser partially : {}, {}&quot;, id, appUser);</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        if (appUser.getId() == null) {</span>
+<span class="nc" id="L120">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        if (!Objects.equals(id, appUser.getId())) {</span>
+<span class="fc" id="L123">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="fc bfc" id="L126" title="All 2 branches covered.">        if (!appUserRepository.existsById(id)) {</span>
+<span class="fc" id="L127">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="fc" id="L130">        Optional&lt;AppUser&gt; result = appUserService.partialUpdate(appUser);</span>
+
+<span class="fc" id="L132">        return ResponseUtil.wrapOrNotFound(</span>
+            result,
+<span class="fc" id="L134">            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, appUser.getId().toString())</span>
+        );
+    }
+
+    /**
+     * {@code GET  /app-users} : get all the appUsers.
+     *
+     * @param pageable the pagination information.
+     * @param filter the filter of the request.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of appUsers in body.
+     */
+    @GetMapping(&quot;/app-users&quot;)
+    public ResponseEntity&lt;List&lt;AppUser&gt;&gt; getAllAppUsers(
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable,
+        @RequestParam(required = false) String filter
+    ) {
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">        if (&quot;userupload-is-null&quot;.equals(filter)) {</span>
+<span class="nc" id="L151">            log.debug(&quot;REST request to get all AppUsers where userUpload is null&quot;);</span>
+<span class="nc" id="L152">            return new ResponseEntity&lt;&gt;(appUserService.findAllWhereUserUploadIsNull(), HttpStatus.OK);</span>
+        }
+
+<span class="pc bpc" id="L155" title="1 of 2 branches missed.">        if (&quot;watchhistory-is-null&quot;.equals(filter)) {</span>
+<span class="nc" id="L156">            log.debug(&quot;REST request to get all AppUsers where watchHistory is null&quot;);</span>
+<span class="nc" id="L157">            return new ResponseEntity&lt;&gt;(appUserService.findAllWhereWatchHistoryIsNull(), HttpStatus.OK);</span>
+        }
+
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">        if (&quot;userfavorites-is-null&quot;.equals(filter)) {</span>
+<span class="nc" id="L161">            log.debug(&quot;REST request to get all AppUsers where userFavorites is null&quot;);</span>
+<span class="nc" id="L162">            return new ResponseEntity&lt;&gt;(appUserService.findAllWhereUserFavoritesIsNull(), HttpStatus.OK);</span>
+        }
+<span class="fc" id="L164">        log.debug(&quot;REST request to get a page of AppUsers&quot;);</span>
+<span class="fc" id="L165">        Page&lt;AppUser&gt; page = appUserService.findAll(pageable);</span>
+<span class="fc" id="L166">        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);</span>
+<span class="fc" id="L167">        return ResponseEntity.ok().headers(headers).body(page.getContent());</span>
+    }
+
+    /**
+     * {@code GET  /app-users/:id} : get the &quot;id&quot; appUser.
+     *
+     * @param id the id of the appUser to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the appUser, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping(&quot;/app-users/{id}&quot;)
+    public ResponseEntity&lt;AppUser&gt; getAppUser(@PathVariable Long id) {
+<span class="fc" id="L178">        log.debug(&quot;REST request to get AppUser : {}&quot;, id);</span>
+<span class="fc" id="L179">        Optional&lt;AppUser&gt; appUser = appUserService.findOne(id);</span>
+<span class="fc" id="L180">        return ResponseUtil.wrapOrNotFound(appUser);</span>
+    }
+
+    /**
+     * {@code DELETE  /app-users/:id} : delete the &quot;id&quot; appUser.
+     *
+     * @param id the id of the appUser to delete.
+     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     */
+    @DeleteMapping(&quot;/app-users/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteAppUser(@PathVariable Long id) {
+<span class="fc" id="L191">        log.debug(&quot;REST request to delete AppUser : {}&quot;, id);</span>
+<span class="fc" id="L192">        appUserService.delete(id);</span>
+<span class="fc" id="L193">        return ResponseEntity</span>
+<span class="fc" id="L194">            .noContent()</span>
+<span class="fc" id="L195">            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))</span>
+<span class="fc" id="L196">            .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
