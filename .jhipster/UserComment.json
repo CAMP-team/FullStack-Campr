@@ -1,0 +1,37 @@
+{
+  "name": "UserComment",
+  "fields": [
+    {
+      "fieldName": "commentBody",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "commentDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "appUser",
+      "otherEntityRelationshipName": "userComment",
+      "relationshipName": "appUser"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "video",
+      "otherEntityRelationshipName": "userComment",
+      "relationshipName": "video"
+    }
+  ],
+  "entityTableName": "user_comment",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220108034333"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "UserFavorites",
+  "fields": [
+    {
+      "fieldName": "dateAdded",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "appUser",
+      "otherEntityRelationshipName": "userFavorites",
+      "relationshipName": "appUser",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "video",
+      "otherEntityRelationshipName": "userfavorites",
+      "relationshipName": "video",
+      "otherEntityField": "title",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "user_favorites",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220108034335"
+}
