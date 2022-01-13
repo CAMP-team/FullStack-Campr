@@ -41,7 +41,7 @@ relationship OneToOne {
 }
 
 relationship ManyToOne {
-	UserComment to AppUser,
+	UserComment{user(login)} to User,
     UserComment to Video,
   	Video to UserUpload
 }
