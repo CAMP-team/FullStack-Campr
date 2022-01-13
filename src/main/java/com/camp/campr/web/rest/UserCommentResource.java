@@ -2,6 +2,7 @@ package com.camp.campr.web.rest;
 
 import com.camp.campr.domain.UserComment;
 import com.camp.campr.repository.UserCommentRepository;
+import com.camp.campr.security.SecurityUtils;
 import com.camp.campr.service.UserCommentService;
 import com.camp.campr.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -145,7 +146,8 @@ public class UserCommentResource {
     @GetMapping("/user-comments")
     public ResponseEntity<List<UserComment>> getAllUserComments(@org.springdoc.api.annotations.ParameterObject Pageable pageable) {
         log.debug("REST request to get a page of UserComments");
-        Page<UserComment> page = userCommentService.findAll(pageable);
+        // Page<UserComment> page = userCommentService.findAll(pageable);
+        Page<UserComment> page = userCommentService.findByAppUser(SecurityUtils.getCurrentUserLogin().orElse(null), pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }

@@ -47,4 +47,6 @@ public interface UserCommentService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<UserComment> findByAppUser(String appUser, Pageable pageable);
 }

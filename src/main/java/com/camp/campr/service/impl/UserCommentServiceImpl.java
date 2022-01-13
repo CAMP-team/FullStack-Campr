@@ -70,4 +70,10 @@ public class UserCommentServiceImpl implements UserCommentService {
         log.debug("Request to delete UserComment : {}", id);
         userCommentRepository.deleteById(id);
     }
+
+    @Override
+    public Page<UserComment> findByAppUser(String appUser, Pageable pageable) {
+        log.debug("Request to get UserComments by current user");
+        return userCommentRepository.findByAppUser(appUser, pageable);
+    }
 }
