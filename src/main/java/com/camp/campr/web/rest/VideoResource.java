@@ -141,7 +141,7 @@ public class VideoResource {
      */
     @GetMapping("/videos")
     public ResponseEntity<List<Video>> getAllVideos(
-        Pageable pageable,
+        @org.springdoc.api.annotations.ParameterObject Pageable pageable,
         @RequestParam(required = false, defaultValue = "false") boolean eagerload
     ) {
         log.debug("REST request to get a page of Videos");

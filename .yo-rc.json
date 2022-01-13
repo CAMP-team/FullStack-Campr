@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "applicationType": "monolith",
     "baseName": "campr",
-    "jhipsterVersion": "7.4.1",
+    "jhipsterVersion": "7.5.0",
     "skipUserManagement": false,
     "skipCheckLengthOfIdentifier": false,
     "skipFakeData": false,

@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "com.camp.campr.config.ApplicationProperties",
+      "sourceType": "com.camp.campr.config.ApplicationProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

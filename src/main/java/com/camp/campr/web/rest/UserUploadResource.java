@@ -143,7 +143,7 @@ public class UserUploadResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of userUploads in body.
      */
     @GetMapping("/user-uploads")
-    public ResponseEntity<List<UserUpload>> getAllUserUploads(Pageable pageable) {
+    public ResponseEntity<List<UserUpload>> getAllUserUploads(@org.springdoc.api.annotations.ParameterObject Pageable pageable) {
         log.debug("REST request to get a page of UserUploads");
         Page<UserUpload> page = userUploadService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);

@@ -143,7 +143,7 @@ public class UserCommentResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of userComments in body.
      */
     @GetMapping("/user-comments")
-    public ResponseEntity<List<UserComment>> getAllUserComments(Pageable pageable) {
+    public ResponseEntity<List<UserComment>> getAllUserComments(@org.springdoc.api.annotations.ParameterObject Pageable pageable) {
         log.debug("REST request to get a page of UserComments");
         Page<UserComment> page = userCommentService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
