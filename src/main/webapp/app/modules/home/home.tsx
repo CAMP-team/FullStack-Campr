@@ -59,7 +59,7 @@ function posterSearch() {
                 {videos.map(video => {
                   const value = video.id;
                   const url = `https://api.themoviedb.org/3/movie/${value}/videos?api_key=616093e66ab252685ad921e5c4680152`;
-                  var videoDisplay;
+                  var videoDisplay: { results: { key: any }[] };
                   fetch(url)
                     .then(res => res.json())
                     .then(data => (videoDisplay = data))
