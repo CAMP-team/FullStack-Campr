@@ -22,7 +22,6 @@
 /Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/java/com/camp/campr/config/CacheConfiguration.java
 /Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/java/com/camp/campr/web/rest/errors/FieldErrorVM.java
 /Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/java/com/camp/campr/security/jwt/JWTFilter.java
-/Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/java/com/camp/campr/GeneratedByJHipster.java
 /Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/java/com/camp/campr/web/rest/errors/LoginAlreadyUsedException.java
 /Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/java/com/camp/campr/repository/package-info.java
 /Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/java/com/camp/campr/config/LiquibaseConfiguration.java

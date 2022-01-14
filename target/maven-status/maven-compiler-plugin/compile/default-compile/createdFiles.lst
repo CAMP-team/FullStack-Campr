@@ -57,6 +57,5 @@ com/camp/campr/security/jwt/JWTFilter.class
 com/camp/campr/domain/AbstractAuditingEntity.class
 com/camp/campr/web/rest/errors/BadRequestAlertException.class
 com/camp/campr/web/rest/AccountResource.class
-com/camp/campr/GeneratedByJHipster.class
 com/camp/campr/service/UserService.class
 com/camp/campr/config/DatabaseConfiguration.class
