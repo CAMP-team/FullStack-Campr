@@ -21,7 +21,7 @@ Navbar styles
   .dropdown-item.active,
   .dropdown-item.active:focus,
   .dropdown-item.active:hover {
-    background-color: #353d47;
+    background-color: #2de76b;
   }
   .dropdown-toggle::after {
     margin-left: 0.15em;
@@ -45,6 +45,15 @@ Navbar styles
     &:hover {
       color: #fff;
     }
+  }
+  .jh-navbar input[type='text'] {
+    color: #000000;
+    float: left;
+    padding: 6px;
+    border: none;
+    margin-top: 0px;
+    margin-right: 0px;
+    font-size: 17px;
   }
 }
 .navbar-version {

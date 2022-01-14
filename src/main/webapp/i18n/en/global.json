@@ -16,6 +16,10 @@
         "watchHistory": "Watch History",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
+      "Movies": {
+        "main": "Movies"
+      },
+      "TV Shows": {},
       "account": {
         "main": "Account",
         "settings": "Settings",
