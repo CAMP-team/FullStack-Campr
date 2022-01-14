@@ -51,7 +51,7 @@ export const UserUploadDetail = (props: RouteComponentProps<{ id: string }>) => 
           </span>
         </Button>
         &nbsp;
-        <Button tag={Link} to={`/user-upload/${userUploadEntity.id}/edit`} replace color="primary">
+        <Button tag={Link} to={`/user-upload/${userUploadEntity.id}/edit`} replace color="secondary">
           <FontAwesomeIcon icon="pencil-alt" />{' '}
           <span className="d-none d-md-inline">
             <Translate contentKey="entity.action.edit">Edit</Translate>

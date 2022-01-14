@@ -30,11 +30,11 @@ export const Video = (props: RouteComponentProps<{ url: string }>) => {
       <h2 id="video-heading" data-cy="VideoHeading">
         <Translate contentKey="camprApp.video.home.title">Videos</Translate>
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="secondary" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="camprApp.video.home.refreshListLabel">Refresh List</Translate>
           </Button>
-          <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+          <Link to={`${match.url}/new`} className="btn btn-secondary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
             <Translate contentKey="camprApp.video.home.createLabel">Create new Video</Translate>
@@ -99,19 +99,19 @@ export const Video = (props: RouteComponentProps<{ url: string }>) => {
                   </td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${video.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button tag={Link} to={`${match.url}/${video.id}`} color="secondary" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.view">View</Translate>
                         </span>
                       </Button>
-                      <Button tag={Link} to={`${match.url}/${video.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
+                      <Button tag={Link} to={`${match.url}/${video.id}/edit`} color="secondary" size="sm" data-cy="entityEditButton">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.edit">Edit</Translate>
                         </span>
                       </Button>
-                      <Button tag={Link} to={`${match.url}/${video.id}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
+                      <Button tag={Link} to={`${match.url}/${video.id}/delete`} color="secondary" size="sm" data-cy="entityDeleteButton">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -125,7 +125,7 @@ export const Video = (props: RouteComponentProps<{ url: string }>) => {
           </Table>
         ) : (
           !loading && (
-            <div className="alert alert-warning">
+            <div className="alert alert-light">
               <Translate contentKey="camprApp.video.home.notFound">No Videos found</Translate>
             </div>
           )

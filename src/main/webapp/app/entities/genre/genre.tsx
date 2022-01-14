@@ -30,7 +30,7 @@ export const Genre = (props: RouteComponentProps<{ url: string }>) => {
       <h2 id="genre-heading" data-cy="GenreHeading">
         <Translate contentKey="camprApp.genre.home.title">Genres</Translate>
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="secondary" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="camprApp.genre.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -70,13 +70,13 @@ export const Genre = (props: RouteComponentProps<{ url: string }>) => {
                   <td>{genre.name}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${genre.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button tag={Link} to={`${match.url}/${genre.id}`} color="secondary" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.view">View</Translate>
                         </span>
                       </Button>
-                      <Button tag={Link} to={`${match.url}/${genre.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
+                      <Button tag={Link} to={`${match.url}/${genre.id}/edit`} color="secondary" size="sm" data-cy="entityEditButton">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.edit">Edit</Translate>

@@ -86,7 +86,7 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
       <h2 id="user-management-page-heading" data-cy="userManagementPageHeading">
         <Translate contentKey="userManagement.home.title">Users</Translate>
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="secondary" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="userManagement.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -145,11 +145,11 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
               <td>{user.email}</td>
               <td>
                 {user.activated ? (
-                  <Button color="success" onClick={toggleActive(user)}>
+                  <Button color="secondary" onClick={toggleActive(user)}>
                     <Translate contentKey="userManagement.activated">Activated</Translate>
                   </Button>
                 ) : (
-                  <Button color="danger" onClick={toggleActive(user)}>
+                  <Button color="secondary" onClick={toggleActive(user)}>
                     <Translate contentKey="userManagement.deactivated">Deactivated</Translate>
                   </Button>
                 )}
@@ -175,13 +175,13 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
               </td>
               <td className="text-end">
                 <div className="btn-group flex-btn-group-container">
-                  <Button tag={Link} to={`${match.url}/${user.login}`} color="info" size="sm">
+                  <Button tag={Link} to={`${match.url}/${user.login}`} color="secondary" size="sm">
                     <FontAwesomeIcon icon="eye" />{' '}
                     <span className="d-none d-md-inline">
                       <Translate contentKey="entity.action.view">View</Translate>
                     </span>
                   </Button>
-                  <Button tag={Link} to={`${match.url}/${user.login}/edit`} color="primary" size="sm">
+                  <Button tag={Link} to={`${match.url}/${user.login}/edit`} color="secondary" size="sm">
                     <FontAwesomeIcon icon="pencil-alt" />{' '}
                     <span className="d-none d-md-inline">
                       <Translate contentKey="entity.action.edit">Edit</Translate>

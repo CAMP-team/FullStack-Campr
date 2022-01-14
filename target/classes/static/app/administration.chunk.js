@@ -287,7 +287,7 @@ const HealthModal = ({ handleClose, healthObject, showModal }) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, key),
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, healthObject.name === 'diskSpace' ? formatDiskSpaceOutput(data[key]) : JSON.stringify(data[key])))))))),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__.ModalFooter, null,
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__.Button, { color: "primary", onClick: handleClose }, "Close"))));
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__.Button, { color: "secondary", onClick: handleClose }, "Close"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HealthModal);
 
@@ -859,7 +859,7 @@ const UserManagementUpdate = (props) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
                 "\u00A0",
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { color: "primary", type: "submit", disabled: isInvalid || updating },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { color: "secondary", type: "submit", disabled: isInvalid || updating },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
@@ -942,7 +942,7 @@ const UserManagement = (props) => {
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "user-management-page-heading", "data-cy": "userManagementPageHeading" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.home.title" }, "Users"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { className: "me-2", color: "secondary", onClick: handleSyncList, disabled: loading },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
                     ' ',
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.home.refreshListLabel" }, "Refresh List")),
@@ -983,8 +983,8 @@ const UserManagement = (props) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}`, color: "link", size: "sm" }, user.id)),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.login),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.email),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.activated ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "success", onClick: toggleActive(user) },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.activated" }, "Activated"))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "danger", onClick: toggleActive(user) },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.activated ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "secondary", onClick: toggleActive(user) },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.activated" }, "Activated"))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "secondary", onClick: toggleActive(user) },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.deactivated" }, "Deactivated")))),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.langKey),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.authorities
@@ -996,12 +996,12 @@ const UserManagement = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.lastModifiedDate ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { value: user.lastModifiedDate, type: "date", format: app_config_constants__WEBPACK_IMPORTED_MODULE_3__.APP_DATE_FORMAT, blankOnInvalid: true })) : null),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}`, color: "info", size: "sm" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}`, color: "secondary", size: "sm" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/edit`, color: "primary", size: "sm" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/edit`, color: "secondary", size: "sm" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },

@@ -91,7 +91,7 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
                           <Translate contentKey="entity.action.view">View</Translate>
                         </span>
                       </Button>
-                      <Button tag={Link} to={`${match.url}/${watchHistory.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
+                      <Button tag={Link} to={`${match.url}/${watchHistory.id}/edit`} color="secondary" size="sm" data-cy="entityEditButton">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.edit">Edit</Translate>
@@ -100,7 +100,7 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
                       <Button
                         tag={Link}
                         to={`${match.url}/${watchHistory.id}/delete`}
-                        color="danger"
+                        color="secondary"
                         size="sm"
                         data-cy="entityDeleteButton"
                       >

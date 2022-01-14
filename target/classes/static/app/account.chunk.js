@@ -182,7 +182,7 @@ const SettingsPage = () => {
                             validate: v => (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.isEmail)(v) || (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.messages.validate.email.invalid'),
                         }, "data-cy": "email" }),
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { type: "select", id: "langKey", name: "langKey", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('settings.form.language'), "data-cy": "langKey" }, app_config_translation__WEBPACK_IMPORTED_MODULE_3__.locales.map(locale => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: locale, key: locale }, app_config_translation__WEBPACK_IMPORTED_MODULE_3__.languages[locale].name)))),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Button, { color: "primary", type: "submit", "data-cy": "submit" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Button, { color: "secondary", type: "submit", "data-cy": "submit" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "settings.form.button" }, "Save")))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsPage);

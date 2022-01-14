@@ -30,14 +30,7 @@ const Header = (props: IHeaderProps) => {
     dispatch(setLocale(langKey));
   };
 
-  const renderDevRibbon = () =>
-    props.isInProduction === false ? (
-      <div className="ribbon dev">
-        <a href="">
-          <Translate contentKey={`global.ribbon.${props.ribbonEnv}`} />
-        </a>
-      </div>
-    ) : null;
+  const renderDevRibbon = () => (props.isInProduction === false ? <div className="ribbon dev"></div> : null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 

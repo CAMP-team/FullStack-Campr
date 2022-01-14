@@ -142,7 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nDevelopement Ribbon\n========================================================================== */\n.ribbon {\n  background-color: rgba(170, 0, 0, 0.5);\n  left: -3.5em;\n  transform: rotate(-45deg);\n  overflow: hidden;\n  position: absolute;\n  top: 30px;\n  white-space: nowrap;\n  width: 15em;\n  z-index: 99999;\n  pointer-events: none;\n  opacity: 0.75;\n}\n.ribbon a {\n  color: #fff;\n  display: block;\n  font-weight: 400;\n  margin: 1px 0;\n  padding: 10px 50px;\n  text-align: center;\n  text-decoration: none;\n  text-shadow: 0 0 5px #444;\n  pointer-events: none;\n}\n\n/* ==========================================================================\nNavbar styles\n========================================================================== */\n.jh-navbar {\n  background-color: #353d47;\n  padding: 0.2em 1em;\n}\n.jh-navbar .profile-image {\n  margin: -10px 0px;\n  height: 40px;\n  width: 40px;\n  border-radius: 50%;\n}\n.jh-navbar .dropdown-item.active,\n.jh-navbar .dropdown-item.active:focus,\n.jh-navbar .dropdown-item.active:hover {\n  background-color: #353d47;\n}\n.jh-navbar .dropdown-toggle::after {\n  margin-left: 0.15em;\n}\n.jh-navbar ul.navbar-nav {\n  padding: 0.5em;\n}\n.jh-navbar ul.navbar-nav .nav-item {\n  margin-left: 1.5rem;\n}\n.jh-navbar a.nav-link {\n  font-weight: 400;\n}\n.jh-navbar a.nav-link > span {\n  margin-left: 5px;\n}\n.jh-navbar .jh-navbar-toggler {\n  color: #ccc;\n  font-size: 1.5em;\n  padding: 10px;\n}\n.jh-navbar .jh-navbar-toggler:hover {\n  color: #fff;\n}\n\n.navbar-brand {\n  overflow: hidden;\n}\n\n.jh-navbar .navbar-nav .nav-link {\n  padding-right: 0;\n  padding-left: 0;\n}\n\n.navbar-version {\n  font-size: 10px;\n  color: #bbb;\n  padding: 0 0 0 10px;\n}\n\n.brand-logo:hover {\n  text-decoration: none;\n}\n.brand-logo .brand-icon {\n  height: 35px;\n  width: auto;\n  display: inline-block;\n}\n.brand-logo .brand-icon img {\n  height: 45px;\n}\n\n.brand-title {\n  font-size: 24px;\n  color: #fff;\n}\n.brand-title:hover {\n  color: #cccccc;\n  text-decoration: none;\n}\n\n.loading-bar {\n  height: 3px;\n  background-color: #009cd8;\n  position: absolute;\n  top: 0px;\n  z-index: 1031;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/shared/layout/header/header.scss"],"names":[],"mappings":"AAIA;;4EAAA;AAGA;EACE,sCAAA;EACA,YAAA;EAKA,yBAAA;EACA,gBAAA;EACA,kBAAA;EACA,SAAA;EACA,mBAAA;EACA,WAAA;EACA,cAAA;EACA,oBAAA;EACA,aAAA;AAHF;AAIE;EACE,WAAA;EACA,cAAA;EACA,gBAAA;EACA,aAAA;EACA,kBAAA;EACA,kBAAA;EACA,qBAAA;EACA,yBAAA;EACA,oBAAA;AAFJ;;AAMA;;4EAAA;AAGA;EACE,yBAAA;EACA,kBAAA;AAHF;AAIE;EACE,iBAAA;EACA,YAAA;EACA,WAAA;EACA,kBAAA;AAFJ;AAIE;;;EAGE,yBAAA;AAFJ;AAIE;EACE,mBAAA;AAFJ;AAIE;EACE,cAAA;AAFJ;AAGI;EACE,mBAAA;AADN;AAIE;EACE,gBAAA;AAFJ;AAGI;EACE,gBAAA;AADN;AAIE;EACE,WAAA;EACA,gBAAA;EACA,aAAA;AAFJ;AAGI;EACE,WAAA;AADN;;AAKA;EACE,gBAAA;AAFF;;AAKA;EACE,gBAAA;EACA,eAAA;AAFF;;AAKA;EACE,eAAA;EACA,WAvFuB;EAwFvB,mBAAA;AAFF;;AAME;EACE,qBAAA;AAHJ;AAKE;EACE,YAAA;EACA,WAAA;EACA,qBAAA;AAHJ;AAII;EACE,YAAA;AAFN;;AAOA;EACE,eAAA;EACA,WA5Ga;AAwGf;AAKE;EACE,cA5GiB;EA6GjB,qBAAA;AAHJ;;AAOA;EACE,WAAA;EACA,yBAAA;EACA,kBAAA;EACA,QAAA;EACA,aAAA;AAJF","sourcesContent":["$header-color: #fff;\n$header-color-secondary: #bbb;\n$header-color-hover: darken($header-color, 20%);\n\n/* ==========================================================================\nDevelopement Ribbon\n========================================================================== */\n.ribbon {\n  background-color: rgba(170, 0, 0, 0.5);\n  left: -3.5em;\n  -moz-transform: rotate(-45deg);\n  -ms-transform: rotate(-45deg);\n  -o-transform: rotate(-45deg);\n  -webkit-transform: rotate(-45deg);\n  transform: rotate(-45deg);\n  overflow: hidden;\n  position: absolute;\n  top: 30px;\n  white-space: nowrap;\n  width: 15em;\n  z-index: 99999;\n  pointer-events: none;\n  opacity: 0.75;\n  a {\n    color: #fff;\n    display: block;\n    font-weight: 400;\n    margin: 1px 0;\n    padding: 10px 50px;\n    text-align: center;\n    text-decoration: none;\n    text-shadow: 0 0 5px #444;\n    pointer-events: none;\n  }\n}\n\n/* ==========================================================================\nNavbar styles\n========================================================================== */\n.jh-navbar {\n  background-color: #353d47;\n  padding: 0.2em 1em;\n  .profile-image {\n    margin: -10px 0px;\n    height: 40px;\n    width: 40px;\n    border-radius: 50%;\n  }\n  .dropdown-item.active,\n  .dropdown-item.active:focus,\n  .dropdown-item.active:hover {\n    background-color: #353d47;\n  }\n  .dropdown-toggle::after {\n    margin-left: 0.15em;\n  }\n  ul.navbar-nav {\n    padding: 0.5em;\n    .nav-item {\n      margin-left: 1.5rem;\n    }\n  }\n  a.nav-link {\n    font-weight: 400;\n    > span {\n      margin-left: 5px;\n    }\n  }\n  .jh-navbar-toggler {\n    color: #ccc;\n    font-size: 1.5em;\n    padding: 10px;\n    &:hover {\n      color: #fff;\n    }\n  }\n}\n.navbar-brand {\n  overflow: hidden;\n}\n\n.jh-navbar .navbar-nav .nav-link {\n  padding-right: 0;\n  padding-left: 0;\n}\n\n.navbar-version {\n  font-size: 10px;\n  color: $header-color-secondary;\n  padding: 0 0 0 10px;\n}\n\n.brand-logo {\n  &:hover {\n    text-decoration: none;\n  }\n  .brand-icon {\n    height: 35px;\n    width: auto;\n    display: inline-block;\n    img {\n      height: 45px;\n    }\n  }\n}\n\n.brand-title {\n  font-size: 24px;\n  color: $header-color;\n  &:hover {\n    color: $header-color-hover;\n    text-decoration: none;\n  }\n}\n\n.loading-bar {\n  height: 3px;\n  background-color: #009cd8;\n  position: absolute;\n  top: 0px;\n  z-index: 1031;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nNavbar styles\n========================================================================== */\n.jh-navbar {\n  background-color: #353d47;\n  padding: 0.2em 1em;\n}\n.jh-navbar .profile-image {\n  margin: -10px 0px;\n  height: 40px;\n  width: 40px;\n  border-radius: 50%;\n}\n.jh-navbar .dropdown-item.active,\n.jh-navbar .dropdown-item.active:focus,\n.jh-navbar .dropdown-item.active:hover {\n  background-color: #353d47;\n}\n.jh-navbar .dropdown-toggle::after {\n  margin-left: 0.15em;\n}\n.jh-navbar ul.navbar-nav {\n  padding: 0.5em;\n}\n.jh-navbar ul.navbar-nav .nav-item {\n  margin-left: 1.5rem;\n}\n.jh-navbar a.nav-link {\n  font-weight: 400;\n}\n.jh-navbar a.nav-link > span {\n  margin-left: 5px;\n}\n.jh-navbar .jh-navbar-toggler {\n  color: #ccc;\n  font-size: 1.5em;\n  padding: 10px;\n}\n.jh-navbar .jh-navbar-toggler:hover {\n  color: #fff;\n}\n\n.navbar-brand {\n  overflow: hidden;\n}\n\n.jh-navbar .navbar-nav .nav-link {\n  padding-right: 0;\n  padding-left: 0;\n}\n\n.navbar-version {\n  font-size: 10px;\n  color: #bbb;\n  padding: 0 0 0 10px;\n}\n\n.brand-logo:hover {\n  text-decoration: none;\n}\n.brand-logo .brand-icon {\n  height: 35px;\n  width: auto;\n  display: inline-block;\n}\n.brand-logo .brand-icon img {\n  height: 45px;\n}\n\n.brand-title {\n  font-size: 24px;\n  color: #fff;\n}\n.brand-title:hover {\n  color: #cccccc;\n  text-decoration: none;\n}\n\n.loading-bar {\n  height: 3px;\n  background-color: #009cd8;\n  position: absolute;\n  top: 0px;\n  z-index: 1031;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/shared/layout/header/header.scss"],"names":[],"mappings":"AAIA;;4EAAA;AAGA;EACE,yBAAA;EACA,kBAAA;AAHF;AAIE;EACE,iBAAA;EACA,YAAA;EACA,WAAA;EACA,kBAAA;AAFJ;AAIE;;;EAGE,yBAAA;AAFJ;AAIE;EACE,mBAAA;AAFJ;AAIE;EACE,cAAA;AAFJ;AAGI;EACE,mBAAA;AADN;AAIE;EACE,gBAAA;AAFJ;AAGI;EACE,gBAAA;AADN;AAIE;EACE,WAAA;EACA,gBAAA;EACA,aAAA;AAFJ;AAGI;EACE,WAAA;AADN;;AAKA;EACE,gBAAA;AAFF;;AAKA;EACE,gBAAA;EACA,eAAA;AAFF;;AAKA;EACE,eAAA;EACA,WAvDuB;EAwDvB,mBAAA;AAFF;;AAME;EACE,qBAAA;AAHJ;AAKE;EACE,YAAA;EACA,WAAA;EACA,qBAAA;AAHJ;AAII;EACE,YAAA;AAFN;;AAOA;EACE,eAAA;EACA,WA5Ea;AAwEf;AAKE;EACE,cA5EiB;EA6EjB,qBAAA;AAHJ;;AAOA;EACE,WAAA;EACA,yBAAA;EACA,kBAAA;EACA,QAAA;EACA,aAAA;AAJF","sourcesContent":["$header-color: #fff;\n$header-color-secondary: #bbb;\n$header-color-hover: darken($header-color, 20%);\n\n/* ==========================================================================\nNavbar styles\n========================================================================== */\n.jh-navbar {\n  background-color: #353d47;\n  padding: 0.2em 1em;\n  .profile-image {\n    margin: -10px 0px;\n    height: 40px;\n    width: 40px;\n    border-radius: 50%;\n  }\n  .dropdown-item.active,\n  .dropdown-item.active:focus,\n  .dropdown-item.active:hover {\n    background-color: #353d47;\n  }\n  .dropdown-toggle::after {\n    margin-left: 0.15em;\n  }\n  ul.navbar-nav {\n    padding: 0.5em;\n    .nav-item {\n      margin-left: 1.5rem;\n    }\n  }\n  a.nav-link {\n    font-weight: 400;\n    > span {\n      margin-left: 5px;\n    }\n  }\n  .jh-navbar-toggler {\n    color: #ccc;\n    font-size: 1.5em;\n    padding: 10px;\n    &:hover {\n      color: #fff;\n    }\n  }\n}\n.navbar-brand {\n  overflow: hidden;\n}\n\n.jh-navbar .navbar-nav .nav-link {\n  padding-right: 0;\n  padding-left: 0;\n}\n\n.navbar-version {\n  font-size: 10px;\n  color: $header-color-secondary;\n  padding: 0 0 0 10px;\n}\n\n.brand-logo {\n  &:hover {\n    text-decoration: none;\n  }\n  .brand-icon {\n    height: 35px;\n    width: auto;\n    display: inline-block;\n    img {\n      height: 45px;\n    }\n  }\n}\n\n.brand-title {\n  font-size: 24px;\n  color: $header-color;\n  &:hover {\n    color: $header-color-hover;\n    text-decoration: none;\n  }\n}\n\n.loading-bar {\n  height: 3px;\n  background-color: #009cd8;\n  position: absolute;\n  top: 0px;\n  z-index: 1031;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1837,7 +1837,7 @@ const Genre = (props) => {
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "genre-heading", "data-cy": "GenreHeading" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.home.title" }, "Genres"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { className: "me-2", color: "secondary", onClick: handleSyncList, disabled: loading },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
                     ' ',
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.home.refreshListLabel" }, "Refresh List")),
@@ -1862,12 +1862,12 @@ const Genre = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, genre.name),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}`, color: "secondary", size: "sm", "data-cy": "entityDetailsButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}/edit`, color: "secondary", size: "sm", "data-cy": "entityEditButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -2416,7 +2416,7 @@ const UserComment = (props) => {
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "user-comment-heading", "data-cy": "UserCommentHeading" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.title" }, "User Comments"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { className: "me-2", color: "secondary", onClick: handleSyncList, disabled: loading },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
                     ' ',
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.refreshListLabel" }, "Refresh List")),
@@ -2447,12 +2447,12 @@ const UserComment = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userComment.video ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `video/${userComment.video.id}` }, userComment.video.id) : ''),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}`, color: "secondary", size: "sm", "data-cy": "entityDetailsButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}/edit`, color: "secondary", size: "sm", "data-cy": "entityEditButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -2461,7 +2461,7 @@ const UserComment = (props) => {
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
-                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-light" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.notFound" }, "No User Comments found")))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserComment);
@@ -2752,7 +2752,7 @@ const UserFavoritesUpdate = (props) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
                 "\u00A0",
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Button, { color: "secondary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
@@ -3135,7 +3135,7 @@ const UserUploadDetail = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
             "\u00A0",
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/user-upload/${userUploadEntity.id}/edit`, replace: true, color: "primary" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/user-upload/${userUploadEntity.id}/edit`, replace: true, color: "secondary" },
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                 ' ',
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -3240,7 +3240,7 @@ const UserUploadUpdate = (props) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
                 "\u00A0",
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Button, { color: "secondary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
@@ -3631,13 +3631,13 @@ const VideoDetail = (props) => {
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, val.name),
                         videoEntity.genres && i === videoEntity.genres.length - 1 ? '' : ', ')))
                     : null)),
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: "/video", replace: true, color: "info", "data-cy": "entityDetailsBackButton" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: "/video", replace: true, color: "secondary", "data-cy": "entityDetailsBackButton" },
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
                 ' ',
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
             "\u00A0",
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `/video/${videoEntity.id}/edit`, replace: true, color: "primary" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `/video/${videoEntity.id}/edit`, replace: true, color: "secondary" },
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                 ' ',
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -3754,13 +3754,13 @@ const VideoUpdate = (props) => {
                     genres
                         ? genres.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.name)))
                         : null),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/video", replace: true, color: "info" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/video", replace: true, color: "secondary" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
                 "\u00A0",
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Button, { color: "secondary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
@@ -3927,11 +3927,11 @@ const Video = (props) => {
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "video-heading", "data-cy": "VideoHeading" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.title" }, "Videos"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { className: "me-2", color: "secondary", onClick: handleSyncList, disabled: loading },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
                     ' ',
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.refreshListLabel" }, "Refresh List")),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, { to: `${match.url}/new`, className: "btn btn-secondary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.createLabel" }, "Create new Video")))),
@@ -3971,21 +3971,21 @@ const Video = (props) => {
                     : null),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}`, color: "secondary", size: "sm", "data-cy": "entityDetailsButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}/edit`, color: "secondary", size: "sm", "data-cy": "entityEditButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}/delete`, color: "secondary", size: "sm", "data-cy": "entityDeleteButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
-                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-light" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.notFound" }, "No Videos found")))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Video);
@@ -4160,7 +4160,7 @@ const WatchHistoryDetail = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
             "\u00A0",
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/watch-history/${watchHistoryEntity.id}/edit`, replace: true, color: "primary" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/watch-history/${watchHistoryEntity.id}/edit`, replace: true, color: "secondary" },
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                 ' ',
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -4482,12 +4482,12 @@ const WatchHistory = (props) => {
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}/edit`, color: "secondary", size: "sm", "data-cy": "entityEditButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}/delete`, color: "secondary", size: "sm", "data-cy": "entityDeleteButton" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -4777,7 +4777,7 @@ const PasswordResetInit = () => {
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Col, { md: "8" },
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null,
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "reset.request.title" }, "Reset your password")),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Alert, { color: "warning" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Alert, { color: "light" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null,
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "reset.request.messages.info" }, "Enter the email address you used to register"))),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedForm, { onSubmit: handleValidSubmit },
@@ -4787,7 +4787,7 @@ const PasswordResetInit = () => {
                             maxLength: { value: 254, message: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.messages.validate.email.maxlength') },
                             validate: v => (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.isEmail)(v) || (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.messages.validate.email.invalid'),
                         }, "data-cy": "emailResetPassword" }),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "primary", type: "submit", "data-cy": "submit" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "secondary", type: "submit", "data-cy": "submit" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "reset.request.form.button" }, "Reset password")))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PasswordResetInit);
@@ -5060,10 +5060,10 @@ const RegisterPage = () => {
                             maxLength: { value: 50, message: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.messages.validate.confirmpassword.maxlength') },
                             validate: v => v === password || (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.messages.error.dontmatch'),
                         }, "data-cy": "secondPassword" }),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { id: "register-submit", color: "primary", type: "submit", "data-cy": "submit" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { id: "register-submit", color: "secondary", type: "submit", "data-cy": "submit" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "register.form.button" }, "Register"))),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "\u00A0"),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Alert, { color: "warning" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Alert, { color: "light" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null,
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.messages.info.authenticated.prefix" }, "If you want to ")),
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", { className: "alert-link" },
@@ -5443,20 +5443,19 @@ __webpack_require__.r(__webpack_exports__);
 const Home = () => {
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.authentication.account);
     return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Col, { md: "3", className: "pad" },
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", { className: "hipster rounded" })),
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Col, { md: "3", className: "pad" }),
         react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Col, { md: "9" },
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("h2", null,
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.title" }, "Welcome, Java Hipster!")),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: "lead" },
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.subtitle" }, "This is your homepage")),
             (account === null || account === void 0 ? void 0 : account.login) ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Alert, { color: "success" },
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Alert, { color: "light" },
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.logged.message", interpolate: { username: account.login } },
                         "You are logged in as user ",
                         account.login,
                         ".")))) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Alert, { color: "warning" },
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Alert, { color: "light" },
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.authenticated.prefix" }, "If you want to "),
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, { to: "/login", className: "alert-link" },
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.authenticated.link" }, " sign in")),
@@ -5466,34 +5465,11 @@ const Home = () => {
                         "- Administrator (login=\"admin\" and password=\"admin\")",
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement("br", null),
                         "- User (login=\"user\" and password=\"user\").")),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Alert, { color: "warning" },
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_4__.Alert, { color: "light" },
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.register.noaccount" }, "You do not have an account yet?"),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, { to: "/account/register", className: "alert-link" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.register.link" }, "Register a new account"))))),
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.question" }, "If you have any question on JHipster:")),
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement("ul", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { href: "https://www.jhipster.tech/", target: "_blank", rel: "noopener noreferrer" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.link.homepage" }, "JHipster homepage"))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { href: "https://stackoverflow.com/tags/jhipster/info", target: "_blank", rel: "noopener noreferrer" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.link.stackoverflow" }, "JHipster on Stack Overflow"))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { href: "https://github.com/jhipster/generator-jhipster/issues?state=open", target: "_blank", rel: "noopener noreferrer" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.link.bugtracker" }, "JHipster bug tracker"))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { href: "https://gitter.im/jhipster/generator-jhipster", target: "_blank", rel: "noopener noreferrer" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.link.chat" }, "JHipster public chat room"))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", null,
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { href: "https://twitter.com/jhipster", target: "_blank", rel: "noopener noreferrer" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.link.follow" }, "follow @jhipster on Twitter")))),
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.like" }, "If you like JHipster, do not forget to give us a star on"),
-                ' ',
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { href: "https://github.com/jhipster/generator-jhipster", target: "_blank", rel: "noopener noreferrer" }, "GitHub"),
-                "!"))));
+                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.register.link" }, "Register a new account"))))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
@@ -5543,10 +5519,10 @@ const LoginModal = (props) => {
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "password", type: "password", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('login.form.password'), placeholder: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('login.form.password.placeholder'), required: true, "data-cy": "password", validate: { required: 'Password cannot be empty!' }, register: register, error: errors.password, isTouched: touchedFields.password }),
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "rememberMe", type: "checkbox", check: true, label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('login.form.rememberme'), value: true, register: register }))),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "mt-1" }, "\u00A0"),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.Alert, { color: "warning" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.Alert, { color: "light" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, { to: "/account/reset/request", "data-cy": "forgetYourPasswordSelector" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "login.password.forgot" }, "Did you forget your password?"))),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.Alert, { color: "warning" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.Alert, { color: "light" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null,
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.messages.info.register.noaccount" }, "You don't have an account yet?")),
                     ' ',
@@ -5556,7 +5532,7 @@ const LoginModal = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.Button, { color: "secondary", onClick: handleClose, tabIndex: 1 },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.cancel" }, "Cancel")),
                 ' ',
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.Button, { color: "primary", type: "submit", "data-cy": "submit" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.Button, { color: "secondary", type: "submit", "data-cy": "submit" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "login.form.button" }, "Sign in"))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LoginModal);
@@ -5949,12 +5925,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const BrandIcon = props => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", Object.assign({}, props, { className: "brand-icon" }),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { src: "content/images/logo-jhipster.png", alt: "Logo" })));
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { src: "", alt: "" })));
 const Brand = () => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.NavbarBrand, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, to: "/", className: "brand-logo" },
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(BrandIcon, null),
     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "brand-title" },
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.title" }, "Campr")),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "navbar-version" }, "0.0.1-SNAPSHOT")));
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.title" }, "Campr"))));
 const Home = () => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.NavItem, null,
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__.NavLink, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, to: "/", className: "d-flex align-items-center" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "home" }),
@@ -6002,9 +5977,7 @@ const Header = (props) => {
         react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Storage.session.set('locale', langKey);
         dispatch((0,app_shared_reducers_locale__WEBPACK_IMPORTED_MODULE_7__.setLocale)(langKey));
     };
-    const renderDevRibbon = () => props.isInProduction === false ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "ribbon dev" },
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { href: "" },
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: `global.ribbon.${props.ribbonEnv}` })))) : null;
+    const renderDevRibbon = () => props.isInProduction === false ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "ribbon dev" })) : null;
     const toggleMenu = () => setMenuOpen(!menuOpen);
     /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
     return (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { id: "app-header" },
@@ -6760,7 +6733,7 @@ const initialState = {
 };
 const setLocale = locale => (dispatch) => (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(void 0, void 0, void 0, function* () {
     if (!Object.keys(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.context.translations).includes(locale)) {
-        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"b32cf397c9d2dbfd5b0a5549ded2e604"}`, { baseURL: '' });
+        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"0617488a960c4f1fbd5c1284a25fce30"}`, { baseURL: '' });
         react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.registerTranslations(locale, response.data);
     }
     dispatch(updateLocale(locale));
@@ -7331,7 +7304,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("e9044bc13a301f6fab69")
+/******/ 		__webpack_require__.h = () => ("ac9d573953b9e85e98d3")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
