@@ -28,10 +28,8 @@ public class WatchHistory implements Serializable {
     @Column(name = "date_watched")
     private Instant dateWatched;
 
-    @JsonIgnoreProperties(value = { "internalUser", "userUpload", "watchHistory", "userFavorites", "userComments" }, allowSetters = true)
-    @OneToOne
-    @JoinColumn(unique = true)
-    private AppUser appUser;
+    @ManyToOne
+    private User user;
 
     @ManyToMany
     @JoinTable(
@@ -71,16 +69,16 @@ public class WatchHistory implements Serializable {
         this.dateWatched = dateWatched;
     }
 
-    public AppUser getAppUser() {
-        return this.appUser;
+    public User getUser() {
+        return this.user;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public WatchHistory appUser(AppUser appUser) {
-        this.setAppUser(appUser);
+    public WatchHistory user(User user) {
+        this.setUser(user);
         return this;
     }
 

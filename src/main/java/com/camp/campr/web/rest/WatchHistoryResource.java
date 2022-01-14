@@ -2,7 +2,6 @@ package com.camp.campr.web.rest;
 
 import com.camp.campr.domain.WatchHistory;
 import com.camp.campr.repository.WatchHistoryRepository;
-import com.camp.campr.service.WatchHistoryService;
 import com.camp.campr.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -12,15 +11,10 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
-import tech.jhipster.web.util.PaginationUtil;
 import tech.jhipster.web.util.ResponseUtil;
 
 /**
@@ -28,6 +22,7 @@ import tech.jhipster.web.util.ResponseUtil;
  */
 @RestController
 @RequestMapping("/api")
+@Transactional
 public class WatchHistoryResource {
 
     private final Logger log = LoggerFactory.getLogger(WatchHistoryResource.class);
@@ -37,12 +32,9 @@ public class WatchHistoryResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final WatchHistoryService watchHistoryService;
-
     private final WatchHistoryRepository watchHistoryRepository;
 
-    public WatchHistoryResource(WatchHistoryService watchHistoryService, WatchHistoryRepository watchHistoryRepository) {
-        this.watchHistoryService = watchHistoryService;
+    public WatchHistoryResource(WatchHistoryRepository watchHistoryRepository) {
         this.watchHistoryRepository = watchHistoryRepository;
     }
 
@@ -59,7 +51,7 @@ public class WatchHistoryResource {
         if (watchHistory.getId() != null) {
             throw new BadRequestAlertException("A new watchHistory cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        WatchHistory result = watchHistoryService.save(watchHistory);
+        WatchHistory result = watchHistoryRepository.save(watchHistory);
         return ResponseEntity
             .created(new URI("/api/watch-histories/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -93,7 +85,7 @@ public class WatchHistoryResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        WatchHistory result = watchHistoryService.save(watchHistory);
+        WatchHistory result = watchHistoryRepository.save(watchHistory);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, watchHistory.getId().toString()))
@@ -128,7 +120,16 @@ public class WatchHistoryResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Optional<WatchHistory> result = watchHistoryService.partialUpdate(watchHistory);
+        Optional<WatchHistory> result = watchHistoryRepository
+            .findById(watchHistory.getId())
+            .map(existingWatchHistory -> {
+                if (watchHistory.getDateWatched() != null) {
+                    existingWatchHistory.setDateWatched(watchHistory.getDateWatched());
+                }
+
+                return existingWatchHistory;
+            })
+            .map(watchHistoryRepository::save);
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -139,24 +140,13 @@ public class WatchHistoryResource {
     /**
      * {@code GET  /watch-histories} : get all the watchHistories.
      *
-     * @param pageable the pagination information.
      * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of watchHistories in body.
      */
     @GetMapping("/watch-histories")
-    public ResponseEntity<List<WatchHistory>> getAllWatchHistories(
-        Pageable pageable,
-        @RequestParam(required = false, defaultValue = "false") boolean eagerload
-    ) {
-        log.debug("REST request to get a page of WatchHistories");
-        Page<WatchHistory> page;
-        if (eagerload) {
-            page = watchHistoryService.findAllWithEagerRelationships(pageable);
-        } else {
-            page = watchHistoryService.findAll(pageable);
-        }
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    public List<WatchHistory> getAllWatchHistories(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+        log.debug("REST request to get all WatchHistories");
+        return watchHistoryRepository.findByUserIsCurrentUser();
     }
 
     /**
@@ -168,7 +158,7 @@ public class WatchHistoryResource {
     @GetMapping("/watch-histories/{id}")
     public ResponseEntity<WatchHistory> getWatchHistory(@PathVariable Long id) {
         log.debug("REST request to get WatchHistory : {}", id);
-        Optional<WatchHistory> watchHistory = watchHistoryService.findOne(id);
+        Optional<WatchHistory> watchHistory = watchHistoryRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(watchHistory);
     }
 
@@ -181,7 +171,7 @@ public class WatchHistoryResource {
     @DeleteMapping("/watch-histories/{id}")
     public ResponseEntity<Void> deleteWatchHistory(@PathVariable Long id) {
         log.debug("REST request to delete WatchHistory : {}", id);
-        watchHistoryService.delete(id);
+        watchHistoryRepository.deleteById(id);
         return ResponseEntity
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

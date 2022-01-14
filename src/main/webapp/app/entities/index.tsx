@@ -4,7 +4,6 @@ import { Switch } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
-import AppUser from './app-user';
 import Video from './video';
 import UserComment from './user-comment';
 import Genre from './genre';
@@ -17,7 +16,6 @@ const Routes = ({ match }) => (
   <div>
     <Switch>
       {/* prettier-ignore */}
-      <ErrorBoundaryRoute path={`${match.url}app-user`} component={AppUser} />
       <ErrorBoundaryRoute path={`${match.url}video`} component={Video} />
       <ErrorBoundaryRoute path={`${match.url}user-comment`} component={UserComment} />
       <ErrorBoundaryRoute path={`${match.url}genre`} component={Genre} />

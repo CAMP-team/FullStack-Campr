@@ -46,9 +46,9 @@ export const UserCommentDetail = (props: RouteComponentProps<{ id: string }>) =>
             ) : null}
           </dd>
           <dt>
-            <Translate contentKey="camprApp.userComment.appUser">App User</Translate>
+            <Translate contentKey="camprApp.userComment.user">User</Translate>
           </dt>
-          <dd>{userCommentEntity.appUser ? userCommentEntity.appUser.id : ''}</dd>
+          <dd>{userCommentEntity.user ? userCommentEntity.user.login : ''}</dd>
           <dt>
             <Translate contentKey="camprApp.userComment.video">Video</Translate>
           </dt>

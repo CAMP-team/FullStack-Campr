@@ -2,7 +2,6 @@ package com.camp.campr.web.rest;
 
 import com.camp.campr.domain.Genre;
 import com.camp.campr.repository.GenreRepository;
-import com.camp.campr.service.GenreService;
 import com.camp.campr.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -12,15 +11,10 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
-import tech.jhipster.web.util.PaginationUtil;
 import tech.jhipster.web.util.ResponseUtil;
 
 /**
@@ -28,6 +22,7 @@ import tech.jhipster.web.util.ResponseUtil;
  */
 @RestController
 @RequestMapping("/api")
+@Transactional
 public class GenreResource {
 
     private final Logger log = LoggerFactory.getLogger(GenreResource.class);
@@ -37,12 +32,9 @@ public class GenreResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final GenreService genreService;
-
     private final GenreRepository genreRepository;
 
-    public GenreResource(GenreService genreService, GenreRepository genreRepository) {
-        this.genreService = genreService;
+    public GenreResource(GenreRepository genreRepository) {
         this.genreRepository = genreRepository;
     }
 
@@ -59,7 +51,7 @@ public class GenreResource {
         if (genre.getId() != null) {
             throw new BadRequestAlertException("A new genre cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Genre result = genreService.save(genre);
+        Genre result = genreRepository.save(genre);
         return ResponseEntity
             .created(new URI("/api/genres/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -91,7 +83,7 @@ public class GenreResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Genre result = genreService.save(genre);
+        Genre result = genreRepository.save(genre);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, genre.getId().toString()))
@@ -124,7 +116,19 @@ public class GenreResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Optional<Genre> result = genreService.partialUpdate(genre);
+        Optional<Genre> result = genreRepository
+            .findById(genre.getId())
+            .map(existingGenre -> {
+                if (genre.getApiId() != null) {
+                    existingGenre.setApiId(genre.getApiId());
+                }
+                if (genre.getName() != null) {
+                    existingGenre.setName(genre.getName());
+                }
+
+                return existingGenre;
+            })
+            .map(genreRepository::save);
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -135,15 +139,12 @@ public class GenreResource {
     /**
      * {@code GET  /genres} : get all the genres.
      *
-     * @param pageable the pagination information.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of genres in body.
      */
     @GetMapping("/genres")
-    public ResponseEntity<List<Genre>> getAllGenres(Pageable pageable) {
-        log.debug("REST request to get a page of Genres");
-        Page<Genre> page = genreService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    public List<Genre> getAllGenres() {
+        log.debug("REST request to get all Genres");
+        return genreRepository.findAll();
     }
 
     /**
@@ -155,7 +156,7 @@ public class GenreResource {
     @GetMapping("/genres/{id}")
     public ResponseEntity<Genre> getGenre(@PathVariable Long id) {
         log.debug("REST request to get Genre : {}", id);
-        Optional<Genre> genre = genreService.findOne(id);
+        Optional<Genre> genre = genreRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(genre);
     }
 
@@ -168,7 +169,7 @@ public class GenreResource {
     @DeleteMapping("/genres/{id}")
     public ResponseEntity<Void> deleteGenre(@PathVariable Long id) {
         log.debug("REST request to delete Genre : {}", id);
-        genreService.delete(id);
+        genreRepository.deleteById(id);
         return ResponseEntity
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

@@ -20,7 +20,7 @@ export const VideoDeleteDialog = (props: RouteComponentProps<{ id: string }>) =>
   const updateSuccess = useAppSelector(state => state.video.updateSuccess);
 
   const handleClose = () => {
-    props.history.push('/video' + props.location.search);
+    props.history.push('/video');
   };
 
   useEffect(() => {

@@ -32,7 +32,7 @@ export const VideoUpdate = (props: RouteComponentProps<{ id: string }>) => {
   const updating = useAppSelector(state => state.video.updating);
   const updateSuccess = useAppSelector(state => state.video.updateSuccess);
   const handleClose = () => {
-    props.history.push('/video' + props.location.search);
+    props.history.push('/video');
   };
 
   useEffect(() => {

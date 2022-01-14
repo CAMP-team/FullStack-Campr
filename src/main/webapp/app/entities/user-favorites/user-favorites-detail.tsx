@@ -40,9 +40,9 @@ export const UserFavoritesDetail = (props: RouteComponentProps<{ id: string }>) 
             ) : null}
           </dd>
           <dt>
-            <Translate contentKey="camprApp.userFavorites.appUser">App User</Translate>
+            <Translate contentKey="camprApp.userFavorites.user">User</Translate>
           </dt>
-          <dd>{userFavoritesEntity.appUser ? userFavoritesEntity.appUser.id : ''}</dd>
+          <dd>{userFavoritesEntity.user ? userFavoritesEntity.user.login : ''}</dd>
           <dt>
             <Translate contentKey="camprApp.userFavorites.video">Video</Translate>
           </dt>

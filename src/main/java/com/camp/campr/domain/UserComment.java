@@ -30,8 +30,7 @@ public class UserComment implements Serializable {
     private Instant commentDate;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "internalUser", "userUpload", "watchHistory", "userFavorites", "userComments" }, allowSetters = true)
-    private AppUser appUser;
+    private User user;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "userUpload", "genres", "userComments", "watchhistories", "userfavorites" }, allowSetters = true)
@@ -78,16 +77,16 @@ public class UserComment implements Serializable {
         this.commentDate = commentDate;
     }
 
-    public AppUser getAppUser() {
-        return this.appUser;
+    public User getUser() {
+        return this.user;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public UserComment appUser(AppUser appUser) {
-        this.setAppUser(appUser);
+    public UserComment user(User user) {
+        this.setUser(user);
         return this;
     }
 

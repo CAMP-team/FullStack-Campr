@@ -4,8 +4,8 @@ import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IAppUser } from 'app/shared/model/app-user.model';
-import { getEntities as getAppUsers } from 'app/entities/app-user/app-user.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './user-upload.reducer';
 import { IUserUpload } from 'app/shared/model/user-upload.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -17,13 +17,13 @@ export const UserUploadUpdate = (props: RouteComponentProps<{ id: string }>) => 
 
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
-  const appUsers = useAppSelector(state => state.appUser.entities);
+  const users = useAppSelector(state => state.userManagement.users);
   const userUploadEntity = useAppSelector(state => state.userUpload.entity);
   const loading = useAppSelector(state => state.userUpload.loading);
   const updating = useAppSelector(state => state.userUpload.updating);
   const updateSuccess = useAppSelector(state => state.userUpload.updateSuccess);
   const handleClose = () => {
-    props.history.push('/user-upload' + props.location.search);
+    props.history.push('/user-upload');
   };
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export const UserUploadUpdate = (props: RouteComponentProps<{ id: string }>) => 
       dispatch(getEntity(props.match.params.id));
     }
 
-    dispatch(getAppUsers({}));
+    dispatch(getUsers({}));
   }, []);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const UserUploadUpdate = (props: RouteComponentProps<{ id: string }>) => 
     const entity = {
       ...userUploadEntity,
       ...values,
-      appUser: appUsers.find(it => it.id.toString() === values.appUser.toString()),
+      user: users.find(it => it.id.toString() === values.user.toString()),
     };
 
     if (isNew) {
@@ -66,7 +66,7 @@ export const UserUploadUpdate = (props: RouteComponentProps<{ id: string }>) => 
       : {
           ...userUploadEntity,
           dateUploaded: convertDateTimeFromServer(userUploadEntity.dateUploaded),
-          appUser: userUploadEntity?.appUser?.id,
+          user: userUploadEntity?.user?.id,
         };
 
   return (
@@ -102,23 +102,17 @@ export const UserUploadUpdate = (props: RouteComponentProps<{ id: string }>) => 
                 type="datetime-local"
                 placeholder="YYYY-MM-DD HH:mm"
               />
-              <ValidatedField
-                id="user-upload-appUser"
-                name="appUser"
-                data-cy="appUser"
-                label={translate('camprApp.userUpload.appUser')}
-                type="select"
-              >
+              <ValidatedField id="user-upload-user" name="user" data-cy="user" label={translate('camprApp.userUpload.user')} type="select">
                 <option value="" key="0" />
-                {appUsers
-                  ? appUsers.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.login}
                       </option>
                     ))
                   : null}
               </ValidatedField>
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/user-upload" replace color="secondary">
+              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/user-upload" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">

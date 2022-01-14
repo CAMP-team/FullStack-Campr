@@ -14,6 +14,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserFavoritesRepository extends JpaRepository<UserFavorites, Long> {
+    @Query("select userFavorites from UserFavorites userFavorites where userFavorites.user.login = ?#{principal.username}")
+    List<UserFavorites> findByUserIsCurrentUser();
+
     @Query(
         value = "select distinct userFavorites from UserFavorites userFavorites left join fetch userFavorites.videos",
         countQuery = "select count(distinct userFavorites) from UserFavorites userFavorites"

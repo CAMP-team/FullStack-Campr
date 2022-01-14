@@ -20,7 +20,7 @@ export const UserCommentDeleteDialog = (props: RouteComponentProps<{ id: string 
   const updateSuccess = useAppSelector(state => state.userComment.updateSuccess);
 
   const handleClose = () => {
-    props.history.push('/user-comment' + props.location.search);
+    props.history.push('/user-comment');
   };
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export const UserCommentDeleteDialog = (props: RouteComponentProps<{ id: string 
           &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
         </Button>
-        <Button id="jhi-confirm-delete-userComment" data-cy="entityConfirmDeleteButton" color="secondary" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-userComment" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
           <Translate contentKey="entity.action.delete">Delete</Translate>

@@ -1,80 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, TextFormat, getSortState, JhiPagination, JhiItemCount } from 'react-jhipster';
+import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { getEntities } from './user-comment.reducer';
 import { IUserComment } from 'app/shared/model/user-comment.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
-import { ASC, DESC, ITEMS_PER_PAGE, SORT } from 'app/shared/util/pagination.constants';
-import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 export const UserComment = (props: RouteComponentProps<{ url: string }>) => {
   const dispatch = useAppDispatch();
 
-  const [paginationState, setPaginationState] = useState(
-    overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE, 'id'), props.location.search)
-  );
-
   const userCommentList = useAppSelector(state => state.userComment.entities);
   const loading = useAppSelector(state => state.userComment.loading);
-  const totalItems = useAppSelector(state => state.userComment.totalItems);
-
-  const getAllEntities = () => {
-    dispatch(
-      getEntities({
-        page: paginationState.activePage - 1,
-        size: paginationState.itemsPerPage,
-        sort: `${paginationState.sort},${paginationState.order}`,
-      })
-    );
-  };
-
-  const sortEntities = () => {
-    getAllEntities();
-    const endURL = `?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`;
-    if (props.location.search !== endURL) {
-      props.history.push(`${props.location.pathname}${endURL}`);
-    }
-  };
 
   useEffect(() => {
-    sortEntities();
-  }, [paginationState.activePage, paginationState.order, paginationState.sort]);
-
-  useEffect(() => {
-    const params = new URLSearchParams(props.location.search);
-    const page = params.get('page');
-    const sort = params.get(SORT);
-    if (page && sort) {
-      const sortSplit = sort.split(',');
-      setPaginationState({
-        ...paginationState,
-        activePage: +page,
-        sort: sortSplit[0],
-        order: sortSplit[1],
-      });
-    }
-  }, [props.location.search]);
-
-  const sort = p => () => {
-    setPaginationState({
-      ...paginationState,
-      order: paginationState.order === ASC ? DESC : ASC,
-      sort: p,
-    });
-  };
-
-  const handlePagination = currentPage =>
-    setPaginationState({
-      ...paginationState,
-      activePage: currentPage,
-    });
+    dispatch(getEntities({}));
+  }, []);
 
   const handleSyncList = () => {
-    sortEntities();
+    dispatch(getEntities({}));
   };
 
   const { match } = props;
@@ -88,7 +34,7 @@ export const UserComment = (props: RouteComponentProps<{ url: string }>) => {
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="camprApp.userComment.home.refreshListLabel">Refresh List</Translate>
           </Button>
-          <Link to={`${match.url}/new`} className="btn btn-secondary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+          <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
             <Translate contentKey="camprApp.userComment.home.createLabel">Create new User Comment</Translate>
@@ -100,20 +46,20 @@ export const UserComment = (props: RouteComponentProps<{ url: string }>) => {
           <Table responsive>
             <thead>
               <tr>
-                <th className="hand" onClick={sort('id')}>
-                  <Translate contentKey="camprApp.userComment.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('commentBody')}>
-                  <Translate contentKey="camprApp.userComment.commentBody">Comment Body</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('commentDate')}>
-                  <Translate contentKey="camprApp.userComment.commentDate">Comment Date</Translate> <FontAwesomeIcon icon="sort" />
+                <th>
+                  <Translate contentKey="camprApp.userComment.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="camprApp.userComment.appUser">App User</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="camprApp.userComment.commentBody">Comment Body</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="camprApp.userComment.video">Video</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="camprApp.userComment.commentDate">Comment Date</Translate>
+                </th>
+                <th>
+                  <Translate contentKey="camprApp.userComment.user">User</Translate>
+                </th>
+                <th>
+                  <Translate contentKey="camprApp.userComment.video">Video</Translate>
                 </th>
                 <th />
               </tr>
@@ -130,7 +76,7 @@ export const UserComment = (props: RouteComponentProps<{ url: string }>) => {
                   <td>
                     {userComment.commentDate ? <TextFormat type="date" value={userComment.commentDate} format={APP_DATE_FORMAT} /> : null}
                   </td>
-                  <td>{userComment.appUser ? <Link to={`app-user/${userComment.appUser.id}`}>{userComment.appUser.id}</Link> : ''}</td>
+                  <td>{userComment.user ? userComment.user.login : ''}</td>
                   <td>{userComment.video ? <Link to={`video/${userComment.video.id}`}>{userComment.video.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
@@ -140,25 +86,13 @@ export const UserComment = (props: RouteComponentProps<{ url: string }>) => {
                           <Translate contentKey="entity.action.view">View</Translate>
                         </span>
                       </Button>
-                      <Button
-                        tag={Link}
-                        to={`${match.url}/${userComment.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="secondary"
-                        size="sm"
-                        data-cy="entityEditButton"
-                      >
+                      <Button tag={Link} to={`${match.url}/${userComment.id}/edit`} color="secondary" size="sm" data-cy="entityEditButton">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.edit">Edit</Translate>
                         </span>
                       </Button>
-                      <Button
-                        tag={Link}
-                        to={`${match.url}/${userComment.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="secondary"
-                        size="sm"
-                        data-cy="entityDeleteButton"
-                      >
+                      <Button tag={Link} to={`${match.url}/${userComment.id}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
                         <FontAwesomeIcon icon="trash" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -178,24 +112,6 @@ export const UserComment = (props: RouteComponentProps<{ url: string }>) => {
           )
         )}
       </div>
-      {totalItems ? (
-        <div className={userCommentList && userCommentList.length > 0 ? '' : 'd-none'}>
-          <div className="justify-content-center d-flex">
-            <JhiItemCount page={paginationState.activePage} total={totalItems} itemsPerPage={paginationState.itemsPerPage} i18nEnabled />
-          </div>
-          <div className="justify-content-center d-flex">
-            <JhiPagination
-              activePage={paginationState.activePage}
-              onSelect={handlePagination}
-              maxButtons={5}   
-              itemsPerPage={paginationState.itemsPerPage}
-              totalItems={totalItems}
-            />
-          </div>
-        </div>
-      ) : (
-        ''
-      )}
     </div>
   );
 };

@@ -1,11 +1,9 @@
 {
   "home": {
-    "title": "Welcome to Campr",
+    "title": "Welcome to Campr!",
     "subtitle": "",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     }
-
-    
   }
 }

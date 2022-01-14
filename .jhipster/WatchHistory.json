@@ -8,11 +8,11 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-one",
-      "otherEntityName": "appUser",
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "watchHistory",
-      "relationshipName": "appUser",
-      "ownerSide": true
+      "relationshipName": "user",
+      "otherEntityField": "login"
     },
     {
       "relationshipType": "many-to-many",
@@ -25,12 +25,12 @@
   ],
   "entityTableName": "watch_history",
   "dto": "no",
-  "pagination": "pagination",
-  "service": "serviceImpl",
+  "pagination": "no",
+  "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,
   "readOnly": false,
   "embedded": false,
   "applications": "*",
-  "changelogDate": "20220108034337"
+  "changelogDate": "20220114031636"
 }

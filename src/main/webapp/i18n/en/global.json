@@ -7,7 +7,6 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "appUser": "App User",
         "video": "Video",
         "userComment": "User Comment",
         "genre": "Genre",
@@ -16,6 +15,10 @@
         "watchHistory": "Watch History",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
+      "Movies": {
+        "main": "Movies"
+      },
+      "TV Shows": {},
       "account": {
         "main": "Account",
         "settings": "Settings",
@@ -89,7 +92,6 @@
     "field": {
       "id": "ID"
     },
-  
     "item-count": "Showing {{first}} - {{second}} of {{total}} items."
   },
   "entity": {
@@ -142,5 +144,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-  "footer": "This is your footer"
+  "footer": "Project maintained by the CAMP-team on <a href=https://github.com/CAMP-team/FullStack-Campr target=_blank rel=noopener noreferrer>GitHub</a>."
 }

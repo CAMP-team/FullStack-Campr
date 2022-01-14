@@ -54,7 +54,7 @@ export const PasswordResetInit = () => {
               }}
               data-cy="emailResetPassword"
             />
-            <Button color="Secondary" type="submit" data-cy="submit">
+            <Button color="secondary" type="submit" data-cy="submit">
               <Translate contentKey="reset.request.form.button">Reset password</Translate>
             </Button>
           </ValidatedForm>
