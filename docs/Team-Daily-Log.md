@@ -2,6 +2,12 @@
 * Reloaded project with proper entity implementation
 * Configured entity getAll methods to retrieve user account items for current logged in user
 * Fast-forwarded most changes and pushed to dev > should deploy successfully
+* Downloaded pgAdmin to directly edit Heroku PostgreSQL data
+  - Need to configure permissions > currently getting the following error:
+  ```
+  connection to server at "ec2-3-223-39-179.compute-1.amazonaws.com" (3.223.39.179), port 5432 failed: FATAL: permission denied for database "d1a3r6ta66v5qn"
+DETAIL: User does not have CONNECT privilege.
+    ```
 
 ## January 11th, 2022
 * Added a project board to track todos
