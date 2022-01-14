@@ -132,17 +132,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
-
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../content/images/jhipster_family_member_1.svg */ "./src/main/webapp/content/images/jhipster_family_member_1.svg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center top;\n  background-size: contain;\n  border-radius: 8px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/home.scss"],"names":[],"mappings":"AAAA;;4EAAA;AAGA;EACE,qBAAA;EACA,WAAA;EACA,aAAA;EACA,wEAAA;EACA,wBAAA;EACA,kBAAA;AACF","sourcesContent":["/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url('../../../content/images/jhipster_family_member_1.svg') no-repeat center top;\n  background-size: contain;\n  border-radius: 8px;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background-size: contain;\n  border-radius: 8px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/home.scss"],"names":[],"mappings":"AAAA;;4EAAA;AAGA;EACE,qBAAA;EACA,WAAA;EACA,aAAA;EACA,wBAAA;EACA,kBAAA;AACF","sourcesContent":["/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background-size: contain;\n  border-radius: 8px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1503,8 +1498,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const loadIcons = () => {
-    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_solid_svg_icons_faArrowLeft__WEBPACK_IMPORTED_MODULE_1__.faArrowLeft, _fortawesome_free_solid_svg_icons_faAsterisk__WEBPACK_IMPORTED_MODULE_2__.faAsterisk, _fortawesome_free_solid_svg_icons_faBan__WEBPACK_IMPORTED_MODULE_3__.faBan, _fortawesome_free_solid_svg_icons_faBell__WEBPACK_IMPORTED_MODULE_4__.faBell, _fortawesome_free_solid_svg_icons_faBook__WEBPACK_IMPORTED_MODULE_5__.faBook, _fortawesome_free_solid_svg_icons_faCloud__WEBPACK_IMPORTED_MODULE_6__.faCloud, _fortawesome_free_solid_svg_icons_faCogs__WEBPACK_IMPORTED_MODULE_7__.faCogs, _fortawesome_free_solid_svg_icons_faDatabase__WEBPACK_IMPORTED_MODULE_8__.faDatabase, _fortawesome_free_solid_svg_icons_faEye__WEBPACK_IMPORTED_MODULE_9__.faEye, _fortawesome_free_solid_svg_icons_faFlag__WEBPACK_IMPORTED_MODULE_10__.faFlag, _fortawesome_free_solid_svg_icons_faHeart__WEBPACK_IMPORTED_MODULE_11__.faHeart, _fortawesome_free_solid_svg_icons_faHome__WEBPACK_IMPORTED_MODULE_12__.faHome, _fortawesome_free_solid_svg_icons_faList__WEBPACK_IMPORTED_MODULE_13__.faList, _fortawesome_free_solid_svg_icons_faLock__WEBPACK_IMPORTED_MODULE_14__.faLock, _fortawesome_free_solid_svg_icons_faPencilAlt__WEBPACK_IMPORTED_MODULE_15__.faPencilAlt, _fortawesome_free_solid_svg_icons_faPlus__WEBPACK_IMPORTED_MODULE_16__.faPlus, _fortawesome_free_solid_svg_icons_faRoad__WEBPACK_IMPORTED_MODULE_17__.faRoad, _fortawesome_free_solid_svg_icons_faSave__WEBPACK_IMPORTED_MODULE_18__.faSave, _fortawesome_free_solid_svg_icons_faSignInAlt__WEBPACK_IMPORTED_MODULE_19__.faSignInAlt, _fortawesome_free_solid_svg_icons_faSignOutAlt__WEBPACK_IMPORTED_MODULE_20__.faSignOutAlt, _fortawesome_free_solid_svg_icons_faSearch__WEBPACK_IMPORTED_MODULE_21__.faSearch, _fortawesome_free_solid_svg_icons_faSort__WEBPACK_IMPORTED_MODULE_22__.faSort, _fortawesome_free_solid_svg_icons_faSync__WEBPACK_IMPORTED_MODULE_23__.faSync, _fortawesome_free_solid_svg_icons_faTachometerAlt__WEBPACK_IMPORTED_MODULE_24__.faTachometerAlt, _fortawesome_free_solid_svg_icons_faTasks__WEBPACK_IMPORTED_MODULE_25__.faTasks, _fortawesome_free_solid_svg_icons_faThList__WEBPACK_IMPORTED_MODULE_26__.faThList, _fortawesome_free_solid_svg_icons_faTimesCircle__WEBPACK_IMPORTED_MODULE_27__.faTimesCircle, _fortawesome_free_solid_svg_icons_faTrash__WEBPACK_IMPORTED_MODULE_28__.faTrash, _fortawesome_free_solid_svg_icons_faUser__WEBPACK_IMPORTED_MODULE_29__.faUser, _fortawesome_free_solid_svg_icons_faUserPlus__WEBPACK_IMPORTED_MODULE_30__.faUserPlus, _fortawesome_free_solid_svg_icons_faUsers__WEBPACK_IMPORTED_MODULE_31__.faUsers, _fortawesome_free_solid_svg_icons_faUsersCog__WEBPACK_IMPORTED_MODULE_32__.faUsersCog, _fortawesome_free_solid_svg_icons_faWrench__WEBPACK_IMPORTED_MODULE_33__.faWrench, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faComment, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faHistory);
+    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_solid_svg_icons_faArrowLeft__WEBPACK_IMPORTED_MODULE_1__.faArrowLeft, _fortawesome_free_solid_svg_icons_faAsterisk__WEBPACK_IMPORTED_MODULE_2__.faAsterisk, _fortawesome_free_solid_svg_icons_faBan__WEBPACK_IMPORTED_MODULE_3__.faBan, _fortawesome_free_solid_svg_icons_faBell__WEBPACK_IMPORTED_MODULE_4__.faBell, _fortawesome_free_solid_svg_icons_faBook__WEBPACK_IMPORTED_MODULE_5__.faBook, _fortawesome_free_solid_svg_icons_faCloud__WEBPACK_IMPORTED_MODULE_6__.faCloud, _fortawesome_free_solid_svg_icons_faCogs__WEBPACK_IMPORTED_MODULE_7__.faCogs, _fortawesome_free_solid_svg_icons_faDatabase__WEBPACK_IMPORTED_MODULE_8__.faDatabase, _fortawesome_free_solid_svg_icons_faEye__WEBPACK_IMPORTED_MODULE_9__.faEye, _fortawesome_free_solid_svg_icons_faFlag__WEBPACK_IMPORTED_MODULE_10__.faFlag, _fortawesome_free_solid_svg_icons_faHeart__WEBPACK_IMPORTED_MODULE_11__.faHeart, _fortawesome_free_solid_svg_icons_faHome__WEBPACK_IMPORTED_MODULE_12__.faHome, _fortawesome_free_solid_svg_icons_faList__WEBPACK_IMPORTED_MODULE_13__.faList, _fortawesome_free_solid_svg_icons_faLock__WEBPACK_IMPORTED_MODULE_14__.faLock, _fortawesome_free_solid_svg_icons_faPencilAlt__WEBPACK_IMPORTED_MODULE_15__.faPencilAlt, _fortawesome_free_solid_svg_icons_faPlus__WEBPACK_IMPORTED_MODULE_16__.faPlus, _fortawesome_free_solid_svg_icons_faRoad__WEBPACK_IMPORTED_MODULE_17__.faRoad, _fortawesome_free_solid_svg_icons_faSave__WEBPACK_IMPORTED_MODULE_18__.faSave, _fortawesome_free_solid_svg_icons_faSignInAlt__WEBPACK_IMPORTED_MODULE_19__.faSignInAlt, _fortawesome_free_solid_svg_icons_faSignOutAlt__WEBPACK_IMPORTED_MODULE_20__.faSignOutAlt, _fortawesome_free_solid_svg_icons_faSearch__WEBPACK_IMPORTED_MODULE_21__.faSearch, _fortawesome_free_solid_svg_icons_faSort__WEBPACK_IMPORTED_MODULE_22__.faSort, _fortawesome_free_solid_svg_icons_faSync__WEBPACK_IMPORTED_MODULE_23__.faSync, _fortawesome_free_solid_svg_icons_faTachometerAlt__WEBPACK_IMPORTED_MODULE_24__.faTachometerAlt, _fortawesome_free_solid_svg_icons_faTasks__WEBPACK_IMPORTED_MODULE_25__.faTasks, _fortawesome_free_solid_svg_icons_faThList__WEBPACK_IMPORTED_MODULE_26__.faThList, _fortawesome_free_solid_svg_icons_faTimesCircle__WEBPACK_IMPORTED_MODULE_27__.faTimesCircle, _fortawesome_free_solid_svg_icons_faTrash__WEBPACK_IMPORTED_MODULE_28__.faTrash, _fortawesome_free_solid_svg_icons_faUser__WEBPACK_IMPORTED_MODULE_29__.faUser, _fortawesome_free_solid_svg_icons_faUserPlus__WEBPACK_IMPORTED_MODULE_30__.faUserPlus, _fortawesome_free_solid_svg_icons_faUsers__WEBPACK_IMPORTED_MODULE_31__.faUsers, _fortawesome_free_solid_svg_icons_faUsersCog__WEBPACK_IMPORTED_MODULE_32__.faUsersCog, _fortawesome_free_solid_svg_icons_faWrench__WEBPACK_IMPORTED_MODULE_33__.faWrench, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faComment, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faHistory, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faUpload);
 };
 
 
@@ -7408,17 +7404,6 @@ module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%
 
 /***/ }),
 
-/***/ "./src/main/webapp/content/images/jhipster_family_member_1.svg":
-/*!*********************************************************************!*\
-  !*** ./src/main/webapp/content/images/jhipster_family_member_1.svg ***!
-  \*********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
-
-/***/ }),
-
 /***/ "?5580":
 /*!**************************************!*\
   !*** ./terminal-highlight (ignored) ***!
@@ -7608,7 +7593,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("73312410a05e17131b98")
+/******/ 		__webpack_require__.h = () => ("501348f68ec4c26fc243")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
