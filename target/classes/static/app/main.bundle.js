@@ -5709,20 +5709,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
-
-
+/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
 
 
 
@@ -5737,7 +5733,7 @@ function posterSearch() {
     const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
     function getPoster() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
             const result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(posterUrl);
             setvideos(result.data.results);
             // console.log(result.data);
@@ -5747,16 +5743,15 @@ function posterSearch() {
         e.preventDefault(); // prevent page from reloading
         getPoster();
     };
-    const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.authentication.account);
-    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "9" },
+    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "3", className: "pad" }),
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "9" },
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("h2", null,
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.title" }, "Welcome to Campr")),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: "lead" },
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.subtitle" })),
-            (account === null || account === void 0 ? void 0 : account.login) ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "5" },
+            react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "5" },
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app" },
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", { className: "app__searchForm", onSubmit: onSubmit },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
@@ -5778,22 +5773,7 @@ function posterSearch() {
                             } },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "row" }, video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })))));
                     }))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" }))) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" },
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.authenticated.prefix" }, "If you want to "),
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: "/login", className: "alert-link" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.authenticated.link" }, " sign in")),
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.authenticated.suffix" },
-                        ", you can try the default accounts:",
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement("br", null),
-                        "- Administrator (login=\"admin\" and password=\"admin\")",
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement("br", null),
-                        "- User (login=\"user\" and password=\"user\").")),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" },
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.register.noaccount" }, "You do not have an account yet?"),
-                    "\u00A0",
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: "/account/register", className: "alert-link" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.register.link" }, "Register a new account"))))))));
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Alert, { color: "light" })))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (posterSearch);
 
@@ -6437,15 +6417,15 @@ const EntitiesMenu = props => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null),
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/video" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.video" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-comment" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "comment", to: "/user-comment" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userComment" })),
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/genre" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.genre" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-favorites" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "heart", to: "/user-favorites" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userFavorites" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-upload" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "upload", to: "/user-upload" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userUpload" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/watch-history" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "history", to: "/watch-history" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.watchHistory" }))));
 
 
@@ -7057,7 +7037,7 @@ const initialState = {
 };
 const setLocale = locale => (dispatch) => (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(void 0, void 0, void 0, function* () {
     if (!Object.keys(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.context.translations).includes(locale)) {
-        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"8cdfe4737e0d6e11bb9cb686b1b47fd1"}`, { baseURL: '' });
+        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"16d5c78beccc7c8e385260e74011ddf0"}`, { baseURL: '' });
         react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.registerTranslations(locale, response.data);
     }
     dispatch(updateLocale(locale));
@@ -7628,7 +7608,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("77e545d86f8feb76adc9")
+/******/ 		__webpack_require__.h = () => ("73312410a05e17131b98")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

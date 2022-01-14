@@ -8,6 +8,7 @@
   connection to server at "ec2-3-223-39-179.compute-1.amazonaws.com" (3.223.39.179), port 5432 failed: FATAL: permission denied for database "d1a3r6ta66v5qn"
 DETAIL: User does not have CONNECT privilege.
     ```
+* Will need to figure out how to hide videos and genres from users drop-down
 
 ## January 11th, 2022
 * Added a project board to track todos
