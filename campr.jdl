@@ -1,0 +1,47 @@
+
+entity Video {
+	title String,
+    imageUrl String,
+    videoUrl String,
+    trailerId String,
+    description String
+}
+
+entity UserComment {
+	commentBody String,
+    commentDate Instant
+}
+
+entity Genre {
+	apiId Integer,
+	name String
+}
+
+entity UserFavorites {
+	dateAdded Instant
+}
+
+entity UserUpload {
+	dateUploaded Instant
+}
+
+entity WatchHistory {
+	dateWatched Instant
+}
+
+relationship ManyToOne {
+	UserUpload{user(login)} to User,
+  	WatchHistory{user(login)} to User,
+  	UserFavorites{user(login)} to User,
+	UserComment{user(login)} to User,
+    UserComment to Video,
+  	Video to UserUpload
+}
+
+relationship ManyToMany {
+	Video{genre(name)} to Genre{video},
+    WatchHistory{video(title)} to Video{watchhistory},
+    UserFavorites{video(title)} to Video{userfavorites}
+}
+
+paginate Video, UserComment, WatchHistory, UserFavorite, UserUpload, Genre with infinite-scroll
