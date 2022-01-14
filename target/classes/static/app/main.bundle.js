@@ -83,7 +83,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding: 40px 24px;\n  border-radius: 8px;\n}\n\n/* .app__searchForm {\n    margin-top: 18px;\n    margin-left: 85px;\n  }\n\n  .app__input {\n    padding: 6px 16px;\n    min-width: 400px;\n    max-width: 100vw;\n    font-size: 14px;\n  } */\n/* .app__submit {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(139, 139, 138);\n    border: 2px solid rgb(0, 0, 0);\n    border-radius: 4px;\n    color: black;\n  } */\n/* .app__submit:hover {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(252, 251, 249);\n    border: 2px solid rgb(85, 85, 84);\n    border-radius: 4px;\n    color: black;\n  } */\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  grid-template-columns: 230px 230px 230px 230px;\n  align-items: baseline;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/App.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,kBAAA;EACA,kBAAA;AACF;;AAEA;;;;;;;;;;KAAA;AAYA;;;;;;;;;;KAAA;AAWA;;;;;;;;;;KAAA;AAWA;EACE,gBAAA;EACA,aAAA;EACA,8CAAA;EACA,qBAAA;AAAF","sourcesContent":[".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  padding: 40px 24px;\n  border-radius: 8px;\n}\n\n/* .app__searchForm {\n    margin-top: 18px;\n    margin-left: 85px;\n  }\n\n  .app__input {\n    padding: 6px 16px;\n    min-width: 400px;\n    max-width: 100vw;\n    font-size: 14px;\n  } */\n\n/* .app__submit {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(139, 139, 138);\n    border: 2px solid rgb(0, 0, 0);\n    border-radius: 4px;\n    color: black;\n  } */\n/* .app__submit:hover {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(252, 251, 249);\n    border: 2px solid rgb(85, 85, 84);\n    border-radius: 4px;\n    color: black;\n  } */\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  grid-template-columns: 230px 230px 230px 230px;\n  align-items: baseline;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}\n\n/* .app__searchForm {\n    margin-top: 18px;\n    margin-left: 85px;\n  }\n\n  .app__input {\n    padding: 6px 16px;\n    min-width: 400px;\n    max-width: 100vw;\n    font-size: 14px;\n  } */\n/* .app__submit {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(139, 139, 138);\n    border: 2px solid rgb(0, 0, 0);\n    border-radius: 4px;\n    color: black;\n  } */\n/* .app__submit:hover {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(252, 251, 249);\n    border: 2px solid rgb(85, 85, 84);\n    border-radius: 4px;\n    color: black;\n  } */", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/App.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;EACA,kBAAA;AACF;;AAEA;EACE,gBAAA;EACA,aAAA;EACA,6BAAA;EACA,8CAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB;;AAAA;;;;;;;;;;KAAA;AAYA;;;;;;;;;;KAAA;AAWA;;;;;;;;;;KAAA","sourcesContent":[".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n\n/* .app__searchForm {\n    margin-top: 18px;\n    margin-left: 85px;\n  }\n\n  .app__input {\n    padding: 6px 16px;\n    min-width: 400px;\n    max-width: 100vw;\n    font-size: 14px;\n  } */\n\n/* .app__submit {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(139, 139, 138);\n    border: 2px solid rgb(0, 0, 0);\n    border-radius: 4px;\n    color: black;\n  } */\n/* .app__submit:hover {\n    position: absolute;\n    top: 142px;\n    padding: 6px 25px;\n    font-size: 14px;\n    margin-left: 405px;\n    background-color: rgb(252, 251, 249);\n    border: 2px solid rgb(85, 85, 84);\n    border-radius: 4px;\n    color: black;\n  } */\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  height: 200px;\n  width: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n  border: 1px solid #f83a3a;\n  border-radius: 4px;\n  max-width: 100%;\n  height: auto;\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 1px #5c5c5c;\n}\n\n.videoTile__name {\n  max-width: 200px;\n  text-align: center;\n  margin: 12px -5px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/VideoTile.css"],"names":[],"mappings":"AAAA;EACE,eAAA;EACA,0CAAA;AACF;;AAEA;EACE,aAAA;EACA,YAAA;EACA,oBAAA;KAAA,iBAAA;EACA,kBAAA;EACA,yBAAA;EACA,kBAAA;EACA,eAAA;EACA,YAAA;AACF;;AAEA;EACE,+BAAA;AACF;;AACA;EACE,gBAAA;EACA,kBAAA;EACA,iBAAA;AAEF","sourcesContent":[".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  height: 200px;\n  width: 200px;\n  object-fit: cover;\n  border-radius: 8px;\n  border: 1px solid rgb(248, 58, 58);\n  border-radius: 4px;\n  max-width: 100%;\n  height: auto;\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 1px rgb(92, 92, 92);\n}\n.videoTile__name {\n  max-width: 200px;\n  text-align: center;\n  margin: 12px -5px;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  height: 200px;\n  width: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid white;\n  border-radius: 4px;\n  max-width: 100%;\n  height: auto;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px #494848;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/VideoTile.css"],"names":[],"mappings":"AAAA;EACE,eAAA;EACA,0CAAA;AACF;;AAEA;EACE,aAAA;EACA,YAAA;EACA,oBAAA;KAAA,iBAAA;EACA,kBAAA;EACA,uBAAA;EACA,kBAAA;EACA,eAAA;EACA,YAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB;;AAAA;EACE,+BAAA;AAGF","sourcesContent":[".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  height: 200px;\n  width: 200px;\n  object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid rgb(255, 255, 255);\n  border-radius: 4px;\n  max-width: 100%;\n  height: auto;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px rgb(73, 72, 72);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -142,7 +142,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center top;\n  background-size: contain;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/home.scss"],"names":[],"mappings":"AAAA;;4EAAA;AAGA;EACE,qBAAA;EACA,WAAA;EACA,aAAA;EACA,wEAAA;EACA,wBAAA;AACF","sourcesContent":["/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url('../../../content/images/jhipster_family_member_1.svg') no-repeat center top;\n  background-size: contain;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center top;\n  background-size: contain;\n  border-radius: 8px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/home.scss"],"names":[],"mappings":"AAAA;;4EAAA;AAGA;EACE,qBAAA;EACA,WAAA;EACA,aAAA;EACA,wEAAA;EACA,wBAAA;EACA,kBAAA;AACF","sourcesContent":["/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url('../../../content/images/jhipster_family_member_1.svg') no-repeat center top;\n  background-size: contain;\n  border-radius: 8px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5732,22 +5732,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* eslint-disable */
-function videoSearch() {
+function posterSearch() {
     const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''); // use state is updating the value in the frontend
     const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-    // const YOUR_APP_KEY = '616093e66ab252685ad921e5c4680152';
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-    const testUrl = `https://www.youtube.com/`;
-    function getVideos() {
+    const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
+    function getPoster() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
-            var result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(url);
+            const result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(posterUrl);
             setvideos(result.data.results);
             // console.log(result.data);
         });
     }
     const onSubmit = e => {
         e.preventDefault(); // prevent page from reloading
-        getVideos();
+        getPoster();
     };
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.authentication.account);
     return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Row, null,
@@ -5764,10 +5762,21 @@ function videoSearch() {
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { className: "app__submit", type: "submit", value: "Search" }))),
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app__videos" }, videos.map(video => {
+                        const value = video.id;
+                        const url = `https://api.themoviedb.org/3/movie/${value}/videos?api_key=616093e66ab252685ad921e5c4680152`;
+                        var videoDisplay;
+                        fetch(url)
+                            .then(res => res.json())
+                            .then(data => (videoDisplay = data))
+                            .then(() => console.log(videoDisplay));
                         return (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { key: video.id, className: "VideoTile", onClick: () => {
-                                window.open(testUrl);
+                                {
+                                    video.poster_path == null
+                                        ? window.open(`https://www.youtube.com/results?search_query=${query}`)
+                                        : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                                }
                             } },
-                            react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })));
+                            react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "row" }, video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })))));
                     }))),
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" }))) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" },
@@ -5786,8 +5795,7 @@ function videoSearch() {
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: "/account/register", className: "alert-link" },
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.messages.info.register.link" }, "Register a new account"))))))));
 }
-;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (videoSearch);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (posterSearch);
 
 
 /***/ }),
@@ -7620,7 +7628,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("0678e0afc5eb8eea07f7")
+/******/ 		__webpack_require__.h = () => ("77e545d86f8feb76adc9")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

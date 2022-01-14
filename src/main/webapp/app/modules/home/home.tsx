@@ -11,23 +11,21 @@ import { useAppSelector } from 'app/config/store';
 import './VideoTile.css';
 import './App.css';
 /* eslint-disable */
-function videoSearch() {
+function posterSearch() {
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
 
-  // const YOUR_APP_KEY = '616093e66ab252685ad921e5c4680152';
+  const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
 
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-  const testUrl = `https://www.youtube.com/`;
-  async function getVideos() {
-    var result = await Axios.get(url);
+  async function getPoster() {
+    const result = await Axios.get(posterUrl);
     setvideos(result.data.results);
     // console.log(result.data);
   }
 
   const onSubmit = e => {
     e.preventDefault(); // prevent page from reloading
-    getVideos();
+    getPoster();
   };
 
   const account = useAppSelector(state => state.authentication.account);
@@ -59,19 +57,42 @@ function videoSearch() {
               </div>
               <div className="app__videos">
                 {videos.map(video => {
+                  const value = video.id;
+                  const url = `https://api.themoviedb.org/3/movie/${value}/videos?api_key=616093e66ab252685ad921e5c4680152`;
+                  var videoDisplay;
+                  fetch(url)
+                    .then(res => res.json())
+                    .then(data => (videoDisplay = data))
+                    .then(() => console.log(videoDisplay));
                   return (
                     <div
                       key={video.id}
                       className="VideoTile"
                       onClick={() => {
-                        window.open(testUrl);
+                        {
+                          video.poster_path == null
+                            ? window.open(`https://www.youtube.com/results?search_query=${query}`)
+                            : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                        }
                       }}
                     >
-                      <img
-                        src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
-                        alt="card image"
-                        style={{ width: '100%', height: 360 }}
-                      />
+                      <div className="row">
+                        {video.poster_path == null ? (
+                          <img
+                            className="videoTile__img"
+                            src={`https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`}
+                            alt="card image"
+                            style={{ width: '100%', height: 360 }}
+                          />
+                        ) : (
+                          <img
+                            className="videoTile__img"
+                            src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
+                            alt="card image"
+                            style={{ width: '100%', height: 360 }}
+                          />
+                        )}
+                      </div>
                     </div>
                   );
                 })}
@@ -107,4 +128,4 @@ function videoSearch() {
   );
 }
 
-export default videoSearch;
+export default posterSearch;
