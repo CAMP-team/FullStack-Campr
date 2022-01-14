@@ -145,7 +145,7 @@ public class UserUploadResource {
     @GetMapping("/user-uploads")
     public List<UserUpload> getAllUserUploads() {
         log.debug("REST request to get all UserUploads");
-        return userUploadRepository.findAll();
+        return userUploadRepository.findByUserIsCurrentUser();
     }
 
     /**

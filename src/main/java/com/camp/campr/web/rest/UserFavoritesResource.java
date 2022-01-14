@@ -146,7 +146,7 @@ public class UserFavoritesResource {
     @GetMapping("/user-favorites")
     public List<UserFavorites> getAllUserFavorites(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all UserFavorites");
-        return userFavoritesRepository.findAllWithEagerRelationships();
+        return userFavoritesRepository.findByUserIsCurrentUser();
     }
 
     /**

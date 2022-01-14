@@ -42,6 +42,7 @@ com/camp/campr/security/AuthoritiesConstants.class
 com/camp/campr/domain/Authority_.class
 com/camp/campr/domain/Video_.class
 com/camp/campr/web/rest/errors/LoginAlreadyUsedException.class
+com/camp/campr/web/rest/AccountResource$1.class
 com/camp/campr/security/SpringSecurityAuditorAware.class
 com/camp/campr/repository/WatchHistoryRepository.class
 com/camp/campr/domain/Authority.class

@@ -148,7 +148,7 @@ public class UserCommentResource {
     @GetMapping("/user-comments")
     public List<UserComment> getAllUserComments() {
         log.debug("REST request to get all UserComments");
-        return userCommentRepository.findAll();
+        return userCommentRepository.findByUserIsCurrentUser();
     }
 
     /**

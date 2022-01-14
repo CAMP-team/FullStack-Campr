@@ -146,7 +146,7 @@ public class WatchHistoryResource {
     @GetMapping("/watch-histories")
     public List<WatchHistory> getAllWatchHistories(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all WatchHistories");
-        return watchHistoryRepository.findAllWithEagerRelationships();
+        return watchHistoryRepository.findByUserIsCurrentUser();
     }
 
     /**
