@@ -1,3 +1,8 @@
+## January 13th-14th, 2022
+* Reloaded project with proper entity implementation
+* Configured entity getAll methods to retrieve user account items for current logged in user
+* Fast-forwarded most changes and pushed to dev > should deploy successfully
+
 ## January 11th, 2022
 * Added a project board to track todos
 * In Progress:
@@ -33,7 +38,7 @@
 * CAMP-team: Carnell, Amanda, Mike, Paul
 
 * **Planning Notes**:
-    * Database: PostGres
+    * Database: PostGresQL
     * Deploy on Heroku asap
     * Spring+Angular/React+Db OR jhipster
         - Jhipster: https://start.jhipster.tech/generate-application
