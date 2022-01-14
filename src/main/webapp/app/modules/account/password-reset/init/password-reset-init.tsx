@@ -35,7 +35,7 @@ export const PasswordResetInit = () => {
           <h1>
             <Translate contentKey="reset.request.title">Reset your password</Translate>
           </h1>
-          <Alert color="light">
+          <Alert color="warning">
             <p>
               <Translate contentKey="reset.request.messages.info">Enter the email address you used to register</Translate>
             </p>
@@ -54,7 +54,7 @@ export const PasswordResetInit = () => {
               }}
               data-cy="emailResetPassword"
             />
-            <Button color="Secondary" type="submit" data-cy="submit">
+            <Button color="primary" type="submit" data-cy="submit">
               <Translate contentKey="reset.request.form.button">Reset password</Translate>
             </Button>
           </ValidatedForm>

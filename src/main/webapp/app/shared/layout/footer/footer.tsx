@@ -7,9 +7,9 @@ import { Col, Row } from 'reactstrap';
 const Footer = () => (
   <div className="footer page-content">
     <Row>
-      <Col md="8">
+      <Col md="12">
         <p>
-          <Translate contentKey="footer">Footer</Translate>
+          <Translate contentKey="footer">Your footer</Translate>
         </p>
       </Col>
     </Row>

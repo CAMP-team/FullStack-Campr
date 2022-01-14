@@ -1,104 +1,38 @@
-import React, { useState } from 'react';
+import './home.scss';
+
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
-import Axios from 'axios';
+
 import { useAppSelector } from 'app/config/store';
-import './home.scss';
-import './VideoTile.css';
-import './App.css';
 
-/* eslint-disable */
-
-function posterSearch() {
-  const [query, setquery] = useState(''); // use state is updating the value in the frontend
-  const [videos, setvideos] = useState([]);
-
-  const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-
-  async function getPoster() {
-    const result = await Axios.get(posterUrl);
-    setvideos(result.data.results);
-  }
-  const onSubmit = e => {
-    e.preventDefault(); // prevent page from reloading
-    getPoster();
-  };
-
+export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
+
   return (
     <Row>
-      <Col md="3" className="pad"></Col>
+      <Col md="3" className="pad">
+        <span className="hipster rounded" />
+      </Col>
       <Col md="9">
         <h2>
-          <Translate contentKey="home.title">Welcome to Campr</Translate>
+          <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
         </h2>
         <p className="lead">
-          <Translate contentKey="home.subtitle"></Translate>
+          <Translate contentKey="home.subtitle">This is your homepage</Translate>
         </p>
         {account?.login ? (
           <div>
-            <Col md="5">
-              <div className="app">
-                <form className="app__searchForm" onSubmit={onSubmit}>
-                  <input
-                    type="text"
-                    className="app__input"
-                    placeholder="Find Videos"
-                    value={query}
-                    onChange={e => setquery(e.target.value)}
-                  />
-                  <input className="app__submit" type="submit" value="Search" />
-                </form>
-              </div>
-              <div className="app__videos">
-                {videos.map(video => {
-                  const value = video.id;
-                  const url = `https://api.themoviedb.org/3/movie/${value}/videos?api_key=616093e66ab252685ad921e5c4680152`;
-                  var videoDisplay: { results: { key: any }[] };
-                  fetch(url)
-                    .then(res => res.json())
-                    .then(data => (videoDisplay = data))
-                    .then(() => console.log(videoDisplay));
-                  return (
-                    <div
-                      key={video.id}
-                      className="VideoTile"
-                      onClick={() => {
-                        {
-                          video.poster_path == null
-                            ? window.open(`https://www.youtube.com/results?search_query=${query}`)
-                            : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
-                        }
-                      }}
-                    >
-                      <div className="row">
-                        {video.poster_path == null ? (
-                          <img
-                            className="videoTile__img"
-                            src={`https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`}
-                            alt="card image"
-                            style={{ width: '100%', height: 360 }}
-                          />
-                        ) : (
-                          <img
-                            className="videoTile__img"
-                            src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
-                            alt="card image"
-                            style={{ width: '100%', height: 360 }}
-                          />
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </Col>
-            <Alert color="light"></Alert>
+            <Alert color="success">
+              <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
+                You are logged in as user {account.login}.
+              </Translate>
+            </Alert>
           </div>
         ) : (
           <div>
-            <Alert color="light">
+            <Alert color="warning">
               <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
 
               <Link to="/login" className="alert-link">
@@ -110,18 +44,57 @@ function posterSearch() {
                 <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
               </Translate>
             </Alert>
-            <Alert color="light">
+
+            <Alert color="warning">
               <Translate contentKey="global.messages.info.register.noaccount">You do not have an account yet?</Translate>&nbsp;
               <Link to="/account/register" className="alert-link">
                 <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
               </Link>
             </Alert>
-            <div></div>
           </div>
         )}
+        <p>
+          <Translate contentKey="home.question">If you have any question on JHipster:</Translate>
+        </p>
+
+        <ul>
+          <li>
+            <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
+              <Translate contentKey="home.link.homepage">JHipster homepage</Translate>
+            </a>
+          </li>
+          <li>
+            <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
+              <Translate contentKey="home.link.stackoverflow">JHipster on Stack Overflow</Translate>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer">
+              <Translate contentKey="home.link.bugtracker">JHipster bug tracker</Translate>
+            </a>
+          </li>
+          <li>
+            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
+              <Translate contentKey="home.link.chat">JHipster public chat room</Translate>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">
+              <Translate contentKey="home.link.follow">follow @jhipster on Twitter</Translate>
+            </a>
+          </li>
+        </ul>
+
+        <p>
+          <Translate contentKey="home.like">If you like JHipster, do not forget to give us a star on</Translate>{' '}
+          <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+          !
+        </p>
       </Col>
     </Row>
   );
-}
+};
 
-export default posterSearch;
+export default Home;

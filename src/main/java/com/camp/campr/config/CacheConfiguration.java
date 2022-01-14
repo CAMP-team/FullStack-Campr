@@ -48,22 +48,6 @@ public class CacheConfiguration {
             createCache(cm, com.camp.campr.domain.User.class.getName());
             createCache(cm, com.camp.campr.domain.Authority.class.getName());
             createCache(cm, com.camp.campr.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.camp.campr.domain.AppUser.class.getName());
-            createCache(cm, com.camp.campr.domain.AppUser.class.getName() + ".userComments");
-            createCache(cm, com.camp.campr.domain.Video.class.getName());
-            createCache(cm, com.camp.campr.domain.Video.class.getName() + ".genres");
-            createCache(cm, com.camp.campr.domain.Video.class.getName() + ".userComments");
-            createCache(cm, com.camp.campr.domain.Video.class.getName() + ".watchhistories");
-            createCache(cm, com.camp.campr.domain.Video.class.getName() + ".userfavorites");
-            createCache(cm, com.camp.campr.domain.UserComment.class.getName());
-            createCache(cm, com.camp.campr.domain.Genre.class.getName());
-            createCache(cm, com.camp.campr.domain.Genre.class.getName() + ".videos");
-            createCache(cm, com.camp.campr.domain.UserFavorites.class.getName());
-            createCache(cm, com.camp.campr.domain.UserFavorites.class.getName() + ".videos");
-            createCache(cm, com.camp.campr.domain.UserUpload.class.getName());
-            createCache(cm, com.camp.campr.domain.UserUpload.class.getName() + ".videos");
-            createCache(cm, com.camp.campr.domain.WatchHistory.class.getName());
-            createCache(cm, com.camp.campr.domain.WatchHistory.class.getName() + ".videos");
             // jhipster-needle-ehcache-add-entry
         };
     }

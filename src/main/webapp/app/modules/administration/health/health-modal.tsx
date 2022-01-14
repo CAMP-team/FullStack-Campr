@@ -35,7 +35,7 @@ const HealthModal = ({ handleClose, healthObject, showModal }) => {
         </Table>
       </ModalBody>
       <ModalFooter>
-        <Button color="secondary" onClick={handleClose}>
+        <Button color="primary" onClick={handleClose}>
           Close
         </Button>
       </ModalFooter>

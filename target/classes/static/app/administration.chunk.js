@@ -287,7 +287,7 @@ const HealthModal = ({ handleClose, healthObject, showModal }) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, key),
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, healthObject.name === 'diskSpace' ? formatDiskSpaceOutput(data[key]) : JSON.stringify(data[key])))))))),
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__.ModalFooter, null,
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__.Button, { color: "secondary", onClick: handleClose }, "Close"))));
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__.Button, { color: "primary", onClick: handleClose }, "Close"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HealthModal);
 
@@ -859,7 +859,7 @@ const UserManagementUpdate = (props) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
                 "\u00A0",
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { color: "secondary", type: "submit", disabled: isInvalid || updating },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { color: "primary", type: "submit", disabled: isInvalid || updating },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
                     "\u00A0",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
@@ -942,11 +942,11 @@ const UserManagement = (props) => {
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "user-management-page-heading", "data-cy": "userManagementPageHeading" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.home.title" }, "Users"),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { className: "me-2", color: "secondary", onClick: handleSyncList, disabled: loading },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
                     ' ',
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.home.refreshListLabel" }, "Refresh List")),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: `${match.url}/new`, className: "btn btn-secondary jh-create-entity" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
                     " ",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.home.createLabel" }, "Create a new user")))),
@@ -983,8 +983,8 @@ const UserManagement = (props) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}`, color: "link", size: "sm" }, user.id)),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.login),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.email),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.activated ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "secondary", onClick: toggleActive(user) },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.activated" }, "Activated"))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "secondary", onClick: toggleActive(user) },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.activated ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "success", onClick: toggleActive(user) },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.activated" }, "Activated"))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "danger", onClick: toggleActive(user) },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.deactivated" }, "Deactivated")))),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.langKey),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.authorities
@@ -996,17 +996,17 @@ const UserManagement = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, user.lastModifiedDate ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { value: user.lastModifiedDate, type: "date", format: app_config_constants__WEBPACK_IMPORTED_MODULE_3__.APP_DATE_FORMAT, blankOnInvalid: true })) : null),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}`, color: "secondary", size: "sm" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}`, color: "info", size: "sm" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/edit`, color: "secondary", size: "sm" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/edit`, color: "primary", size: "sm" },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/delete`, color: "secondary", size: "sm", disabled: account.login === user.login },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/delete`, color: "danger", size: "sm", disabled: account.login === user.login },
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -1018,6 +1018,76 @@ const UserManagement = (props) => {
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.JhiPagination, { activePage: pagination.activePage, onSelect: handlePagination, maxButtons: 5, itemsPerPage: pagination.itemsPerPage, totalItems: totalItems })))) : ('')));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserManagement);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/util/entity-utils.ts":
+/*!*********************************************************!*\
+  !*** ./src/main/webapp/app/shared/util/entity-utils.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cleanEntity": () => (/* binding */ cleanEntity),
+/* harmony export */   "mapIdList": () => (/* binding */ mapIdList),
+/* harmony export */   "overridePaginationStateWithQueryParams": () => (/* binding */ overridePaginationStateWithQueryParams)
+/* harmony export */ });
+/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/pick */ "./node_modules/lodash/pick.js");
+/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_pick__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Removes fields with an 'id' field that equals ''.
+ * This function was created to prevent entities to be sent to
+ * the server with an empty id and thus resulting in a 500.
+ *
+ * @param entity Object to clean.
+ */
+const cleanEntity = entity => {
+    const keysToKeep = Object.keys(entity).filter(k => !(entity[k] instanceof Object) || (entity[k]['id'] !== '' && entity[k]['id'] !== -1));
+    return lodash_pick__WEBPACK_IMPORTED_MODULE_0___default()(entity, keysToKeep);
+};
+/**
+ * Simply map a list of element to a list a object with the element as id.
+ *
+ * @param idList Elements to map.
+ * @returns The list of objects with mapped ids.
+ */
+const mapIdList = (idList) => idList.filter((id) => id !== '').map((id) => ({ id }));
+const overridePaginationStateWithQueryParams = (paginationBaseState, locationSearch) => {
+    const params = new URLSearchParams(locationSearch);
+    const page = params.get('page');
+    const sort = params.get('sort');
+    if (page && sort) {
+        const sortSplit = sort.split(',');
+        paginationBaseState.activePage = +page;
+        paginationBaseState.sort = sortSplit[0];
+        paginationBaseState.order = sortSplit[1];
+    }
+    return paginationBaseState;
+};
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/util/pagination.constants.ts":
+/*!*****************************************************************!*\
+  !*** ./src/main/webapp/app/shared/util/pagination.constants.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ITEMS_PER_PAGE": () => (/* binding */ ITEMS_PER_PAGE),
+/* harmony export */   "ASC": () => (/* binding */ ASC),
+/* harmony export */   "DESC": () => (/* binding */ DESC),
+/* harmony export */   "SORT": () => (/* binding */ SORT)
+/* harmony export */ });
+const ITEMS_PER_PAGE = 20;
+const ASC = 'asc';
+const DESC = 'desc';
+const SORT = 'sort';
 
 
 /***/ })
