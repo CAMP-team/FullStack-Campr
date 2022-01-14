@@ -1,0 +1,26 @@
+{
+  "camprApp": {
+    "userFavorites": {
+      "home": {
+        "title": "User Favorites",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new User Favorites",
+        "createOrEditLabel": "Create or edit a User Favorites",
+        "notFound": "No User Favorites found"
+      },
+      "created": "A new User Favorites is created with identifier {{ param }}",
+      "updated": "A User Favorites is updated with identifier {{ param }}",
+      "deleted": "A User Favorites is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Favorites {{ id }}?"
+      },
+      "detail": {
+        "title": "User Favorites"
+      },
+      "id": "ID",
+      "dateAdded": "Date Added",
+      "user": "User",
+      "video": "Video"
+    }
+  }
+}

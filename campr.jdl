@@ -44,4 +44,3 @@ relationship ManyToMany {
     UserFavorites{video(title)} to Video{userfavorites}
 }
 
-paginate Video, UserComment, WatchHistory, UserFavorite, UserUpload, Genre with infinite-scroll

@@ -1,0 +1,26 @@
+{
+  "camprApp": {
+    "watchHistory": {
+      "home": {
+        "title": "Watch Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Watch History",
+        "createOrEditLabel": "Create or edit a Watch History",
+        "notFound": "No Watch Histories found"
+      },
+      "created": "A new Watch History is created with identifier {{ param }}",
+      "updated": "A Watch History is updated with identifier {{ param }}",
+      "deleted": "A Watch History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Watch History {{ id }}?"
+      },
+      "detail": {
+        "title": "Watch History"
+      },
+      "id": "ID",
+      "dateWatched": "Date Watched",
+      "user": "User",
+      "video": "Video"
+    }
+  }
+}

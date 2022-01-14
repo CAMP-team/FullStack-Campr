@@ -1455,6 +1455,472 @@ const registerLocale = store => {
 
 /***/ }),
 
+/***/ "./src/main/webapp/app/entities/genre/genre-delete-dialog.tsx":
+/*!********************************************************************!*\
+  !*** ./src/main/webapp/app/entities/genre/genre-delete-dialog.tsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "GenreDeleteDialog": () => (/* binding */ GenreDeleteDialog),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+/* harmony import */ var _genre_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./genre.reducer */ "./src/main/webapp/app/entities/genre/genre.reducer.ts");
+
+
+
+
+
+
+const GenreDeleteDialog = (props) => {
+    const [loadModal, setLoadModal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        setLoadModal(true);
+    }, []);
+    const genreEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.genre.entity);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.genre.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/genre');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess && loadModal) {
+            handleClose();
+            setLoadModal(false);
+        }
+    }, [updateSuccess]);
+    const confirmDelete = () => {
+        dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_4__.deleteEntity)(genreEntity.id));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Modal, { isOpen: true, toggle: handleClose },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalHeader, { toggle: handleClose, "data-cy": "genreDeleteDialogHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.delete.title" }, "Confirm delete operation")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalBody, { id: "camprApp.genre.delete.question" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.delete.question", interpolate: { id: genreEntity.id } }, "Are you sure you want to delete this Genre?")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalFooter, null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "secondary", onClick: handleClose },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "ban" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.cancel" }, "Cancel")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { id: "jhi-confirm-delete-genre", "data-cy": "entityConfirmDeleteButton", color: "danger", onClick: confirmDelete },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GenreDeleteDialog);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/genre/genre-detail.tsx":
+/*!*************************************************************!*\
+  !*** ./src/main/webapp/app/entities/genre/genre-detail.tsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "GenreDetail": () => (/* binding */ GenreDetail),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _genre_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./genre.reducer */ "./src/main/webapp/app/entities/genre/genre.reducer.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+const GenreDetail = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntity)(props.match.params.id));
+    }, []);
+    const genreEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.genre.entity);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Col, { md: "8" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { "data-cy": "genreDetailsHeading" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.detail.title" }, "Genre")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("dl", { className: "jh-entity-details" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "id" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.field.id" }, "ID"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, genreEntity.id),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "apiId" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.apiId" }, "Api Id"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, genreEntity.apiId),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "name" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.name" }, "Name"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, genreEntity.name)),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: "/genre", replace: true, color: "info", "data-cy": "entityDetailsBackButton" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+            "\u00A0",
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `/genre/${genreEntity.id}/edit`, replace: true, color: "primary" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GenreDetail);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/genre/genre-update.tsx":
+/*!*************************************************************!*\
+  !*** ./src/main/webapp/app/entities/genre/genre-update.tsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "GenreUpdate": () => (/* binding */ GenreUpdate),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/entities/video/video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var _genre_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./genre.reducer */ "./src/main/webapp/app/entities/genre/genre.reducer.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const GenreUpdate = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    const [isNew] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(!props.match.params || !props.match.params.id);
+    const videos = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.video.entities);
+    const genreEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.genre.entity);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.genre.loading);
+    const updating = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.genre.updating);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.genre.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/genre');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (isNew) {
+            dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_4__.reset)());
+        }
+        else {
+            dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        }
+        dispatch((0,app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess) {
+            handleClose();
+        }
+    }, [updateSuccess]);
+    const saveEntity = values => {
+        const entity = Object.assign(Object.assign({}, genreEntity), values);
+        if (isNew) {
+            dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_4__.createEntity)(entity));
+        }
+        else {
+            dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_4__.updateEntity)(entity));
+        }
+    };
+    const defaultValues = () => isNew
+        ? {}
+        : Object.assign({}, genreEntity);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Col, { md: "8" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "camprApp.genre.home.createOrEditLabel", "data-cy": "GenreCreateUpdateHeading" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.home.createOrEditLabel" }, "Create or edit a Genre")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Col, { md: "8" }, loading ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Loading...")) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedForm, { defaultValues: defaultValues(), onSubmit: saveEntity },
+                !isNew ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "id", required: true, readOnly: true, id: "genre-id", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.field.id'), validate: { required: true } })) : null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.genre.apiId'), id: "genre-apiId", name: "apiId", "data-cy": "apiId", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.genre.name'), id: "genre-name", name: "name", "data-cy": "name", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/genre", replace: true, color: "info" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GenreUpdate);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/genre/genre.reducer.ts":
+/*!*************************************************************!*\
+  !*** ./src/main/webapp/app/entities/genre/genre.reducer.ts ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getEntities": () => (/* binding */ getEntities),
+/* harmony export */   "getEntity": () => (/* binding */ getEntity),
+/* harmony export */   "createEntity": () => (/* binding */ createEntity),
+/* harmony export */   "updateEntity": () => (/* binding */ updateEntity),
+/* harmony export */   "partialUpdateEntity": () => (/* binding */ partialUpdateEntity),
+/* harmony export */   "deleteEntity": () => (/* binding */ deleteEntity),
+/* harmony export */   "GenreSlice": () => (/* binding */ GenreSlice),
+/* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared/reducers/reducer.utils */ "./src/main/webapp/app/shared/reducers/reducer.utils.ts");
+/* harmony import */ var app_shared_model_genre_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/shared/model/genre.model */ "./src/main/webapp/app/shared/model/genre.model.ts");
+
+
+
+
+
+
+const initialState = {
+    loading: false,
+    errorMessage: null,
+    entities: [],
+    entity: app_shared_model_genre_model__WEBPACK_IMPORTED_MODULE_3__.defaultValue,
+    updating: false,
+    updateSuccess: false,
+};
+const apiUrl = 'api/genres';
+// Actions
+const getEntities = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('genre/fetch_entity_list', ({ page, size, sort }) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}?cacheBuster=${new Date().getTime()}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}));
+const getEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('genre/fetch_entity', (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const createEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('genre/create_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().post(apiUrl, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const updateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('genre/update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().put(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const partialUpdateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('genre/partial_update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().patch(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const deleteEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('genre/delete_entity', (id, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](requestUrl);
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+// slice
+const GenreSlice = (0,app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.createEntitySlice)({
+    name: 'genre',
+    initialState,
+    extraReducers(builder) {
+        builder
+            .addCase(getEntity.fulfilled, (state, action) => {
+            state.loading = false;
+            state.entity = action.payload.data;
+        })
+            .addCase(deleteEntity.fulfilled, state => {
+            state.updating = false;
+            state.updateSuccess = true;
+            state.entity = {};
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(getEntities), (state, action) => {
+            const { data } = action.payload;
+            return Object.assign(Object.assign({}, state), { loading: false, entities: data });
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(createEntity, updateEntity, partialUpdateEntity), (state, action) => {
+            state.updating = false;
+            state.loading = false;
+            state.updateSuccess = true;
+            state.entity = action.payload.data;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(getEntities, getEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.loading = true;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(createEntity, updateEntity, partialUpdateEntity, deleteEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.updating = true;
+        });
+    },
+});
+const { reset } = GenreSlice.actions;
+// Reducer
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GenreSlice.reducer);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/genre/genre.tsx":
+/*!******************************************************!*\
+  !*** ./src/main/webapp/app/entities/genre/genre.tsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Genre": () => (/* binding */ Genre),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _genre_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./genre.reducer */ "./src/main/webapp/app/entities/genre/genre.reducer.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+const Genre = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
+    const genreList = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.genre.entities);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.genre.loading);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    }, []);
+    const handleSyncList = () => {
+        dispatch((0,_genre_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    };
+    const { match } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "genre-heading", "data-cy": "GenreHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.home.title" }, "Genres"),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
+                    ' ',
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.home.refreshListLabel" }, "Refresh List")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.home.createLabel" }, "Create new Genre")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "table-responsive" }, genreList && genreList.length > 0 ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Table, { responsive: true },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.id" }, "ID")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.apiId" }, "Api Id")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.name" }, "Name")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null))),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, genreList.map((genre, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { key: `entity-${i}`, "data-cy": "entityTable" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}`, color: "link", size: "sm" }, genre.id)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, genre.apiId),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, genre.name),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${genre.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.genre.home.notFound" }, "No Genres found")))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Genre);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/genre/index.tsx":
+/*!******************************************************!*\
+  !*** ./src/main/webapp/app/entities/genre/index.tsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/error/error-boundary-route */ "./src/main/webapp/app/shared/error/error-boundary-route.tsx");
+/* harmony import */ var _genre__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./genre */ "./src/main/webapp/app/entities/genre/genre.tsx");
+/* harmony import */ var _genre_detail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./genre-detail */ "./src/main/webapp/app/entities/genre/genre-detail.tsx");
+/* harmony import */ var _genre_update__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./genre-update */ "./src/main/webapp/app/entities/genre/genre-update.tsx");
+/* harmony import */ var _genre_delete_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./genre-delete-dialog */ "./src/main/webapp/app/entities/genre/genre-delete-dialog.tsx");
+
+
+
+
+
+
+
+const Routes = ({ match }) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/new`, component: _genre_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/edit`, component: _genre_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id`, component: _genre_detail__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: match.url, component: _genre__WEBPACK_IMPORTED_MODULE_2__["default"] })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/delete`, component: _genre_delete_dialog__WEBPACK_IMPORTED_MODULE_5__["default"] })));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Routes);
+
+
+/***/ }),
+
 /***/ "./src/main/webapp/app/entities/index.tsx":
 /*!************************************************!*\
   !*** ./src/main/webapp/app/entities/index.tsx ***!
@@ -1467,13 +1933,2568 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/error/error-boundary-route */ "./src/main/webapp/app/shared/error/error-boundary-route.tsx");
+/* harmony import */ var _video__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./video */ "./src/main/webapp/app/entities/video/index.tsx");
+/* harmony import */ var _user_comment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-comment */ "./src/main/webapp/app/entities/user-comment/index.tsx");
+/* harmony import */ var _genre__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./genre */ "./src/main/webapp/app/entities/genre/index.tsx");
+/* harmony import */ var _user_favorites__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-favorites */ "./src/main/webapp/app/entities/user-favorites/index.tsx");
+/* harmony import */ var _user_upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-upload */ "./src/main/webapp/app/entities/user-upload/index.tsx");
+/* harmony import */ var _watch_history__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./watch-history */ "./src/main/webapp/app/entities/watch-history/index.tsx");
+
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+
+
+
+
 
 
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 const Routes = ({ match }) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Switch, null)));
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: `${match.url}video`, component: _video__WEBPACK_IMPORTED_MODULE_2__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: `${match.url}user-comment`, component: _user_comment__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: `${match.url}genre`, component: _genre__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: `${match.url}user-favorites`, component: _user_favorites__WEBPACK_IMPORTED_MODULE_5__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: `${match.url}user-upload`, component: _user_upload__WEBPACK_IMPORTED_MODULE_6__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: `${match.url}watch-history`, component: _watch_history__WEBPACK_IMPORTED_MODULE_7__["default"] }))));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Routes);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-comment/index.tsx":
+/*!*************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-comment/index.tsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/error/error-boundary-route */ "./src/main/webapp/app/shared/error/error-boundary-route.tsx");
+/* harmony import */ var _user_comment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user-comment */ "./src/main/webapp/app/entities/user-comment/user-comment.tsx");
+/* harmony import */ var _user_comment_detail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-comment-detail */ "./src/main/webapp/app/entities/user-comment/user-comment-detail.tsx");
+/* harmony import */ var _user_comment_update__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-comment-update */ "./src/main/webapp/app/entities/user-comment/user-comment-update.tsx");
+/* harmony import */ var _user_comment_delete_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-comment-delete-dialog */ "./src/main/webapp/app/entities/user-comment/user-comment-delete-dialog.tsx");
+
+
+
+
+
+
+
+const Routes = ({ match }) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/new`, component: _user_comment_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/edit`, component: _user_comment_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id`, component: _user_comment_detail__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: match.url, component: _user_comment__WEBPACK_IMPORTED_MODULE_2__["default"] })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/delete`, component: _user_comment_delete_dialog__WEBPACK_IMPORTED_MODULE_5__["default"] })));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Routes);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-comment/user-comment-delete-dialog.tsx":
+/*!**********************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-comment/user-comment-delete-dialog.tsx ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserCommentDeleteDialog": () => (/* binding */ UserCommentDeleteDialog),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+/* harmony import */ var _user_comment_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-comment.reducer */ "./src/main/webapp/app/entities/user-comment/user-comment.reducer.ts");
+
+
+
+
+
+
+const UserCommentDeleteDialog = (props) => {
+    const [loadModal, setLoadModal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        setLoadModal(true);
+    }, []);
+    const userCommentEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.userComment.entity);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.userComment.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/user-comment');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess && loadModal) {
+            handleClose();
+            setLoadModal(false);
+        }
+    }, [updateSuccess]);
+    const confirmDelete = () => {
+        dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_4__.deleteEntity)(userCommentEntity.id));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Modal, { isOpen: true, toggle: handleClose },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalHeader, { toggle: handleClose, "data-cy": "userCommentDeleteDialogHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.delete.title" }, "Confirm delete operation")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalBody, { id: "camprApp.userComment.delete.question" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.delete.question", interpolate: { id: userCommentEntity.id } }, "Are you sure you want to delete this UserComment?")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalFooter, null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "secondary", onClick: handleClose },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "ban" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.cancel" }, "Cancel")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { id: "jhi-confirm-delete-userComment", "data-cy": "entityConfirmDeleteButton", color: "danger", onClick: confirmDelete },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserCommentDeleteDialog);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-comment/user-comment-detail.tsx":
+/*!***************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-comment/user-comment-detail.tsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserCommentDetail": () => (/* binding */ UserCommentDetail),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _user_comment_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-comment.reducer */ "./src/main/webapp/app/entities/user-comment/user-comment.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const UserCommentDetail = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntity)(props.match.params.id));
+    }, []);
+    const userCommentEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userComment.entity);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Col, { md: "8" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { "data-cy": "userCommentDetailsHeading" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.detail.title" }, "UserComment")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("dl", { className: "jh-entity-details" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "id" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.field.id" }, "ID"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userCommentEntity.id),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "commentBody" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.commentBody" }, "Comment Body"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userCommentEntity.commentBody),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "commentDate" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.commentDate" }, "Comment Date"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userCommentEntity.commentDate ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { value: userCommentEntity.commentDate, type: "date", format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT })) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.user" }, "User")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userCommentEntity.user ? userCommentEntity.user.login : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.video" }, "Video")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userCommentEntity.video ? userCommentEntity.video.id : '')),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: "/user-comment", replace: true, color: "info", "data-cy": "entityDetailsBackButton" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+            "\u00A0",
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/user-comment/${userCommentEntity.id}/edit`, replace: true, color: "primary" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserCommentDetail);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-comment/user-comment-update.tsx":
+/*!***************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-comment/user-comment-update.tsx ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserCommentUpdate": () => (/* binding */ UserCommentUpdate),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/modules/administration/user-management/user-management.reducer */ "./src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts");
+/* harmony import */ var app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/entities/video/video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var _user_comment_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-comment.reducer */ "./src/main/webapp/app/entities/user-comment/user-comment.reducer.ts");
+/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+
+
+const UserCommentUpdate = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_7__.useAppDispatch)();
+    const [isNew] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(!props.match.params || !props.match.params.id);
+    const users = (0,app_config_store__WEBPACK_IMPORTED_MODULE_7__.useAppSelector)(state => state.userManagement.users);
+    const videos = (0,app_config_store__WEBPACK_IMPORTED_MODULE_7__.useAppSelector)(state => state.video.entities);
+    const userCommentEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_7__.useAppSelector)(state => state.userComment.entity);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_7__.useAppSelector)(state => state.userComment.loading);
+    const updating = (0,app_config_store__WEBPACK_IMPORTED_MODULE_7__.useAppSelector)(state => state.userComment.updating);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_7__.useAppSelector)(state => state.userComment.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/user-comment');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (isNew) {
+            dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_5__.reset)());
+        }
+        else {
+            dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_5__.getEntity)(props.match.params.id));
+        }
+        dispatch((0,app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__.getUsers)({}));
+        dispatch((0,app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntities)({}));
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess) {
+            handleClose();
+        }
+    }, [updateSuccess]);
+    const saveEntity = values => {
+        values.commentDate = (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.convertDateTimeToServer)(values.commentDate);
+        const entity = Object.assign(Object.assign(Object.assign({}, userCommentEntity), values), { user: users.find(it => it.id.toString() === values.user.toString()), video: videos.find(it => it.id.toString() === values.video.toString()) });
+        if (isNew) {
+            dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
+        }
+        else {
+            dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_5__.updateEntity)(entity));
+        }
+    };
+    const defaultValues = () => {
+        var _a, _b;
+        return isNew
+            ? {
+                commentDate: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayDefaultDateTime)(),
+            }
+            : Object.assign(Object.assign({}, userCommentEntity), { commentDate: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.convertDateTimeFromServer)(userCommentEntity.commentDate), user: (_a = userCommentEntity === null || userCommentEntity === void 0 ? void 0 : userCommentEntity.user) === null || _a === void 0 ? void 0 : _a.id, video: (_b = userCommentEntity === null || userCommentEntity === void 0 ? void 0 : userCommentEntity.video) === null || _b === void 0 ? void 0 : _b.id });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "8" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "camprApp.userComment.home.createOrEditLabel", "data-cy": "UserCommentCreateUpdateHeading" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.createOrEditLabel" }, "Create or edit a UserComment")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "8" }, loading ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Loading...")) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedForm, { defaultValues: defaultValues(), onSubmit: saveEntity },
+                !isNew ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "id", required: true, readOnly: true, id: "user-comment-id", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.field.id'), validate: { required: true } })) : null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userComment.commentBody'), id: "user-comment-commentBody", name: "commentBody", "data-cy": "commentBody", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userComment.commentDate'), id: "user-comment-commentDate", name: "commentDate", "data-cy": "commentDate", type: "datetime-local", placeholder: "YYYY-MM-DD HH:mm" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { id: "user-comment-user", name: "user", "data-cy": "user", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userComment.user'), type: "select" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    users
+                        ? users.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.login)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { id: "user-comment-video", name: "video", "data-cy": "video", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userComment.video'), type: "select" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    videos
+                        ? videos.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.id)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/user-comment", replace: true, color: "info" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserCommentUpdate);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-comment/user-comment.reducer.ts":
+/*!***************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-comment/user-comment.reducer.ts ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getEntities": () => (/* binding */ getEntities),
+/* harmony export */   "getEntity": () => (/* binding */ getEntity),
+/* harmony export */   "createEntity": () => (/* binding */ createEntity),
+/* harmony export */   "updateEntity": () => (/* binding */ updateEntity),
+/* harmony export */   "partialUpdateEntity": () => (/* binding */ partialUpdateEntity),
+/* harmony export */   "deleteEntity": () => (/* binding */ deleteEntity),
+/* harmony export */   "UserCommentSlice": () => (/* binding */ UserCommentSlice),
+/* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared/reducers/reducer.utils */ "./src/main/webapp/app/shared/reducers/reducer.utils.ts");
+/* harmony import */ var app_shared_model_user_comment_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/shared/model/user-comment.model */ "./src/main/webapp/app/shared/model/user-comment.model.ts");
+
+
+
+
+
+
+const initialState = {
+    loading: false,
+    errorMessage: null,
+    entities: [],
+    entity: app_shared_model_user_comment_model__WEBPACK_IMPORTED_MODULE_3__.defaultValue,
+    updating: false,
+    updateSuccess: false,
+};
+const apiUrl = 'api/user-comments';
+// Actions
+const getEntities = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userComment/fetch_entity_list', ({ page, size, sort }) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}?cacheBuster=${new Date().getTime()}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}));
+const getEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userComment/fetch_entity', (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const createEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userComment/create_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().post(apiUrl, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const updateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userComment/update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().put(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const partialUpdateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userComment/partial_update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().patch(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const deleteEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userComment/delete_entity', (id, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](requestUrl);
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+// slice
+const UserCommentSlice = (0,app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.createEntitySlice)({
+    name: 'userComment',
+    initialState,
+    extraReducers(builder) {
+        builder
+            .addCase(getEntity.fulfilled, (state, action) => {
+            state.loading = false;
+            state.entity = action.payload.data;
+        })
+            .addCase(deleteEntity.fulfilled, state => {
+            state.updating = false;
+            state.updateSuccess = true;
+            state.entity = {};
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(getEntities), (state, action) => {
+            const { data } = action.payload;
+            return Object.assign(Object.assign({}, state), { loading: false, entities: data });
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(createEntity, updateEntity, partialUpdateEntity), (state, action) => {
+            state.updating = false;
+            state.loading = false;
+            state.updateSuccess = true;
+            state.entity = action.payload.data;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(getEntities, getEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.loading = true;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(createEntity, updateEntity, partialUpdateEntity, deleteEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.updating = true;
+        });
+    },
+});
+const { reset } = UserCommentSlice.actions;
+// Reducer
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserCommentSlice.reducer);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-comment/user-comment.tsx":
+/*!********************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-comment/user-comment.tsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserComment": () => (/* binding */ UserComment),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _user_comment_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-comment.reducer */ "./src/main/webapp/app/entities/user-comment/user-comment.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const UserComment = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    const userCommentList = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userComment.entities);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userComment.loading);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    }, []);
+    const handleSyncList = () => {
+        dispatch((0,_user_comment_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    };
+    const { match } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "user-comment-heading", "data-cy": "UserCommentHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.title" }, "User Comments"),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
+                    ' ',
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.refreshListLabel" }, "Refresh List")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.createLabel" }, "Create new User Comment")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "table-responsive" }, userCommentList && userCommentList.length > 0 ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Table, { responsive: true },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.id" }, "ID")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.commentBody" }, "Comment Body")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.commentDate" }, "Comment Date")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.user" }, "User")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.video" }, "Video")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null))),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, userCommentList.map((userComment, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { key: `entity-${i}`, "data-cy": "entityTable" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}`, color: "link", size: "sm" }, userComment.id)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userComment.commentBody),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userComment.commentDate ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { type: "date", value: userComment.commentDate, format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT }) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userComment.user ? userComment.user.login : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userComment.video ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `video/${userComment.video.id}` }, userComment.video.id) : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userComment.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userComment.home.notFound" }, "No User Comments found")))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserComment);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-favorites/index.tsx":
+/*!***************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-favorites/index.tsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/error/error-boundary-route */ "./src/main/webapp/app/shared/error/error-boundary-route.tsx");
+/* harmony import */ var _user_favorites__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user-favorites */ "./src/main/webapp/app/entities/user-favorites/user-favorites.tsx");
+/* harmony import */ var _user_favorites_detail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-favorites-detail */ "./src/main/webapp/app/entities/user-favorites/user-favorites-detail.tsx");
+/* harmony import */ var _user_favorites_update__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-favorites-update */ "./src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx");
+/* harmony import */ var _user_favorites_delete_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-favorites-delete-dialog */ "./src/main/webapp/app/entities/user-favorites/user-favorites-delete-dialog.tsx");
+
+
+
+
+
+
+
+const Routes = ({ match }) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/new`, component: _user_favorites_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/edit`, component: _user_favorites_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id`, component: _user_favorites_detail__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: match.url, component: _user_favorites__WEBPACK_IMPORTED_MODULE_2__["default"] })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/delete`, component: _user_favorites_delete_dialog__WEBPACK_IMPORTED_MODULE_5__["default"] })));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Routes);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-favorites/user-favorites-delete-dialog.tsx":
+/*!**************************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-favorites/user-favorites-delete-dialog.tsx ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserFavoritesDeleteDialog": () => (/* binding */ UserFavoritesDeleteDialog),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+/* harmony import */ var _user_favorites_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+
+
+
+
+
+
+const UserFavoritesDeleteDialog = (props) => {
+    const [loadModal, setLoadModal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        setLoadModal(true);
+    }, []);
+    const userFavoritesEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.userFavorites.entity);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.userFavorites.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/user-favorites');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess && loadModal) {
+            handleClose();
+            setLoadModal(false);
+        }
+    }, [updateSuccess]);
+    const confirmDelete = () => {
+        dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_4__.deleteEntity)(userFavoritesEntity.id));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Modal, { isOpen: true, toggle: handleClose },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalHeader, { toggle: handleClose, "data-cy": "userFavoritesDeleteDialogHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.delete.title" }, "Confirm delete operation")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalBody, { id: "camprApp.userFavorites.delete.question" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.delete.question", interpolate: { id: userFavoritesEntity.id } }, "Are you sure you want to delete this UserFavorites?")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalFooter, null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "secondary", onClick: handleClose },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "ban" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.cancel" }, "Cancel")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { id: "jhi-confirm-delete-userFavorites", "data-cy": "entityConfirmDeleteButton", color: "danger", onClick: confirmDelete },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserFavoritesDeleteDialog);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-favorites/user-favorites-detail.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-favorites/user-favorites-detail.tsx ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserFavoritesDetail": () => (/* binding */ UserFavoritesDetail),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _user_favorites_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const UserFavoritesDetail = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntity)(props.match.params.id));
+    }, []);
+    const userFavoritesEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userFavorites.entity);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Col, { md: "8" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { "data-cy": "userFavoritesDetailsHeading" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.detail.title" }, "UserFavorites")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("dl", { className: "jh-entity-details" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "id" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.field.id" }, "ID"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userFavoritesEntity.id),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "dateAdded" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.dateAdded" }, "Date Added"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userFavoritesEntity.dateAdded ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { value: userFavoritesEntity.dateAdded, type: "date", format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT })) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.user" }, "User")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userFavoritesEntity.user ? userFavoritesEntity.user.login : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.video" }, "Video")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userFavoritesEntity.videos
+                    ? userFavoritesEntity.videos.map((val, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { key: val.id },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, val.title),
+                        userFavoritesEntity.videos && i === userFavoritesEntity.videos.length - 1 ? '' : ', ')))
+                    : null)),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: "/user-favorites", replace: true, color: "info", "data-cy": "entityDetailsBackButton" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+            "\u00A0",
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/user-favorites/${userFavoritesEntity.id}/edit`, replace: true, color: "primary" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserFavoritesDetail);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserFavoritesUpdate": () => (/* binding */ UserFavoritesUpdate),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/modules/administration/user-management/user-management.reducer */ "./src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts");
+/* harmony import */ var app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/entities/video/video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var _user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+
+
+
+const UserFavoritesUpdate = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppDispatch)();
+    const [isNew] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(!props.match.params || !props.match.params.id);
+    const users = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userManagement.users);
+    const videos = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.video.entities);
+    const userFavoritesEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.entity);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.loading);
+    const updating = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.updating);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/user-favorites');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (isNew) {
+            dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.reset)());
+        }
+        else {
+            dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.getEntity)(props.match.params.id));
+        }
+        dispatch((0,app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__.getUsers)({}));
+        dispatch((0,app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntities)({}));
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess) {
+            handleClose();
+        }
+    }, [updateSuccess]);
+    const saveEntity = values => {
+        values.dateAdded = (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.convertDateTimeToServer)(values.dateAdded);
+        const entity = Object.assign(Object.assign(Object.assign({}, userFavoritesEntity), values), { videos: (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_7__.mapIdList)(values.videos), user: users.find(it => it.id.toString() === values.user.toString()) });
+        if (isNew) {
+            dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
+        }
+        else {
+            dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.updateEntity)(entity));
+        }
+    };
+    const defaultValues = () => {
+        var _a, _b;
+        return isNew
+            ? {
+                dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayDefaultDateTime)(),
+            }
+            : Object.assign(Object.assign({}, userFavoritesEntity), { dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.convertDateTimeFromServer)(userFavoritesEntity.dateAdded), user: (_a = userFavoritesEntity === null || userFavoritesEntity === void 0 ? void 0 : userFavoritesEntity.user) === null || _a === void 0 ? void 0 : _a.id, videos: (_b = userFavoritesEntity === null || userFavoritesEntity === void 0 ? void 0 : userFavoritesEntity.videos) === null || _b === void 0 ? void 0 : _b.map(e => e.id.toString()) });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "8" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "camprApp.userFavorites.home.createOrEditLabel", "data-cy": "UserFavoritesCreateUpdateHeading" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.home.createOrEditLabel" }, "Create or edit a UserFavorites")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "8" }, loading ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Loading...")) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedForm, { defaultValues: defaultValues(), onSubmit: saveEntity },
+                !isNew ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "id", required: true, readOnly: true, id: "user-favorites-id", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.field.id'), validate: { required: true } })) : null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userFavorites.dateAdded'), id: "user-favorites-dateAdded", name: "dateAdded", "data-cy": "dateAdded", type: "datetime-local", placeholder: "YYYY-MM-DD HH:mm" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { id: "user-favorites-user", name: "user", "data-cy": "user", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userFavorites.user'), type: "select" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    users
+                        ? users.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.login)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userFavorites.video'), id: "user-favorites-video", "data-cy": "video", type: "select", multiple: true, name: "videos" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    videos
+                        ? videos.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.title)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/user-favorites", replace: true, color: "info" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserFavoritesUpdate);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getEntities": () => (/* binding */ getEntities),
+/* harmony export */   "getEntity": () => (/* binding */ getEntity),
+/* harmony export */   "createEntity": () => (/* binding */ createEntity),
+/* harmony export */   "updateEntity": () => (/* binding */ updateEntity),
+/* harmony export */   "partialUpdateEntity": () => (/* binding */ partialUpdateEntity),
+/* harmony export */   "deleteEntity": () => (/* binding */ deleteEntity),
+/* harmony export */   "UserFavoritesSlice": () => (/* binding */ UserFavoritesSlice),
+/* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared/reducers/reducer.utils */ "./src/main/webapp/app/shared/reducers/reducer.utils.ts");
+/* harmony import */ var app_shared_model_user_favorites_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/shared/model/user-favorites.model */ "./src/main/webapp/app/shared/model/user-favorites.model.ts");
+
+
+
+
+
+
+const initialState = {
+    loading: false,
+    errorMessage: null,
+    entities: [],
+    entity: app_shared_model_user_favorites_model__WEBPACK_IMPORTED_MODULE_3__.defaultValue,
+    updating: false,
+    updateSuccess: false,
+};
+const apiUrl = 'api/user-favorites';
+// Actions
+const getEntities = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userFavorites/fetch_entity_list', ({ page, size, sort }) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}?cacheBuster=${new Date().getTime()}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}));
+const getEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userFavorites/fetch_entity', (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const createEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userFavorites/create_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().post(apiUrl, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const updateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userFavorites/update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().put(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const partialUpdateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userFavorites/partial_update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().patch(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const deleteEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userFavorites/delete_entity', (id, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](requestUrl);
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+// slice
+const UserFavoritesSlice = (0,app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.createEntitySlice)({
+    name: 'userFavorites',
+    initialState,
+    extraReducers(builder) {
+        builder
+            .addCase(getEntity.fulfilled, (state, action) => {
+            state.loading = false;
+            state.entity = action.payload.data;
+        })
+            .addCase(deleteEntity.fulfilled, state => {
+            state.updating = false;
+            state.updateSuccess = true;
+            state.entity = {};
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(getEntities), (state, action) => {
+            const { data } = action.payload;
+            return Object.assign(Object.assign({}, state), { loading: false, entities: data });
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(createEntity, updateEntity, partialUpdateEntity), (state, action) => {
+            state.updating = false;
+            state.loading = false;
+            state.updateSuccess = true;
+            state.entity = action.payload.data;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(getEntities, getEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.loading = true;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(createEntity, updateEntity, partialUpdateEntity, deleteEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.updating = true;
+        });
+    },
+});
+const { reset } = UserFavoritesSlice.actions;
+// Reducer
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserFavoritesSlice.reducer);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-favorites/user-favorites.tsx":
+/*!************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-favorites/user-favorites.tsx ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserFavorites": () => (/* binding */ UserFavorites),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _user_favorites_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const UserFavorites = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    const userFavoritesList = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userFavorites.entities);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userFavorites.loading);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    }, []);
+    const handleSyncList = () => {
+        dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    };
+    const { match } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "user-favorites-heading", "data-cy": "UserFavoritesHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.home.title" }, "User Favorites"),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
+                    ' ',
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.home.refreshListLabel" }, "Refresh List")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.home.createLabel" }, "Create new User Favorites")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "table-responsive" }, userFavoritesList && userFavoritesList.length > 0 ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Table, { responsive: true },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.id" }, "ID")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.dateAdded" }, "Date Added")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.user" }, "User")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.video" }, "Video")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null))),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, userFavoritesList.map((userFavorites, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { key: `entity-${i}`, "data-cy": "entityTable" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userFavorites.id}`, color: "link", size: "sm" }, userFavorites.id)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userFavorites.dateAdded ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { type: "date", value: userFavorites.dateAdded, format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT }) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userFavorites.user ? userFavorites.user.login : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userFavorites.videos
+                    ? userFavorites.videos.map((val, j) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { key: j },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `video/${val.id}` }, val.title),
+                        j === userFavorites.videos.length - 1 ? '' : ', ')))
+                    : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userFavorites.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userFavorites.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userFavorites.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userFavorites.home.notFound" }, "No User Favorites found")))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserFavorites);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-upload/index.tsx":
+/*!************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-upload/index.tsx ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/error/error-boundary-route */ "./src/main/webapp/app/shared/error/error-boundary-route.tsx");
+/* harmony import */ var _user_upload__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user-upload */ "./src/main/webapp/app/entities/user-upload/user-upload.tsx");
+/* harmony import */ var _user_upload_detail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-upload-detail */ "./src/main/webapp/app/entities/user-upload/user-upload-detail.tsx");
+/* harmony import */ var _user_upload_update__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-upload-update */ "./src/main/webapp/app/entities/user-upload/user-upload-update.tsx");
+/* harmony import */ var _user_upload_delete_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-upload-delete-dialog */ "./src/main/webapp/app/entities/user-upload/user-upload-delete-dialog.tsx");
+
+
+
+
+
+
+
+const Routes = ({ match }) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/new`, component: _user_upload_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/edit`, component: _user_upload_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id`, component: _user_upload_detail__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: match.url, component: _user_upload__WEBPACK_IMPORTED_MODULE_2__["default"] })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/delete`, component: _user_upload_delete_dialog__WEBPACK_IMPORTED_MODULE_5__["default"] })));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Routes);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-upload/user-upload-delete-dialog.tsx":
+/*!********************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-upload/user-upload-delete-dialog.tsx ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserUploadDeleteDialog": () => (/* binding */ UserUploadDeleteDialog),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+/* harmony import */ var _user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-upload.reducer */ "./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts");
+
+
+
+
+
+
+const UserUploadDeleteDialog = (props) => {
+    const [loadModal, setLoadModal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        setLoadModal(true);
+    }, []);
+    const userUploadEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.userUpload.entity);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.userUpload.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/user-upload');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess && loadModal) {
+            handleClose();
+            setLoadModal(false);
+        }
+    }, [updateSuccess]);
+    const confirmDelete = () => {
+        dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__.deleteEntity)(userUploadEntity.id));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Modal, { isOpen: true, toggle: handleClose },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalHeader, { toggle: handleClose, "data-cy": "userUploadDeleteDialogHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.delete.title" }, "Confirm delete operation")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalBody, { id: "camprApp.userUpload.delete.question" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.delete.question", interpolate: { id: userUploadEntity.id } }, "Are you sure you want to delete this UserUpload?")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalFooter, null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "secondary", onClick: handleClose },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "ban" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.cancel" }, "Cancel")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { id: "jhi-confirm-delete-userUpload", "data-cy": "entityConfirmDeleteButton", color: "danger", onClick: confirmDelete },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserUploadDeleteDialog);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-upload/user-upload-detail.tsx":
+/*!*************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-upload/user-upload-detail.tsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserUploadDetail": () => (/* binding */ UserUploadDetail),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _user_upload_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-upload.reducer */ "./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const UserUploadDetail = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntity)(props.match.params.id));
+    }, []);
+    const userUploadEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userUpload.entity);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Col, { md: "8" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { "data-cy": "userUploadDetailsHeading" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.detail.title" }, "UserUpload")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("dl", { className: "jh-entity-details" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "id" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.field.id" }, "ID"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userUploadEntity.id),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "dateUploaded" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.dateUploaded" }, "Date Uploaded"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userUploadEntity.dateUploaded ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { value: userUploadEntity.dateUploaded, type: "date", format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT })) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.user" }, "User")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, userUploadEntity.user ? userUploadEntity.user.login : '')),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: "/user-upload", replace: true, color: "info", "data-cy": "entityDetailsBackButton" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+            "\u00A0",
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/user-upload/${userUploadEntity.id}/edit`, replace: true, color: "primary" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserUploadDetail);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-upload/user-upload-update.tsx":
+/*!*************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-upload/user-upload-update.tsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserUploadUpdate": () => (/* binding */ UserUploadUpdate),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/modules/administration/user-management/user-management.reducer */ "./src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts");
+/* harmony import */ var _user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./user-upload.reducer */ "./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts");
+/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+
+const UserUploadUpdate = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_6__.useAppDispatch)();
+    const [isNew] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(!props.match.params || !props.match.params.id);
+    const users = (0,app_config_store__WEBPACK_IMPORTED_MODULE_6__.useAppSelector)(state => state.userManagement.users);
+    const userUploadEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_6__.useAppSelector)(state => state.userUpload.entity);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_6__.useAppSelector)(state => state.userUpload.loading);
+    const updating = (0,app_config_store__WEBPACK_IMPORTED_MODULE_6__.useAppSelector)(state => state.userUpload.updating);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_6__.useAppSelector)(state => state.userUpload.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/user-upload');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (isNew) {
+            dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__.reset)());
+        }
+        else {
+            dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        }
+        dispatch((0,app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__.getUsers)({}));
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess) {
+            handleClose();
+        }
+    }, [updateSuccess]);
+    const saveEntity = values => {
+        values.dateUploaded = (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_5__.convertDateTimeToServer)(values.dateUploaded);
+        const entity = Object.assign(Object.assign(Object.assign({}, userUploadEntity), values), { user: users.find(it => it.id.toString() === values.user.toString()) });
+        if (isNew) {
+            dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__.createEntity)(entity));
+        }
+        else {
+            dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_4__.updateEntity)(entity));
+        }
+    };
+    const defaultValues = () => {
+        var _a;
+        return isNew
+            ? {
+                dateUploaded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_5__.displayDefaultDateTime)(),
+            }
+            : Object.assign(Object.assign({}, userUploadEntity), { dateUploaded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_5__.convertDateTimeFromServer)(userUploadEntity.dateUploaded), user: (_a = userUploadEntity === null || userUploadEntity === void 0 ? void 0 : userUploadEntity.user) === null || _a === void 0 ? void 0 : _a.id });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "8" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "camprApp.userUpload.home.createOrEditLabel", "data-cy": "UserUploadCreateUpdateHeading" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.home.createOrEditLabel" }, "Create or edit a UserUpload")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "8" }, loading ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Loading...")) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedForm, { defaultValues: defaultValues(), onSubmit: saveEntity },
+                !isNew ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "id", required: true, readOnly: true, id: "user-upload-id", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.field.id'), validate: { required: true } })) : null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userUpload.dateUploaded'), id: "user-upload-dateUploaded", name: "dateUploaded", "data-cy": "dateUploaded", type: "datetime-local", placeholder: "YYYY-MM-DD HH:mm" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { id: "user-upload-user", name: "user", "data-cy": "user", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.userUpload.user'), type: "select" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    users
+                        ? users.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.login)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/user-upload", replace: true, color: "info" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserUploadUpdate);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts":
+/*!*************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getEntities": () => (/* binding */ getEntities),
+/* harmony export */   "getEntity": () => (/* binding */ getEntity),
+/* harmony export */   "createEntity": () => (/* binding */ createEntity),
+/* harmony export */   "updateEntity": () => (/* binding */ updateEntity),
+/* harmony export */   "partialUpdateEntity": () => (/* binding */ partialUpdateEntity),
+/* harmony export */   "deleteEntity": () => (/* binding */ deleteEntity),
+/* harmony export */   "UserUploadSlice": () => (/* binding */ UserUploadSlice),
+/* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared/reducers/reducer.utils */ "./src/main/webapp/app/shared/reducers/reducer.utils.ts");
+/* harmony import */ var app_shared_model_user_upload_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/shared/model/user-upload.model */ "./src/main/webapp/app/shared/model/user-upload.model.ts");
+
+
+
+
+
+
+const initialState = {
+    loading: false,
+    errorMessage: null,
+    entities: [],
+    entity: app_shared_model_user_upload_model__WEBPACK_IMPORTED_MODULE_3__.defaultValue,
+    updating: false,
+    updateSuccess: false,
+};
+const apiUrl = 'api/user-uploads';
+// Actions
+const getEntities = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userUpload/fetch_entity_list', ({ page, size, sort }) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}?cacheBuster=${new Date().getTime()}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}));
+const getEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userUpload/fetch_entity', (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const createEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userUpload/create_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().post(apiUrl, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const updateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userUpload/update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().put(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const partialUpdateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userUpload/partial_update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().patch(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const deleteEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('userUpload/delete_entity', (id, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](requestUrl);
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+// slice
+const UserUploadSlice = (0,app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.createEntitySlice)({
+    name: 'userUpload',
+    initialState,
+    extraReducers(builder) {
+        builder
+            .addCase(getEntity.fulfilled, (state, action) => {
+            state.loading = false;
+            state.entity = action.payload.data;
+        })
+            .addCase(deleteEntity.fulfilled, state => {
+            state.updating = false;
+            state.updateSuccess = true;
+            state.entity = {};
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(getEntities), (state, action) => {
+            const { data } = action.payload;
+            return Object.assign(Object.assign({}, state), { loading: false, entities: data });
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(createEntity, updateEntity, partialUpdateEntity), (state, action) => {
+            state.updating = false;
+            state.loading = false;
+            state.updateSuccess = true;
+            state.entity = action.payload.data;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(getEntities, getEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.loading = true;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(createEntity, updateEntity, partialUpdateEntity, deleteEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.updating = true;
+        });
+    },
+});
+const { reset } = UserUploadSlice.actions;
+// Reducer
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserUploadSlice.reducer);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/user-upload/user-upload.tsx":
+/*!******************************************************************!*\
+  !*** ./src/main/webapp/app/entities/user-upload/user-upload.tsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UserUpload": () => (/* binding */ UserUpload),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _user_upload_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-upload.reducer */ "./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const UserUpload = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    const userUploadList = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userUpload.entities);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.userUpload.loading);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    }, []);
+    const handleSyncList = () => {
+        dispatch((0,_user_upload_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    };
+    const { match } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "user-upload-heading", "data-cy": "UserUploadHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.home.title" }, "User Uploads"),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
+                    ' ',
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.home.refreshListLabel" }, "Refresh List")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.home.createLabel" }, "Create new User Upload")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "table-responsive" }, userUploadList && userUploadList.length > 0 ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Table, { responsive: true },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.id" }, "ID")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.dateUploaded" }, "Date Uploaded")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.user" }, "User")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null))),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, userUploadList.map((userUpload, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { key: `entity-${i}`, "data-cy": "entityTable" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userUpload.id}`, color: "link", size: "sm" }, userUpload.id)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userUpload.dateUploaded ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { type: "date", value: userUpload.dateUploaded, format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT }) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, userUpload.user ? userUpload.user.login : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userUpload.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userUpload.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${userUpload.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.userUpload.home.notFound" }, "No User Uploads found")))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserUpload);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/video/index.tsx":
+/*!******************************************************!*\
+  !*** ./src/main/webapp/app/entities/video/index.tsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/error/error-boundary-route */ "./src/main/webapp/app/shared/error/error-boundary-route.tsx");
+/* harmony import */ var _video__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./video */ "./src/main/webapp/app/entities/video/video.tsx");
+/* harmony import */ var _video_detail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./video-detail */ "./src/main/webapp/app/entities/video/video-detail.tsx");
+/* harmony import */ var _video_update__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./video-update */ "./src/main/webapp/app/entities/video/video-update.tsx");
+/* harmony import */ var _video_delete_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./video-delete-dialog */ "./src/main/webapp/app/entities/video/video-delete-dialog.tsx");
+
+
+
+
+
+
+
+const Routes = ({ match }) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/new`, component: _video_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/edit`, component: _video_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id`, component: _video_detail__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: match.url, component: _video__WEBPACK_IMPORTED_MODULE_2__["default"] })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/delete`, component: _video_delete_dialog__WEBPACK_IMPORTED_MODULE_5__["default"] })));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Routes);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/video/video-delete-dialog.tsx":
+/*!********************************************************************!*\
+  !*** ./src/main/webapp/app/entities/video/video-delete-dialog.tsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "VideoDeleteDialog": () => (/* binding */ VideoDeleteDialog),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+/* harmony import */ var _video_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+
+
+
+
+
+
+const VideoDeleteDialog = (props) => {
+    const [loadModal, setLoadModal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        setLoadModal(true);
+    }, []);
+    const videoEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.video.entity);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.video.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/video');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess && loadModal) {
+            handleClose();
+            setLoadModal(false);
+        }
+    }, [updateSuccess]);
+    const confirmDelete = () => {
+        dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_4__.deleteEntity)(videoEntity.id));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Modal, { isOpen: true, toggle: handleClose },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalHeader, { toggle: handleClose, "data-cy": "videoDeleteDialogHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.delete.title" }, "Confirm delete operation")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalBody, { id: "camprApp.video.delete.question" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.delete.question", interpolate: { id: videoEntity.id } }, "Are you sure you want to delete this Video?")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalFooter, null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "secondary", onClick: handleClose },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "ban" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.cancel" }, "Cancel")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { id: "jhi-confirm-delete-video", "data-cy": "entityConfirmDeleteButton", color: "danger", onClick: confirmDelete },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VideoDeleteDialog);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/video/video-detail.tsx":
+/*!*************************************************************!*\
+  !*** ./src/main/webapp/app/entities/video/video-detail.tsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "VideoDetail": () => (/* binding */ VideoDetail),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _video_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+const VideoDetail = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntity)(props.match.params.id));
+    }, []);
+    const videoEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.video.entity);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Col, { md: "8" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { "data-cy": "videoDetailsHeading" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.detail.title" }, "Video")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("dl", { className: "jh-entity-details" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "id" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.field.id" }, "ID"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.id),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "title" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.title" }, "Title"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.title),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "imageUrl" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.imageUrl" }, "Image Url"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.imageUrl),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "videoUrl" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.videoUrl" }, "Video Url"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.videoUrl),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "trailerId" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.trailerId" }, "Trailer Id"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.trailerId),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "description" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.description" }, "Description"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.description),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.userUpload" }, "User Upload")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.userUpload ? videoEntity.userUpload.id : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.genre" }, "Genre")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, videoEntity.genres
+                    ? videoEntity.genres.map((val, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { key: val.id },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, val.name),
+                        videoEntity.genres && i === videoEntity.genres.length - 1 ? '' : ', ')))
+                    : null)),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: "/video", replace: true, color: "info", "data-cy": "entityDetailsBackButton" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+            "\u00A0",
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `/video/${videoEntity.id}/edit`, replace: true, color: "primary" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VideoDetail);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/video/video-update.tsx":
+/*!*************************************************************!*\
+  !*** ./src/main/webapp/app/entities/video/video-update.tsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "VideoUpdate": () => (/* binding */ VideoUpdate),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_entities_user_upload_user_upload_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/entities/user-upload/user-upload.reducer */ "./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts");
+/* harmony import */ var app_entities_genre_genre_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/entities/genre/genre.reducer */ "./src/main/webapp/app/entities/genre/genre.reducer.ts");
+/* harmony import */ var app_entities_watch_history_watch_history_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/entities/watch-history/watch-history.reducer */ "./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts");
+/* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var _video_reducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+
+
+
+
+const VideoUpdate = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppDispatch)();
+    const [isNew] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(!props.match.params || !props.match.params.id);
+    const userUploads = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.userUpload.entities);
+    const genres = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.genre.entities);
+    const watchHistories = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.watchHistory.entities);
+    const userFavorites = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.userFavorites.entities);
+    const videoEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.video.entity);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.video.loading);
+    const updating = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.video.updating);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_9__.useAppSelector)(state => state.video.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/video');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (isNew) {
+            dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_7__.reset)());
+        }
+        else {
+            dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_7__.getEntity)(props.match.params.id));
+        }
+        dispatch((0,app_entities_user_upload_user_upload_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+        dispatch((0,app_entities_genre_genre_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntities)({}));
+        dispatch((0,app_entities_watch_history_watch_history_reducer__WEBPACK_IMPORTED_MODULE_5__.getEntities)({}));
+        dispatch((0,app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_6__.getEntities)({}));
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess) {
+            handleClose();
+        }
+    }, [updateSuccess]);
+    const saveEntity = values => {
+        const entity = Object.assign(Object.assign(Object.assign({}, videoEntity), values), { genres: (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_8__.mapIdList)(values.genres), userUpload: userUploads.find(it => it.id.toString() === values.userUpload.toString()) });
+        if (isNew) {
+            dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_7__.createEntity)(entity));
+        }
+        else {
+            dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_7__.updateEntity)(entity));
+        }
+    };
+    const defaultValues = () => {
+        var _a, _b;
+        return isNew
+            ? {}
+            : Object.assign(Object.assign({}, videoEntity), { userUpload: (_a = videoEntity === null || videoEntity === void 0 ? void 0 : videoEntity.userUpload) === null || _a === void 0 ? void 0 : _a.id, genres: (_b = videoEntity === null || videoEntity === void 0 ? void 0 : videoEntity.genres) === null || _b === void 0 ? void 0 : _b.map(e => e.id.toString()) });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "8" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "camprApp.video.home.createOrEditLabel", "data-cy": "VideoCreateUpdateHeading" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.createOrEditLabel" }, "Create or edit a Video")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "8" }, loading ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Loading...")) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedForm, { defaultValues: defaultValues(), onSubmit: saveEntity },
+                !isNew ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "id", required: true, readOnly: true, id: "video-id", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.field.id'), validate: { required: true } })) : null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.video.title'), id: "video-title", name: "title", "data-cy": "title", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.video.imageUrl'), id: "video-imageUrl", name: "imageUrl", "data-cy": "imageUrl", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.video.videoUrl'), id: "video-videoUrl", name: "videoUrl", "data-cy": "videoUrl", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.video.trailerId'), id: "video-trailerId", name: "trailerId", "data-cy": "trailerId", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.video.description'), id: "video-description", name: "description", "data-cy": "description", type: "text" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { id: "video-userUpload", name: "userUpload", "data-cy": "userUpload", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.video.userUpload'), type: "select" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    userUploads
+                        ? userUploads.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.id)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.video.genre'), id: "video-genre", "data-cy": "genre", type: "select", multiple: true, name: "genres" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    genres
+                        ? genres.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.name)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/video", replace: true, color: "info" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VideoUpdate);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/video/video.reducer.ts":
+/*!*************************************************************!*\
+  !*** ./src/main/webapp/app/entities/video/video.reducer.ts ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getEntities": () => (/* binding */ getEntities),
+/* harmony export */   "getEntity": () => (/* binding */ getEntity),
+/* harmony export */   "createEntity": () => (/* binding */ createEntity),
+/* harmony export */   "updateEntity": () => (/* binding */ updateEntity),
+/* harmony export */   "partialUpdateEntity": () => (/* binding */ partialUpdateEntity),
+/* harmony export */   "deleteEntity": () => (/* binding */ deleteEntity),
+/* harmony export */   "VideoSlice": () => (/* binding */ VideoSlice),
+/* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared/reducers/reducer.utils */ "./src/main/webapp/app/shared/reducers/reducer.utils.ts");
+/* harmony import */ var app_shared_model_video_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/shared/model/video.model */ "./src/main/webapp/app/shared/model/video.model.ts");
+
+
+
+
+
+
+const initialState = {
+    loading: false,
+    errorMessage: null,
+    entities: [],
+    entity: app_shared_model_video_model__WEBPACK_IMPORTED_MODULE_3__.defaultValue,
+    updating: false,
+    updateSuccess: false,
+};
+const apiUrl = 'api/videos';
+// Actions
+const getEntities = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('video/fetch_entity_list', ({ page, size, sort }) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}?cacheBuster=${new Date().getTime()}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}));
+const getEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('video/fetch_entity', (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const createEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('video/create_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().post(apiUrl, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const updateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('video/update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().put(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const partialUpdateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('video/partial_update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().patch(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const deleteEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('video/delete_entity', (id, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](requestUrl);
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+// slice
+const VideoSlice = (0,app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.createEntitySlice)({
+    name: 'video',
+    initialState,
+    extraReducers(builder) {
+        builder
+            .addCase(getEntity.fulfilled, (state, action) => {
+            state.loading = false;
+            state.entity = action.payload.data;
+        })
+            .addCase(deleteEntity.fulfilled, state => {
+            state.updating = false;
+            state.updateSuccess = true;
+            state.entity = {};
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(getEntities), (state, action) => {
+            const { data } = action.payload;
+            return Object.assign(Object.assign({}, state), { loading: false, entities: data });
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(createEntity, updateEntity, partialUpdateEntity), (state, action) => {
+            state.updating = false;
+            state.loading = false;
+            state.updateSuccess = true;
+            state.entity = action.payload.data;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(getEntities, getEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.loading = true;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(createEntity, updateEntity, partialUpdateEntity, deleteEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.updating = true;
+        });
+    },
+});
+const { reset } = VideoSlice.actions;
+// Reducer
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VideoSlice.reducer);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/video/video.tsx":
+/*!******************************************************!*\
+  !*** ./src/main/webapp/app/entities/video/video.tsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Video": () => (/* binding */ Video),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _video_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+const Video = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
+    const videoList = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.video.entities);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.video.loading);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    }, []);
+    const handleSyncList = () => {
+        dispatch((0,_video_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    };
+    const { match } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "video-heading", "data-cy": "VideoHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.title" }, "Videos"),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
+                    ' ',
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.refreshListLabel" }, "Refresh List")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.createLabel" }, "Create new Video")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "table-responsive" }, videoList && videoList.length > 0 ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Table, { responsive: true },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.id" }, "ID")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.title" }, "Title")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.imageUrl" }, "Image Url")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.videoUrl" }, "Video Url")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.trailerId" }, "Trailer Id")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.description" }, "Description")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.userUpload" }, "User Upload")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.genre" }, "Genre")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null))),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, videoList.map((video, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { key: `entity-${i}`, "data-cy": "entityTable" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}`, color: "link", size: "sm" }, video.id)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, video.title),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, video.imageUrl),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, video.videoUrl),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, video.trailerId),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, video.description),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, video.userUpload ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, { to: `user-upload/${video.userUpload.id}` }, video.userUpload.id) : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, video.genres
+                    ? video.genres.map((val, j) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { key: j },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, { to: `genre/${val.id}` }, val.name),
+                        j === video.genres.length - 1 ? '' : ', ')))
+                    : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, to: `${match.url}/${video.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.video.home.notFound" }, "No Videos found")))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Video);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/watch-history/index.tsx":
+/*!**************************************************************!*\
+  !*** ./src/main/webapp/app/entities/watch-history/index.tsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/error/error-boundary-route */ "./src/main/webapp/app/shared/error/error-boundary-route.tsx");
+/* harmony import */ var _watch_history__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./watch-history */ "./src/main/webapp/app/entities/watch-history/watch-history.tsx");
+/* harmony import */ var _watch_history_detail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./watch-history-detail */ "./src/main/webapp/app/entities/watch-history/watch-history-detail.tsx");
+/* harmony import */ var _watch_history_update__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./watch-history-update */ "./src/main/webapp/app/entities/watch-history/watch-history-update.tsx");
+/* harmony import */ var _watch_history_delete_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./watch-history-delete-dialog */ "./src/main/webapp/app/entities/watch-history/watch-history-delete-dialog.tsx");
+
+
+
+
+
+
+
+const Routes = ({ match }) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null,
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/new`, component: _watch_history_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/edit`, component: _watch_history_update__WEBPACK_IMPORTED_MODULE_4__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id`, component: _watch_history_detail__WEBPACK_IMPORTED_MODULE_3__["default"] }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { path: match.url, component: _watch_history__WEBPACK_IMPORTED_MODULE_2__["default"] })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_error_error_boundary_route__WEBPACK_IMPORTED_MODULE_1__["default"], { exact: true, path: `${match.url}/:id/delete`, component: _watch_history_delete_dialog__WEBPACK_IMPORTED_MODULE_5__["default"] })));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Routes);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/watch-history/watch-history-delete-dialog.tsx":
+/*!************************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/watch-history/watch-history-delete-dialog.tsx ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WatchHistoryDeleteDialog": () => (/* binding */ WatchHistoryDeleteDialog),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+/* harmony import */ var _watch_history_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./watch-history.reducer */ "./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts");
+
+
+
+
+
+
+const WatchHistoryDeleteDialog = (props) => {
+    const [loadModal, setLoadModal] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntity)(props.match.params.id));
+        setLoadModal(true);
+    }, []);
+    const watchHistoryEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.watchHistory.entity);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.watchHistory.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/watch-history');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess && loadModal) {
+            handleClose();
+            setLoadModal(false);
+        }
+    }, [updateSuccess]);
+    const confirmDelete = () => {
+        dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_4__.deleteEntity)(watchHistoryEntity.id));
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Modal, { isOpen: true, toggle: handleClose },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalHeader, { toggle: handleClose, "data-cy": "watchHistoryDeleteDialogHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.delete.title" }, "Confirm delete operation")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalBody, { id: "camprApp.watchHistory.delete.question" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.delete.question", interpolate: { id: watchHistoryEntity.id } }, "Are you sure you want to delete this WatchHistory?")),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.ModalFooter, null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { color: "secondary", onClick: handleClose },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "ban" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.cancel" }, "Cancel")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_5__.Button, { id: "jhi-confirm-delete-watchHistory", "data-cy": "entityConfirmDeleteButton", color: "danger", onClick: confirmDelete },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WatchHistoryDeleteDialog);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/watch-history/watch-history-detail.tsx":
+/*!*****************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/watch-history/watch-history-detail.tsx ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WatchHistoryDetail": () => (/* binding */ WatchHistoryDetail),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _watch_history_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./watch-history.reducer */ "./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const WatchHistoryDetail = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntity)(props.match.params.id));
+    }, []);
+    const watchHistoryEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.watchHistory.entity);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Col, { md: "8" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { "data-cy": "watchHistoryDetailsHeading" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.detail.title" }, "WatchHistory")),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("dl", { className: "jh-entity-details" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "id" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.field.id" }, "ID"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, watchHistoryEntity.id),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { id: "dateWatched" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.dateWatched" }, "Date Watched"))),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, watchHistoryEntity.dateWatched ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { value: watchHistoryEntity.dateWatched, type: "date", format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT })) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.user" }, "User")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, watchHistoryEntity.user ? watchHistoryEntity.user.login : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dt", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.video" }, "Video")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("dd", null, watchHistoryEntity.videos
+                    ? watchHistoryEntity.videos.map((val, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { key: val.id },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, val.title),
+                        watchHistoryEntity.videos && i === watchHistoryEntity.videos.length - 1 ? '' : ', ')))
+                    : null)),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: "/watch-history", replace: true, color: "info", "data-cy": "entityDetailsBackButton" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+            "\u00A0",
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `/watch-history/${watchHistoryEntity.id}/edit`, replace: true, color: "primary" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                ' ',
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WatchHistoryDetail);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/watch-history/watch-history-update.tsx":
+/*!*****************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/watch-history/watch-history-update.tsx ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WatchHistoryUpdate": () => (/* binding */ WatchHistoryUpdate),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/modules/administration/user-management/user-management.reducer */ "./src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts");
+/* harmony import */ var app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/entities/video/video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var _watch_history_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./watch-history.reducer */ "./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts");
+/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+
+
+
+const WatchHistoryUpdate = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppDispatch)();
+    const [isNew] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(!props.match.params || !props.match.params.id);
+    const users = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userManagement.users);
+    const videos = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.video.entities);
+    const watchHistoryEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.watchHistory.entity);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.watchHistory.loading);
+    const updating = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.watchHistory.updating);
+    const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.watchHistory.updateSuccess);
+    const handleClose = () => {
+        props.history.push('/watch-history');
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (isNew) {
+            dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_5__.reset)());
+        }
+        else {
+            dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_5__.getEntity)(props.match.params.id));
+        }
+        dispatch((0,app_modules_administration_user_management_user_management_reducer__WEBPACK_IMPORTED_MODULE_3__.getUsers)({}));
+        dispatch((0,app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_4__.getEntities)({}));
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        if (updateSuccess) {
+            handleClose();
+        }
+    }, [updateSuccess]);
+    const saveEntity = values => {
+        values.dateWatched = (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.convertDateTimeToServer)(values.dateWatched);
+        const entity = Object.assign(Object.assign(Object.assign({}, watchHistoryEntity), values), { videos: (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_7__.mapIdList)(values.videos), user: users.find(it => it.id.toString() === values.user.toString()) });
+        if (isNew) {
+            dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
+        }
+        else {
+            dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_5__.updateEntity)(entity));
+        }
+    };
+    const defaultValues = () => {
+        var _a, _b;
+        return isNew
+            ? {
+                dateWatched: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayDefaultDateTime)(),
+            }
+            : Object.assign(Object.assign({}, watchHistoryEntity), { dateWatched: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.convertDateTimeFromServer)(watchHistoryEntity.dateWatched), user: (_a = watchHistoryEntity === null || watchHistoryEntity === void 0 ? void 0 : watchHistoryEntity.user) === null || _a === void 0 ? void 0 : _a.id, videos: (_b = watchHistoryEntity === null || watchHistoryEntity === void 0 ? void 0 : watchHistoryEntity.videos) === null || _b === void 0 ? void 0 : _b.map(e => e.id.toString()) });
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "8" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "camprApp.watchHistory.home.createOrEditLabel", "data-cy": "WatchHistoryCreateUpdateHeading" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.home.createOrEditLabel" }, "Create or edit a WatchHistory")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, { className: "justify-content-center" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "8" }, loading ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Loading...")) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedForm, { defaultValues: defaultValues(), onSubmit: saveEntity },
+                !isNew ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { name: "id", required: true, readOnly: true, id: "watch-history-id", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.field.id'), validate: { required: true } })) : null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.watchHistory.dateWatched'), id: "watch-history-dateWatched", name: "dateWatched", "data-cy": "dateWatched", type: "datetime-local", placeholder: "YYYY-MM-DD HH:mm" }),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { id: "watch-history-user", name: "user", "data-cy": "user", label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.watchHistory.user'), type: "select" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    users
+                        ? users.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.login)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.ValidatedField, { label: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('camprApp.watchHistory.video'), id: "watch-history-video", "data-cy": "video", type: "select", multiple: true, name: "videos" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: "", key: "0" }),
+                    videos
+                        ? videos.map(otherEntity => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", { value: otherEntity.id, key: otherEntity.id }, otherEntity.title)))
+                        : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, id: "cancel-save", "data-cy": "entityCreateCancelButton", to: "/watch-history", replace: true, color: "info" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "arrow-left" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.back" }, "Back"))),
+                "\u00A0",
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Button, { color: "primary", id: "save-entity", "data-cy": "entityCreateSaveButton", type: "submit", disabled: updating },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "save" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.save" }, "Save"))))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WatchHistoryUpdate);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getEntities": () => (/* binding */ getEntities),
+/* harmony export */   "getEntity": () => (/* binding */ getEntity),
+/* harmony export */   "createEntity": () => (/* binding */ createEntity),
+/* harmony export */   "updateEntity": () => (/* binding */ updateEntity),
+/* harmony export */   "partialUpdateEntity": () => (/* binding */ partialUpdateEntity),
+/* harmony export */   "deleteEntity": () => (/* binding */ deleteEntity),
+/* harmony export */   "WatchHistorySlice": () => (/* binding */ WatchHistorySlice),
+/* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/util/entity-utils */ "./src/main/webapp/app/shared/util/entity-utils.ts");
+/* harmony import */ var app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/shared/reducers/reducer.utils */ "./src/main/webapp/app/shared/reducers/reducer.utils.ts");
+/* harmony import */ var app_shared_model_watch_history_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/shared/model/watch-history.model */ "./src/main/webapp/app/shared/model/watch-history.model.ts");
+
+
+
+
+
+
+const initialState = {
+    loading: false,
+    errorMessage: null,
+    entities: [],
+    entity: app_shared_model_watch_history_model__WEBPACK_IMPORTED_MODULE_3__.defaultValue,
+    updating: false,
+    updateSuccess: false,
+};
+const apiUrl = 'api/watch-histories';
+// Actions
+const getEntities = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('watchHistory/fetch_entity_list', ({ page, size, sort }) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}?cacheBuster=${new Date().getTime()}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}));
+const getEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('watchHistory/fetch_entity', (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    return axios__WEBPACK_IMPORTED_MODULE_0___default().get(requestUrl);
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const createEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('watchHistory/create_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().post(apiUrl, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const updateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('watchHistory/update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().put(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const partialUpdateEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('watchHistory/partial_update_entity', (entity, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default().patch(`${apiUrl}/${entity.id}`, (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_1__.cleanEntity)(entity));
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+const deleteEntity = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.createAsyncThunk)('watchHistory/delete_entity', (id, thunkAPI) => (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(void 0, void 0, void 0, function* () {
+    const requestUrl = `${apiUrl}/${id}`;
+    const result = yield axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"](requestUrl);
+    thunkAPI.dispatch(getEntities({}));
+    return result;
+}), { serializeError: app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.serializeAxiosError });
+// slice
+const WatchHistorySlice = (0,app_shared_reducers_reducer_utils__WEBPACK_IMPORTED_MODULE_2__.createEntitySlice)({
+    name: 'watchHistory',
+    initialState,
+    extraReducers(builder) {
+        builder
+            .addCase(getEntity.fulfilled, (state, action) => {
+            state.loading = false;
+            state.entity = action.payload.data;
+        })
+            .addCase(deleteEntity.fulfilled, state => {
+            state.updating = false;
+            state.updateSuccess = true;
+            state.entity = {};
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(getEntities), (state, action) => {
+            const { data } = action.payload;
+            return Object.assign(Object.assign({}, state), { loading: false, entities: data });
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isFulfilled)(createEntity, updateEntity, partialUpdateEntity), (state, action) => {
+            state.updating = false;
+            state.loading = false;
+            state.updateSuccess = true;
+            state.entity = action.payload.data;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(getEntities, getEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.loading = true;
+        })
+            .addMatcher((0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_4__.isPending)(createEntity, updateEntity, partialUpdateEntity, deleteEntity), state => {
+            state.errorMessage = null;
+            state.updateSuccess = false;
+            state.updating = true;
+        });
+    },
+});
+const { reset } = WatchHistorySlice.actions;
+// Reducer
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WatchHistorySlice.reducer);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/entities/watch-history/watch-history.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/main/webapp/app/entities/watch-history/watch-history.tsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "WatchHistory": () => (/* binding */ WatchHistory),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _watch_history_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./watch-history.reducer */ "./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts");
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+
+
+
+
+
+
+
+
+const WatchHistory = (props) => {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppDispatch)();
+    const watchHistoryList = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.watchHistory.entities);
+    const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_5__.useAppSelector)(state => state.watchHistory.loading);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    }, []);
+    const handleSyncList = () => {
+        dispatch((0,_watch_history_reducer__WEBPACK_IMPORTED_MODULE_3__.getEntities)({}));
+    };
+    const { match } = props;
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", { id: "watch-history-heading", "data-cy": "WatchHistoryHeading" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.home.title" }, "Watch Histories"),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "d-flex justify-content-end" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { className: "me-2", color: "info", onClick: handleSyncList, disabled: loading },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
+                    ' ',
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.home.refreshListLabel" }, "Refresh List")),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity", id: "jh-create-entity", "data-cy": "entityCreateButton" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
+                    "\u00A0",
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.home.createLabel" }, "Create new Watch History")))),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "table-responsive" }, watchHistoryList && watchHistoryList.length > 0 ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Table, { responsive: true },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("thead", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.id" }, "ID")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.dateWatched" }, "Date Watched")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.user" }, "User")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null,
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.video" }, "Video")),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("th", null))),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null, watchHistoryList.map((watchHistory, i) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { key: `entity-${i}`, "data-cy": "entityTable" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null,
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}`, color: "link", size: "sm" }, watchHistory.id)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, watchHistory.dateWatched ? react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.TextFormat, { type: "date", value: watchHistory.dateWatched, format: app_config_constants__WEBPACK_IMPORTED_MODULE_4__.APP_DATE_FORMAT }) : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, watchHistory.user ? watchHistory.user.login : ''),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, watchHistory.videos
+                    ? watchHistory.videos.map((val, j) => (react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { key: j },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, { to: `video/${val.id}` }, val.title),
+                        j === watchHistory.videos.length - 1 ? '' : ', ')))
+                    : null),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", { className: "text-end" },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "btn-group flex-btn-group-container" },
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}`, color: "info", size: "sm", "data-cy": "entityDetailsButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "eye" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.view" }, "View"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}/edit`, color: "primary", size: "sm", "data-cy": "entityEditButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "pencil-alt" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_6__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, to: `${match.url}/${watchHistory.id}/delete`, color: "danger", size: "sm", "data-cy": "entityDeleteButton" },
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
+                            ' ',
+                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
+                                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.delete" }, "Delete"))))))))))) : (!loading && (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "alert alert-warning" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "camprApp.watchHistory.home.notFound" }, "No Watch Histories found")))))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WatchHistory);
 
 
 /***/ }),
@@ -2673,7 +5694,7 @@ const Account = react_loadable__WEBPACK_IMPORTED_MODULE_1___default()({
     loading: () => react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "loading ..."),
 });
 const Admin = react_loadable__WEBPACK_IMPORTED_MODULE_1___default()({
-    loader: () => Promise.all(/*! import() | administration */[__webpack_require__.e("vendors"), __webpack_require__.e("administration")]).then(__webpack_require__.bind(__webpack_require__, /*! app/modules/administration */ "./src/main/webapp/app/modules/administration/index.tsx")),
+    loader: () => __webpack_require__.e(/*! import() | administration */ "administration").then(__webpack_require__.bind(__webpack_require__, /*! app/modules/administration */ "./src/main/webapp/app/modules/administration/index.tsx")),
     loading: () => react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "loading ..."),
 });
 const Routes = () => {
@@ -3107,14 +6128,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "EntitiesMenu": () => (/* binding */ EntitiesMenu)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
-/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _menu_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu-components */ "./src/main/webapp/app/shared/layout/menus/menu-components.tsx");
+/* harmony import */ var app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/shared/layout/menus/menu-item */ "./src/main/webapp/app/shared/layout/menus/menu-item.tsx");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
+/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _menu_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./menu-components */ "./src/main/webapp/app/shared/layout/menus/menu-components.tsx");
 
 
 
-const EntitiesMenu = props => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_menu_components__WEBPACK_IMPORTED_MODULE_2__.NavDropdown, { icon: "th-list", name: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_1__.translate)('global.menu.entities.main'), id: "entity-menu", "data-cy": "entity", style: { maxHeight: '80vh', overflow: 'auto' } },
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null)));
+
+const EntitiesMenu = props => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_menu_components__WEBPACK_IMPORTED_MODULE_3__.NavDropdown, { icon: "th-list", name: (0,react_jhipster__WEBPACK_IMPORTED_MODULE_2__.translate)('global.menu.entities.main'), id: "entity-menu", "data-cy": "entity", style: { maxHeight: '80vh', overflow: 'auto' } },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/video" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.video" })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-comment" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userComment" })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/genre" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.genre" })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-favorites" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userFavorites" })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-upload" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userUpload" })),
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/watch-history" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.watchHistory" }))));
 
 
 /***/ }),
@@ -3305,6 +6340,70 @@ const PasswordStrengthBar = ({ password }) => {
 
 /***/ }),
 
+/***/ "./src/main/webapp/app/shared/model/genre.model.ts":
+/*!*********************************************************!*\
+  !*** ./src/main/webapp/app/shared/model/genre.model.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultValue": () => (/* binding */ defaultValue)
+/* harmony export */ });
+const defaultValue = {};
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/model/user-comment.model.ts":
+/*!****************************************************************!*\
+  !*** ./src/main/webapp/app/shared/model/user-comment.model.ts ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultValue": () => (/* binding */ defaultValue)
+/* harmony export */ });
+const defaultValue = {};
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/model/user-favorites.model.ts":
+/*!******************************************************************!*\
+  !*** ./src/main/webapp/app/shared/model/user-favorites.model.ts ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultValue": () => (/* binding */ defaultValue)
+/* harmony export */ });
+const defaultValue = {};
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/model/user-upload.model.ts":
+/*!***************************************************************!*\
+  !*** ./src/main/webapp/app/shared/model/user-upload.model.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultValue": () => (/* binding */ defaultValue)
+/* harmony export */ });
+const defaultValue = {};
+
+
+/***/ }),
+
 /***/ "./src/main/webapp/app/shared/model/user.model.ts":
 /*!********************************************************!*\
   !*** ./src/main/webapp/app/shared/model/user.model.ts ***!
@@ -3331,6 +6430,38 @@ const defaultValue = {
     lastModifiedDate: null,
     password: '',
 };
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/model/video.model.ts":
+/*!*********************************************************!*\
+  !*** ./src/main/webapp/app/shared/model/video.model.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultValue": () => (/* binding */ defaultValue)
+/* harmony export */ });
+const defaultValue = {};
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/model/watch-history.model.ts":
+/*!*****************************************************************!*\
+  !*** ./src/main/webapp/app/shared/model/watch-history.model.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultValue": () => (/* binding */ defaultValue)
+/* harmony export */ });
+const defaultValue = {};
 
 
 /***/ }),
@@ -3542,6 +6673,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var app_modules_account_password_password_reducer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/modules/account/password/password.reducer */ "./src/main/webapp/app/modules/account/password/password.reducer.ts");
 /* harmony import */ var app_modules_account_settings_settings_reducer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/modules/account/settings/settings.reducer */ "./src/main/webapp/app/modules/account/settings/settings.reducer.ts");
 /* harmony import */ var app_modules_account_password_reset_password_reset_reducer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/modules/account/password-reset/password-reset.reducer */ "./src/main/webapp/app/modules/account/password-reset/password-reset.reducer.ts");
+/* harmony import */ var app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! app/entities/video/video.reducer */ "./src/main/webapp/app/entities/video/video.reducer.ts");
+/* harmony import */ var app_entities_user_comment_user_comment_reducer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! app/entities/user-comment/user-comment.reducer */ "./src/main/webapp/app/entities/user-comment/user-comment.reducer.ts");
+/* harmony import */ var app_entities_genre_genre_reducer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! app/entities/genre/genre.reducer */ "./src/main/webapp/app/entities/genre/genre.reducer.ts");
+/* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var app_entities_user_upload_user_upload_reducer__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! app/entities/user-upload/user-upload.reducer */ "./src/main/webapp/app/entities/user-upload/user-upload.reducer.ts");
+/* harmony import */ var app_entities_watch_history_watch_history_reducer__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! app/entities/watch-history/watch-history.reducer */ "./src/main/webapp/app/entities/watch-history/watch-history.reducer.ts");
 
 
 
@@ -3552,6 +6689,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// prettier-ignore
+
+// prettier-ignore
+
+// prettier-ignore
+
+// prettier-ignore
+
+// prettier-ignore
+
+// prettier-ignore
 
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 const rootReducer = {
@@ -3565,6 +6714,12 @@ const rootReducer = {
     passwordReset: app_modules_account_password_reset_password_reset_reducer__WEBPACK_IMPORTED_MODULE_10__["default"],
     password: app_modules_account_password_password_reducer__WEBPACK_IMPORTED_MODULE_8__["default"],
     settings: app_modules_account_settings_settings_reducer__WEBPACK_IMPORTED_MODULE_9__["default"],
+    video: app_entities_video_video_reducer__WEBPACK_IMPORTED_MODULE_11__["default"],
+    userComment: app_entities_user_comment_user_comment_reducer__WEBPACK_IMPORTED_MODULE_12__["default"],
+    genre: app_entities_genre_genre_reducer__WEBPACK_IMPORTED_MODULE_13__["default"],
+    userFavorites: app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_14__["default"],
+    userUpload: app_entities_user_upload_user_upload_reducer__WEBPACK_IMPORTED_MODULE_15__["default"],
+    watchHistory: app_entities_watch_history_watch_history_reducer__WEBPACK_IMPORTED_MODULE_16__["default"],
     /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
     loadingBar: react_redux_loading_bar__WEBPACK_IMPORTED_MODULE_0__.loadingBarReducer,
 };
@@ -3605,7 +6760,7 @@ const initialState = {
 };
 const setLocale = locale => (dispatch) => (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(void 0, void 0, void 0, function* () {
     if (!Object.keys(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.context.translations).includes(locale)) {
-        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"ad476216a06106d785b1c776f4b2a92e"}`, { baseURL: '' });
+        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"b32cf397c9d2dbfd5b0a5549ded2e604"}`, { baseURL: '' });
         react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.registerTranslations(locale, response.data);
     }
     dispatch(updateLocale(locale));
@@ -3720,6 +6875,81 @@ const createEntitySlice = ({ name = '', initialState, reducers, extraReducers, s
             }
         },
     });
+};
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/util/date-utils.ts":
+/*!*******************************************************!*\
+  !*** ./src/main/webapp/app/shared/util/date-utils.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "convertDateTimeFromServer": () => (/* binding */ convertDateTimeFromServer),
+/* harmony export */   "convertDateTimeToServer": () => (/* binding */ convertDateTimeToServer),
+/* harmony export */   "displayDefaultDateTime": () => (/* binding */ displayDefaultDateTime)
+/* harmony export */ });
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
+/* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var app_config_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/config/constants */ "./src/main/webapp/app/config/constants.ts");
+
+
+const convertDateTimeFromServer = date => (date ? dayjs__WEBPACK_IMPORTED_MODULE_0___default()(date).format(app_config_constants__WEBPACK_IMPORTED_MODULE_1__.APP_LOCAL_DATETIME_FORMAT) : null);
+const convertDateTimeToServer = date => (date ? dayjs__WEBPACK_IMPORTED_MODULE_0___default()(date).toDate() : null);
+const displayDefaultDateTime = () => dayjs__WEBPACK_IMPORTED_MODULE_0___default()().startOf('day').format(app_config_constants__WEBPACK_IMPORTED_MODULE_1__.APP_LOCAL_DATETIME_FORMAT);
+
+
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/util/entity-utils.ts":
+/*!*********************************************************!*\
+  !*** ./src/main/webapp/app/shared/util/entity-utils.ts ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cleanEntity": () => (/* binding */ cleanEntity),
+/* harmony export */   "mapIdList": () => (/* binding */ mapIdList),
+/* harmony export */   "overridePaginationStateWithQueryParams": () => (/* binding */ overridePaginationStateWithQueryParams)
+/* harmony export */ });
+/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/pick */ "./node_modules/lodash/pick.js");
+/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_pick__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Removes fields with an 'id' field that equals ''.
+ * This function was created to prevent entities to be sent to
+ * the server with an empty id and thus resulting in a 500.
+ *
+ * @param entity Object to clean.
+ */
+const cleanEntity = entity => {
+    const keysToKeep = Object.keys(entity).filter(k => !(entity[k] instanceof Object) || (entity[k]['id'] !== '' && entity[k]['id'] !== -1));
+    return lodash_pick__WEBPACK_IMPORTED_MODULE_0___default()(entity, keysToKeep);
+};
+/**
+ * Simply map a list of element to a list a object with the element as id.
+ *
+ * @param idList Elements to map.
+ * @returns The list of objects with mapped ids.
+ */
+const mapIdList = (idList) => idList.filter((id) => id !== '').map((id) => ({ id }));
+const overridePaginationStateWithQueryParams = (paginationBaseState, locationSearch) => {
+    const params = new URLSearchParams(locationSearch);
+    const page = params.get('page');
+    const sort = params.get('sort');
+    if (page && sort) {
+        const sortSplit = sort.split(',');
+        paginationBaseState.activePage = +page;
+        paginationBaseState.sort = sortSplit[0];
+        paginationBaseState.order = sortSplit[1];
+    }
+    return paginationBaseState;
 };
 
 
@@ -4101,7 +7331,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("7a86fe528737b9c46b5f")
+/******/ 		__webpack_require__.h = () => ("e9044bc13a301f6fab69")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

@@ -1022,55 +1022,6 @@ const UserManagement = (props) => {
 
 /***/ }),
 
-/***/ "./src/main/webapp/app/shared/util/entity-utils.ts":
-/*!*********************************************************!*\
-  !*** ./src/main/webapp/app/shared/util/entity-utils.ts ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "cleanEntity": () => (/* binding */ cleanEntity),
-/* harmony export */   "mapIdList": () => (/* binding */ mapIdList),
-/* harmony export */   "overridePaginationStateWithQueryParams": () => (/* binding */ overridePaginationStateWithQueryParams)
-/* harmony export */ });
-/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/pick */ "./node_modules/lodash/pick.js");
-/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_pick__WEBPACK_IMPORTED_MODULE_0__);
-
-/**
- * Removes fields with an 'id' field that equals ''.
- * This function was created to prevent entities to be sent to
- * the server with an empty id and thus resulting in a 500.
- *
- * @param entity Object to clean.
- */
-const cleanEntity = entity => {
-    const keysToKeep = Object.keys(entity).filter(k => !(entity[k] instanceof Object) || (entity[k]['id'] !== '' && entity[k]['id'] !== -1));
-    return lodash_pick__WEBPACK_IMPORTED_MODULE_0___default()(entity, keysToKeep);
-};
-/**
- * Simply map a list of element to a list a object with the element as id.
- *
- * @param idList Elements to map.
- * @returns The list of objects with mapped ids.
- */
-const mapIdList = (idList) => idList.filter((id) => id !== '').map((id) => ({ id }));
-const overridePaginationStateWithQueryParams = (paginationBaseState, locationSearch) => {
-    const params = new URLSearchParams(locationSearch);
-    const page = params.get('page');
-    const sort = params.get('sort');
-    if (page && sort) {
-        const sortSplit = sort.split(',');
-        paginationBaseState.activePage = +page;
-        paginationBaseState.sort = sortSplit[0];
-        paginationBaseState.order = sortSplit[1];
-    }
-    return paginationBaseState;
-};
-
-
-/***/ }),
-
 /***/ "./src/main/webapp/app/shared/util/pagination.constants.ts":
 /*!*****************************************************************!*\
   !*** ./src/main/webapp/app/shared/util/pagination.constants.ts ***!
