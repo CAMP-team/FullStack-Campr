@@ -29,8 +29,7 @@ function posterSearch() {
   };
 
   const account = useAppSelector(state => state.authentication.account);
-  const handleVideoTileToggleEnter = () => setShowButton(!showButton);
-  const handleVideoTileToggleDepart = () => setShowButton(!showButton);
+  const handleVideoTileToggle = () => setShowButton(!showButton);
   return (
     <Row>
       <Col md="3" className="pad"></Col>
@@ -69,8 +68,16 @@ function posterSearch() {
                     <div
                       key={video.id}
                       className="VideoTile"
-                      onMouseEnter={handleVideoTileToggleEnter}
-                      onMouseLeave={handleVideoTileToggleDepart}
+                      onMouseEnter={() => {
+                        {
+                          setShowButton(!showButton);
+                        }
+                      }}
+                      onMouseLeave={() => {
+                        {
+                          setShowButton(!showButton);
+                        }
+                      }}
                       onClick={() => {
                         {
                           video.poster_path == null

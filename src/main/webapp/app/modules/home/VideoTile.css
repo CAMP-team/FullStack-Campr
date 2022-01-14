@@ -24,6 +24,7 @@
   margin-left: -48px; /*half of the width */
   margin-top: -48px; /*half of the height */
 }
+/*may need to switch out row in order to be able to move favorite button into videotile*/
 
 .faveButton {
   position: absolute;
@@ -40,3 +41,10 @@
 .videoTile__img.show .faveButton {
   display: block;
 }
+
+/**TODO
+-set up favorite button functionality
+  -override default button functionality
+-move favorite button into movieTIle
+-have favorite button only show for the tile you're moused into
+*/
