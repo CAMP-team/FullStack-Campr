@@ -28,10 +28,8 @@ public class UserFavorites implements Serializable {
     @Column(name = "date_added")
     private Instant dateAdded;
 
-    @JsonIgnoreProperties(value = { "internalUser", "userUpload", "watchHistory", "userFavorites", "userComments" }, allowSetters = true)
-    @OneToOne
-    @JoinColumn(unique = true)
-    private AppUser appUser;
+    @ManyToOne
+    private User user;
 
     @ManyToMany
     @JoinTable(
@@ -71,16 +69,16 @@ public class UserFavorites implements Serializable {
         this.dateAdded = dateAdded;
     }
 
-    public AppUser getAppUser() {
-        return this.appUser;
+    public User getUser() {
+        return this.user;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public UserFavorites appUser(AppUser appUser) {
-        this.setAppUser(appUser);
+    public UserFavorites user(User user) {
+        this.setUser(user);
         return this;
     }
 

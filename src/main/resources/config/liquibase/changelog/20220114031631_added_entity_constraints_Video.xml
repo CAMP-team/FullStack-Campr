@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Video.
+    -->
+    <changeSet id="20220114031631-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="user_upload_id"
+                                 baseTableName="video"
+                                 constraintName="fk_video__user_upload_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_upload"/>
+
+        <addForeignKeyConstraint baseColumnNames="video_id"
+                                 baseTableName="rel_video__genre"
+                                 constraintName="fk_rel_video__genre__video_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="video"/>
+
+        <addForeignKeyConstraint baseColumnNames="genre_id"
+                                 baseTableName="rel_video__genre"
+                                 constraintName="fk_rel_video__genre__genre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genre"/>
+    </changeSet>
+</databaseChangeLog>

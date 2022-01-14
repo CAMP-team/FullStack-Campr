@@ -90,7 +90,7 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="userManagement.home.refreshListLabel">Refresh List</Translate>
           </Button>
-          <Link to={`${match.url}/new`} className="btn btn-secondary jh-create-entity">
+          <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity">
             <FontAwesomeIcon icon="plus" /> <Translate contentKey="userManagement.home.createLabel">Create a new user</Translate>
           </Link>
         </div>
@@ -190,7 +190,7 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
                   <Button
                     tag={Link}
                     to={`${match.url}/${user.login}/delete`}
-                    color="secondary"
+                    color="danger"
                     size="sm"
                     disabled={account.login === user.login}
                   >

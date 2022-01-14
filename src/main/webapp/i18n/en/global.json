@@ -7,7 +7,6 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
-        "appUser": "App User",
         "video": "Video",
         "userComment": "User Comment",
         "genre": "Genre",
@@ -23,10 +22,7 @@
         "sessions": "Sessions",
         "login": "Sign in",
         "logout": "Sign out",
-        "register": "Register",
-        "favorites": "Favorites",
-        "history": "Watch History",
-        "comments": "Comments"
+        "register": "Register"
       },
       "admin": {
         "main": "Administration",
@@ -92,7 +88,6 @@
     "field": {
       "id": "ID"
     },
-
     "item-count": "Showing {{first}} - {{second}} of {{total}} items."
   },
   "entity": {
@@ -145,6 +140,5 @@
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
-
   "footer": "Project maintained by the CAMP-team on <a href=https://github.com/CAMP-team/FullStack-Campr target=_blank rel=noopener noreferrer>GitHub</a>."
 }

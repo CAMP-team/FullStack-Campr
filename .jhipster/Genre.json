@@ -21,12 +21,12 @@
   ],
   "entityTableName": "genre",
   "dto": "no",
-  "pagination": "pagination",
-  "service": "serviceImpl",
+  "pagination": "no",
+  "service": "no",
   "jpaMetamodelFiltering": false,
   "fluentMethods": true,
   "readOnly": false,
   "embedded": false,
   "applications": "*",
-  "changelogDate": "20220108034334"
+  "changelogDate": "20220114031633"
 }

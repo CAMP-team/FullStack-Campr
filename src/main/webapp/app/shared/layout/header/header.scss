@@ -3,10 +3,6 @@ $header-color-secondary: #bbb;
 $header-color-hover: darken($header-color, 20%);
 
 /* ==========================================================================
-Developement Ribbon
-========================================================================== */
-
-/* ==========================================================================
 Navbar styles
 ========================================================================== */
 .jh-navbar {
@@ -47,6 +43,15 @@ Navbar styles
     }
   }
 }
+.navbar-brand {
+  overflow: hidden;
+}
+
+.jh-navbar .navbar-nav .nav-link {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .navbar-version {
   font-size: 10px;
   color: $header-color-secondary;

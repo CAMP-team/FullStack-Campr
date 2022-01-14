@@ -17,7 +17,6 @@ export const Brand = () => (
     <span className="brand-title">
       <Translate contentKey="global.title">Campr</Translate>
     </span>
-
   </NavbarBrand>
 );
 

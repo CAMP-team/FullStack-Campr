@@ -1,80 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { Translate, TextFormat, getSortState, JhiPagination, JhiItemCount } from 'react-jhipster';
+import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { getEntities } from './watch-history.reducer';
 import { IWatchHistory } from 'app/shared/model/watch-history.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
-import { ASC, DESC, ITEMS_PER_PAGE, SORT } from 'app/shared/util/pagination.constants';
-import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
   const dispatch = useAppDispatch();
 
-  const [paginationState, setPaginationState] = useState(
-    overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE, 'id'), props.location.search)
-  );
-
   const watchHistoryList = useAppSelector(state => state.watchHistory.entities);
   const loading = useAppSelector(state => state.watchHistory.loading);
-  const totalItems = useAppSelector(state => state.watchHistory.totalItems);
-
-  const getAllEntities = () => {
-    dispatch(
-      getEntities({
-        page: paginationState.activePage - 1,
-        size: paginationState.itemsPerPage,
-        sort: `${paginationState.sort},${paginationState.order}`,
-      })
-    );
-  };
-
-  const sortEntities = () => {
-    getAllEntities();
-    const endURL = `?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`;
-    if (props.location.search !== endURL) {
-      props.history.push(`${props.location.pathname}${endURL}`);
-    }
-  };
 
   useEffect(() => {
-    sortEntities();
-  }, [paginationState.activePage, paginationState.order, paginationState.sort]);
-
-  useEffect(() => {
-    const params = new URLSearchParams(props.location.search);
-    const page = params.get('page');
-    const sort = params.get(SORT);
-    if (page && sort) {
-      const sortSplit = sort.split(',');
-      setPaginationState({
-        ...paginationState,
-        activePage: +page,
-        sort: sortSplit[0],
-        order: sortSplit[1],
-      });
-    }
-  }, [props.location.search]);
-
-  const sort = p => () => {
-    setPaginationState({
-      ...paginationState,
-      order: paginationState.order === ASC ? DESC : ASC,
-      sort: p,
-    });
-  };
-
-  const handlePagination = currentPage =>
-    setPaginationState({
-      ...paginationState,
-      activePage: currentPage,
-    });
+    dispatch(getEntities({}));
+  }, []);
 
   const handleSyncList = () => {
-    sortEntities();
+    dispatch(getEntities({}));
   };
 
   const { match } = props;
@@ -84,11 +30,11 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
       <h2 id="watch-history-heading" data-cy="WatchHistoryHeading">
         <Translate contentKey="camprApp.watchHistory.home.title">Watch Histories</Translate>
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="secondary" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="camprApp.watchHistory.home.refreshListLabel">Refresh List</Translate>
           </Button>
-          <Link to={`${match.url}/new`} className="btn btn-secondary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+          <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
             <Translate contentKey="camprApp.watchHistory.home.createLabel">Create new Watch History</Translate>
@@ -100,14 +46,17 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
           <Table responsive>
             <thead>
               <tr>
-                <th className="hand" onClick={sort('id')}>
-                  <Translate contentKey="camprApp.watchHistory.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('dateWatched')}>
-                  <Translate contentKey="camprApp.watchHistory.dateWatched">Date Watched</Translate> <FontAwesomeIcon icon="sort" />
+                <th>
+                  <Translate contentKey="camprApp.watchHistory.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="camprApp.watchHistory.appUser">App User</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="camprApp.watchHistory.dateWatched">Date Watched</Translate>
+                </th>
+                <th>
+                  <Translate contentKey="camprApp.watchHistory.user">User</Translate>
+                </th>
+                <th>
+                  <Translate contentKey="camprApp.watchHistory.video">Video</Translate>
                 </th>
                 <th />
               </tr>
@@ -123,22 +72,26 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
                   <td>
                     {watchHistory.dateWatched ? <TextFormat type="date" value={watchHistory.dateWatched} format={APP_DATE_FORMAT} /> : null}
                   </td>
-                  <td>{watchHistory.appUser ? <Link to={`app-user/${watchHistory.appUser.id}`}>{watchHistory.appUser.id}</Link> : ''}</td>
+                  <td>{watchHistory.user ? watchHistory.user.login : ''}</td>
+                  <td>
+                    {watchHistory.videos
+                      ? watchHistory.videos.map((val, j) => (
+                          <span key={j}>
+                            <Link to={`video/${val.id}`}>{val.title}</Link>
+                            {j === watchHistory.videos.length - 1 ? '' : ', '}
+                          </span>
+                        ))
+                      : null}
+                  </td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${watchHistory.id}`} color="secondary" size="sm" data-cy="entityDetailsButton">
+                      <Button tag={Link} to={`${match.url}/${watchHistory.id}`} color="info" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.view">View</Translate>
                         </span>
                       </Button>
-                      <Button
-                        tag={Link}
-                        to={`${match.url}/${watchHistory.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
-                        color="secondary"
-                        size="sm"
-                        data-cy="entityEditButton"
-                      >
+                      <Button tag={Link} to={`${match.url}/${watchHistory.id}/edit`} color="secondary" size="sm" data-cy="entityEditButton">
                         <FontAwesomeIcon icon="pencil-alt" />{' '}
                         <span className="d-none d-md-inline">
                           <Translate contentKey="entity.action.edit">Edit</Translate>
@@ -146,7 +99,7 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
                       </Button>
                       <Button
                         tag={Link}
-                        to={`${match.url}/${watchHistory.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
+                        to={`${match.url}/${watchHistory.id}/delete`}
                         color="secondary"
                         size="sm"
                         data-cy="entityDeleteButton"
@@ -170,24 +123,6 @@ export const WatchHistory = (props: RouteComponentProps<{ url: string }>) => {
           )
         )}
       </div>
-      {totalItems ? (
-        <div className={watchHistoryList && watchHistoryList.length > 0 ? '' : 'd-none'}>
-          <div className="justify-content-center d-flex">
-            <JhiItemCount page={paginationState.activePage} total={totalItems} itemsPerPage={paginationState.itemsPerPage} i18nEnabled />
-          </div>
-          <div className="justify-content-center d-flex">
-            <JhiPagination
-              activePage={paginationState.activePage}
-              onSelect={handlePagination}
-              maxButtons={5}
-              itemsPerPage={paginationState.itemsPerPage}
-              totalItems={totalItems}
-            />
-          </div>
-        </div>
-      ) : (
-        ''
-      )}
     </div>
   );
 };

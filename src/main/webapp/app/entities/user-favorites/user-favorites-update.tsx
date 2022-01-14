@@ -4,8 +4,8 @@ import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IAppUser } from 'app/shared/model/app-user.model';
-import { getEntities as getAppUsers } from 'app/entities/app-user/app-user.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
 import { IVideo } from 'app/shared/model/video.model';
 import { getEntities as getVideos } from 'app/entities/video/video.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './user-favorites.reducer';
@@ -19,14 +19,14 @@ export const UserFavoritesUpdate = (props: RouteComponentProps<{ id: string }>) 
 
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
-  const appUsers = useAppSelector(state => state.appUser.entities);
+  const users = useAppSelector(state => state.userManagement.users);
   const videos = useAppSelector(state => state.video.entities);
   const userFavoritesEntity = useAppSelector(state => state.userFavorites.entity);
   const loading = useAppSelector(state => state.userFavorites.loading);
   const updating = useAppSelector(state => state.userFavorites.updating);
   const updateSuccess = useAppSelector(state => state.userFavorites.updateSuccess);
   const handleClose = () => {
-    props.history.push('/user-favorites' + props.location.search);
+    props.history.push('/user-favorites');
   };
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export const UserFavoritesUpdate = (props: RouteComponentProps<{ id: string }>) 
       dispatch(getEntity(props.match.params.id));
     }
 
-    dispatch(getAppUsers({}));
+    dispatch(getUsers({}));
     dispatch(getVideos({}));
   }, []);
 
@@ -53,7 +53,7 @@ export const UserFavoritesUpdate = (props: RouteComponentProps<{ id: string }>) 
       ...userFavoritesEntity,
       ...values,
       videos: mapIdList(values.videos),
-      appUser: appUsers.find(it => it.id.toString() === values.appUser.toString()),
+      user: users.find(it => it.id.toString() === values.user.toString()),
     };
 
     if (isNew) {
@@ -71,7 +71,7 @@ export const UserFavoritesUpdate = (props: RouteComponentProps<{ id: string }>) 
       : {
           ...userFavoritesEntity,
           dateAdded: convertDateTimeFromServer(userFavoritesEntity.dateAdded),
-          appUser: userFavoritesEntity?.appUser?.id,
+          user: userFavoritesEntity?.user?.id,
           videos: userFavoritesEntity?.videos?.map(e => e.id.toString()),
         };
 
@@ -109,17 +109,17 @@ export const UserFavoritesUpdate = (props: RouteComponentProps<{ id: string }>) 
                 placeholder="YYYY-MM-DD HH:mm"
               />
               <ValidatedField
-                id="user-favorites-appUser"
-                name="appUser"
-                data-cy="appUser"
-                label={translate('camprApp.userFavorites.appUser')}
+                id="user-favorites-user"
+                name="user"
+                data-cy="user"
+                label={translate('camprApp.userFavorites.user')}
                 type="select"
               >
                 <option value="" key="0" />
-                {appUsers
-                  ? appUsers.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
+                        {otherEntity.login}
                       </option>
                     ))
                   : null}

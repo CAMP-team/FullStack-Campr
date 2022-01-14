@@ -40,7 +40,7 @@ public class Video implements Serializable {
     private String description;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "appUser", "videos" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "user", "videos" }, allowSetters = true)
     private UserUpload userUpload;
 
     @ManyToMany
@@ -51,17 +51,17 @@ public class Video implements Serializable {
 
     @OneToMany(mappedBy = "video")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "appUser", "video" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "user", "video" }, allowSetters = true)
     private Set<UserComment> userComments = new HashSet<>();
 
     @ManyToMany(mappedBy = "videos")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "appUser", "videos" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "user", "videos" }, allowSetters = true)
     private Set<WatchHistory> watchhistories = new HashSet<>();
 
     @ManyToMany(mappedBy = "videos")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "appUser", "videos" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "user", "videos" }, allowSetters = true)
     private Set<UserFavorites> userfavorites = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

@@ -12,8 +12,6 @@ import password from 'app/modules/account/password/password.reducer';
 import settings from 'app/modules/account/settings/settings.reducer';
 import passwordReset from 'app/modules/account/password-reset/password-reset.reducer';
 // prettier-ignore
-import appUser from 'app/entities/app-user/app-user.reducer';
-// prettier-ignore
 import video from 'app/entities/video/video.reducer';
 // prettier-ignore
 import userComment from 'app/entities/user-comment/user-comment.reducer';
@@ -38,7 +36,6 @@ const rootReducer = {
   passwordReset,
   password,
   settings,
-  appUser,
   video,
   userComment,
   genre,

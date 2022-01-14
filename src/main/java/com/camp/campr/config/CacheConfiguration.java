@@ -48,8 +48,6 @@ public class CacheConfiguration {
             createCache(cm, com.camp.campr.domain.User.class.getName());
             createCache(cm, com.camp.campr.domain.Authority.class.getName());
             createCache(cm, com.camp.campr.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.camp.campr.domain.AppUser.class.getName());
-            createCache(cm, com.camp.campr.domain.AppUser.class.getName() + ".userComments");
             createCache(cm, com.camp.campr.domain.Video.class.getName());
             createCache(cm, com.camp.campr.domain.Video.class.getName() + ".genres");
             createCache(cm, com.camp.campr.domain.Video.class.getName() + ".userComments");

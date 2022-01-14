@@ -5,15 +5,6 @@ import { NavDropdown } from './menu-components';
 
 const accountMenuItemsAuthenticated = () => (
   <>
-    <MenuItem icon="comment" to="/account/comments" data-cy="comments">
-      <Translate contentKey="global.menu.account.comments">Comments</Translate>
-    </MenuItem>
-    <MenuItem icon="heart" to="/account/favorites" data-cy="favorites">
-      <Translate contentKey="global.menu.account.favorites">Favorites</Translate>
-    </MenuItem>
-    <MenuItem icon="history" to="/account/history" data-cy="history">
-      <Translate contentKey="global.menu.account.history">Watch History</Translate>
-    </MenuItem>
     <MenuItem icon="wrench" to="/account/settings" data-cy="settings">
       <Translate contentKey="global.menu.account.settings">Settings</Translate>
     </MenuItem>

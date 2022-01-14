@@ -20,7 +20,7 @@ export const WatchHistoryDeleteDialog = (props: RouteComponentProps<{ id: string
   const updateSuccess = useAppSelector(state => state.watchHistory.updateSuccess);
 
   const handleClose = () => {
-    props.history.push('/watch-history' + props.location.search);
+    props.history.push('/watch-history');
   };
 
   useEffect(() => {

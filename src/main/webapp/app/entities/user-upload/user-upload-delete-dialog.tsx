@@ -20,7 +20,7 @@ export const UserUploadDeleteDialog = (props: RouteComponentProps<{ id: string }
   const updateSuccess = useAppSelector(state => state.userUpload.updateSuccess);
 
   const handleClose = () => {
-    props.history.push('/user-upload' + props.location.search);
+    props.history.push('/user-upload');
   };
 
   useEffect(() => {
