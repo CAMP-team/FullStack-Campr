@@ -40,9 +40,9 @@ export const WatchHistoryDetail = (props: RouteComponentProps<{ id: string }>) =
             ) : null}
           </dd>
           <dt>
-            <Translate contentKey="camprApp.watchHistory.appUser">App User</Translate>
+            <Translate contentKey="camprApp.watchHistory.user">User</Translate>
           </dt>
-          <dd>{watchHistoryEntity.appUser ? watchHistoryEntity.appUser.id : ''}</dd>
+          <dd>{watchHistoryEntity.user ? watchHistoryEntity.user.login : ''}</dd>
           <dt>
             <Translate contentKey="camprApp.watchHistory.video">Video</Translate>
           </dt>

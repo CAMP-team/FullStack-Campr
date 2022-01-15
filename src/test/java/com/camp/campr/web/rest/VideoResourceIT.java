@@ -9,7 +9,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.camp.campr.IntegrationTest;
 import com.camp.campr.domain.Video;
 import com.camp.campr.repository.VideoRepository;
-import com.camp.campr.service.VideoService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -64,9 +63,6 @@ class VideoResourceIT {
 
     @Mock
     private VideoRepository videoRepositoryMock;
-
-    @Mock
-    private VideoService videoServiceMock;
 
     @Autowired
     private EntityManager em;
@@ -172,20 +168,20 @@ class VideoResourceIT {
 
     @SuppressWarnings({ "unchecked" })
     void getAllVideosWithEagerRelationshipsIsEnabled() throws Exception {
-        when(videoServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+        when(videoRepositoryMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
 
         restVideoMockMvc.perform(get(ENTITY_API_URL + "?eagerload=true")).andExpect(status().isOk());
 
-        verify(videoServiceMock, times(1)).findAllWithEagerRelationships(any());
+        verify(videoRepositoryMock, times(1)).findAllWithEagerRelationships(any());
     }
 
     @SuppressWarnings({ "unchecked" })
     void getAllVideosWithEagerRelationshipsIsNotEnabled() throws Exception {
-        when(videoServiceMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+        when(videoRepositoryMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
 
         restVideoMockMvc.perform(get(ENTITY_API_URL + "?eagerload=true")).andExpect(status().isOk());
 
-        verify(videoServiceMock, times(1)).findAllWithEagerRelationships(any());
+        verify(videoRepositoryMock, times(1)).findAllWithEagerRelationships(any());
     }
 
     @Test

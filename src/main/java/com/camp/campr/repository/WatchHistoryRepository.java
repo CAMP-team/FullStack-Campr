@@ -14,6 +14,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface WatchHistoryRepository extends JpaRepository<WatchHistory, Long> {
+    @Query("select watchHistory from WatchHistory watchHistory where watchHistory.user.login = ?#{principal.username}")
+    List<WatchHistory> findByUserIsCurrentUser();
+
     @Query(
         value = "select distinct watchHistory from WatchHistory watchHistory left join fetch watchHistory.videos",
         countQuery = "select count(distinct watchHistory) from WatchHistory watchHistory"

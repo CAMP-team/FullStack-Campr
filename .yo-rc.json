@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "applicationType": "monolith",
     "baseName": "campr",
-    "jhipsterVersion": "7.4.1",
+    "jhipsterVersion": "7.5.0",
     "skipUserManagement": false,
     "skipCheckLengthOfIdentifier": false,
     "skipFakeData": false,
@@ -41,7 +41,7 @@
     "clientThemeVariant": "",
     "languages": ["en"],
     "enableGradleEnterprise": false,
-    "entities": ["AppUser", "Video", "UserComment", "Genre", "UserFavorites", "UserUpload", "WatchHistory"],
-    "lastLiquibaseTimestamp": 1641613417000
+    "entities": ["Video", "UserComment", "Genre", "UserFavorites", "UserUpload", "WatchHistory"],
+    "lastLiquibaseTimestamp": 1642130196000
   }
 }

@@ -2,7 +2,6 @@ package com.camp.campr.web.rest;
 
 import com.camp.campr.domain.UserComment;
 import com.camp.campr.repository.UserCommentRepository;
-import com.camp.campr.service.UserCommentService;
 import com.camp.campr.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -12,15 +11,10 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
-import tech.jhipster.web.util.PaginationUtil;
 import tech.jhipster.web.util.ResponseUtil;
 
 /**
@@ -28,6 +22,7 @@ import tech.jhipster.web.util.ResponseUtil;
  */
 @RestController
 @RequestMapping("/api")
+@Transactional
 public class UserCommentResource {
 
     private final Logger log = LoggerFactory.getLogger(UserCommentResource.class);
@@ -37,12 +32,9 @@ public class UserCommentResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final UserCommentService userCommentService;
-
     private final UserCommentRepository userCommentRepository;
 
-    public UserCommentResource(UserCommentService userCommentService, UserCommentRepository userCommentRepository) {
-        this.userCommentService = userCommentService;
+    public UserCommentResource(UserCommentRepository userCommentRepository) {
         this.userCommentRepository = userCommentRepository;
     }
 
@@ -59,7 +51,7 @@ public class UserCommentResource {
         if (userComment.getId() != null) {
             throw new BadRequestAlertException("A new userComment cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        UserComment result = userCommentService.save(userComment);
+        UserComment result = userCommentRepository.save(userComment);
         return ResponseEntity
             .created(new URI("/api/user-comments/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -93,7 +85,7 @@ public class UserCommentResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        UserComment result = userCommentService.save(userComment);
+        UserComment result = userCommentRepository.save(userComment);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, userComment.getId().toString()))
@@ -128,7 +120,19 @@ public class UserCommentResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        Optional<UserComment> result = userCommentService.partialUpdate(userComment);
+        Optional<UserComment> result = userCommentRepository
+            .findById(userComment.getId())
+            .map(existingUserComment -> {
+                if (userComment.getCommentBody() != null) {
+                    existingUserComment.setCommentBody(userComment.getCommentBody());
+                }
+                if (userComment.getCommentDate() != null) {
+                    existingUserComment.setCommentDate(userComment.getCommentDate());
+                }
+
+                return existingUserComment;
+            })
+            .map(userCommentRepository::save);
 
         return ResponseUtil.wrapOrNotFound(
             result,
@@ -139,15 +143,12 @@ public class UserCommentResource {
     /**
      * {@code GET  /user-comments} : get all the userComments.
      *
-     * @param pageable the pagination information.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of userComments in body.
      */
     @GetMapping("/user-comments")
-    public ResponseEntity<List<UserComment>> getAllUserComments(Pageable pageable) {
-        log.debug("REST request to get a page of UserComments");
-        Page<UserComment> page = userCommentService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    public List<UserComment> getAllUserComments() {
+        log.debug("REST request to get all UserComments");
+        return userCommentRepository.findByUserIsCurrentUser();
     }
 
     /**
@@ -159,7 +160,7 @@ public class UserCommentResource {
     @GetMapping("/user-comments/{id}")
     public ResponseEntity<UserComment> getUserComment(@PathVariable Long id) {
         log.debug("REST request to get UserComment : {}", id);
-        Optional<UserComment> userComment = userCommentService.findOne(id);
+        Optional<UserComment> userComment = userCommentRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(userComment);
     }
 
@@ -172,7 +173,7 @@ public class UserCommentResource {
     @DeleteMapping("/user-comments/{id}")
     public ResponseEntity<Void> deleteUserComment(@PathVariable Long id) {
         log.debug("REST request to delete UserComment : {}", id);
-        userCommentService.delete(id);
+        userCommentRepository.deleteById(id);
         return ResponseEntity
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

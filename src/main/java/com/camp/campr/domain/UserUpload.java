@@ -28,10 +28,8 @@ public class UserUpload implements Serializable {
     @Column(name = "date_uploaded")
     private Instant dateUploaded;
 
-    @JsonIgnoreProperties(value = { "internalUser", "userUpload", "watchHistory", "userFavorites", "userComments" }, allowSetters = true)
-    @OneToOne
-    @JoinColumn(unique = true)
-    private AppUser appUser;
+    @ManyToOne
+    private User user;
 
     @OneToMany(mappedBy = "userUpload")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -66,16 +64,16 @@ public class UserUpload implements Serializable {
         this.dateUploaded = dateUploaded;
     }
 
-    public AppUser getAppUser() {
-        return this.appUser;
+    public User getUser() {
+        return this.user;
     }
 
-    public void setAppUser(AppUser appUser) {
-        this.appUser = appUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public UserUpload appUser(AppUser appUser) {
-        this.setAppUser(appUser);
+    public UserUpload user(User user) {
+        this.setUser(user);
         return this;
     }
 

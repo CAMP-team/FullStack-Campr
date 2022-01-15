@@ -946,7 +946,11 @@ const UserManagement = (props) => {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "sync", spin: loading }),
                     ' ',
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.home.refreshListLabel" }, "Refresh List")),
+<<<<<<< HEAD
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: `${match.url}/new`, className: "btn btn-secondary jh-create-entity" },
+=======
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: `${match.url}/new`, className: "btn btn-primary jh-create-entity" },
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "plus" }),
                     " ",
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "userManagement.home.createLabel" }, "Create a new user")))),
@@ -1006,7 +1010,11 @@ const UserManagement = (props) => {
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
                                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "entity.action.edit" }, "Edit"))),
+<<<<<<< HEAD
                         react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/delete`, color: "secondary", size: "sm", disabled: account.login === user.login },
+=======
+                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Button, { tag: react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, to: `${match.url}/${user.login}/delete`, color: "danger", size: "sm", disabled: account.login === user.login },
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, { icon: "trash" }),
                             ' ',
                             react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", { className: "d-none d-md-inline" },
@@ -1020,6 +1028,30 @@ const UserManagement = (props) => {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserManagement);
 
 
+<<<<<<< HEAD
+=======
+/***/ }),
+
+/***/ "./src/main/webapp/app/shared/util/pagination.constants.ts":
+/*!*****************************************************************!*\
+  !*** ./src/main/webapp/app/shared/util/pagination.constants.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ITEMS_PER_PAGE": () => (/* binding */ ITEMS_PER_PAGE),
+/* harmony export */   "ASC": () => (/* binding */ ASC),
+/* harmony export */   "DESC": () => (/* binding */ DESC),
+/* harmony export */   "SORT": () => (/* binding */ SORT)
+/* harmony export */ });
+const ITEMS_PER_PAGE = 20;
+const ASC = 'asc';
+const DESC = 'desc';
+const SORT = 'sort';
+
+
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 /***/ })
 
 }]);

@@ -40,9 +40,9 @@ export const UserUploadDetail = (props: RouteComponentProps<{ id: string }>) => 
             ) : null}
           </dd>
           <dt>
-            <Translate contentKey="camprApp.userUpload.appUser">App User</Translate>
+            <Translate contentKey="camprApp.userUpload.user">User</Translate>
           </dt>
-          <dd>{userUploadEntity.appUser ? userUploadEntity.appUser.id : ''}</dd>
+          <dd>{userUploadEntity.user ? userUploadEntity.user.login : ''}</dd>
         </dl>
         <Button tag={Link} to="/user-upload" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

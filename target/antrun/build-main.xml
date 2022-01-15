@@ -3,9 +3,15 @@
   <target name="main">
     <condition else="false" property="skip.npm" value="true">
       <and>
+<<<<<<< HEAD
         <available file="checksums.csv" filepath="/Users/quatranipaul/Projects/FullStack-Campr/target" />
         <available file="checksums.csv.old" filepath="/Users/quatranipaul/Projects/FullStack-Campr/target" />
         <filesmatch file2="/Users/quatranipaul/Projects/FullStack-Campr/target/checksums.csv.old" file1="/Users/quatranipaul/Projects/FullStack-Campr/target/checksums.csv" />
+=======
+        <available file="checksums.csv" filepath="/Users/huangamanda/Dev/Projects/FullStack-Campr/target" />
+        <available file="checksums.csv.old" filepath="/Users/huangamanda/Dev/Projects/FullStack-Campr/target" />
+        <filesmatch file2="/Users/huangamanda/Dev/Projects/FullStack-Campr/target/checksums.csv.old" file1="/Users/huangamanda/Dev/Projects/FullStack-Campr/target/checksums.csv" />
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
       </and>
     </condition>
   </target>

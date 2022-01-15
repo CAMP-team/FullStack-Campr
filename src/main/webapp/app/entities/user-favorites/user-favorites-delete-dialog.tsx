@@ -20,7 +20,7 @@ export const UserFavoritesDeleteDialog = (props: RouteComponentProps<{ id: strin
   const updateSuccess = useAppSelector(state => state.userFavorites.updateSuccess);
 
   const handleClose = () => {
-    props.history.push('/user-favorites' + props.location.search);
+    props.history.push('/user-favorites');
   };
 
   useEffect(() => {

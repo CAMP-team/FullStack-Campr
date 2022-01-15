@@ -1,12 +1,21 @@
 #File,SHA-1
+<<<<<<< HEAD
 package-lock.json,b1d560b11ed5339ef35c16372fde5a12e2dd9225
 package.json,946f6ef8b0e5e53f4e637934dd68a808ef58d89c
+=======
+package-lock.json,65cc9ff082de97bee309d71abbd50990ea2b388f
+package.json,e616b6544b982a3bb314cbef462b006d41e049dd
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/404.html,6f1f8f2578202ca1b6bef5384ba474825d2722e9
 src/main/webapp/WEB-INF/web.xml,f3577fd846ec450b1c1687c78d076c2b99e075c2
 src/main/webapp/app/_bootstrap-variables.scss,f11747cffdb465cc37c01840db09e489bdd5a5a7
 src/main/webapp/app/app.scss,b500ffe5f7c6b661aecfc8d389c25b750f95bd72
 src/main/webapp/app/app.tsx,49392c7c92169aab64c3ecef7e151664479eb516
+<<<<<<< HEAD
 src/main/webapp/app/config/axios-interceptor.spec.ts,e278afd6726b5d3f8fa6b3cc278eaa71c980154c
+=======
+src/main/webapp/app/config/axios-interceptor.spec.ts,afa2f52378856fef8b614e208c049701c837c667
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/app/config/axios-interceptor.ts,501d3892b8cade03f93b6829472d481283f70a3e
 src/main/webapp/app/config/constants.ts,9c43864abf55ee5b743353be33fbc5965fc0ba27
 src/main/webapp/app/config/dayjs.ts,1cfb142cc0c8b2e0231ab7d4f174289e48647701
@@ -17,6 +26,7 @@ src/main/webapp/app/config/notification-middleware.spec.ts,43bc63e8c53b910321e2a
 src/main/webapp/app/config/notification-middleware.ts,aa79f7b58d02ca605df4b9d146cb41469402c243
 src/main/webapp/app/config/store.ts,67ed4c1d57d36e9acb877d5937756068de03efe8
 src/main/webapp/app/config/translation.ts,cf628befcb676c866de633b03f1778c9200af77d
+<<<<<<< HEAD
 src/main/webapp/app/entities/app-user/app-user-delete-dialog.tsx,a0070601bc87f3a971e80ed8c9f8c640488ed74f
 src/main/webapp/app/entities/app-user/app-user-detail.tsx,789c3cbcbae15ab663f7c0ca5f6c739be955dde0
 src/main/webapp/app/entities/app-user/app-user-reducer.spec.ts,513250063215ca6546571343b392765fb6fa209a
@@ -74,6 +84,58 @@ src/main/webapp/app/modules/account/activate/activate.tsx,a69b6e5cb4b5e571aa32af
 src/main/webapp/app/modules/account/index.tsx,1cc3bc41cf017350ce25432227e6262553b3586b
 src/main/webapp/app/modules/account/password-reset/finish/password-reset-finish.tsx,520fdc2d571a4edb407a4e32c3f6af127e22c039
 src/main/webapp/app/modules/account/password-reset/init/password-reset-init.tsx,08e7f2a56505225b4f025387207f8dbbc1b7fcc6
+=======
+src/main/webapp/app/entities/genre/genre-delete-dialog.tsx,e5faf98aecf93645b7b6facb0a63d8710315b008
+src/main/webapp/app/entities/genre/genre-detail.tsx,cf27f64596c94e52e2b2ac6229c92ea4ab6c2480
+src/main/webapp/app/entities/genre/genre-reducer.spec.ts,6e60e8549acfed87caeee8579339dce3b18b0911
+src/main/webapp/app/entities/genre/genre-update.tsx,3e131e60acf6670d99e363e0a870f3415f3207d1
+src/main/webapp/app/entities/genre/genre.reducer.ts,9f92b913ca3afb38dfb702ebbddbfabb233cee83
+src/main/webapp/app/entities/genre/genre.tsx,0e6533435c9d61112e0d0750ae811b0f5de8a3a9
+src/main/webapp/app/entities/genre/index.tsx,b5beefbb9e270ac927ebd7c4db6312912d93d354
+src/main/webapp/app/entities/index.tsx,7976797832a52cfd5e7f2641ea25beb9b4c85654
+src/main/webapp/app/entities/user-comment/index.tsx,c0324eac44a1a2a19dd9f875d45e52853408615a
+src/main/webapp/app/entities/user-comment/user-comment-delete-dialog.tsx,92773bd893b383a38b93e56b8b426b43cd5c1d67
+src/main/webapp/app/entities/user-comment/user-comment-detail.tsx,1dd24d95cd1e0254f5624531df4cc5b57cbead56
+src/main/webapp/app/entities/user-comment/user-comment-reducer.spec.ts,8bc8f7bccae60963955e6f377b5c026b6cc224fa
+src/main/webapp/app/entities/user-comment/user-comment-update.tsx,127e10c346efff1839dc8bfd34d3fb20cca3b535
+src/main/webapp/app/entities/user-comment/user-comment.reducer.ts,7eee129ef32d078958e219dbe46396484a52ba8c
+src/main/webapp/app/entities/user-comment/user-comment.tsx,6ef46abf536a3588660814ee38fcb2af2b6e17c4
+src/main/webapp/app/entities/user-favorites/index.tsx,5188c1ead56e215cb451bc46f6852484392c153b
+src/main/webapp/app/entities/user-favorites/user-favorites-delete-dialog.tsx,224ca97faad2b7571b980b3d778e0612af568724
+src/main/webapp/app/entities/user-favorites/user-favorites-detail.tsx,22f44792c97d5d308508578fd0a6c200ec81901c
+src/main/webapp/app/entities/user-favorites/user-favorites-reducer.spec.ts,98fc638ae7138c5b3e9a00ada35c62c3db837834
+src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx,c2ce6cd54242fd87291176d68da5c27a62f343b3
+src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts,07eef09545e5f6aa13486f7659cc8abf13cdb501
+src/main/webapp/app/entities/user-favorites/user-favorites.tsx,fbfedbd2587ed0c14cb40e4c964dc136b0172500
+src/main/webapp/app/entities/user-upload/index.tsx,f6aeaf673b9df98202dd203f6ef3b1e1d6b18935
+src/main/webapp/app/entities/user-upload/user-upload-delete-dialog.tsx,6d4158860935a2aaa34f8e30f5b8199195e5d554
+src/main/webapp/app/entities/user-upload/user-upload-detail.tsx,94cd9f59d165448ed89d5af079cfa992a7c0079e
+src/main/webapp/app/entities/user-upload/user-upload-reducer.spec.ts,f946ba754729c5ada0202b92ec2fe0a2f83198dd
+src/main/webapp/app/entities/user-upload/user-upload-update.tsx,d7ecb45ecf7f42ac505d93a5a475dd882b335460
+src/main/webapp/app/entities/user-upload/user-upload.reducer.ts,9abc87fccccb1748dc0fd6153c90a89bf63b12ab
+src/main/webapp/app/entities/user-upload/user-upload.tsx,fe3f0a69e7508511a1ec461c829e5cdcba3b37e7
+src/main/webapp/app/entities/video/index.tsx,e449dc27f0db4c67b560fcee72ed6b60c5c2815d
+src/main/webapp/app/entities/video/video-delete-dialog.tsx,9353c66e1033220a367a2d6ef21246ad83197f8c
+src/main/webapp/app/entities/video/video-detail.tsx,90178e340726e2efdbc6056212a2ccaf88128211
+src/main/webapp/app/entities/video/video-reducer.spec.ts,1f9d21eb3d71a951d02f4edb82cfa24c78192636
+src/main/webapp/app/entities/video/video-update.tsx,d850eed6709edfdd44357f887697d9d20b305c40
+src/main/webapp/app/entities/video/video.reducer.ts,ee4e7d6fa826f579098ae0d81dcc2aff3e781ebc
+src/main/webapp/app/entities/video/video.tsx,f3761e7547965dcb445366790c7dd64cff5f784e
+src/main/webapp/app/entities/watch-history/index.tsx,c31840af09ec233972e6f8d835f114155c8f373b
+src/main/webapp/app/entities/watch-history/watch-history-delete-dialog.tsx,a8146c283975f99a2ec0e272ef349ece03a89c3e
+src/main/webapp/app/entities/watch-history/watch-history-detail.tsx,29780571a3a8f408f581528a724fe2d7764e68f6
+src/main/webapp/app/entities/watch-history/watch-history-reducer.spec.ts,2a8c7c28ee3b091b4cbda46d504928f9bb2d7e98
+src/main/webapp/app/entities/watch-history/watch-history-update.tsx,4c71618a8dd733b8a488b5a029c2d2b743361381
+src/main/webapp/app/entities/watch-history/watch-history.reducer.ts,72f1ced060e400d5f77be5f4d8763ee1545cbd54
+src/main/webapp/app/entities/watch-history/watch-history.tsx,765bbad8dbf0f2a8ef5c22b88abe0814782d8384
+src/main/webapp/app/index.tsx,10e054e5b2ce4026a6c0ce9916bea51fe4a9be88
+src/main/webapp/app/modules/account/activate/activate.reducer.spec.ts,413401287bd9b4ff090f3e9b67b87015b49052ad
+src/main/webapp/app/modules/account/activate/activate.reducer.ts,ccb487a03e908c0d53c49ba8c7e6d28a02eab395
+src/main/webapp/app/modules/account/activate/activate.tsx,456d80e090b4a836899e363a9ca4cff13297068b
+src/main/webapp/app/modules/account/index.tsx,1cc3bc41cf017350ce25432227e6262553b3586b
+src/main/webapp/app/modules/account/password-reset/finish/password-reset-finish.tsx,520fdc2d571a4edb407a4e32c3f6af127e22c039
+src/main/webapp/app/modules/account/password-reset/init/password-reset-init.tsx,5b157e02d22058d3839e438443bae9434e8951b4
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/app/modules/account/password-reset/password-reset.reducer.ts,036d39c5a2cf687a71755663b4ec9cb4bf55a314
 src/main/webapp/app/modules/account/password/password.reducer.spec.ts,4287d1e84c66671c224865636f67f579316d48ee
 src/main/webapp/app/modules/account/password/password.reducer.ts,7b11320f478abaed052825e38b688c17044403f4
@@ -100,6 +162,7 @@ src/main/webapp/app/modules/administration/user-management/user-management-detai
 src/main/webapp/app/modules/administration/user-management/user-management-update.tsx,24c90775068bb8bacf15c874ccd47e7caa2e83a7
 src/main/webapp/app/modules/administration/user-management/user-management.reducer.spec.ts,858b6760e90201caec5c0b2bfee122fe99e48d5e
 src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts,c4db24b027f26d07df58d2bb865d2dfcfa8cb971
+<<<<<<< HEAD
 src/main/webapp/app/modules/administration/user-management/user-management.tsx,1f107831ac7f2c88e23159ce0baf62cf873a82a5
 src/main/webapp/app/modules/home/App.css,181d48c06ed41a6feb1888d19176b398341dbcea
 src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
@@ -109,6 +172,17 @@ src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eae
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
 src/main/webapp/app/routes.tsx,24b7be9934e2ab11c9809b3daf383d44f0aec41a
+=======
+src/main/webapp/app/modules/administration/user-management/user-management.tsx,7e4c626d9f48b7c7a94e2fce87606b4aa3ad5ec6
+src/main/webapp/app/modules/home/App.css,fdd80c0bf5e591b2600c957d28abedcda1cbd928
+src/main/webapp/app/modules/home/VideoTile.css,237ff6d8e7bb28788b4450ee11de2746720fce0c
+src/main/webapp/app/modules/home/home.scss,0ac134441ae83f75a279b7d2cf304c6fe3c7f75e
+src/main/webapp/app/modules/home/home.tsx,51000f9b81e62c52bb1740c845441615cbff3ec3
+src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
+src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
+src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
+src/main/webapp/app/routes.tsx,0db229d194a516afa694e9a16bebb308fef37e03
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/app/setup-tests.ts,b55be73a50f3d0d29c99022aba6867f9bb12bdbf
 src/main/webapp/app/shared/DurationFormat.tsx,f5f6a6703c13cab1a458a9c352e0c38687c41e0e
 src/main/webapp/app/shared/auth/private-route.spec.tsx,50ee6c391b7f114976bdc5d3ff4c2347d036361d
@@ -119,6 +193,7 @@ src/main/webapp/app/shared/error/error-boundary.spec.tsx,b5dd5cd4c7fa6fa4c98b10d
 src/main/webapp/app/shared/error/error-boundary.tsx,7bda36518a017ef6d9996d2579e015a536a30caf
 src/main/webapp/app/shared/error/page-not-found.tsx,2146f2bbf74a95025ef17db2920d028ee378ebb0
 src/main/webapp/app/shared/layout/footer/footer.scss,d3cac62246d4863510099354d1d41fa13b549ab0
+<<<<<<< HEAD
 src/main/webapp/app/shared/layout/footer/footer.tsx,a072c2cd1d4afe389409218ed66d98e9b2923449
 src/main/webapp/app/shared/layout/header/header-components.tsx,d64ff2d68e56b3e1af6418d57d4c6ebf20db3540
 src/main/webapp/app/shared/layout/header/header.scss,0224b743fb539dab7255cd7e0d9766cf7ab82d3a
@@ -128,12 +203,24 @@ src/main/webapp/app/shared/layout/menus/account.spec.tsx,36a60d5076daf111166853a
 src/main/webapp/app/shared/layout/menus/account.tsx,bd16e09fe03d59f97367869c6a4dce3ecf2cba53
 src/main/webapp/app/shared/layout/menus/admin.tsx,b66f218a9293651ba9c5e995d65c9dc47d9b9b0d
 src/main/webapp/app/shared/layout/menus/entities.tsx,6ccf8668b45b806a2076e5c1cc68590a5c788321
+=======
+src/main/webapp/app/shared/layout/footer/footer.tsx,6c1946be0dd957efafc25d1fb0180ac257ef5c98
+src/main/webapp/app/shared/layout/header/header-components.tsx,a041d7fdb8e31b310ac457b8e9f46f5dba4e3520
+src/main/webapp/app/shared/layout/header/header.scss,d61e804311a015a44b75f997649e87f38c23cdc7
+src/main/webapp/app/shared/layout/header/header.spec.tsx,a4ffd9e148f33112df431c7eda54bad6565332ae
+src/main/webapp/app/shared/layout/header/header.tsx,9f93ba8e453bbaf288808da4e374d72aef8c6b41
+src/main/webapp/app/shared/layout/menus/account.spec.tsx,36a60d5076daf111166853a62653783032c7ab91
+src/main/webapp/app/shared/layout/menus/account.tsx,5c32cddf7a71bd12c6f898fa1effa3ec929405c0
+src/main/webapp/app/shared/layout/menus/admin.tsx,b66f218a9293651ba9c5e995d65c9dc47d9b9b0d
+src/main/webapp/app/shared/layout/menus/entities.tsx,7b61d12b8151b2351aabacebc5dd55457e6a1baa
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/app/shared/layout/menus/index.ts,de93b4142b0909537505361a59ffe526ae84901e
 src/main/webapp/app/shared/layout/menus/locale.tsx,3192a484a8405c7d5e9452414cd8a0684fe04a24
 src/main/webapp/app/shared/layout/menus/menu-components.tsx,b18066b952ba858edd972cadcdde05a2dfb7fe82
 src/main/webapp/app/shared/layout/menus/menu-item.tsx,af541576e73afa1b185bb9a5fadca89bcd10b386
 src/main/webapp/app/shared/layout/password/password-strength-bar.scss,9d5c04beb3d647cac81dfffa450f2749126b7c7d
 src/main/webapp/app/shared/layout/password/password-strength-bar.tsx,ea36b2801188584fc57268e61e816b9288e04e3e
+<<<<<<< HEAD
 src/main/webapp/app/shared/model/app-user.model.ts,916d72a0621b5179c2b1cfc316a88339e19e97d9
 src/main/webapp/app/shared/model/genre.model.ts,089fcb7908f4446b391a38ca7fc318756df44f74
 src/main/webapp/app/shared/model/user-comment.model.ts,6c38ef3c7c7baf5389a0693983062c75d14b4114
@@ -142,11 +229,24 @@ src/main/webapp/app/shared/model/user-upload.model.ts,ecd75eb0defc398225ac9e64c5
 src/main/webapp/app/shared/model/user.model.ts,f36836eba81c142a12eed396cd72645ff12d0bbc
 src/main/webapp/app/shared/model/video.model.ts,0c43a82dfcfca9c005e2ae2443f73b8c3e259d6b
 src/main/webapp/app/shared/model/watch-history.model.ts,f09c2c78998f4ff3e9e6d00b2a1a4e956286a9ac
+=======
+src/main/webapp/app/shared/model/genre.model.ts,089fcb7908f4446b391a38ca7fc318756df44f74
+src/main/webapp/app/shared/model/user-comment.model.ts,22b7dc563208ad3ddeeae9d50126812099837e42
+src/main/webapp/app/shared/model/user-favorites.model.ts,a6383946219bbc0f1c22cfb179996d8111d7e901
+src/main/webapp/app/shared/model/user-upload.model.ts,b72320c730c3a9b0bf4c22e154c886625f0a49c7
+src/main/webapp/app/shared/model/user.model.ts,f36836eba81c142a12eed396cd72645ff12d0bbc
+src/main/webapp/app/shared/model/video.model.ts,0c43a82dfcfca9c005e2ae2443f73b8c3e259d6b
+src/main/webapp/app/shared/model/watch-history.model.ts,5c0934bc7ea87a5014f357416412efdc440fb28c
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/app/shared/reducers/application-profile.spec.ts,0444baa2901d1c387ed5f83c0c9926af7b267638
 src/main/webapp/app/shared/reducers/application-profile.ts,bbb4ad59ebe6d3bb0f310db879f63bb044548f31
 src/main/webapp/app/shared/reducers/authentication.spec.ts,7d86689af328ee065fbc070e42e5eacc7cac09d5
 src/main/webapp/app/shared/reducers/authentication.ts,05e2d4cc16be0b1e9e4a70b11832a06c3bdad875
+<<<<<<< HEAD
 src/main/webapp/app/shared/reducers/index.ts,46960cefb466114c7e7c8136147e7a28849886fd
+=======
+src/main/webapp/app/shared/reducers/index.ts,f5e43ed40b3288c57a2a75625241b34724473a10
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/app/shared/reducers/locale.spec.ts,37d5c222cd5addb6a46f9a5c605d9b84c9fd4de1
 src/main/webapp/app/shared/reducers/locale.ts,01b8be2770e1addf2995af88ab3248880b735ad8
 src/main/webapp/app/shared/reducers/reducer.utils.ts,513bba3dc7a4f84699cbbaeec6124391179a1386
@@ -157,6 +257,12 @@ src/main/webapp/app/shared/util/pagination.constants.ts,2259d10abbaabd7777dbe59c
 src/main/webapp/app/typings.d.ts,afcdaa1ae4c7852cd8cbfcfa392c7e4b8b4c4395
 src/main/webapp/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
 src/main/webapp/content/images/jhipster_family_member_0.svg,d74ed3591e3a916224096cef4f87dc3bd7479386
+<<<<<<< HEAD
+=======
+src/main/webapp/content/images/jhipster_family_member_0_head-192.png,df480d17864835a76db4abd997176e13cfa38d2c
+src/main/webapp/content/images/jhipster_family_member_0_head-256.png,ec1cd28328e885231c2d9a451cc46a8d4f10d6f4
+src/main/webapp/content/images/jhipster_family_member_0_head-384.png,55c081b847a19807b34b48e31e63a464a2726d4e
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/content/images/jhipster_family_member_0_head-512.png,6cf7f74775338ab98de40ef589c68337fe8e859c
 src/main/webapp/content/images/jhipster_family_member_1.svg,61a207bca2c8b0dac21fc945d2f2505e4b5d3a30
 src/main/webapp/content/images/jhipster_family_member_1_head-192.png,ba95a15a915e98e756f8c0f6202cbb7146913d7a
@@ -174,6 +280,7 @@ src/main/webapp/content/images/jhipster_family_member_3_head-256.png,ee0fd7e4d2c
 src/main/webapp/content/images/jhipster_family_member_3_head-384.png,cf311c64f4d6762559ab3063521524f736f0975a
 src/main/webapp/content/images/jhipster_family_member_3_head-512.png,97e81d97579be35f112fa057028887fbb80f962c
 src/main/webapp/content/images/logo-jhipster.png,e1e46028ec092ca351425b07707fcdd52146b0b3
+<<<<<<< HEAD
 src/main/webapp/content/images/playButtonOverlay.png,888810aee5a4d1e9b374957ad23431bcb1e38f9e
 src/main/webapp/favicon.ico,69547cd4a95b59ac7e6818b6eb82befa061d0c16
 src/main/webapp/i18n/en/activate.json,092c12fc6ef85147bdb0393c99bb648b714efe9d
@@ -184,6 +291,16 @@ src/main/webapp/i18n/en/genre.json,fe0b5115edf18bca64b9412abe09ad1bc4c1bad1
 src/main/webapp/i18n/en/global.json,6f339ae3824f9ecd89089349c9eddedd0e2ab68b
 src/main/webapp/i18n/en/health.json,c2f3680360305feb532f4d88924f760ce7d5a102
 src/main/webapp/i18n/en/home.json,bfa6d81a3f1d25cbb3b4df683f8e83eb48096896
+=======
+src/main/webapp/favicon.ico,69547cd4a95b59ac7e6818b6eb82befa061d0c16
+src/main/webapp/i18n/en/activate.json,092c12fc6ef85147bdb0393c99bb648b714efe9d
+src/main/webapp/i18n/en/configuration.json,a9251186f5f4ead4a4bc1cefe6af2257f8f2c482
+src/main/webapp/i18n/en/error.json,84bd83485cbc000250295b7af51c6422d0b2defd
+src/main/webapp/i18n/en/genre.json,fe0b5115edf18bca64b9412abe09ad1bc4c1bad1
+src/main/webapp/i18n/en/global.json,6df5ab81d0689b498ce38e7aec32ff8868931369
+src/main/webapp/i18n/en/health.json,c2f3680360305feb532f4d88924f760ce7d5a102
+src/main/webapp/i18n/en/home.json,9fa03caa165a4872e845029ea046e60ce8e5e777
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 src/main/webapp/i18n/en/login.json,04ab0e780548cb87bc48443ec15698d0b6cbcc2e
 src/main/webapp/i18n/en/logs.json,62e83f513fd1f506f0adc672a1c791ec4fe6ff5d
 src/main/webapp/i18n/en/metrics.json,c984b1cb66470aa313cd2665563781ee28b34a4f
@@ -193,6 +310,7 @@ src/main/webapp/i18n/en/reset.json,fe34fd25b5a035fec004c938d683da5f7d9847b0
 src/main/webapp/i18n/en/sessions.json,17abca29b62420a7c055ad9400d04ef317ae4cfa
 src/main/webapp/i18n/en/settings.json,a5088743bcdf8f8dede58ac20c1974c188d9b128
 src/main/webapp/i18n/en/user-management.json,5f5c5fc15448a4f42ae77d96fba7d271261eb72e
+<<<<<<< HEAD
 src/main/webapp/i18n/en/userComment.json,32eef3c1274bae5181eafad8f8376e0a5c6ec6f3
 src/main/webapp/i18n/en/userFavorites.json,63d149ccc7c651d6c28b0ecffb3097682cfc0f93
 src/main/webapp/i18n/en/userUpload.json,00285a78d096d1d848efe67bf708a2dba7f6f87c
@@ -212,6 +330,27 @@ target/classes/static/app/main.bundle.js,1751ddeacf9fe9de0a406ded940b05ff1537b99
 target/classes/static/app/main.bundle.js.map,e7d08e9b97fe1dc03a8ec1a61591c5209613fdc0
 target/classes/static/app/vendors.bundle.js,937f09171c1c763e2333f78125d99e8b31dccb22
 target/classes/static/app/vendors.bundle.js.map,f7338b6937271ab91136363da1af7d2ced65afda
+=======
+src/main/webapp/i18n/en/userComment.json,5feefe4422a2b5f93d661a5bbf039312d5fbece8
+src/main/webapp/i18n/en/userFavorites.json,31c8ebbf37e6e8c202da4a4abb40adf52f0ca46f
+src/main/webapp/i18n/en/userUpload.json,ce5bcf43f7c10b2b37fc2383bf1ad7612049ba3b
+src/main/webapp/i18n/en/video.json,1aa8dbbd71cd7a4163f53299adc4d0f2e33da907
+src/main/webapp/i18n/en/watchHistory.json,edeb6c84251c8e1ea8dedd3cdac7ed18d103a314
+src/main/webapp/index.html,b7d1ecebd92124e84a1b9639328f376bc906183d
+src/main/webapp/manifest.webapp,9d4828c1c911fbdcdaa1be9d534f634130ef8eff
+src/main/webapp/robots.txt,85dff18c84fe266335d06b070f89d291c46290e3
+src/main/webapp/swagger-ui/dist/images/throbber.gif,4defd79f66e824ab7a3dc0e179904cc71a363439
+src/main/webapp/swagger-ui/index.html,216283504f756edcd51ff6a569747f8444c1eeda
+target/classes/static/75c371c05f1cbb115959.svg,61a207bca2c8b0dac21fc945d2f2505e4b5d3a30
+target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327ad1f
+target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
+target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
+target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
+target/classes/static/app/main.bundle.js,05c828c2b47306d3516c00a0b65f1170567b818a
+target/classes/static/app/main.bundle.js.map,c61ec02b2cc79a515f185f386aced3d01697febd
+target/classes/static/app/vendors.bundle.js,799610b2bc2c1b6e6dbc5e71f7c19b04bd11dbf2
+target/classes/static/app/vendors.bundle.js.map,99216bde0dba98e5b3a06161d24e27a030337685
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
 target/classes/static/content/images/jhipster_family_member_0.svg,d74ed3591e3a916224096cef4f87dc3bd7479386
 target/classes/static/content/images/jhipster_family_member_0_head-192.png,df480d17864835a76db4abd997176e13cfa38d2c
@@ -234,17 +373,26 @@ target/classes/static/content/images/jhipster_family_member_3_head-256.png,ee0fd
 target/classes/static/content/images/jhipster_family_member_3_head-384.png,cf311c64f4d6762559ab3063521524f736f0975a
 target/classes/static/content/images/jhipster_family_member_3_head-512.png,97e81d97579be35f112fa057028887fbb80f962c
 target/classes/static/content/images/logo-jhipster.png,e1e46028ec092ca351425b07707fcdd52146b0b3
+<<<<<<< HEAD
 target/classes/static/content/images/playButtonOverlay.png,888810aee5a4d1e9b374957ad23431bcb1e38f9e
 target/classes/static/favicon.ico,69547cd4a95b59ac7e6818b6eb82befa061d0c16
 target/classes/static/i18n/en.json,a23468c7cfe22b82130fae22d7dd430158d716a5
 target/classes/static/index.html,56d8d8a4c8e6d8f35460fab19eb550cddf5b7ab0
 target/classes/static/manifest.webapp,9d4828c1c911fbdcdaa1be9d534f634130ef8eff
 target/classes/static/robots.txt,6bfca05b292ca90decf0753d1bc921eb7a450bbd
+=======
+target/classes/static/favicon.ico,69547cd4a95b59ac7e6818b6eb82befa061d0c16
+target/classes/static/i18n/en.json,0986f142a248b28449cefcc649f0587551a5bf57
+target/classes/static/index.html,ebfef5cdaf901508b10f9095b884f339f7db03ed
+target/classes/static/manifest.webapp,9d4828c1c911fbdcdaa1be9d534f634130ef8eff
+target/classes/static/robots.txt,85dff18c84fe266335d06b070f89d291c46290e3
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 target/classes/static/swagger-ui/absolute-path.js,27e42f7871bbac388e15d373642643a9c0ce2be3
 target/classes/static/swagger-ui/axios.min.js,3456d0d10e669d9575476d2372c588d6c8f7c28b
 target/classes/static/swagger-ui/dist/images/throbber.gif,4defd79f66e824ab7a3dc0e179904cc71a363439
 target/classes/static/swagger-ui/favicon-16x16.png,3ff0a4d0a54de5e744a382349822165a6b6994ed
 target/classes/static/swagger-ui/favicon-32x32.png,8ca50b59019f7f17c65b77ea4f90a1b1a46ac0b6
+<<<<<<< HEAD
 target/classes/static/swagger-ui/index.html,70142e3c870a9bf691c10ff8c0493b2f3281f185
 target/classes/static/swagger-ui/index.js,188642650e853f572a8c7191ba21bf1d5e1b3e5b
 target/classes/static/swagger-ui/oauth2-redirect.html,337d04db8c0e6d3bcb0132a3c78396c4236c39a9
@@ -254,13 +402,28 @@ target/classes/static/swagger-ui/swagger-ui-es-bundle.js,8ba2e5c2d45aad037b1a4f0
 target/classes/static/swagger-ui/swagger-ui-standalone-preset.js,3c30528c8730ecd24a40b71d57f5f1dcb0680a13
 target/classes/static/swagger-ui/swagger-ui.css,32238fe48731eca0de7f376970d84c9872f3a645
 target/classes/static/swagger-ui/swagger-ui.js,c8f0a679aa9b777fb7f4ee680d088b96103e3aa4
+=======
+target/classes/static/swagger-ui/index.html,216283504f756edcd51ff6a569747f8444c1eeda
+target/classes/static/swagger-ui/index.js,188642650e853f572a8c7191ba21bf1d5e1b3e5b
+target/classes/static/swagger-ui/oauth2-redirect.html,337d04db8c0e6d3bcb0132a3c78396c4236c39a9
+target/classes/static/swagger-ui/swagger-ui-bundle.js,c9e75a02f22d6aeb6fad12d4e79db3dbc767304d
+target/classes/static/swagger-ui/swagger-ui-es-bundle-core.js,6ee6c73230fac9f615c3180ee6d247e26362e5a7
+target/classes/static/swagger-ui/swagger-ui-es-bundle.js,754c95a791f1ef15e98d57177b714159242d2234
+target/classes/static/swagger-ui/swagger-ui-standalone-preset.js,3c30528c8730ecd24a40b71d57f5f1dcb0680a13
+target/classes/static/swagger-ui/swagger-ui.css,32238fe48731eca0de7f376970d84c9872f3a645
+target/classes/static/swagger-ui/swagger-ui.js,634ef16e69c7da56cb126d6279c8c98badd8d540
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 tsconfig.json,b71cf99af53e48c3bb8330b827375ce264a0c6d2
 webpack/environment.js,542bd9c73e5d1b7ec452c0df9a1d9a8bbb7aa863
 webpack/logo-jhipster.png,f1671a819ca95d37e86e20da335b66ac67dd6210
 webpack/utils.js,4da91113a5b225f04139fe0648fb940d22b15a36
 webpack/webpack.common.js,e1c70762927f8b7b7555637a9142563def1aa04c
+<<<<<<< HEAD
 webpack/webpack.dev.js,a53a58c0788c8046f15652e49e111fb59b4cc839
 webpack/webpack.prod.js,b6adf43c4ecaea73b6f1bc49d4e4888eef0f44f3
 1aa04c
 webpack/webpack.dev.js,a53a58c0788c8046f15652e49e111fb59b4cc839
+=======
+webpack/webpack.dev.js,614be77c9b468078d8d54d5dbee3afc41bbb2a1b
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 webpack/webpack.prod.js,b6adf43c4ecaea73b6f1bc49d4e4888eef0f44f3

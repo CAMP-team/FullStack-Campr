@@ -7,5 +7,8 @@ Disallow: /api/account/sessions
 Disallow: /api/logs/
 Disallow: /api/users/
 Disallow: /management/
+<<<<<<< HEAD
 Disallow: /v2/api-docs/
+=======
+>>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 Disallow: /v3/api-docs/
