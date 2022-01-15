@@ -16,7 +16,6 @@ function posterSearch() {
   const [showButton, setShowButton] = useState(false);
   const addToFavorites = () => {
     //if user is logged in
-    //if user is not logged in
     //submit form to add video to favorites
     //confirmation will be that the button changes to "remove from favorites"
     console.log('Added to favorites!');
