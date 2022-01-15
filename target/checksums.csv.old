@@ -4,7 +4,7 @@ package.json,e616b6544b982a3bb314cbef462b006d41e049dd
 src/main/webapp/404.html,6f1f8f2578202ca1b6bef5384ba474825d2722e9
 src/main/webapp/WEB-INF/web.xml,f3577fd846ec450b1c1687c78d076c2b99e075c2
 src/main/webapp/app/_bootstrap-variables.scss,f11747cffdb465cc37c01840db09e489bdd5a5a7
-src/main/webapp/app/app.scss,b500ffe5f7c6b661aecfc8d389c25b750f95bd72
+src/main/webapp/app/app.scss,01acb01394aa2b26cee9290d5eba783cc0f96ca5
 src/main/webapp/app/app.tsx,49392c7c92169aab64c3ecef7e151664479eb516
 src/main/webapp/app/config/axios-interceptor.spec.ts,afa2f52378856fef8b614e208c049701c837c667
 src/main/webapp/app/config/axios-interceptor.ts,501d3892b8cade03f93b6829472d481283f70a3e
@@ -97,7 +97,7 @@ src/main/webapp/app/modules/administration/user-management/user-management.tsx,7
 src/main/webapp/app/modules/home/App.css,fdd80c0bf5e591b2600c957d28abedcda1cbd928
 src/main/webapp/app/modules/home/VideoTile.css,237ff6d8e7bb28788b4450ee11de2746720fce0c
 src/main/webapp/app/modules/home/home.scss,0ac134441ae83f75a279b7d2cf304c6fe3c7f75e
-src/main/webapp/app/modules/home/home.tsx,51000f9b81e62c52bb1740c845441615cbff3ec3
+src/main/webapp/app/modules/home/home.tsx,8d16952740e6c502d9b251b229a7d2f2df7b0ece
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -113,10 +113,10 @@ src/main/webapp/app/shared/error/error-boundary.tsx,7bda36518a017ef6d9996d2579e0
 src/main/webapp/app/shared/error/page-not-found.tsx,2146f2bbf74a95025ef17db2920d028ee378ebb0
 src/main/webapp/app/shared/layout/footer/footer.scss,d3cac62246d4863510099354d1d41fa13b549ab0
 src/main/webapp/app/shared/layout/footer/footer.tsx,6c1946be0dd957efafc25d1fb0180ac257ef5c98
-src/main/webapp/app/shared/layout/header/header-components.tsx,a041d7fdb8e31b310ac457b8e9f46f5dba4e3520
-src/main/webapp/app/shared/layout/header/header.scss,d61e804311a015a44b75f997649e87f38c23cdc7
+src/main/webapp/app/shared/layout/header/header-components.tsx,a9b4518aba00cb4dbaadbcec951bdbb105a99453
+src/main/webapp/app/shared/layout/header/header.scss,901b8183c993c855c48a6033330644c9689e9223
 src/main/webapp/app/shared/layout/header/header.spec.tsx,a4ffd9e148f33112df431c7eda54bad6565332ae
-src/main/webapp/app/shared/layout/header/header.tsx,9f93ba8e453bbaf288808da4e374d72aef8c6b41
+src/main/webapp/app/shared/layout/header/header.tsx,5f0cfaa6ada6b99acf8a1fe975d3b18a8d7dbd57
 src/main/webapp/app/shared/layout/menus/account.spec.tsx,36a60d5076daf111166853a62653783032c7ab91
 src/main/webapp/app/shared/layout/menus/account.tsx,5c32cddf7a71bd12c6f898fa1effa3ec929405c0
 src/main/webapp/app/shared/layout/menus/admin.tsx,b66f218a9293651ba9c5e995d65c9dc47d9b9b0d
@@ -174,7 +174,7 @@ src/main/webapp/i18n/en/activate.json,092c12fc6ef85147bdb0393c99bb648b714efe9d
 src/main/webapp/i18n/en/configuration.json,a9251186f5f4ead4a4bc1cefe6af2257f8f2c482
 src/main/webapp/i18n/en/error.json,84bd83485cbc000250295b7af51c6422d0b2defd
 src/main/webapp/i18n/en/genre.json,fe0b5115edf18bca64b9412abe09ad1bc4c1bad1
-src/main/webapp/i18n/en/global.json,6df5ab81d0689b498ce38e7aec32ff8868931369
+src/main/webapp/i18n/en/global.json,c0444cad3df9efadf8fc66ce79346be545fd2019
 src/main/webapp/i18n/en/health.json,c2f3680360305feb532f4d88924f760ce7d5a102
 src/main/webapp/i18n/en/home.json,9fa03caa165a4872e845029ea046e60ce8e5e777
 src/main/webapp/i18n/en/login.json,04ab0e780548cb87bc48443ec15698d0b6cbcc2e
@@ -201,8 +201,8 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-target/classes/static/app/main.bundle.js,05c828c2b47306d3516c00a0b65f1170567b818a
-target/classes/static/app/main.bundle.js.map,c61ec02b2cc79a515f185f386aced3d01697febd
+target/classes/static/app/main.bundle.js,f47bc88bbd93a29cfa5c4d46444cf89382821eac
+target/classes/static/app/main.bundle.js.map,976f788380656652f194b6e3e3b4954449fe62a0
 target/classes/static/app/vendors.bundle.js,799610b2bc2c1b6e6dbc5e71f7c19b04bd11dbf2
 target/classes/static/app/vendors.bundle.js.map,99216bde0dba98e5b3a06161d24e27a030337685
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
@@ -227,8 +227,9 @@ target/classes/static/content/images/jhipster_family_member_3_head-256.png,ee0fd
 target/classes/static/content/images/jhipster_family_member_3_head-384.png,cf311c64f4d6762559ab3063521524f736f0975a
 target/classes/static/content/images/jhipster_family_member_3_head-512.png,97e81d97579be35f112fa057028887fbb80f962c
 target/classes/static/content/images/logo-jhipster.png,e1e46028ec092ca351425b07707fcdd52146b0b3
+target/classes/static/dd0281fa1b34e3382fbf.jpg,bd36b47d1696950dfe05cb9cbcdbc6ee5fcad292
 target/classes/static/favicon.ico,69547cd4a95b59ac7e6818b6eb82befa061d0c16
-target/classes/static/i18n/en.json,0986f142a248b28449cefcc649f0587551a5bf57
+target/classes/static/i18n/en.json,872391585244069a605a6ff2cbc6b4a2c2e0c5a2
 target/classes/static/index.html,ebfef5cdaf901508b10f9095b884f339f7db03ed
 target/classes/static/manifest.webapp,9d4828c1c911fbdcdaa1be9d534f634130ef8eff
 target/classes/static/robots.txt,85dff18c84fe266335d06b070f89d291c46290e3
