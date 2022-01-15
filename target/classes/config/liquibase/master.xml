@@ -15,22 +15,6 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-<<<<<<< HEAD
-    <include file="config/liquibase/changelog/20220108034331_added_entity_AppUser.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034332_added_entity_Video.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034333_added_entity_UserComment.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034334_added_entity_Genre.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034335_added_entity_UserFavorites.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034336_added_entity_UserUpload.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034337_added_entity_WatchHistory.xml" relativeToChangelogFile="false"/>
-    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20220108034331_added_entity_constraints_AppUser.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034332_added_entity_constraints_Video.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034333_added_entity_constraints_UserComment.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034335_added_entity_constraints_UserFavorites.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034336_added_entity_constraints_UserUpload.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20220108034337_added_entity_constraints_WatchHistory.xml" relativeToChangelogFile="false"/>
-=======
     <include file="config/liquibase/changelog/20220114031631_added_entity_Video.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220114031632_added_entity_UserComment.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220114031633_added_entity_Genre.xml" relativeToChangelogFile="false"/>
@@ -43,7 +27,6 @@
     <include file="config/liquibase/changelog/20220114031634_added_entity_constraints_UserFavorites.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220114031635_added_entity_constraints_UserUpload.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220114031636_added_entity_constraints_WatchHistory.xml" relativeToChangelogFile="false"/>
->>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

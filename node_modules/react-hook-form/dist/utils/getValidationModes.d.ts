@@ -6,3 +6,4 @@ declare const _default: (mode?: keyof import("../types").ValidationMode | undefi
     isOnTouch: boolean;
 };
 export default _default;
+//# sourceMappingURL=getValidationModes.d.ts.map

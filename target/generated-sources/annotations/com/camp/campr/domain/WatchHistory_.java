@@ -10,15 +10,15 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(WatchHistory.class)
 public abstract class WatchHistory_ {
 
-	public static volatile SingularAttribute<WatchHistory, AppUser> appUser;
 	public static volatile SingularAttribute<WatchHistory, Instant> dateWatched;
 	public static volatile SetAttribute<WatchHistory, Video> videos;
 	public static volatile SingularAttribute<WatchHistory, Long> id;
+	public static volatile SingularAttribute<WatchHistory, User> user;
 
-	public static final String APP_USER = "appUser";
 	public static final String DATE_WATCHED = "dateWatched";
 	public static final String VIDEOS = "videos";
 	public static final String ID = "id";
+	public static final String USER = "user";
 
 }
 

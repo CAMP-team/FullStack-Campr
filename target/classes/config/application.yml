@@ -14,8 +14,6 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-<<<<<<< HEAD
-=======
 ---
 # Conditionally disable springdoc on missing api-docs profile
 spring:
@@ -26,16 +24,12 @@ springdoc:
   api-docs:
     enabled: false
 ---
->>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 management:
   endpoints:
     web:
       base-path: /management
       exposure:
         include:
-<<<<<<< HEAD
-          ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump', 'caches', 'liquibase']
-=======
           [
             'configprops',
             'env',
@@ -50,7 +44,6 @@ management:
             'caches',
             'liquibase',
           ]
->>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
   endpoint:
     health:
       show-details: when_authorized
@@ -162,12 +155,9 @@ server:
       cookie:
         http-only: true
 
-<<<<<<< HEAD
-=======
 springdoc:
   show-actuator: true
 
->>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
 # Properties to be exposed on the /info management endpoint
 info:
   # Comma separated list of profiles that will trigger the ribbon to show
@@ -193,13 +183,8 @@ jhipster:
   mail:
     from: campr@localhost
   api-docs:
-<<<<<<< HEAD
-    default-include-pattern: ${server.servlet.context-path:}/api/.*
-    management-include-pattern: ${server.servlet.context-path:}/management/.*
-=======
     default-include-pattern: ${server.servlet.context-path:}/api/**
     management-include-pattern: ${server.servlet.context-path:}/management/**
->>>>>>> 2622b14dc4694fb585fbb99d902c838d974ccf83
     title: Campr API
     description: Campr API documentation
     version: 0.0.1

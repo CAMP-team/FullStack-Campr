@@ -10,14 +10,14 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(UserFavorites.class)
 public abstract class UserFavorites_ {
 
-	public static volatile SingularAttribute<UserFavorites, AppUser> appUser;
 	public static volatile SetAttribute<UserFavorites, Video> videos;
 	public static volatile SingularAttribute<UserFavorites, Long> id;
+	public static volatile SingularAttribute<UserFavorites, User> user;
 	public static volatile SingularAttribute<UserFavorites, Instant> dateAdded;
 
-	public static final String APP_USER = "appUser";
 	public static final String VIDEOS = "videos";
 	public static final String ID = "id";
+	public static final String USER = "user";
 	public static final String DATE_ADDED = "dateAdded";
 
 }

@@ -15,8 +15,18 @@ function posterSearch() {
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
   const [showButton, setShowButton] = useState(false);
-  const addToFavorites = () => {
+  const account = useAppSelector(state => state.authentication.account);
+  const addToFavorites = videoId => {
     //if user is logged in
+    if (account == null) {
+      console.log('You need to log in first!');
+    } else if (account.login) {
+      //maybe a seperate attribute indicating whether video is in faves or not?
+      //can i get favorites from account if so how?????
+      //set addedTofavorites to true
+    } else {
+      console.log('You need to log in first!');
+    }
     //submit form to add video to favorites
     //confirmation will be that the button changes to "remove from favorites"
     console.log('Added to favorites!');
@@ -101,7 +111,12 @@ function posterSearch() {
                         />
                       )}
                       {showButton && video.poster_path != null && (
-                        <button type="button" className="FaveButton" style={{ position: 'absolute', bottom: 10 }} onClick={addToFavorites}>
+                        <button
+                          type="button"
+                          className="FaveButton"
+                          style={{ position: 'absolute', bottom: 10 }}
+                          onClick={addToFavorites(video.id)}
+                        >
                           Favorite
                         </button>
                       )}

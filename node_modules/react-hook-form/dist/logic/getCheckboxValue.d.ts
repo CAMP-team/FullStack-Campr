@@ -4,3 +4,4 @@ declare type CheckboxFieldResult = {
 };
 declare const _default: (options?: HTMLInputElement[] | undefined) => CheckboxFieldResult;
 export default _default;
+//# sourceMappingURL=getCheckboxValue.d.ts.map

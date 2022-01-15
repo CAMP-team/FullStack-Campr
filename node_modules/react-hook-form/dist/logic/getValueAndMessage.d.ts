@@ -4,3 +4,4 @@ declare const _default: (validationData?: ValidationRule<import("../types").Vali
     message: string;
 };
 export default _default;
+//# sourceMappingURL=getValueAndMessage.d.ts.map

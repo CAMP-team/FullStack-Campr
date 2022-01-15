@@ -4,3 +4,4 @@ declare type RadioFieldResult = {
 };
 declare const _default: (options?: HTMLInputElement[] | undefined) => RadioFieldResult;
 export default _default;
+//# sourceMappingURL=getRadioValue.d.ts.map
