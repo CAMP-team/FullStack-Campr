@@ -70,8 +70,8 @@ function posterSearch() {
                       //the key is the id of the div in the list
                       key={video.id}
                       className="VideoTile"
-                      onMouseEnter={videoTileEnter}
-                      onMouseLeave={videoTileLeave}
+                      //onMouseEnter={videoTileEnter}
+                      //onMouseLeave={videoTileLeave}
                       onClick={() => {
                         {
                           video.poster_path == null
@@ -91,6 +91,8 @@ function posterSearch() {
                         ) : (
                           <img
                             className="videoTile__img"
+                            onMouseEnter={videoTileEnter}
+                            onMouseLeave={videoTileLeave}
                             src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
                             alt="card image"
                             style={{ width: '100%', height: 360 }}
