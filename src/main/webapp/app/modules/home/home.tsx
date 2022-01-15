@@ -15,6 +15,9 @@ function posterSearch() {
   const [videos, setvideos] = useState([]);
   const [showButton, setShowButton] = useState(false);
   const addToFavorites = () => {
+    //if user is logged in
+    //submit form to add video to favorites
+    //confirmation will be that the button changes to "remove from favorites"
     console.log('Added to favorites!');
   };
   const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
@@ -67,11 +70,11 @@ function posterSearch() {
                     .then(() => console.log(videoDisplay));
                   return (
                     <div
-                      //the key is the id of the div in the list
                       key={video.id}
                       className="VideoTile"
-                      //onMouseEnter={videoTileEnter}
-                      //onMouseLeave={videoTileLeave}
+                      //if videoid not in favorites list already render remove from favorites button
+                      onMouseEnter={videoTileEnter}
+                      onMouseLeave={videoTileLeave}
                       onClick={() => {
                         {
                           video.poster_path == null
@@ -86,13 +89,11 @@ function posterSearch() {
                             className="videoTile__img"
                             src={`https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`}
                             alt="card image"
-                            //style={{ width: '100%', height: 360 }}
+                            style={{ width: '100%', height: 360 }}
                           />
                         ) : (
                           <img
                             className="videoTile__img"
-                            onMouseEnter={videoTileEnter}
-                            onMouseLeave={videoTileLeave}
                             src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
                             alt="card image"
                             style={{ width: '100%', height: 360 }}
@@ -102,7 +103,7 @@ function posterSearch() {
                           <button
                             type="button"
                             className="FaveButton"
-                            style={{ position: 'absolute', bottom: 10 /*display: (showButton) ? ('none') : ('block')*/ }}
+                            style={{ position: 'absolute', bottom: 10 }}
                             onClick={addToFavorites}
                           >
                             Favorite
