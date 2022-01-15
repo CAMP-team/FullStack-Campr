@@ -29,7 +29,8 @@ function posterSearch() {
   };
 
   const account = useAppSelector(state => state.authentication.account);
-  const handleVideoTileToggle = () => setShowButton(!showButton);
+  const videoTileEnter = () => setShowButton(true);
+  const videoTileLeave = () => setShowButton(false);
   return (
     <Row>
       <Col md="3" className="pad"></Col>
@@ -66,18 +67,11 @@ function posterSearch() {
                     .then(() => console.log(videoDisplay));
                   return (
                     <div
+                      //the key is the id of the div in the list
                       key={video.id}
                       className="VideoTile"
-                      onMouseEnter={() => {
-                        {
-                          setShowButton(!showButton);
-                        }
-                      }}
-                      onMouseLeave={() => {
-                        {
-                          setShowButton(!showButton);
-                        }
-                      }}
+                      onMouseEnter={videoTileEnter}
+                      onMouseLeave={videoTileLeave}
                       onClick={() => {
                         {
                           video.poster_path == null
@@ -86,13 +80,13 @@ function posterSearch() {
                         }
                       }}
                     >
-                      <div className="row">
+                      <div className="row" style={{ position: 'relative' }}>
                         {video.poster_path == null ? (
                           <img
                             className="videoTile__img"
                             src={`https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`}
                             alt="card image"
-                            style={{ width: '100%', height: 360 }}
+                            //style={{ width: '100%', height: 360 }}
                           />
                         ) : (
                           <img
@@ -103,7 +97,12 @@ function posterSearch() {
                           />
                         )}
                         {showButton && video.poster_path != null && (
-                          <button type="button" className="FaveButton" onClick={addToFavorites}>
+                          <button
+                            type="button"
+                            className="FaveButton"
+                            style={{ position: 'absolute', bottom: 10 /*display: (showButton) ? ('none') : ('block')*/ }}
+                            onClick={addToFavorites}
+                          >
                             Favorite
                           </button>
                         )}

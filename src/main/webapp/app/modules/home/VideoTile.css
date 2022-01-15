@@ -1,18 +1,15 @@
 .videoTile {
   cursor: pointer;
-  display: grid;
   /* // add cursor over photos for weblink */
 }
 
 .videoTile__img {
-  height: 200px;
-  width: 200px;
+  width: 100%;
   object-fit: cover;
   border-radius: 8px;
   border: 5px solid rgb(255, 255, 255);
   border-radius: 4px;
-  max-width: 100%;
-  height: auto;
+  height: 360px;
 }
 
 .playBtn {
@@ -28,10 +25,8 @@
 
 .faveButton {
   position: absolute;
-  z-index: 2;
-  top: 0px;
-  display: block;
-  left: 0px;
+  bottom: 10px;
+  display: none;
 }
 
 .videoTile__img:hover {
@@ -45,6 +40,6 @@
 /**TODO
 -set up favorite button functionality
   -override default button functionality
--move favorite button into movieTIle
+-have proper right and left bordering on faveButton
 -have favorite button only show for the tile you're moused into
 */
