@@ -94,10 +94,11 @@ src/main/webapp/app/modules/administration/user-management/user-management-updat
 src/main/webapp/app/modules/administration/user-management/user-management.reducer.spec.ts,858b6760e90201caec5c0b2bfee122fe99e48d5e
 src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts,c4db24b027f26d07df58d2bb865d2dfcfa8cb971
 src/main/webapp/app/modules/administration/user-management/user-management.tsx,7e4c626d9f48b7c7a94e2fce87606b4aa3ad5ec6
-src/main/webapp/app/modules/home/App.css,aaf676624a32fc9507eb64ae95ba0fccdb8aa36f
+src/main/webapp/app/modules/home/App.css,d12903fbce6bc7d6226a0fcb421fa1c790435976
 src/main/webapp/app/modules/home/VideoTile.css,237ff6d8e7bb28788b4450ee11de2746720fce0c
 src/main/webapp/app/modules/home/home.scss,0ac134441ae83f75a279b7d2cf304c6fe3c7f75e
-src/main/webapp/app/modules/home/home.tsx,8d16952740e6c502d9b251b229a7d2f2df7b0ece
+src/main/webapp/app/modules/home/home.tsx,cdf9939d1dd5b9b58d0fd3334b6fcdd9e2548db4
+src/main/webapp/app/modules/home/index.html,cfb7bc44c0be4ab23bb1a5e15e039e3d92ce5264
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -201,8 +202,8 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-target/classes/static/app/main.bundle.js,f47bc88bbd93a29cfa5c4d46444cf89382821eac
-target/classes/static/app/main.bundle.js.map,976f788380656652f194b6e3e3b4954449fe62a0
+target/classes/static/app/main.bundle.js,c38c540339cfb61a94e43af701109f98000a6f3f
+target/classes/static/app/main.bundle.js.map,f44fceae125b80018841124a9fe75394571f570f
 target/classes/static/app/vendors.bundle.js,799610b2bc2c1b6e6dbc5e71f7c19b04bd11dbf2
 target/classes/static/app/vendors.bundle.js.map,99216bde0dba98e5b3a06161d24e27a030337685
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d

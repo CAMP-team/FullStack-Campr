@@ -85,7 +85,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/App.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;EACA,kBAAA;AACF;;AAEA;EACE,gBAAA;EACA,aAAA;EACA,6BAAA;EACA,8CAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB","sourcesContent":[".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/App.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;EACA,kBAAA;AACF;;AAEA;EACE,gBAAA;EACA,aAAA;EACA,6BAAA;EACA,8CAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB","sourcesContent":[".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5748,6 +5748,7 @@ function posterSearch() {
     const onSubmit = e => {
         e.preventDefault(); // prevent page from reloading
         getPoster();
+        appendVideos();
     };
     function mapVideoId() {
         let map = videos.map(video => {
@@ -5758,18 +5759,16 @@ function posterSearch() {
     }
     mapVideoId();
     function appendVideos() {
-        let videoMap = videos.map((video) => (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
+        let videoMap = youTube.map((video) => (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
             video = video.id;
+            console.log(video);
             const url = `https://api.themoviedb.org/3/movie/${video}/videos?api_key=616093e66ab252685ad921e5c4680152`;
             const result = yield axios__WEBPACK_IMPORTED_MODULE_2___default().get(url);
-            let videoBreakdown = result.data.results[0].key;
-            let convertToString = JSON.stringify(videoBreakdown);
-            console.log(convertToString);
-            return videoBreakdown;
+            setYouTubeVideos(result.data.results);
+            // console.log(convertToString);
+            // return videoBreakdown;
         }));
     }
-    ;
-    appendVideos();
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.authentication.account);
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Row, null,
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "3", className: "pad" }),
@@ -7662,7 +7661,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("45e4127e63a27b634a6f")
+/******/ 		__webpack_require__.h = () => ("57a34837be7a42f3b500")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
