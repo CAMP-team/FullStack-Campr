@@ -85,34 +85,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/App.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,sBAAA;EACA,qBAAA;EACA,iBAAA;EACA,kBAAA;AACF;;AAEA;EACE,gBAAA;EACA,aAAA;EACA,6BAAA;EACA,8CAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB","sourcesContent":[".app {\n  display: flex;\n  flex-direction: column;\n  justify-content: left;\n  padding: 0px 50px;\n  border-radius: 8px;\n}\n\n.app__videos {\n  margin-top: 24px;\n  display: grid;\n  justify-content: space-evenly;\n  grid-template-columns: 250px 250px 250px 250px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./src/main/webapp/app/modules/home/VideoTile.css":
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./src/main/webapp/app/modules/home/VideoTile.css ***!
-  \***********************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  height: 200px;\n  width: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid white;\n  border-radius: 4px;\n  max-width: 100%;\n  height: auto;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px #494848;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/VideoTile.css"],"names":[],"mappings":"AAAA;EACE,eAAA;EACA,0CAAA;AACF;;AAEA;EACE,aAAA;EACA,YAAA;EACA,oBAAA;KAAA,iBAAA;EACA,kBAAA;EACA,uBAAA;EACA,kBAAA;EACA,eAAA;EACA,YAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB;;AAAA;EACE,+BAAA;AAGF","sourcesContent":[".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  height: 200px;\n  width: 200px;\n  object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid rgb(255, 255, 255);\n  border-radius: 4px;\n  max-width: 100%;\n  height: auto;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px rgb(73, 72, 72);\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".container {\n  max-width: 1000px;\n  margin-right: 100px;\n  margin-left: auto;\n  display: grid;\n  gap: 15px;\n  grid-template-columns: 200px 200px 200px 200px;\n}\n\n.video-cover {\n  width: 100%;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/App.css"],"names":[],"mappings":"AAAA;EACE,iBAAA;EACA,mBAAA;EACA,iBAAA;EAEA,aAAA;EACA,SAAA;EACA,8CAAA;AAAF;;AAEA;EACE,WAAA;AACF","sourcesContent":[".container {\n  max-width: 1000px;\n  margin-right: 100px;\n  margin-left: auto;\n\n  display: grid;\n  gap: 15px;\n  grid-template-columns: 200px 200px 200px 200px;\n}\n.video-cover {\n  width: 100%;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -626,119 +599,6 @@ if (true) {
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_App_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_App_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_App_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
-
-
-/***/ }),
-
-/***/ "./src/main/webapp/app/modules/home/VideoTile.css":
-/*!********************************************************!*\
-  !*** ./src/main/webapp/app/modules/home/VideoTile.css ***!
-  \********************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js!../../../../../../node_modules/postcss-loader/dist/cjs.js!../../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./VideoTile.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./src/main/webapp/app/modules/home/VideoTile.css");
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
-if (true) {
-  if (!_node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals || module.hot.invalidate) {
-    var isEqualLocals = function isEqualLocals(a, b, isNamedExport) {
-  if (!a && b || a && !b) {
-    return false;
-  }
-
-  var p;
-
-  for (p in a) {
-    if (isNamedExport && p === "default") {
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    if (a[p] !== b[p]) {
-      return false;
-    }
-  }
-
-  for (p in b) {
-    if (isNamedExport && p === "default") {
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    if (!a[p]) {
-      return false;
-    }
-  }
-
-  return true;
-};
-    var isNamedExport = !_node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals;
-    var oldLocals = isNamedExport ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ : _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals;
-
-    module.hot.accept(
-      /*! !!../../../../../../node_modules/css-loader/dist/cjs.js!../../../../../../node_modules/postcss-loader/dist/cjs.js!../../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./VideoTile.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./src/main/webapp/app/modules/home/VideoTile.css",
-      __WEBPACK_OUTDATED_DEPENDENCIES__ => { /* harmony import */ _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js!../../../../../../node_modules/postcss-loader/dist/cjs.js!../../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./VideoTile.css */ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[3]!./src/main/webapp/app/modules/home/VideoTile.css");
-(function () {
-        if (!isEqualLocals(oldLocals, isNamedExport ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ : _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals, isNamedExport)) {
-                module.hot.invalidate();
-
-                return;
-              }
-
-              oldLocals = isNamedExport ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ : _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals;
-
-              update(_node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"]);
-      })(__WEBPACK_OUTDATED_DEPENDENCIES__); }
-    )
-  }
-
-  module.hot.dispose(function() {
-    update();
-  });
-}
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_1_use_3_VideoTile_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -5714,7 +5574,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 const VideoCard = ({ video }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, video.title));
+    const IMAGE_PATH = 'https://image.tmdb.org/t/p/w500';
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: 'video-card' },
+        video.poster_path ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { className: 'video-cover', src: `${IMAGE_PATH}${video.poster_path}`, alt: "" }) : null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h5", { className: 'video.title' }, video.title)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VideoCard);
 
@@ -5732,20 +5595,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
-/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
-/* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
-/* harmony import */ var _VideoCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./VideoCard */ "./src/main/webapp/app/modules/home/VideoCard.tsx");
-
-
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
+/* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+/* harmony import */ var _VideoCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoCard */ "./src/main/webapp/app/modules/home/VideoCard.tsx");
 
 
 
@@ -5760,8 +5618,8 @@ __webpack_require__.r(__webpack_exports__);
 function videoApp() {
     const API_URL = 'https://api.themoviedb.org/3';
     const [videos, setVideos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    const fetchMovies = () => (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
-        const { data: { results } } = yield axios__WEBPACK_IMPORTED_MODULE_2___default().get(`${API_URL}/discover/movie`, {
+    const fetchMovies = () => (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
+        const { data: { results }, } = yield axios__WEBPACK_IMPORTED_MODULE_1___default().get(`${API_URL}/discover/movie`, {
             params: {
                 api_key: '616093e66ab252685ad921e5c4680152',
             },
@@ -5772,16 +5630,15 @@ function videoApp() {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         fetchMovies();
     }, []);
-    const renderVideos = () => (videos.map(video => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_VideoCard__WEBPACK_IMPORTED_MODULE_7__["default"], { key: video.id, video: video }))));
-    const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.authentication.account);
-    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "9" },
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", { className: "lead" },
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Hello "),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "home.subtitle" })),
+    const renderVideos = () => videos.map(video => react__WEBPACK_IMPORTED_MODULE_0__.createElement(_VideoCard__WEBPACK_IMPORTED_MODULE_5__["default"], { key: video.id, video: video }));
+    const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_2__.useAppSelector)(state => state.authentication.account);
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "8", className: "pad" }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "9" },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "VideoApp" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "container" }, renderVideos())),
             (account === null || account === void 0 ? void 0 : account.login) ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "5" }))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Alert, { color: "light" })),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "5" }))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Alert, { color: "light" })),
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null)))));
 }
@@ -6295,8 +6152,8 @@ const Header = (props) => {
     const toggleMenu = () => setMenuOpen(!menuOpen);
     const renderNavSearch = () => (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "jh-navbar" },
         react__WEBPACK_IMPORTED_MODULE_1__.createElement("a", { className: "active", href: "" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { className: "app_submit", type: "submit", value: "Search" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: 'text' })));
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text" }),
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: 'submit' }, "VideoSearch")));
     /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
     return (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { id: "app-header" },
         react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_redux_loading_bar__WEBPACK_IMPORTED_MODULE_3__["default"], { className: "loading-bar" }),
@@ -7633,7 +7490,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("cf46b7061ef789b4c382")
+/******/ 		__webpack_require__.h = () => ("1e6779cc1e0fd10a7bef")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
