@@ -7,9 +7,9 @@ import { Row, Col, Alert } from 'reactstrap';
 import Axios from 'axios';
 import { useAppSelector } from 'app/config/store';
 import './home.scss';
-import './VideoTile.css';
 import './App.css';
-import VideoCard from './Components/VideoCard';
+import VideoCard from './VideoCard';
+import Header from 'app/shared/layout/header/header';
 
 /* eslint-disable */
 
@@ -33,17 +33,16 @@ function videoApp() {
     fetchMovies();
   }, []);
 
-  const renderVideos = () => videos.map(video => <VideoCard video={undefined} />);
+  const renderVideos = () => videos.map(video => <VideoCard key={video.id} video={video} />);
 
   const account = useAppSelector(state => state.authentication.account);
   return (
     <Row>
-      <Col md="3" className="pad"></Col>
+      <Col md="8" className="pad"></Col>
       <Col md="9">
-        <p className="lead">
-          <h2>Hello </h2>
-          <Translate contentKey="home.subtitle"></Translate>
-        </p>
+        <div className="VideoApp">
+          <div className="container">{renderVideos()}</div>
+        </div>
         {account?.login ? (
           <div>
             <Col md="5"></Col>

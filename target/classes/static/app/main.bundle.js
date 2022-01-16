@@ -5700,6 +5700,27 @@ const { reset } = UserManagementSlice.actions;
 
 /***/ }),
 
+/***/ "./src/main/webapp/app/modules/home/VideoCard.tsx":
+/*!********************************************************!*\
+  !*** ./src/main/webapp/app/modules/home/VideoCard.tsx ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+const VideoCard = ({ video }) => {
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, video.title));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VideoCard);
+
+
+/***/ }),
+
 /***/ "./src/main/webapp/app/modules/home/home.tsx":
 /*!***************************************************!*\
   !*** ./src/main/webapp/app/modules/home/home.tsx ***!
@@ -5711,18 +5732,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
 /* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
 /* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
 /* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+/* harmony import */ var _VideoCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./VideoCard */ "./src/main/webapp/app/modules/home/VideoCard.tsx");
+
+
 
 
 
@@ -5734,86 +5757,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* eslint-disable */
-function posterSearch() {
-    const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''); // use state is updating the value in the frontend
-    const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    const [youTube, setYouTubeVideos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    const posterUrl = `https://api.themoviedb.org/3/search/multi?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-    function getPoster() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
-            const result = yield axios__WEBPACK_IMPORTED_MODULE_2___default().get(posterUrl);
-            setvideos(result.data.results);
+function videoApp() {
+    const API_URL = 'https://api.themoviedb.org/3';
+    const [videos, setVideos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const fetchMovies = () => (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
+        const { data: { results } } = yield axios__WEBPACK_IMPORTED_MODULE_2___default().get(`${API_URL}/discover/movie`, {
+            params: {
+                api_key: '616093e66ab252685ad921e5c4680152',
+            },
         });
-    }
-    const onSubmit = e => {
-        e.preventDefault(); // prevent page from reloading
-        getPoster();
-        appendVideos();
-    };
-    function mapVideoId() {
-        let map = videos.map(video => {
-            video = video.id;
-            // console.log(video);
-            return video;
-        });
-    }
-    mapVideoId();
-    function appendVideos() {
-        let videoMap = youTube.map((video) => (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
-            video = video.id;
-            console.log(video);
-            const url = `https://api.themoviedb.org/3/movie/${video}/videos?api_key=616093e66ab252685ad921e5c4680152`;
-            const result = yield axios__WEBPACK_IMPORTED_MODULE_2___default().get(url);
-            setYouTubeVideos(result.data.results);
-            // console.log(convertToString);
-            // return videoBreakdown;
-        }));
-    }
+        setVideos(results);
+        console.log('data', results);
+    });
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        fetchMovies();
+    }, []);
+    const renderVideos = () => (videos.map(video => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(_VideoCard__WEBPACK_IMPORTED_MODULE_7__["default"], { key: video.id, video: video }))));
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_3__.useAppSelector)(state => state.authentication.account);
-    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "9" },
-            react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "home.title" }, "Welcome to Campr")),
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "3", className: "pad" }),
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "9" },
             react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", { className: "lead" },
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "Hello "),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "home.subtitle" })),
             (account === null || account === void 0 ? void 0 : account.login) ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "5" },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "app" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", { className: "app__searchForm", onSubmit: onSubmit },
-                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
-                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", { className: "app__submit", type: "submit", value: "Search" }))),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "app__videos" }, videos.map(video => {
-                        return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { key: video.id, className: "VideoTile", onClick: () => {
-                                {
-                                    video.poster_path == null;
-                                    // ? alert(` ReactPlayer url="https://youtu.be/luai0p0y2zE"`)
-                                    // : <ReactPlayer url="https://youtu.be/luai0p0y2zE"/>;
-                                }
-                            } },
-                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { className: "row" }, video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (
-                            // <ReactPlayer url2= {""}/>
-                            react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })))));
-                    }))),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" }))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.messages.info.authenticated.prefix" }, "If you want to "),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: "/login", className: "alert-link" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.messages.info.authenticated.link" }, " sign in")),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.messages.info.authenticated.suffix" },
-                        ", you can try the default accounts:",
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null),
-                        "- Administrator (login=\"admin\" and password=\"admin\")",
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null),
-                        "- User (login=\"user\" and password=\"user\").")),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" },
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.messages.info.register.noaccount" }, "You do not have an account yet?"),
-                    "\u00A0",
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, { to: "/account/register", className: "alert-link" },
-                        react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_1__.Translate, { contentKey: "global.messages.info.register.link" }, "Register a new account"))),
-                react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null))))));
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "5" }))) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Alert, { color: "light" })),
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null)))));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (posterSearch);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (videoApp);
 
 
 /***/ }),
@@ -7661,7 +7633,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("57a34837be7a42f3b500")
+/******/ 		__webpack_require__.h = () => ("cf46b7061ef789b4c382")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
