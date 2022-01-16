@@ -1,3 +1,7 @@
+## January 15th, 2022
+* Adding new rows to entities resulted in 500 Internal Server Error; resolved through adding Config Vars on Heroku
+  - Utilized this answer: https://stackoverflow.com/questions/33633243/connecting-to-heroku-postgres-from-spring-boot/49978310
+
 ## January 13th-14th, 2022
 * Reloaded project with proper entity implementation
 * Configured entity getAll methods to retrieve user account items for current logged in user
