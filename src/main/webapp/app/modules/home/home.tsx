@@ -6,29 +6,71 @@ import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
 
 import Axios from 'axios';
-import { useAppSelector } from 'app/config/store';
-
+import { useAppDispatch, useAppSelector } from 'app/config/store';
+import { getEntity, createEntity, deleteEntity } from 'app/entities/user-favorites/user-favorites.reducer';
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import './VideoTile.css';
 import './App.css';
 /* eslint-disable */
 function posterSearch() {
+  const dispatch = useAppDispatch();
+  // json friendly video list
+  const [favors, setFavors] = useState([]);
+  const userFavorites = useAppSelector(state => state.userFavorites.entity);
+  // json friendly user list
+  const [users, setUsers] = useState([]);
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
   const [showButton, setShowButton] = useState(false);
   const account = useAppSelector(state => state.authentication.account);
-  const addToFavorites = videoId => {
-    //if user is logged in
+  // json friendly user formatter
+  const user = (id, login) => {
+    return { id: id, login: login };
+  };
+  // json friendly video formatter
+  const video = id => {
+    return { id: id };
+  };
+  const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>, videoId: any) => {
+    // if user is logged in
+    // must map video to a new object with a singular attrib: its id
     if (account == null) {
       console.log('You need to log in first!');
     } else if (account.login) {
-      //maybe a seperate attribute indicating whether video is in faves or not?
-      //can i get favorites from account if so how?????
-      //set addedTofavorites to true
+      const you = user(account.id, account.login);
+      setUsers([...users, you]);
+      const favor = video(videoId);
+      setFavors([...favors, favor]);
+      const entity = {
+        ...userFavorites,
+        dateAdded: displayDefaultDateTime(),
+        user: users,
+        videos: favors,
+      };
+      dispatch(createEntity(entity));
+      // resets favors after it is added in to favorites
+      setFavors([]);
+      // resets users after fave added in
+      setUsers([]);
+      // maybe a seperate attribute indicating whether video is in faves or not?
+      // no need just use (isNew) (maybe not?)
+      // const favorites = useAppSelector(state => account-favorites.entities);
+      // how to access favorites for just one user
+      // the reducer for the user-favorites
+      // how to get the update?
+      // how to make sure the user matches the favorites
+
+      // user-favorites.createEntity(videoId);
+
+      // how to get current  logged in user( is is just account.login?)
+
+      // can i get favorites from account if so how?????
+      // set addedTofavorites to true
     } else {
       console.log('You need to log in first!');
     }
-    //submit form to add video to favorites
-    //confirmation will be that the button changes to "remove from favorites"
+    // submit form to add video to favorites
+    // confirmation will be that the button changes to "remove from favorites"
     console.log('Added to favorites!');
   };
   const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
@@ -112,10 +154,10 @@ function posterSearch() {
                       )}
                       {showButton && video.poster_path != null && (
                         <button
-                          type="button"
+                          type="submit"
                           className="FaveButton"
                           style={{ position: 'absolute', bottom: 10 }}
-                          onClick={addToFavorites(video.id)}
+                          onClick={e => addToFavorites(e, video.id)}
                         >
                           Favorite
                         </button>

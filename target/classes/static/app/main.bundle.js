@@ -2969,16 +2969,24 @@ __webpack_require__.r(__webpack_exports__);
 
 const UserFavoritesUpdate = (props) => {
     const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppDispatch)();
+    // might need this variable to tell if it is new
+    // but the question is new in comparison to what?
+    // if the whole faves is new or if the latest addition is a new video?
     const [isNew] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(!props.match.params || !props.match.params.id);
     const users = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userManagement.users);
     const videos = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.video.entities);
+    // do i need to select all users and all videos before getting userFaves?
     const userFavoritesEntity = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.entity);
     const loading = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.loading);
     const updating = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.updating);
     const updateSuccess = (0,app_config_store__WEBPACK_IMPORTED_MODULE_8__.useAppSelector)(state => state.userFavorites.updateSuccess);
+    // this just redirects users to another page
     const handleClose = () => {
         props.history.push('/user-favorites');
     };
+    // find out what use effect is (runs every time the render is changed)
+    // how does isNew work here?
+    // what is props.match.params.id doing in the context of getEntity of userFavorites
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         if (isNew) {
             dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.reset)());
@@ -2994,11 +3002,20 @@ const UserFavoritesUpdate = (props) => {
             handleClose();
         }
     }, [updateSuccess]);
+    // important: this is what creates a new favorite
     const saveEntity = values => {
         values.dateAdded = (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.convertDateTimeToServer)(values.dateAdded);
+        // what do these ellipses mean?
+        // what is mapIdList
+        // what is values.videos
+        // what exactly is values; is it just the parameter name for saveEntity
+        // values seems like it is the output of the form that the user fills out
+        // what are the necessary fill ins for entity
         const entity = Object.assign(Object.assign(Object.assign({}, userFavoritesEntity), values), { videos: (0,app_shared_util_entity_utils__WEBPACK_IMPORTED_MODULE_7__.mapIdList)(values.videos), user: users.find(it => it.id.toString() === values.user.toString()) });
+        // dispatch(createEntity(entity)) will add video to favorites ?
         if (isNew) {
             dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
+            // dispatch(deleteEntity(entity)) will remove video from favorites;
         }
         else {
             dispatch((0,_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.updateEntity)(entity));
@@ -5711,17 +5728,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+/* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
+/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+
+
 
 
 
@@ -5733,27 +5754,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /* eslint-disable */
 function posterSearch() {
+    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
+    // json friendly video list
+    const [favors, setFavors] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    const userFavorites = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.userFavorites.entity);
+    // json friendly user list
+    const [users, setUsers] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''); // use state is updating the value in the frontend
     const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.authentication.account);
-    const addToFavorites = videoId => {
-        //if user is logged in
-        if (account.login) {
-            //maybe a seperate attribute indicating whether video is in faves or not?
-            account.addToFavorites(videoId);
-            //set addedTofavorites to true
+    // json friendly user formatter
+    const user = (id, login) => { return { id: id, login: login }; };
+    // json friendly video formatter
+    const video = (id) => { return { id: id }; };
+    const addToFavorites = (event, videoId) => {
+        // if user is logged in
+        // must map video to a new object with a singular attrib: its id
+        if (account == null) {
+            console.log('You need to log in first!');
+        }
+        else if (account.login) {
+            const you = user(account.id, account.login);
+            setUsers([...users, you]);
+            const favor = video(videoId);
+            setFavors([...favors, favor]);
+            const entity = Object.assign(Object.assign({}, userFavorites), { dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayDefaultDateTime)(), user: users, videos: favors });
+            dispatch((0,app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
+            // resets favors after it is added in to favorites
+            setFavors([]);
+            // resets users after fave added in
+            setUsers([]);
+            // maybe a seperate attribute indicating whether video is in faves or not?
+            // no need just use (isNew) (maybe not?)
+            // const favorites = useAppSelector(state => account-favorites.entities);
+            // how to access favorites for just one user
+            // the reducer for the user-favorites
+            // how to get the update?
+            // how to make sure the user matches the favorites
+            // user-favorites.createEntity(videoId);
+            // how to get current  logged in user( is is just account.login?)
+            // can i get favorites from account if so how?????
+            // set addedTofavorites to true
         }
         else {
-            console.log("You need to log in first!");
+            console.log('You need to log in first!');
         }
-        //submit form to add video to favorites
-        //confirmation will be that the button changes to "remove from favorites"
+        // submit form to add video to favorites
+        // confirmation will be that the button changes to "remove from favorites"
         console.log('Added to favorites!');
     };
     const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
     function getPoster() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
             const result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(posterUrl);
             setvideos(result.data.results);
             // console.log(result.data);
@@ -5765,15 +5818,15 @@ function posterSearch() {
     };
     const videoTileEnter = () => setShowButton(true);
     const videoTileLeave = () => setShowButton(false);
-    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "9" },
+    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "3", className: "pad" }),
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "9" },
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("h2", null,
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.title" }, "Welcome to Campr")),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: "lead" },
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.subtitle" })),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Col, { md: "5" },
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "5" },
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app" },
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", { className: "app__searchForm", onSubmit: onSubmit },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
@@ -5797,9 +5850,9 @@ function posterSearch() {
                             } },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "row", style: { position: 'relative' } },
                                 video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })),
-                                showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "button", className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: addToFavorites(video.id) }, "Favorite")))));
+                                showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: (e) => addToFavorites(e, video.id) }, "Favorite")))));
                     }))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_8__.Alert, { color: "light" })))));
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Alert, { color: "light" })))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (posterSearch);
 
@@ -7245,6 +7298,7 @@ const cleanEntity = entity => {
  * @param idList Elements to map.
  * @returns The list of objects with mapped ids.
  */
+// *looks like* it maps an id list to ... something,(i'm not sure)
 const mapIdList = (idList) => idList.filter((id) => id !== '').map((id) => ({ id }));
 const overridePaginationStateWithQueryParams = (paginationBaseState, locationSearch) => {
     const params = new URLSearchParams(locationSearch);
@@ -7649,7 +7703,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("e87a326eeadbf1f185d4")
+/******/ 		__webpack_require__.h = () => ("fb9ae50089aa26c7b705")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
