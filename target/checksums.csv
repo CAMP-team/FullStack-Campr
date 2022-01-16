@@ -36,7 +36,7 @@ src/main/webapp/app/entities/user-favorites/index.tsx,5188c1ead56e215cb451bc46f6
 src/main/webapp/app/entities/user-favorites/user-favorites-delete-dialog.tsx,224ca97faad2b7571b980b3d778e0612af568724
 src/main/webapp/app/entities/user-favorites/user-favorites-detail.tsx,22f44792c97d5d308508578fd0a6c200ec81901c
 src/main/webapp/app/entities/user-favorites/user-favorites-reducer.spec.ts,98fc638ae7138c5b3e9a00ada35c62c3db837834
-src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx,48363f46ac1f15c4320705475718b690b650f730
+src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx,b2305e7dda1ec6a7bd844f6a6cfaa6bb21fcd852
 src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts,07eef09545e5f6aa13486f7659cc8abf13cdb501
 src/main/webapp/app/entities/user-favorites/user-favorites.tsx,fbfedbd2587ed0c14cb40e4c964dc136b0172500
 src/main/webapp/app/entities/user-upload/index.tsx,f6aeaf673b9df98202dd203f6ef3b1e1d6b18935
@@ -97,7 +97,7 @@ src/main/webapp/app/modules/administration/user-management/user-management.tsx,7
 src/main/webapp/app/modules/home/App.css,fdd80c0bf5e591b2600c957d28abedcda1cbd928
 src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
 src/main/webapp/app/modules/home/home.scss,0ac134441ae83f75a279b7d2cf304c6fe3c7f75e
-src/main/webapp/app/modules/home/home.tsx,f403eee9b36c6873bd7c97120965aad3150dbe6b
+src/main/webapp/app/modules/home/home.tsx,5f74b0261b8499bd7e90e4a756aed9a1e594ef38
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -144,7 +144,7 @@ src/main/webapp/app/shared/reducers/locale.ts,01b8be2770e1addf2995af88ab3248880b
 src/main/webapp/app/shared/reducers/reducer.utils.ts,513bba3dc7a4f84699cbbaeec6124391179a1386
 src/main/webapp/app/shared/util/date-utils.ts,ff23c7a43055f72fb9d82cce5216aea96c1fe083
 src/main/webapp/app/shared/util/entity-utils.spec.ts,6670c1a8ed9ce8fa9542538c8303b405e444335f
-src/main/webapp/app/shared/util/entity-utils.ts,3c2b4dfd3eebe11a086ca6380eeced42c1c33099
+src/main/webapp/app/shared/util/entity-utils.ts,3a89e57f80839ca92e292d30a711757009ce5d93
 src/main/webapp/app/shared/util/pagination.constants.ts,2259d10abbaabd7777dbe59c827f43a72691e459
 src/main/webapp/app/typings.d.ts,afcdaa1ae4c7852cd8cbfcfa392c7e4b8b4c4395
 src/main/webapp/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
@@ -201,8 +201,8 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-target/classes/static/app/main.bundle.js,3a47dff45e6230f6c96f2e40735bf49100951a74
-target/classes/static/app/main.bundle.js.map,312e8ec3055923382cdcea49afb0cd63d04a0ac2
+target/classes/static/app/main.bundle.js,e4c00c5a06aeb8fd764a1ae7d6800478d2c9e431
+target/classes/static/app/main.bundle.js.map,eda0a165703545d78599331405ea497b792501fc
 target/classes/static/app/vendors.bundle.js,799610b2bc2c1b6e6dbc5e71f7c19b04bd11dbf2
 target/classes/static/app/vendors.bundle.js.map,99216bde0dba98e5b3a06161d24e27a030337685
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d

@@ -1,5 +1,8 @@
 import './home.scss';
+//where we at now: need to match users json to only display id and login
+//my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
 
+//future stuff: might need to switch the url to the favorite making on in order for the json to go thru
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
@@ -18,15 +21,15 @@ function posterSearch() {
   const [favors, setFavors] = useState([]);
   const userFavorites = useAppSelector(state => state.userFavorites.entity);
   // json friendly user list
-  const [users, setUsers] = useState([]);
+  //const [users, setUsers] = useState([]);
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
   const [showButton, setShowButton] = useState(false);
   const account = useAppSelector(state => state.authentication.account);
   // json friendly user formatter
-  const user = (id, login) => {
-    return { id: id, login: login };
-  };
+  //const user = (id, login) => {
+  //return { id: id, login: login };
+  //};
   // json friendly video formatter
   const video = id => {
     return { id: id };
@@ -37,21 +40,21 @@ function posterSearch() {
     if (account == null) {
       console.log('You need to log in first!');
     } else if (account.login) {
-      const you = user(account.id, account.login);
-      setUsers([...users, you]);
+      //const you = user(account.id, account.login);
+      //setUsers([...users, you]);
       const favor = video(videoId);
       setFavors([...favors, favor]);
       const entity = {
         ...userFavorites,
         dateAdded: displayDefaultDateTime(),
-        user: users,
+        user: account,
         videos: favors,
       };
       dispatch(createEntity(entity));
       // resets favors after it is added in to favorites
       setFavors([]);
       // resets users after fave added in
-      setUsers([]);
+      //setUsers([]);
       // maybe a seperate attribute indicating whether video is in faves or not?
       // no need just use (isNew) (maybe not?)
       // const favorites = useAppSelector(state => account-favorites.entities);
