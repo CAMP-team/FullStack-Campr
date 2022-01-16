@@ -36,7 +36,7 @@ src/main/webapp/app/entities/user-favorites/index.tsx,5188c1ead56e215cb451bc46f6
 src/main/webapp/app/entities/user-favorites/user-favorites-delete-dialog.tsx,224ca97faad2b7571b980b3d778e0612af568724
 src/main/webapp/app/entities/user-favorites/user-favorites-detail.tsx,22f44792c97d5d308508578fd0a6c200ec81901c
 src/main/webapp/app/entities/user-favorites/user-favorites-reducer.spec.ts,98fc638ae7138c5b3e9a00ada35c62c3db837834
-src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx,b2305e7dda1ec6a7bd844f6a6cfaa6bb21fcd852
+src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx,8cadf11c6317a449bc2678c435926c0cf1543703
 src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts,07eef09545e5f6aa13486f7659cc8abf13cdb501
 src/main/webapp/app/entities/user-favorites/user-favorites.tsx,fbfedbd2587ed0c14cb40e4c964dc136b0172500
 src/main/webapp/app/entities/user-upload/index.tsx,f6aeaf673b9df98202dd203f6ef3b1e1d6b18935
@@ -97,7 +97,7 @@ src/main/webapp/app/modules/administration/user-management/user-management.tsx,7
 src/main/webapp/app/modules/home/App.css,fdd80c0bf5e591b2600c957d28abedcda1cbd928
 src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
 src/main/webapp/app/modules/home/home.scss,0ac134441ae83f75a279b7d2cf304c6fe3c7f75e
-src/main/webapp/app/modules/home/home.tsx,5f74b0261b8499bd7e90e4a756aed9a1e594ef38
+src/main/webapp/app/modules/home/home.tsx,29ca5bfc2f1014255b38550d45297d3784166976
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -201,8 +201,8 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-target/classes/static/app/main.bundle.js,e4c00c5a06aeb8fd764a1ae7d6800478d2c9e431
-target/classes/static/app/main.bundle.js.map,eda0a165703545d78599331405ea497b792501fc
+target/classes/static/app/main.bundle.js,58573572c30e692a724e47e5560947c056fc7d0b
+target/classes/static/app/main.bundle.js.map,7b4df1b81ecaf3eaf73c7785514ef4d1f672566c
 target/classes/static/app/vendors.bundle.js,799610b2bc2c1b6e6dbc5e71f7c19b04bd11dbf2
 target/classes/static/app/vendors.bundle.js.map,99216bde0dba98e5b3a06161d24e27a030337685
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d

@@ -1,58 +1,77 @@
 import './home.scss';
-//where we at now: need to match users json to only display id and login
-//my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
+// where we at now: need to match users json to only display id and login
+// my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
 
-//future stuff: might need to switch the url to the favorite making on in order for the json to go thru
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// future stuff: might need to switch the url to the favorite making one in order for the json to go thru
+import React, { useState, useEffect } from 'react';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
+import { IUserFavorites } from 'app/shared/model/user-favorites.model';
+import { IUser } from 'app/shared/model/user.model';
 
 import Axios from 'axios';
+import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntity, createEntity, deleteEntity } from 'app/entities/user-favorites/user-favorites.reducer';
+import { getEntity, createEntity, deleteEntity, reset } from 'app/entities/user-favorites/user-favorites.reducer';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import './VideoTile.css';
 import './App.css';
 /* eslint-disable */
 function posterSearch() {
   const dispatch = useAppDispatch();
+  //const users = useAppSelector(state => state.userManagement.users);
+
   // json friendly video list
-  const [favors, setFavors] = useState([]);
+  const favors = [];
   const userFavorites = useAppSelector(state => state.userFavorites.entity);
-  // json friendly user list
   //const [users, setUsers] = useState([]);
+  //const [isNew] = useState(!props.match.params || !props.match.params.id);
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
   const [showButton, setShowButton] = useState(false);
   const account = useAppSelector(state => state.authentication.account);
   // json friendly user formatter
-  //const user = (id, login) => {
-  //return { id: id, login: login };
-  //};
+  const user = (id, login) => {
+    return { id: id, login: login };
+  };
   // json friendly video formatter
   const video = id => {
     return { id: id };
   };
+  /**
+  //perhaps the way to gain authentication to access users?
+  useEffect(() => {
+      if (isNew) {
+        dispatch(reset());
+      } else {
+        dispatch(getEntity(props.match.params.id));
+      }
+
+      dispatch(getUsers({}));
+  }, []);
+  */
   const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>, videoId: any) => {
     // if user is logged in
     // must map video to a new object with a singular attrib: its id
     if (account == null) {
       console.log('You need to log in first!');
     } else if (account.login) {
-      //const you = user(account.id, account.login);
-      //setUsers([...users, you]);
       const favor = video(videoId);
-      setFavors([...favors, favor]);
+      const you = user(account.id, account.login);
+      favors.push(favor);
       const entity = {
         ...userFavorites,
-        dateAdded: displayDefaultDateTime(),
-        user: account,
+        //putting a fixed timestamp will allow post to go thru
+        dateAdded: '2021-12-29T05:00:00Z',
+        user: you,
+        //user: users.find(it => it.id.toString() === account.id.toString()),
+        //user: account.id,
         videos: favors,
+        //videos: videoId,
       };
       dispatch(createEntity(entity));
       // resets favors after it is added in to favorites
-      setFavors([]);
       // resets users after fave added in
       //setUsers([]);
       // maybe a seperate attribute indicating whether video is in faves or not?
@@ -69,6 +88,8 @@ function posterSearch() {
 
       // can i get favorites from account if so how?????
       // set addedTofavorites to true
+      // 1/16/22: 6:57
+      //may be getting a 500 error because video is not in database
     } else {
       console.log('You need to log in first!');
     }
@@ -77,7 +98,6 @@ function posterSearch() {
     console.log('Added to favorites!');
   };
   const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-
   async function getPoster() {
     const result = await Axios.get(posterUrl);
     setvideos(result.data.results);

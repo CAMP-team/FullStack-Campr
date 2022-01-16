@@ -2961,9 +2961,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+//import { IUser } from 'app/shared/model/user.model';
 
 
 
+//import { IUserFavorites } from 'app/shared/model/user-favorites.model';
 
 
 
@@ -5728,22 +5730,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
 /* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
-/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
 
 
-
+// where we at now: need to match users json to only display id and login
+// my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
+// future stuff: might need to switch the url to the favorite making one in order for the json to go thru
 
 
 
@@ -5755,23 +5758,36 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable */
 function posterSearch() {
     const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
+    //const users = useAppSelector(state => state.userManagement.users);
     // json friendly video list
-    const [favors, setFavors] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    const favors = [];
     const userFavorites = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.userFavorites.entity);
-    // json friendly user list
     //const [users, setUsers] = useState([]);
+    //const [isNew] = useState(!props.match.params || !props.match.params.id);
     const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''); // use state is updating the value in the frontend
     const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.authentication.account);
     // json friendly user formatter
-    //const user = (id, login) => {
-    //return { id: id, login: login };
-    //};
+    const user = (id, login) => {
+        return { id: id, login: login };
+    };
     // json friendly video formatter
     const video = id => {
         return { id: id };
     };
+    /**
+    //perhaps the way to gain authentication to access users?
+    useEffect(() => {
+        if (isNew) {
+          dispatch(reset());
+        } else {
+          dispatch(getEntity(props.match.params.id));
+        }
+  
+        dispatch(getUsers({}));
+    }, []);
+    */
     const addToFavorites = (event, videoId) => {
         // if user is logged in
         // must map video to a new object with a singular attrib: its id
@@ -5779,14 +5795,17 @@ function posterSearch() {
             console.log('You need to log in first!');
         }
         else if (account.login) {
-            //const you = user(account.id, account.login);
-            //setUsers([...users, you]);
             const favor = video(videoId);
-            setFavors([...favors, favor]);
-            const entity = Object.assign(Object.assign({}, userFavorites), { dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayDefaultDateTime)(), user: account, videos: favors });
+            const you = user(account.id, account.login);
+            favors.push(favor);
+            const entity = Object.assign(Object.assign({}, userFavorites), { 
+                //putting a fixed timestamp will allow post to go thru
+                dateAdded: "2021-12-29T05:00:00Z", user: you, 
+                //user: users.find(it => it.id.toString() === account.id.toString()),
+                //user: account.id,
+                videos: favors });
             dispatch((0,app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
             // resets favors after it is added in to favorites
-            setFavors([]);
             // resets users after fave added in
             //setUsers([]);
             // maybe a seperate attribute indicating whether video is in faves or not?
@@ -5810,7 +5829,7 @@ function posterSearch() {
     };
     const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
     function getPoster() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
             const result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(posterUrl);
             setvideos(result.data.results);
             // console.log(result.data);
@@ -5822,15 +5841,15 @@ function posterSearch() {
     };
     const videoTileEnter = () => setShowButton(true);
     const videoTileLeave = () => setShowButton(false);
-    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "9" },
+    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "3", className: "pad" }),
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "9" },
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("h2", null,
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.title" }, "Welcome to Campr")),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: "lead" },
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.subtitle" })),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "5" },
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "5" },
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app" },
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", { className: "app__searchForm", onSubmit: onSubmit },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
@@ -5856,7 +5875,7 @@ function posterSearch() {
                                 video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })),
                                 showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: e => addToFavorites(e, video.id) }, "Favorite")))));
                     }))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Alert, { color: "light" })))));
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Alert, { color: "light" })))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (posterSearch);
 
@@ -7707,7 +7726,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("0cf91b582d3c590c88a7")
+/******/ 		__webpack_require__.h = () => ("1a28bedbbae081fd0774")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
