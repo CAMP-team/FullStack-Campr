@@ -134,17 +134,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
-
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../content/images/jhipster_family_member_1.svg */ "./src/main/webapp/content/images/jhipster_family_member_1.svg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") no-repeat center top;\n  background-size: contain;\n  border-radius: 8px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/home.scss"],"names":[],"mappings":"AAAA;;4EAAA;AAGA;EACE,qBAAA;EACA,WAAA;EACA,aAAA;EACA,wEAAA;EACA,wBAAA;EACA,kBAAA;AACF","sourcesContent":["/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background: url('../../../content/images/jhipster_family_member_1.svg') no-repeat center top;\n  background-size: contain;\n  border-radius: 8px;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background-size: contain;\n  border-radius: 8px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/home.scss"],"names":[],"mappings":"AAAA;;4EAAA;AAGA;EACE,qBAAA;EACA,WAAA;EACA,aAAA;EACA,wBAAA;EACA,kBAAA;AACF","sourcesContent":["/* ==========================================================================\nMain page styles\n========================================================================== */\n.hipster {\n  display: inline-block;\n  width: 100%;\n  height: 497px;\n  background-size: contain;\n  border-radius: 8px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1505,8 +1500,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const loadIcons = () => {
-    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_solid_svg_icons_faArrowLeft__WEBPACK_IMPORTED_MODULE_1__.faArrowLeft, _fortawesome_free_solid_svg_icons_faAsterisk__WEBPACK_IMPORTED_MODULE_2__.faAsterisk, _fortawesome_free_solid_svg_icons_faBan__WEBPACK_IMPORTED_MODULE_3__.faBan, _fortawesome_free_solid_svg_icons_faBell__WEBPACK_IMPORTED_MODULE_4__.faBell, _fortawesome_free_solid_svg_icons_faBook__WEBPACK_IMPORTED_MODULE_5__.faBook, _fortawesome_free_solid_svg_icons_faCloud__WEBPACK_IMPORTED_MODULE_6__.faCloud, _fortawesome_free_solid_svg_icons_faCogs__WEBPACK_IMPORTED_MODULE_7__.faCogs, _fortawesome_free_solid_svg_icons_faDatabase__WEBPACK_IMPORTED_MODULE_8__.faDatabase, _fortawesome_free_solid_svg_icons_faEye__WEBPACK_IMPORTED_MODULE_9__.faEye, _fortawesome_free_solid_svg_icons_faFlag__WEBPACK_IMPORTED_MODULE_10__.faFlag, _fortawesome_free_solid_svg_icons_faHeart__WEBPACK_IMPORTED_MODULE_11__.faHeart, _fortawesome_free_solid_svg_icons_faHome__WEBPACK_IMPORTED_MODULE_12__.faHome, _fortawesome_free_solid_svg_icons_faList__WEBPACK_IMPORTED_MODULE_13__.faList, _fortawesome_free_solid_svg_icons_faLock__WEBPACK_IMPORTED_MODULE_14__.faLock, _fortawesome_free_solid_svg_icons_faPencilAlt__WEBPACK_IMPORTED_MODULE_15__.faPencilAlt, _fortawesome_free_solid_svg_icons_faPlus__WEBPACK_IMPORTED_MODULE_16__.faPlus, _fortawesome_free_solid_svg_icons_faRoad__WEBPACK_IMPORTED_MODULE_17__.faRoad, _fortawesome_free_solid_svg_icons_faSave__WEBPACK_IMPORTED_MODULE_18__.faSave, _fortawesome_free_solid_svg_icons_faSignInAlt__WEBPACK_IMPORTED_MODULE_19__.faSignInAlt, _fortawesome_free_solid_svg_icons_faSignOutAlt__WEBPACK_IMPORTED_MODULE_20__.faSignOutAlt, _fortawesome_free_solid_svg_icons_faSearch__WEBPACK_IMPORTED_MODULE_21__.faSearch, _fortawesome_free_solid_svg_icons_faSort__WEBPACK_IMPORTED_MODULE_22__.faSort, _fortawesome_free_solid_svg_icons_faSync__WEBPACK_IMPORTED_MODULE_23__.faSync, _fortawesome_free_solid_svg_icons_faTachometerAlt__WEBPACK_IMPORTED_MODULE_24__.faTachometerAlt, _fortawesome_free_solid_svg_icons_faTasks__WEBPACK_IMPORTED_MODULE_25__.faTasks, _fortawesome_free_solid_svg_icons_faThList__WEBPACK_IMPORTED_MODULE_26__.faThList, _fortawesome_free_solid_svg_icons_faTimesCircle__WEBPACK_IMPORTED_MODULE_27__.faTimesCircle, _fortawesome_free_solid_svg_icons_faTrash__WEBPACK_IMPORTED_MODULE_28__.faTrash, _fortawesome_free_solid_svg_icons_faUser__WEBPACK_IMPORTED_MODULE_29__.faUser, _fortawesome_free_solid_svg_icons_faUserPlus__WEBPACK_IMPORTED_MODULE_30__.faUserPlus, _fortawesome_free_solid_svg_icons_faUsers__WEBPACK_IMPORTED_MODULE_31__.faUsers, _fortawesome_free_solid_svg_icons_faUsersCog__WEBPACK_IMPORTED_MODULE_32__.faUsersCog, _fortawesome_free_solid_svg_icons_faWrench__WEBPACK_IMPORTED_MODULE_33__.faWrench, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faComment, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faHistory);
+    _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_solid_svg_icons_faArrowLeft__WEBPACK_IMPORTED_MODULE_1__.faArrowLeft, _fortawesome_free_solid_svg_icons_faAsterisk__WEBPACK_IMPORTED_MODULE_2__.faAsterisk, _fortawesome_free_solid_svg_icons_faBan__WEBPACK_IMPORTED_MODULE_3__.faBan, _fortawesome_free_solid_svg_icons_faBell__WEBPACK_IMPORTED_MODULE_4__.faBell, _fortawesome_free_solid_svg_icons_faBook__WEBPACK_IMPORTED_MODULE_5__.faBook, _fortawesome_free_solid_svg_icons_faCloud__WEBPACK_IMPORTED_MODULE_6__.faCloud, _fortawesome_free_solid_svg_icons_faCogs__WEBPACK_IMPORTED_MODULE_7__.faCogs, _fortawesome_free_solid_svg_icons_faDatabase__WEBPACK_IMPORTED_MODULE_8__.faDatabase, _fortawesome_free_solid_svg_icons_faEye__WEBPACK_IMPORTED_MODULE_9__.faEye, _fortawesome_free_solid_svg_icons_faFlag__WEBPACK_IMPORTED_MODULE_10__.faFlag, _fortawesome_free_solid_svg_icons_faHeart__WEBPACK_IMPORTED_MODULE_11__.faHeart, _fortawesome_free_solid_svg_icons_faHome__WEBPACK_IMPORTED_MODULE_12__.faHome, _fortawesome_free_solid_svg_icons_faList__WEBPACK_IMPORTED_MODULE_13__.faList, _fortawesome_free_solid_svg_icons_faLock__WEBPACK_IMPORTED_MODULE_14__.faLock, _fortawesome_free_solid_svg_icons_faPencilAlt__WEBPACK_IMPORTED_MODULE_15__.faPencilAlt, _fortawesome_free_solid_svg_icons_faPlus__WEBPACK_IMPORTED_MODULE_16__.faPlus, _fortawesome_free_solid_svg_icons_faRoad__WEBPACK_IMPORTED_MODULE_17__.faRoad, _fortawesome_free_solid_svg_icons_faSave__WEBPACK_IMPORTED_MODULE_18__.faSave, _fortawesome_free_solid_svg_icons_faSignInAlt__WEBPACK_IMPORTED_MODULE_19__.faSignInAlt, _fortawesome_free_solid_svg_icons_faSignOutAlt__WEBPACK_IMPORTED_MODULE_20__.faSignOutAlt, _fortawesome_free_solid_svg_icons_faSearch__WEBPACK_IMPORTED_MODULE_21__.faSearch, _fortawesome_free_solid_svg_icons_faSort__WEBPACK_IMPORTED_MODULE_22__.faSort, _fortawesome_free_solid_svg_icons_faSync__WEBPACK_IMPORTED_MODULE_23__.faSync, _fortawesome_free_solid_svg_icons_faTachometerAlt__WEBPACK_IMPORTED_MODULE_24__.faTachometerAlt, _fortawesome_free_solid_svg_icons_faTasks__WEBPACK_IMPORTED_MODULE_25__.faTasks, _fortawesome_free_solid_svg_icons_faThList__WEBPACK_IMPORTED_MODULE_26__.faThList, _fortawesome_free_solid_svg_icons_faTimesCircle__WEBPACK_IMPORTED_MODULE_27__.faTimesCircle, _fortawesome_free_solid_svg_icons_faTrash__WEBPACK_IMPORTED_MODULE_28__.faTrash, _fortawesome_free_solid_svg_icons_faUser__WEBPACK_IMPORTED_MODULE_29__.faUser, _fortawesome_free_solid_svg_icons_faUserPlus__WEBPACK_IMPORTED_MODULE_30__.faUserPlus, _fortawesome_free_solid_svg_icons_faUsers__WEBPACK_IMPORTED_MODULE_31__.faUsers, _fortawesome_free_solid_svg_icons_faUsersCog__WEBPACK_IMPORTED_MODULE_32__.faUsersCog, _fortawesome_free_solid_svg_icons_faWrench__WEBPACK_IMPORTED_MODULE_33__.faWrench, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faComment, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faHistory, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_34__.faUpload);
 };
 
 
@@ -5730,11 +5726,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+<<<<<<< HEAD
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+=======
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
 /* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_2__);
+<<<<<<< HEAD
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
@@ -5747,6 +5748,13 @@ __webpack_require__.r(__webpack_exports__);
 // where we at now: need to match users json to only display id and login
 // my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
 // future stuff: might need to switch the url to the favorite making one in order for the json to go thru
+=======
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
 
 
 
@@ -5829,7 +5837,11 @@ function posterSearch() {
     };
     const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
     function getPoster() {
+<<<<<<< HEAD
         return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
+=======
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
             const result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(posterUrl);
             setvideos(result.data.results);
             // console.log(result.data);
@@ -5839,17 +5851,27 @@ function posterSearch() {
         e.preventDefault(); // prevent page from reloading
         getPoster();
     };
+<<<<<<< HEAD
     const videoTileEnter = () => setShowButton(true);
     const videoTileLeave = () => setShowButton(false);
     return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, null,
         react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "3", className: "pad" }),
         react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "9" },
+=======
+    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "3", className: "pad" }),
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "9" },
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("h2", null,
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.title" }, "Welcome to Campr")),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: "lead" },
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.subtitle" })),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
+<<<<<<< HEAD
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "5" },
+=======
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "5" },
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app" },
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", { className: "app__searchForm", onSubmit: onSubmit },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
@@ -5875,7 +5897,11 @@ function posterSearch() {
                                 video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })),
                                 showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: e => addToFavorites(e, video.id) }, "Favorite")))));
                     }))),
+<<<<<<< HEAD
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Alert, { color: "light" })))));
+=======
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Alert, { color: "light" })))));
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (posterSearch);
 
@@ -6523,15 +6549,15 @@ const EntitiesMenu = props => (react__WEBPACK_IMPORTED_MODULE_0__.createElement(
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null),
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/video" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.video" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-comment" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "comment", to: "/user-comment" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userComment" })),
     react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/genre" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.genre" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-favorites" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "heart", to: "/user-favorites" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userFavorites" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/user-upload" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "upload", to: "/user-upload" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.userUpload" })),
-    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "asterisk", to: "/watch-history" },
+    react__WEBPACK_IMPORTED_MODULE_0__.createElement(app_shared_layout_menus_menu_item__WEBPACK_IMPORTED_MODULE_1__["default"], { icon: "history", to: "/watch-history" },
         react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "global.menu.entities.watchHistory" }))));
 
 
@@ -7143,7 +7169,11 @@ const initialState = {
 };
 const setLocale = locale => (dispatch) => (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(void 0, void 0, void 0, function* () {
     if (!Object.keys(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.context.translations).includes(locale)) {
+<<<<<<< HEAD
         const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"d02967a8bd2c911112b500c52ce31072"}`, { baseURL: '' });
+=======
+        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"16d5c78beccc7c8e385260e74011ddf0"}`, { baseURL: '' });
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
         react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.registerTranslations(locale, response.data);
     }
     dispatch(updateLocale(locale));
@@ -7515,6 +7545,7 @@ module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./src/main/resources/forest-forest-path-trees-light.jpg":
 /*!***************************************************************!*\
   !*** ./src/main/resources/forest-forest-path-trees-light.jpg ***!
@@ -7537,6 +7568,8 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 
 /***/ }),
 
+=======
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
 /***/ "?5580":
 /*!**************************************!*\
   !*** ./terminal-highlight (ignored) ***!
@@ -7726,7 +7759,11 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = () => ("1a28bedbbae081fd0774")
+=======
+/******/ 		__webpack_require__.h = () => ("501348f68ec4c26fc243")
+>>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

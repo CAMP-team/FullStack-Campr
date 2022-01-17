@@ -6,13 +6,13 @@
       "home": "Home",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entities",
+        "main": "User Library",
         "video": "Video",
-        "userComment": "User Comment",
+        "userComment": "Comment",
         "genre": "Genre",
-        "userFavorites": "User Favorites",
-        "userUpload": "User Upload",
-        "watchHistory": "Watch History",
+        "userFavorites": "Favorites",
+        "userUpload": "Upload",
+        "watchHistory": "History",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "Movies": {

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.service.mapper</a> &gt; <span class="el_source">UserMapper.java</span></div><h1>UserMapper.java</h1><pre class="source lang-java linenums">package com.camp.campr.service.mapper;
+
+import com.camp.campr.domain.Authority;
+import com.camp.campr.domain.User;
+import com.camp.campr.service.dto.AdminUserDTO;
+import com.camp.campr.service.dto.UserDTO;
+import java.util.*;
+import java.util.stream.Collectors;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
+import org.springframework.stereotype.Service;
+
+/**
+ * Mapper for the entity {@link User} and its DTO called {@link UserDTO}.
+ *
+ * Normal mappers are generated using MapStruct, this one is hand-coded as MapStruct
+ * support is still in beta, and requires a manual step with an IDE.
+ */
+@Service
+<span class="fc" id="L21">public class UserMapper {</span>
+
+    public List&lt;UserDTO&gt; usersToUserDTOs(List&lt;User&gt; users) {
+<span class="fc" id="L24">        return users.stream().filter(Objects::nonNull).map(this::userToUserDTO).collect(Collectors.toList());</span>
+    }
+
+    public UserDTO userToUserDTO(User user) {
+<span class="fc" id="L28">        return new UserDTO(user);</span>
+    }
+
+    public List&lt;AdminUserDTO&gt; usersToAdminUserDTOs(List&lt;User&gt; users) {
+<span class="nc" id="L32">        return users.stream().filter(Objects::nonNull).map(this::userToAdminUserDTO).collect(Collectors.toList());</span>
+    }
+
+    public AdminUserDTO userToAdminUserDTO(User user) {
+<span class="nc" id="L36">        return new AdminUserDTO(user);</span>
+    }
+
+    public List&lt;User&gt; userDTOsToUsers(List&lt;AdminUserDTO&gt; userDTOs) {
+<span class="fc" id="L40">        return userDTOs.stream().filter(Objects::nonNull).map(this::userDTOToUser).collect(Collectors.toList());</span>
+    }
+
+    public User userDTOToUser(AdminUserDTO userDTO) {
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (userDTO == null) {</span>
+<span class="fc" id="L45">            return null;</span>
+        } else {
+<span class="fc" id="L47">            User user = new User();</span>
+<span class="fc" id="L48">            user.setId(userDTO.getId());</span>
+<span class="fc" id="L49">            user.setLogin(userDTO.getLogin());</span>
+<span class="fc" id="L50">            user.setFirstName(userDTO.getFirstName());</span>
+<span class="fc" id="L51">            user.setLastName(userDTO.getLastName());</span>
+<span class="fc" id="L52">            user.setEmail(userDTO.getEmail());</span>
+<span class="fc" id="L53">            user.setImageUrl(userDTO.getImageUrl());</span>
+<span class="fc" id="L54">            user.setActivated(userDTO.isActivated());</span>
+<span class="fc" id="L55">            user.setLangKey(userDTO.getLangKey());</span>
+<span class="fc" id="L56">            Set&lt;Authority&gt; authorities = this.authoritiesFromStrings(userDTO.getAuthorities());</span>
+<span class="fc" id="L57">            user.setAuthorities(authorities);</span>
+<span class="fc" id="L58">            return user;</span>
+        }
+    }
+
+    private Set&lt;Authority&gt; authoritiesFromStrings(Set&lt;String&gt; authoritiesAsString) {
+<span class="fc" id="L63">        Set&lt;Authority&gt; authorities = new HashSet&lt;&gt;();</span>
+
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (authoritiesAsString != null) {</span>
+<span class="fc" id="L66">            authorities =</span>
+                authoritiesAsString
+<span class="fc" id="L68">                    .stream()</span>
+<span class="fc" id="L69">                    .map(string -&gt; {</span>
+<span class="fc" id="L70">                        Authority auth = new Authority();</span>
+<span class="fc" id="L71">                        auth.setName(string);</span>
+<span class="fc" id="L72">                        return auth;</span>
+                    })
+<span class="fc" id="L74">                    .collect(Collectors.toSet());</span>
+        }
+
+<span class="fc" id="L77">        return authorities;</span>
+    }
+
+    public User userFromId(Long id) {
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (id == null) {</span>
+<span class="fc" id="L82">            return null;</span>
+        }
+<span class="fc" id="L84">        User user = new User();</span>
+<span class="fc" id="L85">        user.setId(id);</span>
+<span class="fc" id="L86">        return user;</span>
+    }
+
+    @Named(&quot;id&quot;)
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = &quot;id&quot;, source = &quot;id&quot;)
+    public UserDTO toDtoId(User user) {
+<span class="nc bnc" id="L93" title="All 2 branches missed.">        if (user == null) {</span>
+<span class="nc" id="L94">            return null;</span>
+        }
+<span class="nc" id="L96">        UserDTO userDto = new UserDTO();</span>
+<span class="nc" id="L97">        userDto.setId(user.getId());</span>
+<span class="nc" id="L98">        return userDto;</span>
+    }
+
+    @Named(&quot;idSet&quot;)
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = &quot;id&quot;, source = &quot;id&quot;)
+    public Set&lt;UserDTO&gt; toDtoIdSet(Set&lt;User&gt; users) {
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (users == null) {</span>
+<span class="nc" id="L106">            return Collections.emptySet();</span>
+        }
+
+<span class="nc" id="L109">        Set&lt;UserDTO&gt; userSet = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        for (User userEntity : users) {</span>
+<span class="nc" id="L111">            userSet.add(this.toDtoId(userEntity));</span>
+<span class="nc" id="L112">        }</span>
+
+<span class="nc" id="L114">        return userSet;</span>
+    }
+
+    @Named(&quot;login&quot;)
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = &quot;id&quot;, source = &quot;id&quot;)
+    @Mapping(target = &quot;login&quot;, source = &quot;login&quot;)
+    public UserDTO toDtoLogin(User user) {
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        if (user == null) {</span>
+<span class="nc" id="L123">            return null;</span>
+        }
+<span class="nc" id="L125">        UserDTO userDto = new UserDTO();</span>
+<span class="nc" id="L126">        userDto.setId(user.getId());</span>
+<span class="nc" id="L127">        userDto.setLogin(user.getLogin());</span>
+<span class="nc" id="L128">        return userDto;</span>
+    }
+
+    @Named(&quot;loginSet&quot;)
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = &quot;id&quot;, source = &quot;id&quot;)
+    @Mapping(target = &quot;login&quot;, source = &quot;login&quot;)
+    public Set&lt;UserDTO&gt; toDtoLoginSet(Set&lt;User&gt; users) {
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        if (users == null) {</span>
+<span class="nc" id="L137">            return Collections.emptySet();</span>
+        }
+
+<span class="nc" id="L140">        Set&lt;UserDTO&gt; userSet = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">        for (User userEntity : users) {</span>
+<span class="nc" id="L142">            userSet.add(this.toDtoLogin(userEntity));</span>
+<span class="nc" id="L143">        }</span>
+
+<span class="nc" id="L145">        return userSet;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
