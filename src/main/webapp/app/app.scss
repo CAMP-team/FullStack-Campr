@@ -2,7 +2,7 @@
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
 body {
-  background: #fafafa;
+  background: #966464;
   background-image: url('/src/main/resources/forest-forest-path-trees-light.jpg');
   background-size: cover;
   margin: 0;
@@ -248,7 +248,7 @@ Generic styles
 @include voffset('150');
 
 .readonly {
-  background-color: #eee;
+  background-color: rgb(143, 49, 49);
   opacity: 1;
 }
 
