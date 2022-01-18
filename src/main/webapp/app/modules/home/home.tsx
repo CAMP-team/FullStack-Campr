@@ -20,13 +20,10 @@ import './App.css';
 /* eslint-disable */
 function posterSearch() {
   const dispatch = useAppDispatch();
-  //const users = useAppSelector(state => state.userManagement.users);
 
   // json friendly video list
   const favors = [];
   const userFavorites = useAppSelector(state => state.userFavorites.entity);
-  //const [users, setUsers] = useState([]);
-  //const [isNew] = useState(!props.match.params || !props.match.params.id);
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
   const [showButton, setShowButton] = useState(false);
@@ -51,13 +48,9 @@ function posterSearch() {
       favors.push(favor);
       const entity = {
         ...userFavorites,
-        //putting a fixed timestamp will allow post to go thru
         dateAdded: displayCurrentDateTime(),
         user: you,
-        //user: users.find(it => it.id.toString() === account.id.toString()),
-        //user: account.id,
         videos: favors,
-        //videos: videoId,
       };
       dispatch(createEntity(entity));
       // resets favors after it is added in to favorites
@@ -73,9 +66,6 @@ function posterSearch() {
 
       // user-favorites.createEntity(videoId);
 
-      // how to get current  logged in user( is is just account.login?)
-
-      // can i get favorites from account if so how?????
       // set addedTofavorites to true
       // 1/16/22: 6:57
       //may be getting a 500 error because video is not in database
