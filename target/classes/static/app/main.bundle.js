@@ -1321,6 +1321,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "messages": () => (/* binding */ messages),
 /* harmony export */   "APP_DATE_FORMAT": () => (/* binding */ APP_DATE_FORMAT),
 /* harmony export */   "APP_TIMESTAMP_FORMAT": () => (/* binding */ APP_TIMESTAMP_FORMAT),
+/* harmony export */   "APP_LOCAL_JSON_FRIENDLY_TIMESTAMP_FORMAT": () => (/* binding */ APP_LOCAL_JSON_FRIENDLY_TIMESTAMP_FORMAT),
 /* harmony export */   "APP_LOCAL_DATE_FORMAT": () => (/* binding */ APP_LOCAL_DATE_FORMAT),
 /* harmony export */   "APP_LOCAL_DATETIME_FORMAT": () => (/* binding */ APP_LOCAL_DATETIME_FORMAT),
 /* harmony export */   "APP_WHOLE_NUMBER_FORMAT": () => (/* binding */ APP_WHOLE_NUMBER_FORMAT),
@@ -1335,6 +1336,7 @@ const messages = {
 };
 const APP_DATE_FORMAT = 'DD/MM/YY HH:mm';
 const APP_TIMESTAMP_FORMAT = 'DD/MM/YY HH:mm:ss';
+const APP_LOCAL_JSON_FRIENDLY_TIMESTAMP_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZ';
 const APP_LOCAL_DATE_FORMAT = 'DD/MM/YYYY';
 const APP_LOCAL_DATETIME_FORMAT = 'YYYY-MM-DDTHH:mm';
 const APP_WHOLE_NUMBER_FORMAT = '0,0';
@@ -5726,35 +5728,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-<<<<<<< HEAD
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-=======
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
 /* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_2__);
-<<<<<<< HEAD
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
 /* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
+/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
 
 
 // where we at now: need to match users json to only display id and login
 // my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
 // future stuff: might need to switch the url to the favorite making one in order for the json to go thru
-=======
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+
 
 
 
@@ -5808,7 +5800,7 @@ function posterSearch() {
             favors.push(favor);
             const entity = Object.assign(Object.assign({}, userFavorites), { 
                 //putting a fixed timestamp will allow post to go thru
-                dateAdded: "2021-12-29T05:00:00Z", user: you, 
+                dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayCurrentDateTime)(), user: you, 
                 //user: users.find(it => it.id.toString() === account.id.toString()),
                 //user: account.id,
                 videos: favors });
@@ -5827,6 +5819,8 @@ function posterSearch() {
             // how to get current  logged in user( is is just account.login?)
             // can i get favorites from account if so how?????
             // set addedTofavorites to true
+            // 1/16/22: 6:57
+            //may be getting a 500 error because video is not in database
         }
         else {
             console.log('You need to log in first!');
@@ -5837,11 +5831,7 @@ function posterSearch() {
     };
     const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
     function getPoster() {
-<<<<<<< HEAD
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
-=======
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, function* () {
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
             const result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(posterUrl);
             setvideos(result.data.results);
             // console.log(result.data);
@@ -5851,27 +5841,17 @@ function posterSearch() {
         e.preventDefault(); // prevent page from reloading
         getPoster();
     };
-<<<<<<< HEAD
     const videoTileEnter = () => setShowButton(true);
     const videoTileLeave = () => setShowButton(false);
-    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "9" },
-=======
-    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "9" },
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Row, null,
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "3", className: "pad" }),
+        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "9" },
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("h2", null,
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.title" }, "Welcome to Campr")),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: "lead" },
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.subtitle" })),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-<<<<<<< HEAD
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "5" },
-=======
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Col, { md: "5" },
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "5" },
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app" },
                         react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", { className: "app__searchForm", onSubmit: onSubmit },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
@@ -5897,11 +5877,7 @@ function posterSearch() {
                                 video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })),
                                 showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: e => addToFavorites(e, video.id) }, "Favorite")))));
                     }))),
-<<<<<<< HEAD
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Alert, { color: "light" })))));
-=======
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_7__.Alert, { color: "light" })))));
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Alert, { color: "light" })))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (posterSearch);
 
@@ -7169,11 +7145,7 @@ const initialState = {
 };
 const setLocale = locale => (dispatch) => (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__awaiter)(void 0, void 0, void 0, function* () {
     if (!Object.keys(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.context.translations).includes(locale)) {
-<<<<<<< HEAD
-        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"d02967a8bd2c911112b500c52ce31072"}`, { baseURL: '' });
-=======
-        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"16d5c78beccc7c8e385260e74011ddf0"}`, { baseURL: '' });
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+        const response = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`i18n/${locale}.json?_=${"e0bf2bdb5dad1bedfd84510872471843"}`, { baseURL: '' });
         react_jhipster__WEBPACK_IMPORTED_MODULE_2__.TranslatorContext.registerTranslations(locale, response.data);
     }
     dispatch(updateLocale(locale));
@@ -7304,7 +7276,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "convertDateTimeFromServer": () => (/* binding */ convertDateTimeFromServer),
 /* harmony export */   "convertDateTimeToServer": () => (/* binding */ convertDateTimeToServer),
-/* harmony export */   "displayDefaultDateTime": () => (/* binding */ displayDefaultDateTime)
+/* harmony export */   "displayDefaultDateTime": () => (/* binding */ displayDefaultDateTime),
+/* harmony export */   "displayCurrentDateTime": () => (/* binding */ displayCurrentDateTime)
 /* harmony export */ });
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! dayjs */ "./node_modules/dayjs/dayjs.min.js");
 /* harmony import */ var dayjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(dayjs__WEBPACK_IMPORTED_MODULE_0__);
@@ -7314,6 +7287,7 @@ __webpack_require__.r(__webpack_exports__);
 const convertDateTimeFromServer = date => (date ? dayjs__WEBPACK_IMPORTED_MODULE_0___default()(date).format(app_config_constants__WEBPACK_IMPORTED_MODULE_1__.APP_LOCAL_DATETIME_FORMAT) : null);
 const convertDateTimeToServer = date => (date ? dayjs__WEBPACK_IMPORTED_MODULE_0___default()(date).toDate() : null);
 const displayDefaultDateTime = () => dayjs__WEBPACK_IMPORTED_MODULE_0___default()().startOf('day').format(app_config_constants__WEBPACK_IMPORTED_MODULE_1__.APP_LOCAL_DATETIME_FORMAT);
+const displayCurrentDateTime = () => dayjs__WEBPACK_IMPORTED_MODULE_0___default()().toISOString();
 
 
 /***/ }),
@@ -7545,7 +7519,6 @@ module.exports = "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./src/main/resources/forest-forest-path-trees-light.jpg":
 /*!***************************************************************!*\
   !*** ./src/main/resources/forest-forest-path-trees-light.jpg ***!
@@ -7557,19 +7530,6 @@ module.exports = __webpack_require__.p + "dd0281fa1b34e3382fbf.jpg";
 
 /***/ }),
 
-/***/ "./src/main/webapp/content/images/jhipster_family_member_1.svg":
-/*!*********************************************************************!*\
-  !*** ./src/main/webapp/content/images/jhipster_family_member_1.svg ***!
-  \*********************************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
-
-/***/ }),
-
-=======
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
 /***/ "?5580":
 /*!**************************************!*\
   !*** ./terminal-highlight (ignored) ***!
@@ -7759,11 +7719,7 @@ module.exports = __webpack_require__.p + "75c371c05f1cbb115959.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = () => ("1a28bedbbae081fd0774")
-=======
-/******/ 		__webpack_require__.h = () => ("501348f68ec4c26fc243")
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+/******/ 		__webpack_require__.h = () => ("5f2e7b5b845a5b0ec7c7")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

@@ -8,7 +8,7 @@ src/main/webapp/app/app.scss,01acb01394aa2b26cee9290d5eba783cc0f96ca5
 src/main/webapp/app/app.tsx,49392c7c92169aab64c3ecef7e151664479eb516
 src/main/webapp/app/config/axios-interceptor.spec.ts,afa2f52378856fef8b614e208c049701c837c667
 src/main/webapp/app/config/axios-interceptor.ts,501d3892b8cade03f93b6829472d481283f70a3e
-src/main/webapp/app/config/constants.ts,9c43864abf55ee5b743353be33fbc5965fc0ba27
+src/main/webapp/app/config/constants.ts,c327f30ef51aedc6985764c3751d3c835dbac4df
 src/main/webapp/app/config/dayjs.ts,1cfb142cc0c8b2e0231ab7d4f174289e48647701
 src/main/webapp/app/config/error-middleware.ts,06e58000a0d7a7cafdfbfb49ef52d21e79d6b53b
 src/main/webapp/app/config/icon-loader.ts,7444f5cd08f1ca6fb4af69a6216eb5db047eca69
@@ -95,15 +95,9 @@ src/main/webapp/app/modules/administration/user-management/user-management.reduc
 src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts,c4db24b027f26d07df58d2bb865d2dfcfa8cb971
 src/main/webapp/app/modules/administration/user-management/user-management.tsx,7e4c626d9f48b7c7a94e2fce87606b4aa3ad5ec6
 src/main/webapp/app/modules/home/App.css,fdd80c0bf5e591b2600c957d28abedcda1cbd928
-<<<<<<< HEAD
 src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
-src/main/webapp/app/modules/home/home.scss,0ac134441ae83f75a279b7d2cf304c6fe3c7f75e
-src/main/webapp/app/modules/home/home.tsx,29ca5bfc2f1014255b38550d45297d3784166976
-=======
-src/main/webapp/app/modules/home/VideoTile.css,237ff6d8e7bb28788b4450ee11de2746720fce0c
 src/main/webapp/app/modules/home/home.scss,fc1404b5b6683b715c72745bdec02a031344072d
-src/main/webapp/app/modules/home/home.tsx,d7b314b031df71c1a25da0ebe8edfaf32adb04b4
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+src/main/webapp/app/modules/home/home.tsx,bd0079566a3d9f9f30cdf24949e807ab7396437f
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -148,7 +142,7 @@ src/main/webapp/app/shared/reducers/index.ts,f5e43ed40b3288c57a2a75625241b347244
 src/main/webapp/app/shared/reducers/locale.spec.ts,37d5c222cd5addb6a46f9a5c605d9b84c9fd4de1
 src/main/webapp/app/shared/reducers/locale.ts,01b8be2770e1addf2995af88ab3248880b735ad8
 src/main/webapp/app/shared/reducers/reducer.utils.ts,513bba3dc7a4f84699cbbaeec6124391179a1386
-src/main/webapp/app/shared/util/date-utils.ts,ff23c7a43055f72fb9d82cce5216aea96c1fe083
+src/main/webapp/app/shared/util/date-utils.ts,5cd9d97c66df03d6e462c2de3d93ba296fe41573
 src/main/webapp/app/shared/util/entity-utils.spec.ts,6670c1a8ed9ce8fa9542538c8303b405e444335f
 src/main/webapp/app/shared/util/entity-utils.ts,3a89e57f80839ca92e292d30a711757009ce5d93
 src/main/webapp/app/shared/util/pagination.constants.ts,2259d10abbaabd7777dbe59c827f43a72691e459
@@ -159,11 +153,7 @@ src/main/webapp/i18n/en/activate.json,092c12fc6ef85147bdb0393c99bb648b714efe9d
 src/main/webapp/i18n/en/configuration.json,a9251186f5f4ead4a4bc1cefe6af2257f8f2c482
 src/main/webapp/i18n/en/error.json,84bd83485cbc000250295b7af51c6422d0b2defd
 src/main/webapp/i18n/en/genre.json,fe0b5115edf18bca64b9412abe09ad1bc4c1bad1
-<<<<<<< HEAD
-src/main/webapp/i18n/en/global.json,c0444cad3df9efadf8fc66ce79346be545fd2019
-=======
-src/main/webapp/i18n/en/global.json,655d80811f90d4b28d756fc56827cec9f17cc4c7
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+src/main/webapp/i18n/en/global.json,9778d19c28442b4cf5d6c95e11287bde4c4a5bdf
 src/main/webapp/i18n/en/health.json,c2f3680360305feb532f4d88924f760ce7d5a102
 src/main/webapp/i18n/en/home.json,9fa03caa165a4872e845029ea046e60ce8e5e777
 src/main/webapp/i18n/en/login.json,04ab0e780548cb87bc48443ec15698d0b6cbcc2e
@@ -190,13 +180,8 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-<<<<<<< HEAD
-target/classes/static/app/main.bundle.js,58573572c30e692a724e47e5560947c056fc7d0b
-target/classes/static/app/main.bundle.js.map,7b4df1b81ecaf3eaf73c7785514ef4d1f672566c
-=======
-target/classes/static/app/main.bundle.js,f93b69aaf455ecf3ef2be9b46f8af5e9a41d030b
-target/classes/static/app/main.bundle.js.map,20a8408a3507a36d75d3c9b01657b6320bf2635f
->>>>>>> 5dee25943efeaf77a03844258cff8add4f2edbb4
+target/classes/static/app/main.bundle.js,6b4a3ae6cfe11613068362b62cad0717efcf96b3
+target/classes/static/app/main.bundle.js.map,c41a953052a8e6812d78c9f7ed53d0835b1ea17a
 target/classes/static/app/vendors.bundle.js,799610b2bc2c1b6e6dbc5e71f7c19b04bd11dbf2
 target/classes/static/app/vendors.bundle.js.map,99216bde0dba98e5b3a06161d24e27a030337685
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
@@ -223,10 +208,7 @@ target/classes/static/content/images/jhipster_family_member_3_head-512.png,97e81
 target/classes/static/content/images/logo-jhipster.png,e1e46028ec092ca351425b07707fcdd52146b0b3
 target/classes/static/dd0281fa1b34e3382fbf.jpg,bd36b47d1696950dfe05cb9cbcdbc6ee5fcad292
 target/classes/static/favicon.ico,69547cd4a95b59ac7e6818b6eb82befa061d0c16
-<<<<<<< HEAD
-target/classes/static/i18n/en.json,872391585244069a605a6ff2cbc6b4a2c2e0c5a2
-=======
-target/classes/static/i18n/en.json,71e58db82f70b8ce000ee2a84f46d19023c01d8c
+target/classes/static/i18n/en.json,ab475aaa2696e71099fbd408b91a8802b7318343
 target/classes/static/index.html,ebfef5cdaf901508b10f9095b884f339f7db03ed
 target/classes/static/manifest.webapp,9d4828c1c911fbdcdaa1be9d534f634130ef8eff
 target/classes/static/robots.txt,85dff18c84fe266335d06b070f89d291c46290e3
@@ -241,6 +223,17 @@ target/classes/static/swagger-ui/oauth2-redirect.html,337d04db8c0e6d3bcb0132a3c7
 target/classes/static/swagger-ui/swagger-ui-bundle.js,c9e75a02f22d6aeb6fad12d4e79db3dbc767304d
 target/classes/static/swagger-ui/swagger-ui-es-bundle-core.js,6ee6c73230fac9f615c3180ee6d247e26362e5a7
 target/classes/static/swagger-ui/swagger-ui-es-bundle.js,754c95a791f1ef15e98d57177b714159242d2234
+target/classes/static/swagger-ui/swagger-ui-standalone-preset.js,3c30528c8730ecd24a40b71d57f5f1dcb0680a13
+target/classes/static/swagger-ui/swagger-ui.css,32238fe48731eca0de7f376970d84c9872f3a645
+target/classes/static/swagger-ui/swagger-ui.js,634ef16e69c7da56cb126d6279c8c98badd8d540
+tsconfig.json,b71cf99af53e48c3bb8330b827375ce264a0c6d2
+webpack/environment.js,542bd9c73e5d1b7ec452c0df9a1d9a8bbb7aa863
+webpack/logo-jhipster.png,f1671a819ca95d37e86e20da335b66ac67dd6210
+webpack/utils.js,4da91113a5b225f04139fe0648fb940d22b15a36
+webpack/webpack.common.js,e1c70762927f8b7b7555637a9142563def1aa04c
+webpack/webpack.dev.js,614be77c9b468078d8d54d5dbee3afc41bbb2a1b
+webpack/webpack.prod.js,b6adf43c4ecaea73b6f1bc49d4e4888eef0f44f3
+/static/swagger-ui/swagger-ui-es-bundle.js,754c95a791f1ef15e98d57177b714159242d2234
 target/classes/static/swagger-ui/swagger-ui-standalone-preset.js,3c30528c8730ecd24a40b71d57f5f1dcb0680a13
 target/classes/static/swagger-ui/swagger-ui.css,32238fe48731eca0de7f376970d84c9872f3a645
 target/classes/static/swagger-ui/swagger-ui.js,634ef16e69c7da56cb126d6279c8c98badd8d540

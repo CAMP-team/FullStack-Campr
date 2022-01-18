@@ -14,7 +14,7 @@ import Axios from 'axios';
 import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getEntity, createEntity, deleteEntity, reset } from 'app/entities/user-favorites/user-favorites.reducer';
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
+import { convertDateTimeFromServer, convertDateTimeToServer, displayCurrentDateTime } from 'app/shared/util/date-utils';
 import './VideoTile.css';
 import './App.css';
 /* eslint-disable */
@@ -63,7 +63,7 @@ function posterSearch() {
       const entity = {
         ...userFavorites,
         //putting a fixed timestamp will allow post to go thru
-        dateAdded: '2021-12-29T05:00:00Z',
+        dateAdded: displayCurrentDateTime(),
         user: you,
         //user: users.find(it => it.id.toString() === account.id.toString()),
         //user: account.id,
