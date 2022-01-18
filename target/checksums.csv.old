@@ -8,7 +8,7 @@ src/main/webapp/app/app.scss,01acb01394aa2b26cee9290d5eba783cc0f96ca5
 src/main/webapp/app/app.tsx,49392c7c92169aab64c3ecef7e151664479eb516
 src/main/webapp/app/config/axios-interceptor.spec.ts,afa2f52378856fef8b614e208c049701c837c667
 src/main/webapp/app/config/axios-interceptor.ts,501d3892b8cade03f93b6829472d481283f70a3e
-src/main/webapp/app/config/constants.ts,c327f30ef51aedc6985764c3751d3c835dbac4df
+src/main/webapp/app/config/constants.ts,9c43864abf55ee5b743353be33fbc5965fc0ba27
 src/main/webapp/app/config/dayjs.ts,1cfb142cc0c8b2e0231ab7d4f174289e48647701
 src/main/webapp/app/config/error-middleware.ts,06e58000a0d7a7cafdfbfb49ef52d21e79d6b53b
 src/main/webapp/app/config/icon-loader.ts,7444f5cd08f1ca6fb4af69a6216eb5db047eca69
@@ -97,7 +97,7 @@ src/main/webapp/app/modules/administration/user-management/user-management.tsx,7
 src/main/webapp/app/modules/home/App.css,fdd80c0bf5e591b2600c957d28abedcda1cbd928
 src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
 src/main/webapp/app/modules/home/home.scss,fc1404b5b6683b715c72745bdec02a031344072d
-src/main/webapp/app/modules/home/home.tsx,bd0079566a3d9f9f30cdf24949e807ab7396437f
+src/main/webapp/app/modules/home/home.tsx,2b54cdc20efbf0e251dbece6168cc416345f7582
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -142,7 +142,7 @@ src/main/webapp/app/shared/reducers/index.ts,f5e43ed40b3288c57a2a75625241b347244
 src/main/webapp/app/shared/reducers/locale.spec.ts,37d5c222cd5addb6a46f9a5c605d9b84c9fd4de1
 src/main/webapp/app/shared/reducers/locale.ts,01b8be2770e1addf2995af88ab3248880b735ad8
 src/main/webapp/app/shared/reducers/reducer.utils.ts,513bba3dc7a4f84699cbbaeec6124391179a1386
-src/main/webapp/app/shared/util/date-utils.ts,5cd9d97c66df03d6e462c2de3d93ba296fe41573
+src/main/webapp/app/shared/util/date-utils.ts,f0de3d805f075e29640f8a52356451884d650a2f
 src/main/webapp/app/shared/util/entity-utils.spec.ts,6670c1a8ed9ce8fa9542538c8303b405e444335f
 src/main/webapp/app/shared/util/entity-utils.ts,3a89e57f80839ca92e292d30a711757009ce5d93
 src/main/webapp/app/shared/util/pagination.constants.ts,2259d10abbaabd7777dbe59c827f43a72691e459
@@ -180,8 +180,8 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-target/classes/static/app/main.bundle.js,e55fd0d391c0a6a91193749afb4d772e1af96966
-target/classes/static/app/main.bundle.js.map,5207f51d68fa5f2284bd15f7bd9e372bb87ed6d2
+target/classes/static/app/main.bundle.js,57b220abfb60a5b7107551dd728ebe84abedfcc6
+target/classes/static/app/main.bundle.js.map,c0b17ff2bc657c58ff42c6795ce6a56a91b528f6
 target/classes/static/app/vendors.bundle.js,799610b2bc2c1b6e6dbc5e71f7c19b04bd11dbf2
 target/classes/static/app/vendors.bundle.js.map,99216bde0dba98e5b3a06161d24e27a030337685
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d

@@ -1321,7 +1321,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "messages": () => (/* binding */ messages),
 /* harmony export */   "APP_DATE_FORMAT": () => (/* binding */ APP_DATE_FORMAT),
 /* harmony export */   "APP_TIMESTAMP_FORMAT": () => (/* binding */ APP_TIMESTAMP_FORMAT),
-/* harmony export */   "APP_LOCAL_JSON_FRIENDLY_TIMESTAMP_FORMAT": () => (/* binding */ APP_LOCAL_JSON_FRIENDLY_TIMESTAMP_FORMAT),
 /* harmony export */   "APP_LOCAL_DATE_FORMAT": () => (/* binding */ APP_LOCAL_DATE_FORMAT),
 /* harmony export */   "APP_LOCAL_DATETIME_FORMAT": () => (/* binding */ APP_LOCAL_DATETIME_FORMAT),
 /* harmony export */   "APP_WHOLE_NUMBER_FORMAT": () => (/* binding */ APP_WHOLE_NUMBER_FORMAT),
@@ -1336,7 +1335,6 @@ const messages = {
 };
 const APP_DATE_FORMAT = 'DD/MM/YY HH:mm';
 const APP_TIMESTAMP_FORMAT = 'DD/MM/YY HH:mm:ss';
-const APP_LOCAL_JSON_FRIENDLY_TIMESTAMP_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSSZ';
 const APP_LOCAL_DATE_FORMAT = 'DD/MM/YYYY';
 const APP_LOCAL_DATETIME_FORMAT = 'YYYY-MM-DDTHH:mm';
 const APP_WHOLE_NUMBER_FORMAT = '0,0';
@@ -5767,6 +5765,7 @@ function posterSearch() {
     const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''); // use state is updating the value in the frontend
     const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [videoTileEnabled, setVideoTileEnabled] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.authentication.account);
     // json friendly user formatter
     const user = (id, login) => {
@@ -5776,18 +5775,6 @@ function posterSearch() {
     const video = id => {
         return { id: id };
     };
-    /**
-    //perhaps the way to gain authentication to access users?
-    useEffect(() => {
-        if (isNew) {
-          dispatch(reset());
-        } else {
-          dispatch(getEntity(props.match.params.id));
-        }
-  
-        dispatch(getUsers({}));
-    }, []);
-    */
     const addToFavorites = (event, videoId) => {
         // if user is logged in
         // must map video to a new object with a singular attrib: its id
@@ -5841,6 +5828,8 @@ function posterSearch() {
         e.preventDefault(); // prevent page from reloading
         getPoster();
     };
+    const disableVideoTile = () => setVideoTileEnabled(false);
+    const enableVideoTile = () => setVideoTileEnabled(true);
     const videoTileEnter = () => setShowButton(true);
     const videoTileLeave = () => setShowButton(false);
     return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Row, null,
@@ -5868,14 +5857,16 @@ function posterSearch() {
                             //if videoid not in favorites list already render remove from favorites button
                             onMouseEnter: videoTileEnter, onMouseLeave: videoTileLeave, onClick: () => {
                                 {
-                                    video.poster_path == null
-                                        ? window.open(`https://www.youtube.com/results?search_query=${query}`)
-                                        : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                                    if (videoTileEnabled) {
+                                        video.poster_path == null
+                                            ? window.open(`https://www.youtube.com/results?search_query=${query}`)
+                                            : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                                    }
                                 }
                             } },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "row", style: { position: 'relative' } },
                                 video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })),
-                                showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: e => addToFavorites(e, video.id) }, "Favorite")))));
+                                showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", onMouseEnter: disableVideoTile, onMouseLeave: enableVideoTile, className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: e => addToFavorites(e, video.id) }, "Favorite")))));
                     }))),
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Alert, { color: "light" })))));
 }
@@ -7719,7 +7710,7 @@ module.exports = __webpack_require__.p + "dd0281fa1b34e3382fbf.jpg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("5f2e7b5b845a5b0ec7c7")
+/******/ 		__webpack_require__.h = () => ("d698caf941d0a6bde97c")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

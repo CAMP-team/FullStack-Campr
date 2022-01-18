@@ -30,6 +30,7 @@ function posterSearch() {
   const [query, setquery] = useState(''); // use state is updating the value in the frontend
   const [videos, setvideos] = useState([]);
   const [showButton, setShowButton] = useState(false);
+  const [videoTileEnabled, setVideoTileEnabled] = useState(true);
   const account = useAppSelector(state => state.authentication.account);
   // json friendly user formatter
   const user = (id, login) => {
@@ -39,18 +40,6 @@ function posterSearch() {
   const video = id => {
     return { id: id };
   };
-  /**
-  //perhaps the way to gain authentication to access users?
-  useEffect(() => {
-      if (isNew) {
-        dispatch(reset());
-      } else {
-        dispatch(getEntity(props.match.params.id));
-      }
-
-      dispatch(getUsers({}));
-  }, []);
-  */
   const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>, videoId: any) => {
     // if user is logged in
     // must map video to a new object with a singular attrib: its id
@@ -108,7 +97,8 @@ function posterSearch() {
     e.preventDefault(); // prevent page from reloading
     getPoster();
   };
-
+  const disableVideoTile = () => setVideoTileEnabled(false);
+  const enableVideoTile = () => setVideoTileEnabled(true);
   const videoTileEnter = () => setShowButton(true);
   const videoTileLeave = () => setShowButton(false);
   return (
@@ -153,9 +143,11 @@ function posterSearch() {
                     onMouseLeave={videoTileLeave}
                     onClick={() => {
                       {
-                        video.poster_path == null
-                          ? window.open(`https://www.youtube.com/results?search_query=${query}`)
-                          : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                        if (videoTileEnabled) {
+                          video.poster_path == null
+                            ? window.open(`https://www.youtube.com/results?search_query=${query}`)
+                            : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
+                        }
                       }
                     }}
                   >
@@ -178,6 +170,8 @@ function posterSearch() {
                       {showButton && video.poster_path != null && (
                         <button
                           type="submit"
+                          onMouseEnter={disableVideoTile}
+                          onMouseLeave={enableVideoTile}
                           className="FaveButton"
                           style={{ position: 'absolute', bottom: 10 }}
                           onClick={e => addToFavorites(e, video.id)}
