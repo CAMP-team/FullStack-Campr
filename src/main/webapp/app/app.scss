@@ -2,7 +2,7 @@
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
 body {
-  background: #966464;
+  background: #ffffff;
   background-image: url('/src/main/resources/forest-forest-path-trees-light.jpg');
   background-size: cover;
   margin: 0;
@@ -13,40 +13,40 @@ a {
   font-weight: bold;
 }
 
-* {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  &:after,
-  &::before {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-}
+// * {
+//   -moz-box-sizing: border-box;
+//   box-sizing: border-box;
+//   &:after,
+//   &::before {
+//     -moz-box-sizing: border-box;
+//     box-sizing: border-box;
+//   }
+// }
 
-.app-container {
-  box-sizing: border-box;
-  .view-container {
-    width: 100%;
-    height: calc(100% - 40px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 1rem;
-    .card {
-      padding: 1rem;
-    }
-    .view-routes {
-      height: 100%;
-      > div {
-        height: 100%;
-      }
-    }
-  }
-}
+// .app-container {
+//   box-sizing: border-box;
+//   .view-container {
+//     width: 100%;
+//     height: calc(100% - 40px);
+//     overflow-y: auto;
+//     overflow-x: auto;
+//     padding: 1rem;
+//     .card {
+//       padding: 1rem;
+//     }
+//     .view-routes {
+//       height: 100%;
+//       > div {
+//         height: 100%;
+//       }
+//     }
+//   }
+// }
 
 .fullscreen {
   position: fixed;
   top: 100px;
-  left: 0px;
+  left: 12px;
   width: 99% !important;
   height: calc(100vh - 110px) !important;
   margin: 5px;

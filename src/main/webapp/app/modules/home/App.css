@@ -20,15 +20,19 @@
   background-color: #ffffff;
 
   display: grid;
-  gap: 15px;
-  grid-template-columns: 300px 300px 300px 300px 300px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-right: 140px;
+  margin-left: 65px;
+  gap: 50px;
+  grid-template-columns: 500px 500px 500px 500px 500px;
 }
 
-.movie-cover {
+.video-cover {
   width: 100%;
 }
 
-.movie-placeholder {
+.video-placeholder {
   min-height: 359px;
   background-color: white;
   color: white;
@@ -39,7 +43,7 @@
 
 .imageHeader {
   position: relative;
-  min-height: 600px;
+  min-height: 800px;
   background-position: top center;
   background-size: cover;
   display: flex;
