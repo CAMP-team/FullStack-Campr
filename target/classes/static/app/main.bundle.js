@@ -38,7 +38,7 @@ var ___CSS_LOADER_URL_IMPORT_12___ = new URL(/* asset import */ __webpack_requir
 var ___CSS_LOADER_URL_IMPORT_13___ = new URL(/* asset import */ __webpack_require__(/*! data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23000%27%3e%3cpath d=%27M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z%27/%3e%3c/svg%3e */ "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23000%27%3e%3cpath d=%27M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z%27/%3e%3c/svg%3e"), __webpack_require__.b);
 var ___CSS_LOADER_URL_IMPORT_14___ = new URL(/* asset import */ __webpack_require__(/*! data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z%27/%3e%3c/svg%3e */ "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z%27/%3e%3c/svg%3e"), __webpack_require__.b);
 var ___CSS_LOADER_URL_IMPORT_15___ = new URL(/* asset import */ __webpack_require__(/*! data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e */ "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_16___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../src/main/resources/forest-forest-path-trees-light.jpg */ "./src/main/resources/forest-forest-path-trees-light.jpg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_16___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../../src/main/resources/forest-forest-path-trees-light.jpg */ "./src/main/resources/forest-forest-path-trees-light.jpg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -5750,17 +5750,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
 /* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_youtube__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-youtube */ "./node_modules/react-youtube/dist/index.esm.js");
-/* harmony import */ var _VideoCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./VideoCard */ "./src/main/webapp/app/modules/home/VideoCard.tsx");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+/* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_youtube__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-youtube */ "./node_modules/react-youtube/dist/index.esm.js");
+/* harmony import */ var _VideoCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoCard */ "./src/main/webapp/app/modules/home/VideoCard.tsx");
+/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
+/* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 /* eslint-disable */
@@ -5771,7 +5772,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-z;
+
 
 
 
@@ -5780,10 +5781,10 @@ z;
 function Home() {
     const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
     const API_URL = 'https://api.themoviedb.org/3';
-    const [video, setVideo] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
-    const [selectedVideo, setSelectedVideo] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
-    const [searchKey, setSearchKey] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)('');
-    const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
+    const [video, setVideo] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
+    const [selectedVideo, setSelectedVideo] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
+    const [searchKey, setSearchKey] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)('');
+    const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
     const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_0__.useAppDispatch)();
     // json friendly video list
     // const [users, setUsers] = useState([]);
@@ -5792,10 +5793,10 @@ function Home() {
     // const users = useAppSelector(state => state.userManagement.users);
     // const userFavorites = useAppSelector(state => state.userFavorites.entity);
     // const [users, setUsers] = useState([]);
-    // const [isNew] = useState(!props.match.params || !props.match.params.id);
-    const getFirstVideoFetch = (searchKey) => (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
+    //const [isNew] = useState(!props.match.params || !props.match.params.id);
+    const getFirstVideoFetch = (searchKey) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
         const type = searchKey ? 'search' : 'discover';
-        const { data: { results }, } = yield axios__WEBPACK_IMPORTED_MODULE_1___default().get(`${API_URL}/${type}/movie`, {
+        const { data: { results }, } = yield axios__WEBPACK_IMPORTED_MODULE_2___default().get(`${API_URL}/${type}/movie`, {
             params: {
                 api_key: '616093e66ab252685ad921e5c4680152',
                 query: searchKey,
@@ -5804,8 +5805,8 @@ function Home() {
         setSelectedVideo(results[0]);
         setVideo(results);
     });
-    const getSecondVideoFetch = (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
-        const { data } = yield axios__WEBPACK_IMPORTED_MODULE_1___default().get(`${API_URL}/movie/${id}`, {
+    const getSecondVideoFetch = (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
+        const { data } = yield axios__WEBPACK_IMPORTED_MODULE_2___default().get(`${API_URL}/movie/${id}`, {
             params: {
                 api_key: '616093e66ab252685ad921e5c4680152',
                 append_to_response: 'videos',
@@ -5813,15 +5814,15 @@ function Home() {
         });
         return data;
     });
-    const selectVideo = (video) => (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
+    const selectVideo = (video) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
         const data = yield getSecondVideoFetch(video.id);
         // console.log(data);
         setSelectedVideo(data);
     });
-    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
+    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
         getFirstVideoFetch();
     }, []);
-    const renderPosters = () => video.map(video => react__WEBPACK_IMPORTED_MODULE_2__.createElement(_VideoCard__WEBPACK_IMPORTED_MODULE_4__["default"], { key: video.id, video: video, selectVideo: selectVideo }));
+    const renderPosters = () => video.map(video => react__WEBPACK_IMPORTED_MODULE_3__.createElement(_VideoCard__WEBPACK_IMPORTED_MODULE_5__["default"], { key: video.id, video: video, selectVideo: selectVideo }));
     const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_0__.useAppSelector)(state => state.authentication.account);
     const searchVideos = e => {
         e.preventDefault();
@@ -5832,82 +5833,80 @@ function Home() {
     //   return { id: id, login: login };
     // };
     /**
-    //perhaps the way to gain authentication to access users?
-    useEffect(() => {
-        if (isNew) {
-          dispatch(reset());
-        } else {
-          dispatch(getEntity(props.match.params.id));
+      //perhaps the way to gain authentication to access users?
+      useEffect(() => {
+          if (isNew) {
+            dispatch(reset());
+          } else {
+            dispatch(getEntity(props.match.params.id));
+          }
+    
+          dispatch(getUsers({}));
+      }, []);
+      */
+    const addToFavorites = (event, videoId) => {
+        // if user is logged in
+        // must map video to a new object with a singular attrib: its id
+        if (account == null) {
+            console.log('You need to log in first!');
         }
-  
-        dispatch(getUsers({}));
-    }, []);
-    */
-    // const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>, videoId: any) => {
-    //   // if user is logged in
-    //   // must map video to a new object with a singular attrib: its id
-    //   if (account == null) {
-    //     console.log('You need to log in first!');
-    //   } else if (account.login) {
-    //     const favor = video(videoId);
-    //     const you = user(account.id, account.login);
-    //     favors.push(favor);
-    //     const entity = {
-    //       ...userFavorites,
-    //       //putting a fixed timestamp will allow post to go thru
-    //       dateAdded: '2021-12-29T05:00:00Z',
-    //       user: you,
-    //       //user: users.find(it => it.id.toString() === account.id.toString()),
-    //       //user: account.id,
-    //       videos: favors,
-    //       //videos: videoId,
-    //     };
-    //     dispatch(createEntity(entity));
-    // resets favors after it is added in to favorites
-    // resets users after fave added in
-    //setUsers([]);
-    // maybe a seperate attribute indicating whether video is in faves or not?
-    // no need just use (isNew) (maybe not?)
-    // const favorites = useAppSelector(state => account-favorites.entities);
-    // how to access favorites for just one user
-    // the reducer for the user-favorites
-    // how to get the update?
-    // how to make sure the user matches the favorites
-    // user-favorites.createEntity(videoId);
-    // how to get current  logged in user( is is just account.login?)
-    // can i get favorites from account if so how?????
-    // set addedTofavorites to true
-    // 1/16/22: 6:57
-    //may be getting a 500 error because video is not in database
-    //   } else {
-    //     console.log('You need to log in first!');
-    //   }
-    //   // submit form to add video to favorites
-    //   // confirmation will be that the button changes to "remove from favorites"
-    //   console.log('Added to favorites!');
-    // };
+        else if (account.login) {
+            const favor = video(videoId);
+            const you = user(account.id, account.login);
+            favors.push(favor);
+            const entity = Object.assign(Object.assign({}, userFavorites), { 
+                //putting a fixed timestamp will allow post to go thru
+                dateAdded: '2021-12-29T05:00:00Z', user: you, 
+                //user: users.find(it => it.id.toString() === account.id.toString()),
+                //user: account.id,
+                videos: favors });
+            dispatch((0,app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_1__.createEntity)(entity));
+            // resets favors after it is added in to favorites
+            // resets users after fave added in
+            //setUsers([]);
+            // maybe a seperate attribute indicating whether video is in faves or not?
+            // no need just use (isNew) (maybe not?)
+            // const favorites = useAppSelector(state => account-favorites.entities);
+            // how to access favorites for just one user
+            // the reducer for the user-favorites
+            // how to get the update?
+            // how to make sure the user matches the favorites
+            // user-favorites.createEntity(videoId);
+            // how to get current  logged in user( is is just account.login?)
+            // can i get favorites from account if so how?????
+            // set addedTofavorites to true
+            // 1/16/22: 6:57
+            //may be getting a 500 error because video is not in database
+        }
+        else {
+            console.log('You need to log in first!');
+        }
+        // submit form to add video to favorites
+        // confirmation will be that the button changes to "remove from favorites"
+        console.log('Added to favorites!');
+    };
     const renderTrailer = () => {
         const trailer = selectedVideo.videos.results[0];
         console.log(trailer);
-        return (react__WEBPACK_IMPORTED_MODULE_2__.createElement(react_youtube__WEBPACK_IMPORTED_MODULE_3__["default"], { videoId: trailer.key }));
+        return react__WEBPACK_IMPORTED_MODULE_3__.createElement(react_youtube__WEBPACK_IMPORTED_MODULE_4__["default"], { videoId: trailer.key });
     };
-    // const videoTileEnter = () => setShowButton(true);
-    // const videoTileLeave = () => setShowButton(false);
-    return (react__WEBPACK_IMPORTED_MODULE_2__.createElement(react__WEBPACK_IMPORTED_MODULE_2__.Fragment, null,
-        react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", { className: "videoapp" },
-            react__WEBPACK_IMPORTED_MODULE_2__.createElement("header", { className: 'header' },
-                react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", { className: 'header-content max-center' },
-                    react__WEBPACK_IMPORTED_MODULE_2__.createElement("form", { onSubmit: searchVideos },
-                        react__WEBPACK_IMPORTED_MODULE_2__.createElement("input", { type: "text", onChange: (e) => setSearchKey(e.target.value) }),
-                        react__WEBPACK_IMPORTED_MODULE_2__.createElement("button", { type: 'submit' }, "Search"))),
-                react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", null)),
-            react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", { className: "imageHeader", style: { backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` } },
-                react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", { className: "imageHeader-content max-center" },
+    const videoTileEnter = () => setShowButton(true);
+    const videoTileLeave = () => setShowButton(false);
+    return (react__WEBPACK_IMPORTED_MODULE_3__.createElement(react__WEBPACK_IMPORTED_MODULE_3__.Fragment, null,
+        react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", { className: "videoapp" },
+            react__WEBPACK_IMPORTED_MODULE_3__.createElement("header", { className: 'header' },
+                react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", { className: 'header-content max-center' },
+                    react__WEBPACK_IMPORTED_MODULE_3__.createElement("form", { onSubmit: searchVideos },
+                        react__WEBPACK_IMPORTED_MODULE_3__.createElement("input", { type: "text", onChange: (e) => setSearchKey(e.target.value) }),
+                        react__WEBPACK_IMPORTED_MODULE_3__.createElement("button", { type: 'submit' }, "Search"))),
+                react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null)),
+            react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", { className: "imageHeader", style: { backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` } },
+                react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", { className: "imageHeader-content max-center" },
                     selectedVideo.videos ? renderTrailer() : null,
-                    react__WEBPACK_IMPORTED_MODULE_2__.createElement("h1", { className: 'imageHeader-title' }, selectedVideo.title),
-                    selectedVideo.overview ? react__WEBPACK_IMPORTED_MODULE_2__.createElement("p", { className: 'imageHeader-overview' }, selectedVideo.overview) : null)),
-            react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", { className: "container" }, renderPosters())),
-        react__WEBPACK_IMPORTED_MODULE_2__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Col, { md: "1" }, (account === null || account === void 0 ? void 0 : account.login) ? react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", null) : react__WEBPACK_IMPORTED_MODULE_2__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__.Alert, { color: "light" }))));
+                    react__WEBPACK_IMPORTED_MODULE_3__.createElement("h1", { className: 'imageHeader-title' }, selectedVideo.title),
+                    selectedVideo.overview ? react__WEBPACK_IMPORTED_MODULE_3__.createElement("p", { className: 'imageHeader-overview' }, selectedVideo.overview) : null)),
+            react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", { className: "container" }, renderPosters())),
+        react__WEBPACK_IMPORTED_MODULE_3__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "1" }, (account === null || account === void 0 ? void 0 : account.login) ? react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null) : react__WEBPACK_IMPORTED_MODULE_3__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Alert, { color: "light" }))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
@@ -7747,7 +7746,7 @@ module.exports = __webpack_require__.p + "dd0281fa1b34e3382fbf.jpg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("b9939e8f5597733fd6cb")
+/******/ 		__webpack_require__.h = () => ("fc2703e87bb0d1845aef")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

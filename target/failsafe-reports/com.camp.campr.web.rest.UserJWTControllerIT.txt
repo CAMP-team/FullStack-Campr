@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.camp.campr.web.rest.UserJWTControllerIT
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.8 s - in com.camp.campr.web.rest.UserJWTControllerIT
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.759 s - in com.camp.campr.web.rest.UserJWTControllerIT
