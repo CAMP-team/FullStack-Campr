@@ -1,56 +1,108 @@
-import './home.scss';
-// where we at now: need to match users json to only display id and login
-// my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+/* eslint-disable */
 
-// future stuff: might need to switch the url to the favorite making one in order for the json to go thru
+import { Col, Alert, Card } from 'reactstrap';
+import { useAppSelector } from 'app/config/store';
+import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
+import { getEntity, createEntity, deleteEntity, reset } from 'app/entities/user-favorites/user-favorites.reducer';
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
+import axios from 'axios';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import Youtube from 'react-youtube';
+import { useAppDispatch, useAppSelector } from 'app/config/store';
 import React, { useState, useEffect } from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { Row, Col, Alert } from 'reactstrap';
 import { IUserFavorites } from 'app/shared/model/user-favorites.model';
 import { IUser } from 'app/shared/model/user.model';
-
-import Axios from 'axios';
 import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
-import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getEntity, createEntity, deleteEntity, reset } from 'app/entities/user-favorites/user-favorites.reducer';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
+import VideoCard from './VideoCard';
 import './VideoTile.css';
+import './home.scss';
 import './App.css';
-/* eslint-disable */
-function posterSearch() {
+import './App.css';
+
+function Home() {
+  const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
+  const API_URL = 'https://api.themoviedb.org/3';
+  const [video, setVideo] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState([]);
+  const [searchKey, setSearchKey] = useState('');
+  const [showButton, setShowButton] = useState(false);
   const dispatch = useAppDispatch();
-  //const users = useAppSelector(state => state.userManagement.users);
 
   // json friendly video list
-  const favors = [];
-  const userFavorites = useAppSelector(state => state.userFavorites.entity);
-  //const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+  // const [isNew] = useState(!props.match.params || !props.match.params.id);
+  // const [playTrailer,setPlayTrailer] = useState(false)
+  // const users = useAppSelector(state => state.userManagement.users);
+  // const userFavorites = useAppSelector(state => state.userFavorites.entity);
+  // const [users, setUsers] = useState([]);
   //const [isNew] = useState(!props.match.params || !props.match.params.id);
-  const [query, setquery] = useState(''); // use state is updating the value in the frontend
-  const [videos, setvideos] = useState([]);
-  const [showButton, setShowButton] = useState(false);
-  const account = useAppSelector(state => state.authentication.account);
-  // json friendly user formatter
-  const user = (id, login) => {
-    return { id: id, login: login };
-  };
-  // json friendly video formatter
-  const video = id => {
-    return { id: id };
-  };
-  /**
-  //perhaps the way to gain authentication to access users?
-  useEffect(() => {
-      if (isNew) {
-        dispatch(reset());
-      } else {
-        dispatch(getEntity(props.match.params.id));
-      }
 
-      dispatch(getUsers({}));
+  const getFirstVideoFetch = async searchKey => {
+    const type = searchKey ? 'search' : 'discover';
+    const {
+      data: { results },
+    } = await axios.get(`${API_URL}/${type}/movie`, {
+      params: {
+        api_key: '616093e66ab252685ad921e5c4680152',
+        query: searchKey,
+      },
+    });
+
+    setSelectedVideo(results[0]);
+    setVideo(results);
+  };
+
+  const getSecondVideoFetch = async id => {
+    const { data } = await axios.get(`${API_URL}/movie/${id}`, {
+      params: {
+        api_key: '616093e66ab252685ad921e5c4680152',
+        append_to_response: 'videos',
+      },
+    });
+    return data;
+  };
+  const selectVideo = async video => {
+    const data = await getSecondVideoFetch(video.id);
+    // console.log(data);
+    setSelectedVideo(data);
+  };
+
+  useEffect(() => {
+    getFirstVideoFetch();
   }, []);
-  */
+
+  const renderPosters = () => video.map(video => <VideoCard key={video.id} video={video} selectVideo={selectVideo} />);
+
+  const account = useAppSelector(state => state.authentication.account);
+  const searchVideos = e => {
+    e.preventDefault();
+    getFirstVideoFetch(searchKey);
+  };
+
+  // json friendly user formatter
+  // const user = (id, login) => {
+  //   return { id: id, login: login };
+  // };
+
+  /**
+    //perhaps the way to gain authentication to access users?
+    useEffect(() => {
+        if (isNew) {
+          dispatch(reset());
+        } else {
+          dispatch(getEntity(props.match.params.id));
+        }
+  
+        dispatch(getUsers({}));
+    }, []);
+    */
   const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>, videoId: any) => {
     // if user is logged in
     // must map video to a new object with a singular attrib: its id
@@ -97,105 +149,42 @@ function posterSearch() {
     // confirmation will be that the button changes to "remove from favorites"
     console.log('Added to favorites!');
   };
-  const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-  async function getPoster() {
-    const result = await Axios.get(posterUrl);
-    setvideos(result.data.results);
-    // console.log(result.data);
-  }
 
-  const onSubmit = e => {
-    e.preventDefault(); // prevent page from reloading
-    getPoster();
+  const renderTrailer = () => {
+    const trailer = selectedVideo.videos.results[0];
+    console.log(trailer);
+    return <Youtube videoId={trailer.key} />;
   };
 
   const videoTileEnter = () => setShowButton(true);
   const videoTileLeave = () => setShowButton(false);
   return (
-    <Row>
-      <Col md="3" className="pad"></Col>
-      <Col md="9">
-        <h2>
-          <Translate contentKey="home.title">Welcome to Campr</Translate>
-        </h2>
-        <p className="lead">
-          <Translate contentKey="home.subtitle"></Translate>
-        </p>
-        <div>
-          <Col md="5">
-            <div className="app">
-              <form className="app__searchForm" onSubmit={onSubmit}>
-                <input
-                  type="text"
-                  className="app__input"
-                  placeholder="Find Videos"
-                  value={query}
-                  onChange={e => setquery(e.target.value)}
-                />
-                <input className="app__submit" type="submit" value="Search" />
-              </form>
-            </div>
-            <div className="app__videos">
-              {videos.map(video => {
-                const value = video.id;
-                const url = `https://api.themoviedb.org/3/movie/${value}/videos?api_key=616093e66ab252685ad921e5c4680152`;
-                var videoDisplay;
-                fetch(url)
-                  .then(res => res.json())
-                  .then(data => (videoDisplay = data))
-                  .then(() => console.log(videoDisplay));
-                return (
-                  <div
-                    key={video.id}
-                    className="VideoTile"
-                    //if videoid not in favorites list already render remove from favorites button
-                    onMouseEnter={videoTileEnter}
-                    onMouseLeave={videoTileLeave}
-                    onClick={() => {
-                      {
-                        video.poster_path == null
-                          ? window.open(`https://www.youtube.com/results?search_query=${query}`)
-                          : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
-                      }
-                    }}
-                  >
-                    <div className="row" style={{ position: 'relative' }}>
-                      {video.poster_path == null ? (
-                        <img
-                          className="videoTile__img"
-                          src={`https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`}
-                          alt="card image"
-                          style={{ width: '100%', height: 360 }}
-                        />
-                      ) : (
-                        <img
-                          className="videoTile__img"
-                          src={`https://image.tmdb.org/t/p/w185${video.poster_path}`}
-                          alt="card image"
-                          style={{ width: '100%', height: 360 }}
-                        />
-                      )}
-                      {showButton && video.poster_path != null && (
-                        <button
-                          type="submit"
-                          className="FaveButton"
-                          style={{ position: 'absolute', bottom: 10 }}
-                          onClick={e => addToFavorites(e, video.id)}
-                        >
-                          Favorite
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </Col>
-          <Alert color="light"></Alert>
+    <>
+      <div className="videoapp">
+        <header className={'header'}>
+          <div className={'header-content max-center'}>
+            <form onSubmit={searchVideos}>
+              <input type="text" onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKey(e.target.value)} />
+              <button type={'submit'}>Search</button>
+            </form>
+          </div>
+          <div></div>
+        </header>
+        <div className="imageHeader" style={{ backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` }}>
+          <div className="imageHeader-content max-center">
+            {selectedVideo.videos ? renderTrailer() : null}
+            {/* <button className={"button"} onClick={() =>setPlayTrailer(true)} >Play Trailer</button> */}
+            <h1 className={'imageHeader-title'}>{selectedVideo.title}</h1>
+            {selectedVideo.overview ? <p className={'imageHeader-overview'}>{selectedVideo.overview}</p> : null}
+          </div>
         </div>
-      </Col>
-    </Row>
+
+        <div className="container">{renderPosters()}</div>
+      </div>
+
+      <Col md="1">{account?.login ? <div></div> : <Alert color="light"></Alert>}</Col>
+    </>
   );
 }
 
-export default posterSearch;
+export default Home;
