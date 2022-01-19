@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StaticResourcesWebConfiguration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.config</a> &gt; <span class="el_source">StaticResourcesWebConfiguration.java</span></div><h1>StaticResourcesWebConfiguration.java</h1><pre class="source lang-java linenums">package com.camp.campr.config;
+
+import java.util.concurrent.TimeUnit;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+import org.springframework.http.CacheControl;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import tech.jhipster.config.JHipsterConstants;
+import tech.jhipster.config.JHipsterProperties;
+
+@Configuration
+@Profile({ JHipsterConstants.SPRING_PROFILE_PRODUCTION })
+public class StaticResourcesWebConfiguration implements WebMvcConfigurer {
+
+<span class="nc" id="L17">    protected static final String[] RESOURCE_LOCATIONS = new String[] {</span>
+        &quot;classpath:/static/&quot;,
+        &quot;classpath:/static/content/&quot;,
+        &quot;classpath:/static/i18n/&quot;,
+    };
+<span class="nc" id="L22">    protected static final String[] RESOURCE_PATHS = new String[] {</span>
+        &quot;/*.js&quot;,
+        &quot;/*.css&quot;,
+        &quot;/*.svg&quot;,
+        &quot;/*.png&quot;,
+        &quot;*.ico&quot;,
+        &quot;/content/**&quot;,
+        &quot;/i18n/*&quot;,
+    };
+
+    private final JHipsterProperties jhipsterProperties;
+
+<span class="nc" id="L34">    public StaticResourcesWebConfiguration(JHipsterProperties jHipsterProperties) {</span>
+<span class="nc" id="L35">        this.jhipsterProperties = jHipsterProperties;</span>
+<span class="nc" id="L36">    }</span>
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+<span class="nc" id="L40">        ResourceHandlerRegistration resourceHandlerRegistration = appendResourceHandler(registry);</span>
+<span class="nc" id="L41">        initializeResourceHandler(resourceHandlerRegistration);</span>
+<span class="nc" id="L42">    }</span>
+
+    protected ResourceHandlerRegistration appendResourceHandler(ResourceHandlerRegistry registry) {
+<span class="nc" id="L45">        return registry.addResourceHandler(RESOURCE_PATHS);</span>
+    }
+
+    protected void initializeResourceHandler(ResourceHandlerRegistration resourceHandlerRegistration) {
+<span class="nc" id="L49">        resourceHandlerRegistration.addResourceLocations(RESOURCE_LOCATIONS).setCacheControl(getCacheControl());</span>
+<span class="nc" id="L50">    }</span>
+
+    protected CacheControl getCacheControl() {
+<span class="nc" id="L53">        return CacheControl.maxAge(getJHipsterHttpCacheProperty(), TimeUnit.DAYS).cachePublic();</span>
+    }
+
+    private int getJHipsterHttpCacheProperty() {
+<span class="nc" id="L57">        return jhipsterProperties.getHttp().getCache().getTimeToLiveInDays();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

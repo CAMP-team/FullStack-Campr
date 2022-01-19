@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserUploadResource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.web.rest</a> &gt; <span class="el_source">UserUploadResource.java</span></div><h1>UserUploadResource.java</h1><pre class="source lang-java linenums">package com.camp.campr.web.rest;
+
+import com.camp.campr.domain.UserUpload;
+import com.camp.campr.repository.UserUploadRepository;
+import com.camp.campr.web.rest.errors.BadRequestAlertException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import tech.jhipster.web.util.HeaderUtil;
+import tech.jhipster.web.util.ResponseUtil;
+
+/**
+ * REST controller for managing {@link com.camp.campr.domain.UserUpload}.
+ */
+@RestController
+@RequestMapping(&quot;/api&quot;)
+@Transactional
+public class UserUploadResource {
+
+<span class="fc" id="L28">    private final Logger log = LoggerFactory.getLogger(UserUploadResource.class);</span>
+
+    private static final String ENTITY_NAME = &quot;userUpload&quot;;
+
+    @Value(&quot;${jhipster.clientApp.name}&quot;)
+    private String applicationName;
+
+    private final UserUploadRepository userUploadRepository;
+
+<span class="fc" id="L37">    public UserUploadResource(UserUploadRepository userUploadRepository) {</span>
+<span class="fc" id="L38">        this.userUploadRepository = userUploadRepository;</span>
+<span class="fc" id="L39">    }</span>
+
+    /**
+     * {@code POST  /user-uploads} : Create a new userUpload.
+     *
+     * @param userUpload the userUpload to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new userUpload, or with status {@code 400 (Bad Request)} if the userUpload has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping(&quot;/user-uploads&quot;)
+    public ResponseEntity&lt;UserUpload&gt; createUserUpload(@RequestBody UserUpload userUpload) throws URISyntaxException {
+<span class="fc" id="L50">        log.debug(&quot;REST request to save UserUpload : {}&quot;, userUpload);</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (userUpload.getId() != null) {</span>
+<span class="fc" id="L52">            throw new BadRequestAlertException(&quot;A new userUpload cannot already have an ID&quot;, ENTITY_NAME, &quot;idexists&quot;);</span>
+        }
+<span class="fc" id="L54">        UserUpload result = userUploadRepository.save(userUpload);</span>
+<span class="fc" id="L55">        return ResponseEntity</span>
+<span class="fc" id="L56">            .created(new URI(&quot;/api/user-uploads/&quot; + result.getId()))</span>
+<span class="fc" id="L57">            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))</span>
+<span class="fc" id="L58">            .body(result);</span>
+    }
+
+    /**
+     * {@code PUT  /user-uploads/:id} : Updates an existing userUpload.
+     *
+     * @param id the id of the userUpload to save.
+     * @param userUpload the userUpload to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated userUpload,
+     * or with status {@code 400 (Bad Request)} if the userUpload is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the userUpload couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PutMapping(&quot;/user-uploads/{id}&quot;)
+    public ResponseEntity&lt;UserUpload&gt; updateUserUpload(
+        @PathVariable(value = &quot;id&quot;, required = false) final Long id,
+        @RequestBody UserUpload userUpload
+    ) throws URISyntaxException {
+<span class="fc" id="L76">        log.debug(&quot;REST request to update UserUpload : {}, {}&quot;, id, userUpload);</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">        if (userUpload.getId() == null) {</span>
+<span class="nc" id="L78">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (!Objects.equals(id, userUpload.getId())) {</span>
+<span class="fc" id="L81">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="fc bfc" id="L84" title="All 2 branches covered.">        if (!userUploadRepository.existsById(id)) {</span>
+<span class="fc" id="L85">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="fc" id="L88">        UserUpload result = userUploadRepository.save(userUpload);</span>
+<span class="fc" id="L89">        return ResponseEntity</span>
+<span class="fc" id="L90">            .ok()</span>
+<span class="fc" id="L91">            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, userUpload.getId().toString()))</span>
+<span class="fc" id="L92">            .body(result);</span>
+    }
+
+    /**
+     * {@code PATCH  /user-uploads/:id} : Partial updates given fields of an existing userUpload, field will ignore if it is null
+     *
+     * @param id the id of the userUpload to save.
+     * @param userUpload the userUpload to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated userUpload,
+     * or with status {@code 400 (Bad Request)} if the userUpload is not valid,
+     * or with status {@code 404 (Not Found)} if the userUpload is not found,
+     * or with status {@code 500 (Internal Server Error)} if the userUpload couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PatchMapping(value = &quot;/user-uploads/{id}&quot;, consumes = { &quot;application/json&quot;, &quot;application/merge-patch+json&quot; })
+    public ResponseEntity&lt;UserUpload&gt; partialUpdateUserUpload(
+        @PathVariable(value = &quot;id&quot;, required = false) final Long id,
+        @RequestBody UserUpload userUpload
+    ) throws URISyntaxException {
+<span class="fc" id="L111">        log.debug(&quot;REST request to partial update UserUpload partially : {}, {}&quot;, id, userUpload);</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (userUpload.getId() == null) {</span>
+<span class="nc" id="L113">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="fc bfc" id="L115" title="All 2 branches covered.">        if (!Objects.equals(id, userUpload.getId())) {</span>
+<span class="fc" id="L116">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        if (!userUploadRepository.existsById(id)) {</span>
+<span class="fc" id="L120">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="fc" id="L123">        Optional&lt;UserUpload&gt; result = userUploadRepository</span>
+<span class="fc" id="L124">            .findById(userUpload.getId())</span>
+<span class="fc" id="L125">            .map(existingUserUpload -&gt; {</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">                if (userUpload.getDateUploaded() != null) {</span>
+<span class="fc" id="L127">                    existingUserUpload.setDateUploaded(userUpload.getDateUploaded());</span>
+                }
+
+<span class="fc" id="L130">                return existingUserUpload;</span>
+            })
+<span class="fc" id="L132">            .map(userUploadRepository::save);</span>
+
+<span class="fc" id="L134">        return ResponseUtil.wrapOrNotFound(</span>
+            result,
+<span class="fc" id="L136">            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, userUpload.getId().toString())</span>
+        );
+    }
+
+    /**
+     * {@code GET  /user-uploads} : get all the userUploads.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of userUploads in body.
+     */
+    @GetMapping(&quot;/user-uploads&quot;)
+    public List&lt;UserUpload&gt; getAllUserUploads() {
+<span class="fc" id="L147">        log.debug(&quot;REST request to get all UserUploads&quot;);</span>
+<span class="fc" id="L148">        return userUploadRepository.findByUserIsCurrentUser();</span>
+    }
+
+    /**
+     * {@code GET  /user-uploads/:id} : get the &quot;id&quot; userUpload.
+     *
+     * @param id the id of the userUpload to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the userUpload, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping(&quot;/user-uploads/{id}&quot;)
+    public ResponseEntity&lt;UserUpload&gt; getUserUpload(@PathVariable Long id) {
+<span class="fc" id="L159">        log.debug(&quot;REST request to get UserUpload : {}&quot;, id);</span>
+<span class="fc" id="L160">        Optional&lt;UserUpload&gt; userUpload = userUploadRepository.findById(id);</span>
+<span class="fc" id="L161">        return ResponseUtil.wrapOrNotFound(userUpload);</span>
+    }
+
+    /**
+     * {@code DELETE  /user-uploads/:id} : delete the &quot;id&quot; userUpload.
+     *
+     * @param id the id of the userUpload to delete.
+     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     */
+    @DeleteMapping(&quot;/user-uploads/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteUserUpload(@PathVariable Long id) {
+<span class="fc" id="L172">        log.debug(&quot;REST request to delete UserUpload : {}&quot;, id);</span>
+<span class="fc" id="L173">        userUploadRepository.deleteById(id);</span>
+<span class="fc" id="L174">        return ResponseEntity</span>
+<span class="fc" id="L175">            .noContent()</span>
+<span class="fc" id="L176">            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))</span>
+<span class="fc" id="L177">            .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

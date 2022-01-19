@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VideoResource.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.web.rest</a> &gt; <span class="el_source">VideoResource.java</span></div><h1>VideoResource.java</h1><pre class="source lang-java linenums">package com.camp.campr.web.rest;
+
+import com.camp.campr.domain.Video;
+import com.camp.campr.repository.VideoRepository;
+import com.camp.campr.web.rest.errors.BadRequestAlertException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+import tech.jhipster.web.util.HeaderUtil;
+import tech.jhipster.web.util.ResponseUtil;
+
+/**
+ * REST controller for managing {@link com.camp.campr.domain.Video}.
+ */
+@RestController
+@RequestMapping(&quot;/api&quot;)
+@Transactional
+public class VideoResource {
+
+<span class="nc" id="L28">    private final Logger log = LoggerFactory.getLogger(VideoResource.class);</span>
+
+    private static final String ENTITY_NAME = &quot;video&quot;;
+
+    @Value(&quot;${jhipster.clientApp.name}&quot;)
+    private String applicationName;
+
+    private final VideoRepository videoRepository;
+
+<span class="nc" id="L37">    public VideoResource(VideoRepository videoRepository) {</span>
+<span class="nc" id="L38">        this.videoRepository = videoRepository;</span>
+<span class="nc" id="L39">    }</span>
+
+    /**
+     * {@code POST  /videos} : Create a new video.
+     *
+     * @param video the video to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new video, or with status {@code 400 (Bad Request)} if the video has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping(&quot;/videos&quot;)
+    public ResponseEntity&lt;Video&gt; createVideo(@RequestBody Video video) throws URISyntaxException {
+<span class="nc" id="L50">        log.debug(&quot;REST request to save Video : {}&quot;, video);</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (video.getId() != null) {</span>
+<span class="nc" id="L52">            throw new BadRequestAlertException(&quot;A new video cannot already have an ID&quot;, ENTITY_NAME, &quot;idexists&quot;);</span>
+        }
+<span class="nc" id="L54">        Video result = videoRepository.save(video);</span>
+<span class="nc" id="L55">        return ResponseEntity</span>
+<span class="nc" id="L56">            .created(new URI(&quot;/api/videos/&quot; + result.getId()))</span>
+<span class="nc" id="L57">            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))</span>
+<span class="nc" id="L58">            .body(result);</span>
+    }
+
+    /**
+     * {@code PUT  /videos/:id} : Updates an existing video.
+     *
+     * @param id the id of the video to save.
+     * @param video the video to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated video,
+     * or with status {@code 400 (Bad Request)} if the video is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the video couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PutMapping(&quot;/videos/{id}&quot;)
+    public ResponseEntity&lt;Video&gt; updateVideo(@PathVariable(value = &quot;id&quot;, required = false) final Long id, @RequestBody Video video)
+        throws URISyntaxException {
+<span class="nc" id="L74">        log.debug(&quot;REST request to update Video : {}, {}&quot;, id, video);</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        if (video.getId() == null) {</span>
+<span class="nc" id="L76">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (!Objects.equals(id, video.getId())) {</span>
+<span class="nc" id="L79">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (!videoRepository.existsById(id)) {</span>
+<span class="nc" id="L83">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="nc" id="L86">        Video result = videoRepository.save(video);</span>
+<span class="nc" id="L87">        return ResponseEntity</span>
+<span class="nc" id="L88">            .ok()</span>
+<span class="nc" id="L89">            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, video.getId().toString()))</span>
+<span class="nc" id="L90">            .body(result);</span>
+    }
+
+    /**
+     * {@code PATCH  /videos/:id} : Partial updates given fields of an existing video, field will ignore if it is null
+     *
+     * @param id the id of the video to save.
+     * @param video the video to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated video,
+     * or with status {@code 400 (Bad Request)} if the video is not valid,
+     * or with status {@code 404 (Not Found)} if the video is not found,
+     * or with status {@code 500 (Internal Server Error)} if the video couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PatchMapping(value = &quot;/videos/{id}&quot;, consumes = { &quot;application/json&quot;, &quot;application/merge-patch+json&quot; })
+    public ResponseEntity&lt;Video&gt; partialUpdateVideo(@PathVariable(value = &quot;id&quot;, required = false) final Long id, @RequestBody Video video)
+        throws URISyntaxException {
+<span class="nc" id="L107">        log.debug(&quot;REST request to partial update Video partially : {}, {}&quot;, id, video);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (video.getId() == null) {</span>
+<span class="nc" id="L109">            throw new BadRequestAlertException(&quot;Invalid id&quot;, ENTITY_NAME, &quot;idnull&quot;);</span>
+        }
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (!Objects.equals(id, video.getId())) {</span>
+<span class="nc" id="L112">            throw new BadRequestAlertException(&quot;Invalid ID&quot;, ENTITY_NAME, &quot;idinvalid&quot;);</span>
+        }
+
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        if (!videoRepository.existsById(id)) {</span>
+<span class="nc" id="L116">            throw new BadRequestAlertException(&quot;Entity not found&quot;, ENTITY_NAME, &quot;idnotfound&quot;);</span>
+        }
+
+<span class="nc" id="L119">        Optional&lt;Video&gt; result = videoRepository</span>
+<span class="nc" id="L120">            .findById(video.getId())</span>
+<span class="nc" id="L121">            .map(existingVideo -&gt; {</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">                if (video.getTitle() != null) {</span>
+<span class="nc" id="L123">                    existingVideo.setTitle(video.getTitle());</span>
+                }
+<span class="nc bnc" id="L125" title="All 2 branches missed.">                if (video.getImageUrl() != null) {</span>
+<span class="nc" id="L126">                    existingVideo.setImageUrl(video.getImageUrl());</span>
+                }
+<span class="nc bnc" id="L128" title="All 2 branches missed.">                if (video.getVideoUrl() != null) {</span>
+<span class="nc" id="L129">                    existingVideo.setVideoUrl(video.getVideoUrl());</span>
+                }
+<span class="nc bnc" id="L131" title="All 2 branches missed.">                if (video.getTrailerId() != null) {</span>
+<span class="nc" id="L132">                    existingVideo.setTrailerId(video.getTrailerId());</span>
+                }
+<span class="nc bnc" id="L134" title="All 2 branches missed.">                if (video.getDescription() != null) {</span>
+<span class="nc" id="L135">                    existingVideo.setDescription(video.getDescription());</span>
+                }
+
+<span class="nc" id="L138">                return existingVideo;</span>
+            })
+<span class="nc" id="L140">            .map(videoRepository::save);</span>
+
+<span class="nc" id="L142">        return ResponseUtil.wrapOrNotFound(</span>
+            result,
+<span class="nc" id="L144">            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, video.getId().toString())</span>
+        );
+    }
+
+    /**
+     * {@code GET  /videos} : get all the videos.
+     *
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of videos in body.
+     */
+    @GetMapping(&quot;/videos&quot;)
+    public List&lt;Video&gt; getAllVideos(@RequestParam(required = false, defaultValue = &quot;false&quot;) boolean eagerload) {
+<span class="nc" id="L156">        log.debug(&quot;REST request to get all Videos&quot;);</span>
+<span class="nc" id="L157">        return videoRepository.findAllWithEagerRelationships();</span>
+    }
+
+    /**
+     * {@code GET  /videos/:id} : get the &quot;id&quot; video.
+     *
+     * @param id the id of the video to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the video, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping(&quot;/videos/{id}&quot;)
+    public ResponseEntity&lt;Video&gt; getVideo(@PathVariable Long id) {
+<span class="nc" id="L168">        log.debug(&quot;REST request to get Video : {}&quot;, id);</span>
+<span class="nc" id="L169">        Optional&lt;Video&gt; video = videoRepository.findOneWithEagerRelationships(id);</span>
+<span class="nc" id="L170">        return ResponseUtil.wrapOrNotFound(video);</span>
+    }
+
+    /**
+     * {@code DELETE  /videos/:id} : delete the &quot;id&quot; video.
+     *
+     * @param id the id of the video to delete.
+     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     */
+    @DeleteMapping(&quot;/videos/{id}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteVideo(@PathVariable Long id) {
+<span class="nc" id="L181">        log.debug(&quot;REST request to delete Video : {}&quot;, id);</span>
+<span class="nc" id="L182">        videoRepository.deleteById(id);</span>
+<span class="nc" id="L183">        return ResponseEntity</span>
+<span class="nc" id="L184">            .noContent()</span>
+<span class="nc" id="L185">            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))</span>
+<span class="nc" id="L186">            .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

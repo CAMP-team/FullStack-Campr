@@ -4,14 +4,12 @@
 }
 
 .videoTile__img {
-  height: 200px;
-  width: 200px;
+  width: 100%;
   object-fit: cover;
   border-radius: 8px;
   border: 5px solid rgb(255, 255, 255);
   border-radius: 4px;
-  max-width: 100%;
-  height: auto;
+  height: 360px;
 }
 
 .playBtn {
@@ -23,7 +21,25 @@
   margin-left: -48px; /*half of the width */
   margin-top: -48px; /*half of the height */
 }
+/*may need to switch out row in order to be able to move favorite button into videotile*/
+
+.faveButton {
+  position: absolute;
+  bottom: 10px;
+  display: none;
+}
 
 .videoTile__img:hover {
   box-shadow: 0 0 5px 2px rgb(73, 72, 72);
 }
+
+.videoTile__img.show .faveButton {
+  display: block;
+}
+
+/**TODO
+-set up favorite button functionality
+  -override default button functionality
+-have proper right and left bordering on faveButton
+-have favorite button only show for the tile you're moused into
+*/
