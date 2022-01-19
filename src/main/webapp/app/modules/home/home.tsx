@@ -74,7 +74,6 @@ function Home() {
       <div className="videoapp">
         <header className={'header'}>
           <div className={'header-content max-center'}>
-            ]
             <form onSubmit={searchVideos}>
               <input type="text" onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKey(e.target.value)} />
               <button type={'submit'}>Search</button>
