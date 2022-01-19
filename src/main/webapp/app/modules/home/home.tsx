@@ -9,6 +9,9 @@ import VideoCard from './VideoCard';
 import axios from 'axios';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import Youtube from 'react-youtube';
+import ReactPlayer from 'react-player';
+import YouTubePlayer from 'react-player/youtube';
+import YouTube from 'react-youtube';
 
 function Home() {
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
@@ -42,42 +45,36 @@ function Home() {
     });
     return data;
   };
-  const selectvideo = async video => {
+  const selectVideo = async video => {
     const data = await getSecondVideoFetch(video.id);
-    const trailer = data.videos.results.find(mov => mov.official === true);
-    // const key = data;
-    console.log(trailer);
-    setSelectedVideo(video);
+    // console.log(data);
+    setSelectedVideo(data);
   };
 
   useEffect(() => {
-    getFirstVideoFetch(searchKey);
+    getFirstVideoFetch();
   }, []);
 
-  const renderPosters = () => video.map(video => <VideoCard key={video.id} video={video} selectvideo={selectvideo} />);
+  const renderPosters = () => video.map(video => <VideoCard key={video.id} video={video} selectVideo={selectVideo} />);
+
   const account = useAppSelector(state => state.authentication.account);
   const searchVideos = e => {
     e.preventDefault();
     getFirstVideoFetch(searchKey);
   };
 
-  const renderVideoTrailers = () => {
-    const data = getSecondVideoFetch(selectedVideo);
-
+  const renderTrailer = () => {
+    const trailer = selectedVideo.videos.results[0];
     console.log(trailer);
-
-    return trailer;
-    <Youtube />;
+    return <Youtube videoId={trailer.key} />;
   };
-
-  // Card component
-  // with buttons
 
   return (
     <>
       <div className="videoapp">
         <header className={'header'}>
           <div className={'header-content max-center'}>
+            ]
             <form onSubmit={searchVideos}>
               <input type="text" onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKey(e.target.value)} />
               <button type={'submit'}>Search</button>
@@ -87,6 +84,7 @@ function Home() {
         </header>
         <div className="imageHeader" style={{ backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` }}>
           <div className="imageHeader-content max-center">
+            {selectedVideo.videos ? renderTrailer() : null}
             {/* <button className={"button"} onClick={() =>setPlayTrailer(true)} >Play Trailer</button> */}
             <h1 className={'imageHeader-title'}>{selectedVideo.title}</h1>
             {selectedVideo.overview ? <p className={'imageHeader-overview'}>{selectedVideo.overview}</p> : null}

@@ -3,6 +3,10 @@
   color: white;
 }
 
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
 .max-center {
   max-width: 1000px;
   margin-left: auto;
@@ -23,9 +27,9 @@
   margin-top: 50px;
   margin-bottom: 100px;
   margin-right: 140px;
-  margin-left: 65px;
+  margin-left: 45px;
   gap: 50px;
-  grid-template-columns: 500px 500px 500px 500px 500px;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
 }
 
 .video-cover {
@@ -33,7 +37,7 @@
 }
 
 .video-placeholder {
-  min-height: 359px;
+  min-height: 400px;
   background-color: white;
   color: white;
   display: flex;
@@ -43,7 +47,7 @@
 
 .imageHeader {
   position: relative;
-  min-height: 800px;
+  min-height: 500px;
   background-position: top center;
   background-size: cover;
   display: flex;
