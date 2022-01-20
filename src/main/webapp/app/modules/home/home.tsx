@@ -25,7 +25,10 @@ import './VideoTile.css';
 import './home.scss';
 import './App.css';
 import './App.css';
+import ReactPlayer from 'react-player/lazy';
 
+// @ts-ignore
+// @ts-ignore
 function Home() {
   const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
   const API_URL = 'https://api.themoviedb.org/3';
@@ -99,7 +102,7 @@ function Home() {
         } else {
           dispatch(getEntity(props.match.params.id));
         }
-  
+
         dispatch(getUsers({}));
     }, []);
     */
@@ -153,7 +156,20 @@ function Home() {
   const renderTrailer = () => {
     const trailer = selectedVideo.videos.results[0];
     console.log(trailer);
-    return <Youtube videoId={trailer.key} />;
+    const trailerKey = trailer.key;
+    // let fullUrl = "https://www.youtube.com/embed/" + trailerKey.toString();
+    // return <Youtube videoId={trailer.key} />;
+    return (
+      <iframe
+        width="853"
+        height="480"
+        src={`https://www.youtube.com/embed/${trailer.key}?enablejsapi=1&origin=https://camp-r.herokuapp.com/`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    );
   };
 
   const videoTileEnter = () => setShowButton(true);
@@ -182,7 +198,7 @@ function Home() {
         <div className="container">{renderPosters()}</div>
       </div>
 
-      <Col md="1">{account?.login ? <div></div> : <Alert color="light"></Alert>}</Col>
+      <Col md="1">{account?.login ? <div /> : <Alert color="light" />}</Col>
     </>
   );
 }
