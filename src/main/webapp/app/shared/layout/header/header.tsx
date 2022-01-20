@@ -38,8 +38,8 @@ const Header = (props: IHeaderProps) => {
   const renderNavSearch = () => (
     <div className="jh-navbar">
       <a className="active" href=""></a>
-      <input className="app_submit" type="submit" value="Search" />
-      <input type={'text'}></input>
+      <input type="text" />
+      <button type={'submit'}>VideoSearch</button>
     </div>
   );
 

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Genre.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.domain</a> &gt; <span class="el_source">Genre.java</span></div><h1>Genre.java</h1><pre class="source lang-java linenums">package com.camp.campr.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+/**
+ * A Genre.
+ */
+@Entity
+@Table(name = &quot;genre&quot;)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+<span class="fc" id="L17">public class Genre implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;sequenceGenerator&quot;)
+    @SequenceGenerator(name = &quot;sequenceGenerator&quot;)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+
+    @Column(name = &quot;api_id&quot;)
+    private Integer apiId;
+
+    @Column(name = &quot;name&quot;)
+    private String name;
+
+<span class="fc" id="L33">    @ManyToMany(mappedBy = &quot;genres&quot;)</span>
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { &quot;userUpload&quot;, &quot;genres&quot;, &quot;userComments&quot;, &quot;watchhistories&quot;, &quot;userfavorites&quot; }, allowSetters = true)
+    private Set&lt;Video&gt; videos = new HashSet&lt;&gt;();
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here
+
+    public Long getId() {
+<span class="fc" id="L41">        return this.id;</span>
+    }
+
+    public Genre id(Long id) {
+<span class="nc" id="L45">        this.setId(id);</span>
+<span class="nc" id="L46">        return this;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L50">        this.id = id;</span>
+<span class="fc" id="L51">    }</span>
+
+    public Integer getApiId() {
+<span class="fc" id="L54">        return this.apiId;</span>
+    }
+
+    public Genre apiId(Integer apiId) {
+<span class="nc" id="L58">        this.setApiId(apiId);</span>
+<span class="nc" id="L59">        return this;</span>
+    }
+
+    public void setApiId(Integer apiId) {
+<span class="nc" id="L63">        this.apiId = apiId;</span>
+<span class="nc" id="L64">    }</span>
+
+    public String getName() {
+<span class="fc" id="L67">        return this.name;</span>
+    }
+
+    public Genre name(String name) {
+<span class="nc" id="L71">        this.setName(name);</span>
+<span class="nc" id="L72">        return this;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L76">        this.name = name;</span>
+<span class="nc" id="L77">    }</span>
+
+    public Set&lt;Video&gt; getVideos() {
+<span class="nc" id="L80">        return this.videos;</span>
+    }
+
+    public void setVideos(Set&lt;Video&gt; videos) {
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        if (this.videos != null) {</span>
+<span class="nc" id="L85">            this.videos.forEach(i -&gt; i.removeGenre(this));</span>
+        }
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (videos != null) {</span>
+<span class="nc" id="L88">            videos.forEach(i -&gt; i.addGenre(this));</span>
+        }
+<span class="nc" id="L90">        this.videos = videos;</span>
+<span class="nc" id="L91">    }</span>
+
+    public Genre videos(Set&lt;Video&gt; videos) {
+<span class="nc" id="L94">        this.setVideos(videos);</span>
+<span class="nc" id="L95">        return this;</span>
+    }
+
+    public Genre addVideo(Video video) {
+<span class="nc" id="L99">        this.videos.add(video);</span>
+<span class="nc" id="L100">        video.getGenres().add(this);</span>
+<span class="nc" id="L101">        return this;</span>
+    }
+
+    public Genre removeVideo(Video video) {
+<span class="nc" id="L105">        this.videos.remove(video);</span>
+<span class="nc" id="L106">        video.getGenres().remove(this);</span>
+<span class="nc" id="L107">        return this;</span>
+    }
+
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L115">            return true;</span>
+        }
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        if (!(o instanceof Genre)) {</span>
+<span class="fc" id="L118">            return false;</span>
+        }
+<span class="fc bfc" id="L120" title="All 4 branches covered.">        return id != null &amp;&amp; id.equals(((Genre) o).id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+<span class="fc" id="L126">        return getClass().hashCode();</span>
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+<span class="fc" id="L132">        return &quot;Genre{&quot; +</span>
+<span class="fc" id="L133">            &quot;id=&quot; + getId() +</span>
+<span class="fc" id="L134">            &quot;, apiId=&quot; + getApiId() +</span>
+<span class="fc" id="L135">            &quot;, name='&quot; + getName() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

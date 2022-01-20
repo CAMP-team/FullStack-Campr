@@ -6,7 +6,7 @@
     version="3.0">
 
     <mime-mapping>
-        <extension>html</extension>
+        <extension>html; .mp4; video/mp4</extension>
         <mime-type>text/html;charset=utf-8</mime-type>
     </mime-mapping>
 

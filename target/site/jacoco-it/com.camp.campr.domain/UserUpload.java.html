@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserUpload.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Campr</a> &gt; <a href="index.source.html" class="el_package">com.camp.campr.domain</a> &gt; <span class="el_source">UserUpload.java</span></div><h1>UserUpload.java</h1><pre class="source lang-java linenums">package com.camp.campr.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+/**
+ * A UserUpload.
+ */
+@Entity
+@Table(name = &quot;user_upload&quot;)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+<span class="fc" id="L18">public class UserUpload implements Serializable {</span>
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = &quot;sequenceGenerator&quot;)
+    @SequenceGenerator(name = &quot;sequenceGenerator&quot;)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+
+    @Column(name = &quot;date_uploaded&quot;)
+    private Instant dateUploaded;
+
+    @ManyToOne
+    private User user;
+
+<span class="fc" id="L34">    @OneToMany(mappedBy = &quot;userUpload&quot;)</span>
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { &quot;userUpload&quot;, &quot;genres&quot;, &quot;userComments&quot;, &quot;watchhistories&quot;, &quot;userfavorites&quot; }, allowSetters = true)
+    private Set&lt;Video&gt; videos = new HashSet&lt;&gt;();
+
+    // jhipster-needle-entity-add-field - JHipster will add fields here
+
+    public Long getId() {
+<span class="fc" id="L42">        return this.id;</span>
+    }
+
+    public UserUpload id(Long id) {
+<span class="nc" id="L46">        this.setId(id);</span>
+<span class="nc" id="L47">        return this;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L51">        this.id = id;</span>
+<span class="fc" id="L52">    }</span>
+
+    public Instant getDateUploaded() {
+<span class="fc" id="L55">        return this.dateUploaded;</span>
+    }
+
+    public UserUpload dateUploaded(Instant dateUploaded) {
+<span class="fc" id="L59">        this.setDateUploaded(dateUploaded);</span>
+<span class="fc" id="L60">        return this;</span>
+    }
+
+    public void setDateUploaded(Instant dateUploaded) {
+<span class="fc" id="L64">        this.dateUploaded = dateUploaded;</span>
+<span class="fc" id="L65">    }</span>
+
+    public User getUser() {
+<span class="fc" id="L68">        return this.user;</span>
+    }
+
+    public void setUser(User user) {
+<span class="nc" id="L72">        this.user = user;</span>
+<span class="nc" id="L73">    }</span>
+
+    public UserUpload user(User user) {
+<span class="nc" id="L76">        this.setUser(user);</span>
+<span class="nc" id="L77">        return this;</span>
+    }
+
+    public Set&lt;Video&gt; getVideos() {
+<span class="fc" id="L81">        return this.videos;</span>
+    }
+
+    public void setVideos(Set&lt;Video&gt; videos) {
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        if (this.videos != null) {</span>
+<span class="nc" id="L86">            this.videos.forEach(i -&gt; i.setUserUpload(null));</span>
+        }
+<span class="nc bnc" id="L88" title="All 2 branches missed.">        if (videos != null) {</span>
+<span class="nc" id="L89">            videos.forEach(i -&gt; i.setUserUpload(this));</span>
+        }
+<span class="nc" id="L91">        this.videos = videos;</span>
+<span class="nc" id="L92">    }</span>
+
+    public UserUpload videos(Set&lt;Video&gt; videos) {
+<span class="nc" id="L95">        this.setVideos(videos);</span>
+<span class="nc" id="L96">        return this;</span>
+    }
+
+    public UserUpload addVideo(Video video) {
+<span class="nc" id="L100">        this.videos.add(video);</span>
+<span class="nc" id="L101">        video.setUserUpload(this);</span>
+<span class="nc" id="L102">        return this;</span>
+    }
+
+    public UserUpload removeVideo(Video video) {
+<span class="nc" id="L106">        this.videos.remove(video);</span>
+<span class="nc" id="L107">        video.setUserUpload(null);</span>
+<span class="nc" id="L108">        return this;</span>
+    }
+
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L116">            return true;</span>
+        }
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (!(o instanceof UserUpload)) {</span>
+<span class="nc" id="L119">            return false;</span>
+        }
+<span class="nc bnc" id="L121" title="All 4 branches missed.">        return id != null &amp;&amp; id.equals(((UserUpload) o).id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+<span class="nc" id="L127">        return getClass().hashCode();</span>
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+<span class="nc" id="L133">        return &quot;UserUpload{&quot; +</span>
+<span class="nc" id="L134">            &quot;id=&quot; + getId() +</span>
+<span class="nc" id="L135">            &quot;, dateUploaded='&quot; + getDateUploaded() + &quot;'&quot; +</span>
+            &quot;}&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

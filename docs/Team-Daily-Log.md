@@ -1,3 +1,32 @@
+## January 20th, 2022
+* Video would load in front end (9000), but was not loading on 8080 or in deployed state
+    - referred to youtube iframe API: https://developers.google.com/youtube/iframe_api_reference
+    - specified allowed origin
+
+## January 15th, 2022
+* Adding new rows to entities resulted in 500 Internal Server Error; resolved through adding Config Vars on Heroku
+  - Utilized this answer: https://stackoverflow.com/questions/33633243/connecting-to-heroku-postgres-from-spring-boot/49978310
+
+## January 13th-14th, 2022
+* Reloaded project with proper entity implementation
+* Configured entity getAll methods to retrieve user account items for current logged in user
+* Fast-forwarded most changes and pushed to dev > should deploy successfully
+  * Downloaded pgAdmin to directly edit Heroku PostgreSQL data
+    - Need to configure permissions > currently getting the following error:
+    ```
+    connection to server at "ec2-3-223-39-179.compute-1.amazonaws.com" (3.223.39.179), port 5432 failed: FATAL: permission denied for database "d1a3r6ta66v5qn" DETAIL: User does not have CONNECT privilege.
+    ```
+* Will need to figure out how to hide videos and genres from users drop-down
+* 500 Internal Server Error > resolution steps:
+    - Debugged by cd Dev/Projects/FullStack-Campr
+    - heroku logs --tail --app camp-r
+    - at... lines don't matter as much, try to find lines that specify an exact error and where it's failing
+    - checked localhost:8080 for project h2 database > worked fine, meaning the project file is fine
+    - checked Heroku PostgreSQL db through pgAdmin
+        - campr > database > schema > table > columns
+        - updated columns labeled app_user_id to user_id and dropped app_user from database
+        - old data had persisted and was not updated when project file was updated, so had to manually make the changes
+
 ## January 11th, 2022
 * Added a project board to track todos
 * In Progress:
@@ -33,7 +62,7 @@
 * CAMP-team: Carnell, Amanda, Mike, Paul
 
 * **Planning Notes**:
-    * Database: PostGres
+    * Database: PostGresQL
     * Deploy on Heroku asap
     * Spring+Angular/React+Db OR jhipster
         - Jhipster: https://start.jhipster.tech/generate-application

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.2">
+<file name="/Users/huangamanda/Dev/Projects/FullStack-Campr/pom.xml">
+</file>
+<file name="/Users/huangamanda/Dev/Projects/FullStack-Campr/README.md">
+</file>
+<file name="/Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/resources/i18n/messages_en.properties">
+</file>
+<file name="/Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/resources/i18n/messages.properties">
+</file>
+<file name="/Users/huangamanda/Dev/Projects/FullStack-Campr/src/main/resources/.h2.server.properties">
+</file>
+<file name="/Users/huangamanda/Dev/Projects/FullStack-Campr/src/test/resources/i18n/messages_en.properties">
+</file>
+</checkstyle>
