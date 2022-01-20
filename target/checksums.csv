@@ -1,8 +1,8 @@
 #File,SHA-1
-package-lock.json,1ae4f9bda257ce86396a56299b1aca17a57b5e37
-package.json,fd31bd64389e7117d724f4e03884ef997584534f
+package-lock.json,5561a5c3e6e582416ac0eeae89b1a4c8bdc22923
+package.json,710c9192634f8ab19cf58e4e7b2b7bec0acd8fe1
 src/main/webapp/404.html,6f1f8f2578202ca1b6bef5384ba474825d2722e9
-src/main/webapp/WEB-INF/web.xml,f3577fd846ec450b1c1687c78d076c2b99e075c2
+src/main/webapp/WEB-INF/web.xml,3ba24992f43733c6c20268b619a9a36cee26792b
 src/main/webapp/app/_bootstrap-variables.scss,f11747cffdb465cc37c01840db09e489bdd5a5a7
 src/main/webapp/app/app.scss,e9a2966bccf70252ebb05bdec4e72470019b3d78
 src/main/webapp/app/app.tsx,49392c7c92169aab64c3ecef7e151664479eb516
@@ -98,7 +98,7 @@ src/main/webapp/app/modules/home/App.css,1fbf058e88e3ef63bb3a54ba01029da5136049a
 src/main/webapp/app/modules/home/VideoCard.tsx,ba07ab69c3e69061e106d4e47710549fb43590c9
 src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
 src/main/webapp/app/modules/home/home.scss,fc1404b5b6683b715c72745bdec02a031344072d
-src/main/webapp/app/modules/home/home.tsx,20bb4abcb33fa2cb8695e4beb1a5ac95f9719581
+src/main/webapp/app/modules/home/home.tsx,f32b70c62a0279acc9e313731ba7fb9444fe3cd0
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -180,10 +180,10 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-target/classes/static/app/main.bundle.js,380b3ecfd0915726bc3a17f65216d751bd837cd2
-target/classes/static/app/main.bundle.js.map,6d0331cc54d55a36b513061848b76895e99b3b9b
-target/classes/static/app/vendors.bundle.js,268c723dc99492ee0dc59f44bfbb5e0dc3e7fee0
-target/classes/static/app/vendors.bundle.js.map,47b17eee30248ed4e0b9d25b35193942781d5e5c
+target/classes/static/app/main.bundle.js,bae41325ace105724b85bce5ad8cf88b87cb8c91
+target/classes/static/app/main.bundle.js.map,bd2a8c65a9d3d6e90049d5290bfaa047b3d3f5f5
+target/classes/static/app/vendors.bundle.js,c749420b8a93cad4a8039e1faa16702428053622
+target/classes/static/app/vendors.bundle.js.map,0f91cfd4ed0d5fa0057ae2b0d303db7db4740af8
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
 target/classes/static/dd0281fa1b34e3382fbf.jpg,bd36b47d1696950dfe05cb9cbcdbc6ee5fcad292
 target/classes/static/favicon.ico,69547cd4a95b59ac7e6818b6eb82befa061d0c16

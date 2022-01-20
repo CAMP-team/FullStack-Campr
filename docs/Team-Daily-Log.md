@@ -1,3 +1,8 @@
+## January 20th, 2022
+* Video would load in front end (9000), but was not loading on 8080 or in deployed state
+    - referred to youtube iframe API: https://developers.google.com/youtube/iframe_api_reference
+    - specified allowed origin
+
 ## January 15th, 2022
 * Adding new rows to entities resulted in 500 Internal Server Error; resolved through adding Config Vars on Heroku
   - Utilized this answer: https://stackoverflow.com/questions/33633243/connecting-to-heroku-postgres-from-spring-boot/49978310
