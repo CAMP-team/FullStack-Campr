@@ -32,12 +32,24 @@ Click to view each contributor's GitHub.
 
 #### Home Page
 
-![image info]
+- Home page at a glance. No specific user is logged in here so anyone can come and watch.
+  ![image info](./docs/screenshots/2022-01-21_HomePage1.png)
+
+![image info](./docs/screenshots/2022-01-21_HomePage2.png)
+
+![image info](./docs/screenshots/2022-01-21_HomePage3.png)
+
+- Clicking the "Play Trailer" in the main banner at the top will bring up a pop-up window with the trailer
+  ![image info](./docs/screenshots/2022-01-21_HomePage4.png)
 
 #### Sign In
 
-#### User Comments
+![image info](./docs/screenshots/2022-01-21_SignIn.png)
 
-#### Favorites
+#### User Comments (WIP)
 
-#### History
+- Add a user comment
+  ![image info](./docs/screenshots/2022-01-21_AddComment.png)
+
+- User comment added
+  ![image info](./docs/screenshots/2022-01-21_CommentAdded.png)
