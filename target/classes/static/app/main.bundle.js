@@ -5756,12 +5756,9 @@ __webpack_require__.r(__webpack_exports__);
 /* eslint-disable */
 function posterSearch() {
     const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
-    //const users = useAppSelector(state => state.userManagement.users);
     // json friendly video list
     const favors = [];
     const userFavorites = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.userFavorites.entity);
-    //const [users, setUsers] = useState([]);
-    //const [isNew] = useState(!props.match.params || !props.match.params.id);
     const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''); // use state is updating the value in the frontend
     const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
     const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
@@ -5785,12 +5782,7 @@ function posterSearch() {
             const favor = video(videoId);
             const you = user(account.id, account.login);
             favors.push(favor);
-            const entity = Object.assign(Object.assign({}, userFavorites), { 
-                //putting a fixed timestamp will allow post to go thru
-                dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayCurrentDateTime)(), user: you, 
-                //user: users.find(it => it.id.toString() === account.id.toString()),
-                //user: account.id,
-                videos: favors });
+            const entity = Object.assign(Object.assign({}, userFavorites), { dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayCurrentDateTime)(), user: you, videos: favors });
             dispatch((0,app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
             // resets favors after it is added in to favorites
             // resets users after fave added in
@@ -5803,8 +5795,6 @@ function posterSearch() {
             // how to get the update?
             // how to make sure the user matches the favorites
             // user-favorites.createEntity(videoId);
-            // how to get current  logged in user( is is just account.login?)
-            // can i get favorites from account if so how?????
             // set addedTofavorites to true
             // 1/16/22: 6:57
             //may be getting a 500 error because video is not in database
@@ -5855,7 +5845,9 @@ function posterSearch() {
                             .then(() => console.log(videoDisplay));
                         return (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { key: video.id, className: "VideoTile", 
                             //if videoid not in favorites list already render remove from favorites button
-                            onMouseEnter: videoTileEnter, onMouseLeave: videoTileLeave, onClick: () => {
+                            //onMouseEnter={videoTileEnter}
+                            //onMouseLeave={videoTileLeave}
+                            onClick: () => {
                                 {
                                     if (videoTileEnabled) {
                                         video.poster_path == null
@@ -5865,7 +5857,7 @@ function posterSearch() {
                                 }
                             } },
                             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "row", style: { position: 'relative' } },
-                                video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", style: { width: '100%', height: 360 } })),
+                                video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", onMouseEnter: videoTileEnter, onMouseLeave: videoTileLeave, style: { width: '100%', height: 360 } })),
                                 showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", onMouseEnter: disableVideoTile, onMouseLeave: enableVideoTile, className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: e => addToFavorites(e, video.id) }, "Favorite")))));
                     }))),
                 react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Alert, { color: "light" })))));
@@ -7710,7 +7702,7 @@ module.exports = __webpack_require__.p + "dd0281fa1b34e3382fbf.jpg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("d698caf941d0a6bde97c")
+/******/ 		__webpack_require__.h = () => ("6205c111a6c0a355f4c9")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
