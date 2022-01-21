@@ -1,26 +1,33 @@
-import './home.scss';
-// where we at now: need to match users json to only display id and login
-// my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+/* eslint-disable */
 
-// future stuff: might need to switch the url to the favorite making one in order for the json to go thru
-import React, { useState, useEffect } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Translate } from 'react-jhipster';
-import { Row, Col, Alert } from 'reactstrap';
-import { IUserFavorites } from 'app/shared/model/user-favorites.model';
-import { IUser } from 'app/shared/model/user.model';
-
-import Axios from 'axios';
-import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
+import { Col, Alert, Card } from 'reactstrap';
+import axios from 'axios';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getEntity, createEntity, deleteEntity, reset } from 'app/entities/user-favorites/user-favorites.reducer';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayCurrentDateTime } from 'app/shared/util/date-utils';
+import VideoCard from './VideoCard';
+import Modal from 'react-bootstrap/Modal';
+import { Button } from 'react-bootstrap';
 import './VideoTile.css';
+import './home.scss';
 import './App.css';
-/* eslint-disable */
-function posterSearch() {
-  const dispatch = useAppDispatch();
 
+// @ts-ignore
+function Home() {
+  const IMAGE_PATH = 'https://image.tmdb.org/t/p/original';
+  const API_URL = 'https://api.themoviedb.org/3';
+  const [video, setVideo] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState([]);
+  const [searchKey, setSearchKey] = useState('');
+  const [playTrailer, setPlayTrailer] = useState(true);
+  const [show, setShow] = useState(false);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    getFirstVideoFetch();
+  }, []);
   // json friendly video list
   const favors = [];
   const userFavorites = useAppSelector(state => state.userFavorites.entity);
@@ -33,9 +40,38 @@ function posterSearch() {
   const user = (id, login) => {
     return { id: id, login: login };
   };
-  // json friendly video formatter
-  const video = id => {
-    return { id: id };
+  const getFirstVideoFetch = async searchKey => {
+    const type = searchKey ? 'search' : 'discover';
+    const {
+      data: { results },
+    } = await axios.get(`${API_URL}/${type}/movie`, {
+      params: {
+        api_key: '616093e66ab252685ad921e5c4680152',
+        query: searchKey,
+      },
+    });
+
+    setSelectedVideo(results[0]);
+    setVideo(results);
+  };
+
+  const getSecondVideoFetch = async id => {
+    const { data } = await axios.get(`${API_URL}/movie/${id}`, {
+      params: {
+        api_key: '616093e66ab252685ad921e5c4680152',
+        append_to_response: 'videos',
+      },
+    });
+    return data;
+  };
+  const selectVideo = async video => {
+    const data = await getSecondVideoFetch(video.id);
+    setSelectedVideo(data);
+  };
+  const renderPosters = () => video.map(video => <VideoCard key={video.id} video={video} selectVideo={selectVideo} />);
+  const searchVideos = e => {
+    e.preventDefault();
+    getFirstVideoFetch(searchKey);
   };
   const addToFavorites = (event: React.MouseEvent<HTMLButtonElement>, videoId: any) => {
     // if user is logged in
@@ -63,9 +99,6 @@ function posterSearch() {
       // the reducer for the user-favorites
       // how to get the update?
       // how to make sure the user matches the favorites
-
-      // user-favorites.createEntity(videoId);
-
       // set addedTofavorites to true
       // 1/16/22: 6:57
       //may be getting a 500 error because video is not in database
@@ -76,22 +109,32 @@ function posterSearch() {
     // confirmation will be that the button changes to "remove from favorites"
     console.log('Added to favorites!');
   };
-  const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-  async function getPoster() {
-    const result = await Axios.get(posterUrl);
-    setvideos(result.data.results);
-    // console.log(result.data);
-  }
 
-  const onSubmit = e => {
-    e.preventDefault(); // prevent page from reloading
-    getPoster();
+  const renderTrailer = () => {
+    const trailer = selectedVideo.videos.results[0];
+    console.log(trailer);
+    const trailerKey = trailer.key;
+    return (
+      <iframe
+        width="760"
+        height="500"
+        src={`https://www.youtube.com/embed/${trailer.key}?enablejsapi=1&origin=https://camp-r.herokuapp.com*`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    );
   };
   const disableVideoTile = () => setVideoTileEnabled(false);
   const enableVideoTile = () => setVideoTileEnabled(true);
   const videoTileEnter = () => setShowButton(true);
   const videoTileLeave = () => setShowButton(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
+    /**
     <Row>
       <Col md="3" className="pad"></Col>
       <Col md="9">
@@ -176,10 +219,43 @@ function posterSearch() {
             </div>
           </Col>
           <Alert color="light"></Alert>
+*/
+    <>
+      <div className="videoapp">
+        <header className={'header'}>
+          <div className={'header-content max-center'}>
+            <form onSubmit={searchVideos}>
+              <input
+                placeholder="Search for movies"
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKey(e.target.value)}
+              />
+              <button type={'submit'}>Search</button>
+            </form>
+          </div>
+        </header>
+        <div className="imageHeader" style={{ backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` }}>
+          <div className="imageHeader-content max-center">
+            <h1 className={'imageHeader-title'}>{selectedVideo.title}</h1>
+            {selectedVideo.overview ? <p className={'imageHeader-overview'}>{selectedVideo.overview}</p> : null}
+            <button className={'btnPlay-Close'} onClick={handleShow}>
+              Play Trailer
+            </button>
+
+            <Modal size="lg" show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>{selectedVideo.title}</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>{selectedVideo.videos && playTrailer ? renderTrailer() : null}</Modal.Body>
+            </Modal>
+          </div>
         </div>
-      </Col>
-    </Row>
+        <div className="container">{renderPosters()}</div>
+      </div>
+
+      {/*<Col md="1">{account?.login ? <div /> : <Alert color="light" />}</Col>*/}
+    </>
   );
 }
 
-export default posterSearch;
+export default Home;

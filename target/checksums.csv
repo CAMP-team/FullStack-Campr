@@ -1,10 +1,10 @@
 #File,SHA-1
-package-lock.json,65cc9ff082de97bee309d71abbd50990ea2b388f
-package.json,e616b6544b982a3bb314cbef462b006d41e049dd
+package-lock.json,b4cc9a236e1ff62cd96e7cd17b36e65b4390296c
+package.json,2a1407a2380cde8222834c9381f37ce8765bdf66
 src/main/webapp/404.html,6f1f8f2578202ca1b6bef5384ba474825d2722e9
-src/main/webapp/WEB-INF/web.xml,f3577fd846ec450b1c1687c78d076c2b99e075c2
+src/main/webapp/WEB-INF/web.xml,3ba24992f43733c6c20268b619a9a36cee26792b
 src/main/webapp/app/_bootstrap-variables.scss,f11747cffdb465cc37c01840db09e489bdd5a5a7
-src/main/webapp/app/app.scss,01acb01394aa2b26cee9290d5eba783cc0f96ca5
+src/main/webapp/app/app.scss,7973df206ea2ab72f114e76a53a7d72b7103153b
 src/main/webapp/app/app.tsx,49392c7c92169aab64c3ecef7e151664479eb516
 src/main/webapp/app/config/axios-interceptor.spec.ts,afa2f52378856fef8b614e208c049701c837c667
 src/main/webapp/app/config/axios-interceptor.ts,501d3892b8cade03f93b6829472d481283f70a3e
@@ -36,7 +36,7 @@ src/main/webapp/app/entities/user-favorites/index.tsx,5188c1ead56e215cb451bc46f6
 src/main/webapp/app/entities/user-favorites/user-favorites-delete-dialog.tsx,224ca97faad2b7571b980b3d778e0612af568724
 src/main/webapp/app/entities/user-favorites/user-favorites-detail.tsx,22f44792c97d5d308508578fd0a6c200ec81901c
 src/main/webapp/app/entities/user-favorites/user-favorites-reducer.spec.ts,98fc638ae7138c5b3e9a00ada35c62c3db837834
-src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx,8cadf11c6317a449bc2678c435926c0cf1543703
+src/main/webapp/app/entities/user-favorites/user-favorites-update.tsx,821a07f9536a050afaefec8167613ca959a783f0
 src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts,07eef09545e5f6aa13486f7659cc8abf13cdb501
 src/main/webapp/app/entities/user-favorites/user-favorites.tsx,fbfedbd2587ed0c14cb40e4c964dc136b0172500
 src/main/webapp/app/entities/user-upload/index.tsx,f6aeaf673b9df98202dd203f6ef3b1e1d6b18935
@@ -94,10 +94,18 @@ src/main/webapp/app/modules/administration/user-management/user-management-updat
 src/main/webapp/app/modules/administration/user-management/user-management.reducer.spec.ts,858b6760e90201caec5c0b2bfee122fe99e48d5e
 src/main/webapp/app/modules/administration/user-management/user-management.reducer.ts,c4db24b027f26d07df58d2bb865d2dfcfa8cb971
 src/main/webapp/app/modules/administration/user-management/user-management.tsx,7e4c626d9f48b7c7a94e2fce87606b4aa3ad5ec6
+<<<<<<< HEAD
 src/main/webapp/app/modules/home/App.css,fdd80c0bf5e591b2600c957d28abedcda1cbd928
 src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
 src/main/webapp/app/modules/home/home.scss,fc1404b5b6683b715c72745bdec02a031344072d
 src/main/webapp/app/modules/home/home.tsx,7899aba9b5001c5aa3f30a65870cacefab2588b9
+=======
+src/main/webapp/app/modules/home/App.css,eaa733d021b70e7a075635c81050282775d1ad5d
+src/main/webapp/app/modules/home/VideoCard.tsx,ba07ab69c3e69061e106d4e47710549fb43590c9
+src/main/webapp/app/modules/home/VideoTile.css,e14d345c74c10bd9547569e275f30c5ada1977d4
+src/main/webapp/app/modules/home/home.scss,fc1404b5b6683b715c72745bdec02a031344072d
+src/main/webapp/app/modules/home/home.tsx,5d676c73645122d1f2306627d16bdc23e5ffa196
+>>>>>>> f8d2c05d883597453e2fa47eb871bcb30b9e56be
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -111,12 +119,12 @@ src/main/webapp/app/shared/error/error-boundary-route.tsx,2b6719b06c0401bc8dbd30
 src/main/webapp/app/shared/error/error-boundary.spec.tsx,b5dd5cd4c7fa6fa4c98b10de97d5001a507991e6
 src/main/webapp/app/shared/error/error-boundary.tsx,7bda36518a017ef6d9996d2579e015a536a30caf
 src/main/webapp/app/shared/error/page-not-found.tsx,2146f2bbf74a95025ef17db2920d028ee378ebb0
-src/main/webapp/app/shared/layout/footer/footer.scss,d3cac62246d4863510099354d1d41fa13b549ab0
+src/main/webapp/app/shared/layout/footer/footer.scss,d11263a1016eed80db6cc6f06726f5e7c0d1bd85
 src/main/webapp/app/shared/layout/footer/footer.tsx,6c1946be0dd957efafc25d1fb0180ac257ef5c98
 src/main/webapp/app/shared/layout/header/header-components.tsx,a9b4518aba00cb4dbaadbcec951bdbb105a99453
-src/main/webapp/app/shared/layout/header/header.scss,901b8183c993c855c48a6033330644c9689e9223
+src/main/webapp/app/shared/layout/header/header.scss,92452dda27f8db4104c5709ab285a27360b0bdf0
 src/main/webapp/app/shared/layout/header/header.spec.tsx,a4ffd9e148f33112df431c7eda54bad6565332ae
-src/main/webapp/app/shared/layout/header/header.tsx,5f0cfaa6ada6b99acf8a1fe975d3b18a8d7dbd57
+src/main/webapp/app/shared/layout/header/header.tsx,9566faebc58d802b6253e3c6b4ce1fe5083fecf2
 src/main/webapp/app/shared/layout/menus/account.spec.tsx,36a60d5076daf111166853a62653783032c7ab91
 src/main/webapp/app/shared/layout/menus/account.tsx,5c32cddf7a71bd12c6f898fa1effa3ec929405c0
 src/main/webapp/app/shared/layout/menus/admin.tsx,b66f218a9293651ba9c5e995d65c9dc47d9b9b0d
@@ -175,6 +183,7 @@ src/main/webapp/manifest.webapp,9d4828c1c911fbdcdaa1be9d534f634130ef8eff
 src/main/webapp/robots.txt,85dff18c84fe266335d06b070f89d291c46290e3
 src/main/webapp/swagger-ui/dist/images/throbber.gif,4defd79f66e824ab7a3dc0e179904cc71a363439
 src/main/webapp/swagger-ui/index.html,216283504f756edcd51ff6a569747f8444c1eeda
+<<<<<<< HEAD
 target/classes/static/75c371c05f1cbb115959.svg,61a207bca2c8b0dac21fc945d2f2505e4b5d3a30
 target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327ad1f
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
@@ -266,6 +275,8 @@ target/classes/static/swagger-ui/swagger-ui-es-bundle.js,754c95a791f1ef15e98d571
 target/classes/static/swagger-ui/swagger-ui-standalone-preset.js,3c30528c8730ecd24a40b71d57f5f1dcb0680a13
 target/classes/static/swagger-ui/swagger-ui.css,32238fe48731eca0de7f376970d84c9872f3a645
 target/classes/static/swagger-ui/swagger-ui.js,634ef16e69c7da56cb126d6279c8c98badd8d540
+=======
+>>>>>>> f8d2c05d883597453e2fa47eb871bcb30b9e56be
 tsconfig.json,b71cf99af53e48c3bb8330b827375ce264a0c6d2
 webpack/environment.js,542bd9c73e5d1b7ec452c0df9a1d9a8bbb7aa863
 webpack/logo-jhipster.png,f1671a819ca95d37e86e20da335b66ac67dd6210
