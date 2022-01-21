@@ -182,7 +182,6 @@ function Home() {
               <button type={'submit'}>Search</button>
             </form>
           </div>
-          <div></div>
         </header>
         <div className="imageHeader" style={{ backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` }}>
           <div className="imageHeader-content max-center">
@@ -196,7 +195,6 @@ function Home() {
               Close
             </button>
           </div>
-          <div></div>
         </div>
 
         <div className="container">{renderPosters()}</div>
