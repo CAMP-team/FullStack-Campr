@@ -7,9 +7,10 @@ import axios from 'axios';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import VideoCard from './VideoCard';
+import Modal from 'react-bootstrap/Modal';
+import { Button } from 'react-bootstrap';
 import './VideoTile.css';
 import './home.scss';
-import './App.css';
 import './App.css';
 
 // @ts-ignore
@@ -20,6 +21,7 @@ function Home() {
   const [selectedVideo, setSelectedVideo] = useState([]);
   const [searchKey, setSearchKey] = useState('');
   const [playTrailer, setPlayTrailer] = useState(true);
+  const [show, setShow] = useState(false);
   const dispatch = useAppDispatch();
 
   const getFirstVideoFetch = async searchKey => {
@@ -69,8 +71,8 @@ function Home() {
     const trailerKey = trailer.key;
     return (
       <iframe
-        width="853"
-        height="480"
+        width="760"
+        height="500"
         src={`https://www.youtube.com/embed/${trailer.key}?enablejsapi=1&origin=https://camp-r.herokuapp.com*`}
         title="YouTube video player"
         frameBorder="0"
@@ -82,35 +84,45 @@ function Home() {
 
   const videoTileEnter = () => setShowButton(true);
   const videoTileLeave = () => setShowButton(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
       <div className="videoapp">
         <header className={'header'}>
           <div className={'header-content max-center'}>
             <form onSubmit={searchVideos}>
-              <input type="text" onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKey(e.target.value)} />
+              <input
+                placeholder="Search for movies"
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchKey(e.target.value)}
+              />
               <button type={'submit'}>Search</button>
             </form>
           </div>
         </header>
         <div className="imageHeader" style={{ backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` }}>
           <div className="imageHeader-content max-center">
-            {selectedVideo.videos && playTrailer ? renderTrailer() : null}
             <h1 className={'imageHeader-title'}>{selectedVideo.title}</h1>
             {selectedVideo.overview ? <p className={'imageHeader-overview'}>{selectedVideo.overview}</p> : null}
-            <button className={'btnPlay-Close'} onClick={() => setPlayTrailer(true)}>
-              Play
+            <button className={'btnPlay-Close'} onClick={handleShow}>
+              Play Trailer
             </button>
-            <button className={'btnPlay-Close'} onClick={() => setPlayTrailer(false)}>
-              Close
-            </button>
+
+            <Modal size="lg" show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>{selectedVideo.title}</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>{selectedVideo.videos && playTrailer ? renderTrailer() : null}</Modal.Body>
+            </Modal>
           </div>
         </div>
 
         <div className="container">{renderPosters()}</div>
       </div>
 
-      <Col md="1">{account?.login ? <div /> : <Alert color="light" />}</Col>
+      {/*<Col md="1">{account?.login ? <div /> : <Alert color="light" />}</Col>*/}
     </>
   );
 }

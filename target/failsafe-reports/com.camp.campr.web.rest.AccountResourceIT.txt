@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.camp.campr.web.rest.AccountResourceIT
 -------------------------------------------------------------------------------
-Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.273 s - in com.camp.campr.web.rest.AccountResourceIT
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.715 s - in com.camp.campr.web.rest.AccountResourceIT
