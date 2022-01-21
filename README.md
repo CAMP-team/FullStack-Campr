@@ -1,4 +1,5 @@
 # FullStack-Campr
+* Check out the application here: [`https://camp-r.herokuapp.com/`](https://camp-r.herokuapp.com/)
 
 ## App Overview
 
