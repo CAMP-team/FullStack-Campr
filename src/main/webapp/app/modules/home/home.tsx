@@ -25,8 +25,6 @@ import './VideoTile.css';
 import './home.scss';
 import './App.css';
 import './App.css';
-import ReactPlayer from 'react-player/lazy';
-
 // @ts-ignore
 // @ts-ignore
 function Home() {
@@ -35,7 +33,7 @@ function Home() {
   const [video, setVideo] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState([]);
   const [searchKey, setSearchKey] = useState('');
-  const [showButton, setShowButton] = useState(false);
+  const [playTrailer, setPlayTrailer] = useState(true);
   const dispatch = useAppDispatch();
 
   // json friendly video list
@@ -188,11 +186,17 @@ function Home() {
         </header>
         <div className="imageHeader" style={{ backgroundImage: `url('${IMAGE_PATH}${selectedVideo.backdrop_path}')` }}>
           <div className="imageHeader-content max-center">
-            {selectedVideo.videos ? renderTrailer() : null}
-            {/* <button className={"button"} onClick={() =>setPlayTrailer(true)} >Play Trailer</button> */}
+            {selectedVideo.videos && playTrailer ? renderTrailer() : null}
             <h1 className={'imageHeader-title'}>{selectedVideo.title}</h1>
             {selectedVideo.overview ? <p className={'imageHeader-overview'}>{selectedVideo.overview}</p> : null}
+            <button className={'btnPlay-Close'} onClick={() => setPlayTrailer(true)}>
+              Play
+            </button>
+            <button className={'btnPlay-Close'} onClick={() => setPlayTrailer(false)}>
+              Close
+            </button>
           </div>
+          <div></div>
         </div>
 
         <div className="container">{renderPosters()}</div>

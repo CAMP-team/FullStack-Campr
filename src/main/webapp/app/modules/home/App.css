@@ -66,20 +66,13 @@
   margin: 0;
   color: white;
 }
-.button {
-  background-color: rgb(218, 178, 45);
+.btnPlay-Close {
+  background-color: rgb(73, 73, 72);
   color: white;
   border: none;
   outline: none;
   border: 1px solid white;
-  padding: 10px 15px;
+  padding: 5px 5px;
   cursor: pointer;
+  margin-right: 100px;
 }
-
-/* .youtube-container {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-} */
