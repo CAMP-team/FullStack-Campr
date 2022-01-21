@@ -32,7 +32,10 @@ a {
     overflow-x: auto;
     padding: 4rem;
     .card {
-      background-color: transparent;
+      padding: 0.5rem;
+      border-radius: 3px;
+      background-color: #191919;
+      color: #ffffff;
     }
     .view-routes {
       height: 100%;

@@ -4,17 +4,16 @@
 
 - Campr is a full stack video library application where a client can watch videos, similar to other video streaming services such as YouTube, Netflix and vice versa.
 - When a client logs in, they can:
-  - upload new videos
-  - favorite videos
+  - add videos to their favorite
   - view their watch history
   - post simple text-comments on a video
 
 ## Team Members:
 
-- Amanda Huang
-- Carnell Poteat
-- Michael Gawronski
-- Paul Quatrani
+- [Amanda Huang](https://github.com/AmandaJ-Huang)
+- [Carnell Poteat](https://github.com/c-poteat)
+- [Michael Gawronski](https://github.com/mgawron8)
+- [Paul Quatrani](https://github.com/quatrpau)
 
 ## Development Notes
 
@@ -26,3 +25,13 @@
 - **Business Logic**: Java (Spring Boot)
 - **Data Layer**: Postgresql
 - **Cloud**: [Heroku](https://camp-r.herokuapp.com/)
+
+### Screenshots
+
+#### Home Page
+
+#### User Comments
+
+#### Favorites
+
+#### History
