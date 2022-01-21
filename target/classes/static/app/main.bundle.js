@@ -166,7 +166,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".footer, a {\n  height: 50px;\n  color: #fff;\n  font-size: 12px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/shared/layout/footer/footer.scss"],"names":[],"mappings":"AAAA;EACE,YAAA;EACA,WAAA;EACA,eAAA;AACF","sourcesContent":[".footer, a {\n  height: 50px;\n  color: #fff;\n  font-size: 12px;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".footer,\na {\n  height: 50px;\n  color: #fff;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/shared/layout/footer/footer.scss"],"names":[],"mappings":"AAAA;;EAEE,YAAA;EACA,WAAA;AACF","sourcesContent":[".footer,\na {\n  height: 50px;\n  color: #fff;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7680,7 +7680,7 @@ module.exports = __webpack_require__.p + "dd0281fa1b34e3382fbf.jpg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("ae016cb3c8b2b006502d")
+/******/ 		__webpack_require__.h = () => ("1d44428708cc573f4fc3")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
