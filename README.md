@@ -10,6 +10,8 @@
 
 ## Team Members:
 
+Click to view each contributor's GitHub.
+
 - [Amanda Huang](https://github.com/AmandaJ-Huang)
 - [Carnell Poteat](https://github.com/c-poteat)
 - [Michael Gawronski](https://github.com/mgawron8)
@@ -29,6 +31,10 @@
 ### Screenshots
 
 #### Home Page
+
+![image info]
+
+#### Sign In
 
 #### User Comments
 
