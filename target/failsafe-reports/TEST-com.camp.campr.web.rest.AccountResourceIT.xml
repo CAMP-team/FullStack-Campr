@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report-3.0.xsd" version="3.0" name="com.camp.campr.web.rest.AccountResourceIT" time="13.497" tests="29" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report-3.0.xsd" version="3.0" name="com.camp.campr.web.rest.AccountResourceIT" time="8.265" tests="29" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/huangamanda/Dev/Projects/FullStack-Campr/target/surefire/surefirebooter10663353893662921834.jar /Users/huangamanda/Dev/Projects/FullStack-Campr/target/surefire 2022-01-21T11-41-59_740-jvmRun1 surefire16738959509209387648tmp surefire_06141343313100584100tmp"/>
+    <property name="sun.java.command" value="/Users/huangamanda/Dev/Projects/FullStack-Campr/target/surefire/surefirebooter7508638972506480279.jar /Users/huangamanda/Dev/Projects/FullStack-Campr/target/surefire 2022-01-21T12-03-33_096-jvmRun1 surefire8463429796939706719tmp surefire_010736346753366272808tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/huangamanda/Dev/Projects/FullStack-Campr/target/test-classes:/Users/huangamanda/Dev/Projects/FullStack-Campr/target/classes:/Users/huangamanda/.m2/repository/tech/jhipster/jhipster-framework/7.5.0/jhipster-framework-7.5.0.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-context-support/5.3.14/spring-context-support-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-beans/5.3.14/spring-beans-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-context/5.3.14/spring-context-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-validation/2.5.8/spring-boot-starter-validation-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.5.8/spring-boot-autoconfigure-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.5.8/spring-boot-starter-aop-2.5.8.jar:/Users/huangamanda/.m2/repository/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar:/Users/huangamanda/.m2/repository/net/logstash/logback/logstash-logback-encoder/7.0.1/logstash-logback-encoder-7.0.1.jar:/Users/huangamanda/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-cache/2.5.8/spring-boot-starter-cache-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter/2.5.8/spring-boot-starter-2.5.8.jar:/Users/huangamanda/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/Users/huangamanda/.m2/repository/org/yaml/snakeyaml/1.28/snakeyaml-1.28.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.12.6/jackson-module-jaxb-annotations-2.12.6.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.6/jackson-annotations-2.12.6.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.6/jackson-core-2.12.6.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.6/jackson-databind-2.12.6.jar:/Users/huangamanda/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/Users/huangamanda/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hibernate5/2.12.6/jackson-datatype-hibernate5-2.12.6.jar:/Users/huangamanda/.m2/repository/javax/transaction/javax.transaction-api/1.3/javax.transaction-api-1.3.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-hppc/2.12.6/jackson-datatype-hppc-2.12.6.jar:/Users/huangamanda/.m2/repository/com/carrotsearch/hppc/0.8.1/hppc-0.8.1.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.6/jackson-datatype-jsr310-2.12.6.jar:/Users/huangamanda/.m2/repository/org/springdoc/springdoc-openapi-webmvc-core/1.6.2/springdoc-openapi-webmvc-core-1.6.2.jar:/Users/huangamanda/.m2/repository/org/springdoc/springdoc-openapi-common/1.6.2/springdoc-openapi-common-1.6.2.jar:/Users/huangamanda/.m2/repository/io/swagger/core/v3/swagger-models/2.1.11/swagger-models-2.1.11.jar:/Users/huangamanda/.m2/repository/io/swagger/core/v3/swagger-annotations/2.1.11/swagger-annotations-2.1.11.jar:/Users/huangamanda/.m2/repository/io/swagger/core/v3/swagger-integration/2.1.11/swagger-integration-2.1.11.jar:/Users/huangamanda/.m2/repository/io/swagger/core/v3/swagger-core/2.1.11/swagger-core-2.1.11.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.12.6/jackson-dataformat-yaml-2.12.6.jar:/Users/huangamanda/.m2/repository/io/github/classgraph/classgraph/4.8.116/classgraph-4.8.116.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-webmvc/5.3.14/spring-webmvc-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-expression/5.3.14/spring-expression-5.3.14.jar:/Users/huangamanda/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar:/Users/huangamanda/.m2/repository/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar:/Users/huangamanda/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/Users/huangamanda/.m2/repository/javax/cache/cache-api/1.1.1/cache-api-1.1.1.jar:/Users/huangamanda/.m2/repository/org/ehcache/ehcache/3.9.9/ehcache-3.9.9.jar:/Users/huangamanda/.m2/repository/org/hibernate/hibernate-jcache/5.4.33/hibernate-jcache-5.4.33.jar:/Users/huangamanda/.m2/repository/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final.jar:/Users/huangamanda/.m2/repository/org/hibernate/hibernate-jpamodelgen/5.4.33/hibernate-jpamodelgen-5.4.33.jar:/Users/huangamanda/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar:/Users/huangamanda/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.5/jaxb-runtime-2.3.5.jar:/Users/huangamanda/.m2/repository/org/glassfish/jaxb/txw2/2.3.5/txw2-2.3.5.jar:/Users/huangamanda/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar:/Users/huangamanda/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar:/Users/huangamanda/.m2/repository/org/hibernate/hibernate-core/5.4.33/hibernate-core-5.4.33.jar:/Users/huangamanda/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar:/Users/huangamanda/.m2/repository/org/javassist/javassist/3.27.0-GA/javassist-3.27.0-GA.jar:/Users/huangamanda/.m2/repository/net/bytebuddy/byte-buddy/1.10.22/byte-buddy-1.10.22.jar:/Users/huangamanda/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/Users/huangamanda/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final.jar:/Users/huangamanda/.m2/repository/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final.jar:/Users/huangamanda/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/Users/huangamanda/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar:/Users/huangamanda/.m2/repository/org/dom4j/dom4j/2.1.3/dom4j-2.1.3.jar:/Users/huangamanda/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar:/Users/huangamanda/.m2/repository/org/hibernate/validator/hibernate-validator/6.2.0.Final/hibernate-validator-6.2.0.Final.jar:/Users/huangamanda/.m2/repository/jakarta/validation/jakarta.validation-api/2.0.2/jakarta.validation-api-2.0.2.jar:/Users/huangamanda/.m2/repository/org/liquibase/liquibase-core/4.6.1/liquibase-core-4.6.1.jar:/Users/huangamanda/.m2/repository/org/mapstruct/mapstruct/1.4.2.Final/mapstruct-1.4.2.Final.jar:/Users/huangamanda/.m2/repository/org/mapstruct/mapstruct-processor/1.4.2.Final/mapstruct-processor-1.4.2.Final.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-configuration-processor/2.5.8/spring-boot-configuration-processor-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-loader-tools/2.5.8/spring-boot-loader-tools-2.5.8.jar:/Users/huangamanda/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-core/5.3.14/spring-core-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-jcl/5.3.14/spring-jcl-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/2.5.8/spring-boot-starter-actuator-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/2.5.8/spring-boot-actuator-autoconfigure-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-actuator/2.5.8/spring-boot-actuator-2.5.8.jar:/Users/huangamanda/.m2/repository/io/micrometer/micrometer-core/1.7.7/micrometer-core-1.7.7.jar:/Users/huangamanda/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/Users/huangamanda/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.5.8/spring-boot-starter-data-jpa-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.5.8/spring-boot-starter-jdbc-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-jdbc/5.3.14/spring-jdbc-5.3.14.jar:/Users/huangamanda/.m2/repository/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar:/Users/huangamanda/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar:/Users/huangamanda/.m2/repository/org/springframework/data/spring-data-jpa/2.5.7/spring-data-jpa-2.5.7.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-orm/5.3.14/spring-orm-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-tx/5.3.14/spring-tx-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-aspects/5.3.14/spring-aspects-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.5.8/spring-boot-starter-logging-2.5.8.jar:/Users/huangamanda/.m2/repository/ch/qos/logback/logback-classic/1.2.9/logback-classic-1.2.9.jar:/Users/huangamanda/.m2/repository/ch/qos/logback/logback-core/1.2.9/logback-core-1.2.9.jar:/Users/huangamanda/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.0/log4j-to-slf4j-2.17.0.jar:/Users/huangamanda/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.0/log4j-api-2.17.0.jar:/Users/huangamanda/.m2/repository/org/slf4j/jul-to-slf4j/1.7.32/jul-to-slf4j-1.7.32.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-mail/2.5.8/spring-boot-starter-mail-2.5.8.jar:/Users/huangamanda/.m2/repository/com/sun/mail/jakarta.mail/1.6.7/jakarta.mail-1.6.7.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-security/2.5.8/spring-boot-starter-security-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-aop/5.3.14/spring-aop-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/security/spring-security-config/5.5.4/spring-security-config-5.5.4.jar:/Users/huangamanda/.m2/repository/org/springframework/security/spring-security-web/5.5.4/spring-security-web-5.5.4.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/2.5.8/spring-boot-starter-thymeleaf-2.5.8.jar:/Users/huangamanda/.m2/repository/org/thymeleaf/thymeleaf-spring5/3.0.14.RELEASE/thymeleaf-spring5-3.0.14.RELEASE.jar:/Users/huangamanda/.m2/repository/org/thymeleaf/thymeleaf/3.0.14.RELEASE/thymeleaf-3.0.14.RELEASE.jar:/Users/huangamanda/.m2/repository/org/attoparser/attoparser/2.0.5.RELEASE/attoparser-2.0.5.RELEASE.jar:/Users/huangamanda/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/huangamanda/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-java8time/3.0.4.RELEASE/thymeleaf-extras-java8time-3.0.4.RELEASE.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.5.8/spring-boot-starter-web-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.5.8/spring-boot-starter-json-2.5.8.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.12.6/jackson-datatype-jdk8-2.12.6.jar:/Users/huangamanda/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.12.6/jackson-module-parameter-names-2.12.6.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-web/5.3.14/spring-web-5.3.14.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-test/2.5.8/spring-boot-starter-test-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/2.5.8/spring-boot-test-autoconfigure-2.5.8.jar:/Users/huangamanda/.m2/repository/com/jayway/jsonpath/json-path/2.5.0/json-path-2.5.0.jar:/Users/huangamanda/.m2/repository/net/minidev/json-smart/2.4.7/json-smart-2.4.7.jar:/Users/huangamanda/.m2/repository/net/minidev/accessors-smart/2.4.7/accessors-smart-2.4.7.jar:/Users/huangamanda/.m2/repository/org/ow2/asm/asm/9.1/asm-9.1.jar:/Users/huangamanda/.m2/repository/org/assertj/assertj-core/3.19.0/assertj-core-3.19.0.jar:/Users/huangamanda/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/huangamanda/.m2/repository/org/junit/jupiter/junit-jupiter/5.7.2/junit-jupiter-5.7.2.jar:/Users/huangamanda/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.7.2/junit-jupiter-api-5.7.2.jar:/Users/huangamanda/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/huangamanda/.m2/repository/org/junit/platform/junit-platform-commons/1.7.2/junit-platform-commons-1.7.2.jar:/Users/huangamanda/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.7.2/junit-jupiter-params-5.7.2.jar:/Users/huangamanda/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.7.2/junit-jupiter-engine-5.7.2.jar:/Users/huangamanda/.m2/repository/org/mockito/mockito-core/3.9.0/mockito-core-3.9.0.jar:/Users/huangamanda/.m2/repository/net/bytebuddy/byte-buddy-agent/1.10.22/byte-buddy-agent-1.10.22.jar:/Users/huangamanda/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/huangamanda/.m2/repository/org/mockito/mockito-junit-jupiter/3.9.0/mockito-junit-jupiter-3.9.0.jar:/Users/huangamanda/.m2/repository/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0.jar:/Users/huangamanda/.m2/repository/org/springframework/spring-test/5.3.14/spring-test-5.3.14.jar:/Users/huangamanda/.m2/repository/org/xmlunit/xmlunit-core/2.8.4/xmlunit-core-2.8.4.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-test/2.5.8/spring-boot-test-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot/2.5.8/spring-boot-2.5.8.jar:/Users/huangamanda/.m2/repository/org/springframework/security/spring-security-test/5.5.4/spring-security-test-5.5.4.jar:/Users/huangamanda/.m2/repository/org/springframework/security/spring-security-core/5.5.4/spring-security-core-5.5.4.jar:/Users/huangamanda/.m2/repository/org/springframework/security/spring-security-crypto/5.5.4/spring-security-crypto-5.5.4.jar:/Users/huangamanda/.m2/repository/com/tngtech/archunit/archunit-junit5-api/0.22.0/archunit-junit5-api-0.22.0.jar:/Users/huangamanda/.m2/repository/com/tngtech/archunit/archunit/0.22.0/archunit-0.22.0.jar:/Users/huangamanda/.m2/repository/com/tngtech/archunit/archunit-junit5-engine/0.22.0/archunit-junit5-engine-0.22.0.jar:/Users/huangamanda/.m2/repository/com/tngtech/archunit/archunit-junit5-engine-api/0.22.0/archunit-junit5-engine-api-0.22.0.jar:/Users/huangamanda/.m2/repository/org/junit/platform/junit-platform-engine/1.7.2/junit-platform-engine-1.7.2.jar:/Users/huangamanda/.m2/repository/org/zalando/problem-spring-web/0.27.0/problem-spring-web-0.27.0.jar:/Users/huangamanda/.m2/repository/org/zalando/problem-violations/0.27.0/problem-violations-0.27.0.jar:/Users/huangamanda/.m2/repository/org/zalando/problem-spring-common/0.27.0/problem-spring-common-0.27.0.jar:/Users/huangamanda/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/huangamanda/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/huangamanda/.m2/repository/org/zalando/problem/0.26.0/problem-0.26.0.jar:/Users/huangamanda/.m2/repository/org/zalando/jackson-datatype-problem/0.26.0/jackson-datatype-problem-0.26.0.jar:/Users/huangamanda/.m2/repository/org/zalando/faux-pas/0.9.0/faux-pas-0.9.0.jar:/Users/huangamanda/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-starter-undertow/2.5.8/spring-boot-starter-undertow-2.5.8.jar:/Users/huangamanda/.m2/repository/io/undertow/undertow-core/2.2.14.Final/undertow-core-2.2.14.Final.jar:/Users/huangamanda/.m2/repository/org/jboss/xnio/xnio-api/3.8.4.Final/xnio-api-3.8.4.Final.jar:/Users/huangamanda/.m2/repository/org/wildfly/common/wildfly-common/1.5.2.Final/wildfly-common-1.5.2.Final.jar:/Users/huangamanda/.m2/repository/org/wildfly/client/wildfly-client-config/1.0.1.Final/wildfly-client-config-1.0.1.Final.jar:/Users/huangamanda/.m2/repository/org/jboss/xnio/xnio-nio/3.8.4.Final/xnio-nio-3.8.4.Final.jar:/Users/huangamanda/.m2/repository/org/jboss/threads/jboss-threads/3.1.0.Final/jboss-threads-3.1.0.Final.jar:/Users/huangamanda/.m2/repository/io/undertow/undertow-servlet/2.2.14.Final/undertow-servlet-2.2.14.Final.jar:/Users/huangamanda/.m2/repository/io/undertow/undertow-websockets-jsr/2.2.14.Final/undertow-websockets-jsr-2.2.14.Final.jar:/Users/huangamanda/.m2/repository/jakarta/servlet/jakarta.servlet-api/4.0.4/jakarta.servlet-api-4.0.4.jar:/Users/huangamanda/.m2/repository/jakarta/websocket/jakarta.websocket-api/1.1.2/jakarta.websocket-api-1.1.2.jar:/Users/huangamanda/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.56/tomcat-embed-el-9.0.56.jar:/Users/huangamanda/.m2/repository/io/jsonwebtoken/jjwt-api/0.11.2/jjwt-api-0.11.2.jar:/Users/huangamanda/.m2/repository/io/jsonwebtoken/jjwt-impl/0.11.2/jjwt-impl-0.11.2.jar:/Users/huangamanda/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.11.2/jjwt-jackson-0.11.2.jar:/Users/huangamanda/.m2/repository/org/springframework/cloud/spring-cloud-starter-bootstrap/3.0.4/spring-cloud-starter-bootstrap-3.0.4.jar:/Users/huangamanda/.m2/repository/org/springframework/cloud/spring-cloud-starter/3.0.4/spring-cloud-starter-3.0.4.jar:/Users/huangamanda/.m2/repository/org/springframework/cloud/spring-cloud-context/3.0.4/spring-cloud-context-3.0.4.jar:/Users/huangamanda/.m2/repository/org/springframework/cloud/spring-cloud-commons/3.0.4/spring-cloud-commons-3.0.4.jar:/Users/huangamanda/.m2/repository/org/springframework/security/spring-security-rsa/1.0.10.RELEASE/spring-security-rsa-1.0.10.RELEASE.jar:/Users/huangamanda/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.68/bcpkix-jdk15on-1.68.jar:/Users/huangamanda/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.68/bcprov-jdk15on-1.68.jar:/Users/huangamanda/.m2/repository/org/springframework/security/spring-security-data/5.5.4/spring-security-data-5.5.4.jar:/Users/huangamanda/.m2/repository/org/springframework/data/spring-data-commons/2.5.7/spring-data-commons-2.5.7.jar:/Users/huangamanda/.m2/repository/io/micrometer/micrometer-registry-prometheus/1.7.7/micrometer-registry-prometheus-1.7.7.jar:/Users/huangamanda/.m2/repository/io/prometheus/simpleclient_common/0.10.0/simpleclient_common-0.10.0.jar:/Users/huangamanda/.m2/repository/io/prometheus/simpleclient/0.14.1/simpleclient-0.14.1.jar:/Users/huangamanda/.m2/repository/io/prometheus/simpleclient_tracer_otel/0.14.1/simpleclient_tracer_otel-0.14.1.jar:/Users/huangamanda/.m2/repository/io/prometheus/simpleclient_tracer_common/0.14.1/simpleclient_tracer_common-0.14.1.jar:/Users/huangamanda/.m2/repository/io/prometheus/simpleclient_tracer_otel_agent/0.14.1/simpleclient_tracer_otel_agent-0.14.1.jar:/Users/huangamanda/.m2/repository/io/dropwizard/metrics/metrics-core/4.1.29/metrics-core-4.1.29.jar:/Users/huangamanda/.m2/repository/org/testcontainers/postgresql/1.16.2/postgresql-1.16.2.jar:/Users/huangamanda/.m2/repository/org/testcontainers/jdbc/1.16.2/jdbc-1.16.2.jar:/Users/huangamanda/.m2/repository/org/testcontainers/database-commons/1.16.2/database-commons-1.16.2.jar:/Users/huangamanda/.m2/repository/org/testcontainers/testcontainers/1.16.2/testcontainers-1.16.2.jar:/Users/huangamanda/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/huangamanda/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/huangamanda/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/Users/huangamanda/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/Users/huangamanda/.m2/repository/com/github/docker-java/docker-java-api/3.2.12/docker-java-api-3.2.12.jar:/Users/huangamanda/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.2.12/docker-java-transport-zerodep-3.2.12.jar:/Users/huangamanda/.m2/repository/com/github/docker-java/docker-java-transport/3.2.12/docker-java-transport-3.2.12.jar:/Users/huangamanda/.m2/repository/net/java/dev/jna/jna/5.8.0/jna-5.8.0.jar:/Users/huangamanda/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar:/Users/huangamanda/.m2/repository/org/postgresql/postgresql/42.2.24/postgresql-42.2.24.jar:/Users/huangamanda/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/Users/huangamanda/.m2/repository/org/springframework/boot/spring-boot-devtools/2.5.8/spring-boot-devtools-2.5.8.jar:"/>
@@ -31,7 +31,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="/Users/huangamanda/Dev/Projects/FullStack-Campr/target/surefire/surefirebooter10663353893662921834.jar"/>
+    <property name="surefire.real.class.path" value="/Users/huangamanda/Dev/Projects/FullStack-Campr/target/surefire/surefirebooter7508638972506480279.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="15.0.1+9"/>
@@ -51,7 +51,7 @@
     <property name="user.dir" value="/Users/huangamanda/Dev/Projects/FullStack-Campr"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="3729"/>
+    <property name="PID" value="4353"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.library.path" value="/Users/huangamanda/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
@@ -61,7 +61,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="testSaveInvalidEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.415">
+  <testcase name="testSaveInvalidEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.404">
     <system-out><![CDATA[
         ██╗ ██╗   ██╗ ████████╗ ███████╗   ██████╗ ████████╗ ████████╗ ███████╗
         ██║ ██║   ██║ ╚══██╔══╝ ██╔═══██╗ ██╔════╝ ╚══██╔══╝ ██╔═════╝ ██╔═══██╗
@@ -73,145 +73,145 @@
 :: JHipster 🤓  :: Running Spring Boot 2.5.8 ::
 :: https://www.jhipster.tech ::
 
-2022-01-21 11:42:44.402  INFO 3729 --- [           main] c.camp.campr.web.rest.AccountResourceIT  : No active profile set, falling back to default profiles: default
-2022-01-21 11:42:44.407  WARN 3729 --- [           main] o.s.b.c.config.ConfigDataEnvironment     : Property 'spring.profiles' imported from location 'class path resource [config/application.yml]' is invalid and should be replaced with 'spring.config.activate.on-profile' [origin: class path resource [config/application.yml] - 17:12]
-2022-01-21 11:42:47.644 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:17.499  INFO 4353 --- [           main] c.camp.campr.web.rest.AccountResourceIT  : No active profile set, falling back to default profiles: default
+2022-01-21 12:04:17.503  WARN 4353 --- [           main] o.s.b.c.config.ConfigDataEnvironment     : Property 'spring.profiles' imported from location 'class path resource [config/application.yml]' is invalid and should be replaced with 'spring.config.activate.on-profile' [origin: class path resource [config/application.yml] - 17:12]
+2022-01-21 12:04:20.525 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.c.WebConfigurerTestController:
 	{GET [/api/test-cors]}: testCorsOnApiPath()
 	{GET [/test/test-cors]}: testCorsOnOtherPath()
-2022-01-21 11:42:47.645 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.527 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.e.ExceptionTranslatorTestController:
+	{GET [/api/exception-translator-test/missing-servlet-request-part]}: missingServletRequestPartException(String)
 	{GET [/api/exception-translator-test/concurrency-failure]}: concurrencyFailure()
 	{POST [/api/exception-translator-test/method-argument]}: methodArgument(TestDTO)
-	{GET [/api/exception-translator-test/missing-servlet-request-part]}: missingServletRequestPartException(String)
 	{GET [/api/exception-translator-test/missing-servlet-request-parameter]}: missingServletRequestParameterException(String)
 	{GET [/api/exception-translator-test/access-denied]}: accessdenied()
 	{GET [/api/exception-translator-test/unauthorized]}: unauthorized()
 	{GET [/api/exception-translator-test/response-status]}: exceptionWithResponseStatus()
 	{GET [/api/exception-translator-test/internal-server-error]}: internalServerError()
-2022-01-21 11:42:47.648 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.529 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.AccountResource:
-	{POST [/api/account/reset-password/init]}: requestPasswordReset(String)
-	{POST [/api/account/change-password]}: changePassword(PasswordChangeDTO)
 	{POST [/api/register]}: registerAccount(ManagedUserVM)
 	{GET [/api/activate]}: activateAccount(String)
 	{GET [/api/authenticate]}: isAuthenticated(HttpServletRequest)
 	{GET [/api/account]}: getAccount()
 	{POST [/api/account]}: saveAccount(AdminUserDTO)
 	{POST [/api/account/reset-password/finish]}: finishPasswordReset(KeyAndPasswordVM)
-2022-01-21 11:42:47.649 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+	{POST [/api/account/reset-password/init]}: requestPasswordReset(String)
+	{POST [/api/account/change-password]}: changePassword(PasswordChangeDTO)
+2022-01-21 12:04:20.530 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.ClientForwardController:
 	{GET [/**/{path:[^\.]*}]}: forward()
-2022-01-21 11:42:47.651 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.532 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.GenreResource:
+	{PUT [/api/genres/{id}]}: updateGenre(Long,Genre)
+	{PATCH [/api/genres/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateGenre(Long,Genre)
 	{POST [/api/genres]}: createGenre(Genre)
 	{GET [/api/genres]}: getAllGenres()
 	{GET [/api/genres/{id}]}: getGenre(Long)
 	{DELETE [/api/genres/{id}]}: deleteGenre(Long)
-	{PUT [/api/genres/{id}]}: updateGenre(Long,Genre)
-	{PATCH [/api/genres/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateGenre(Long,Genre)
-2022-01-21 11:42:47.652 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.533 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.PublicUserResource:
 	{GET [/api/users]}: getAllPublicUsers(Pageable)
 	{GET [/api/authorities]}: getAuthorities()
-2022-01-21 11:42:47.655 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.536 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.UserCommentResource:
+	{PUT [/api/user-comments/{id}]}: updateUserComment(Long,UserComment)
+	{PATCH [/api/user-comments/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateUserComment(Long,UserComment)
 	{POST [/api/user-comments]}: createUserComment(UserComment)
 	{GET [/api/user-comments]}: getAllUserComments()
 	{GET [/api/user-comments/{id}]}: getUserComment(Long)
 	{DELETE [/api/user-comments/{id}]}: deleteUserComment(Long)
-	{PUT [/api/user-comments/{id}]}: updateUserComment(Long,UserComment)
-	{PATCH [/api/user-comments/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateUserComment(Long,UserComment)
-2022-01-21 11:42:47.656 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.538 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.UserFavoritesResource:
+	{PATCH [/api/user-favorites/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateUserFavorites(Long,UserFavorites)
+	{PUT [/api/user-favorites/{id}]}: updateUserFavorites(Long,UserFavorites)
 	{POST [/api/user-favorites]}: createUserFavorites(UserFavorites)
 	{GET [/api/user-favorites]}: getAllUserFavorites(boolean)
 	{GET [/api/user-favorites/{id}]}: getUserFavorites(Long)
 	{DELETE [/api/user-favorites/{id}]}: deleteUserFavorites(Long)
-	{PATCH [/api/user-favorites/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateUserFavorites(Long,UserFavorites)
-	{PUT [/api/user-favorites/{id}]}: updateUserFavorites(Long,UserFavorites)
-2022-01-21 11:42:47.657 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.539 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.UserJWTController:
 	{POST [/api/authenticate]}: authorize(LoginVM)
-2022-01-21 11:42:47.658 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.540 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.UserResource:
 	{POST [/api/admin/users]}: createUser(AdminUserDTO)
 	{GET [/api/admin/users]}: getAllUsers(Pageable)
 	{GET [/api/admin/users/{login}]}: getUser(String)
 	{PUT [/api/admin/users]}: updateUser(AdminUserDTO)
 	{DELETE [/api/admin/users/{login}]}: deleteUser(String)
-2022-01-21 11:42:47.662 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.543 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.UserUploadResource:
-	{GET [/api/user-uploads/{id}]}: getUserUpload(Long)
+	{PUT [/api/user-uploads/{id}]}: updateUserUpload(Long,UserUpload)
+	{PATCH [/api/user-uploads/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateUserUpload(Long,UserUpload)
 	{POST [/api/user-uploads]}: createUserUpload(UserUpload)
 	{GET [/api/user-uploads]}: getAllUserUploads()
 	{DELETE [/api/user-uploads/{id}]}: deleteUserUpload(Long)
-	{PUT [/api/user-uploads/{id}]}: updateUserUpload(Long,UserUpload)
-	{PATCH [/api/user-uploads/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateUserUpload(Long,UserUpload)
-2022-01-21 11:42:47.665 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+	{GET [/api/user-uploads/{id}]}: getUserUpload(Long)
+2022-01-21 12:04:20.545 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.VideoResource:
+	{PUT [/api/videos/{id}]}: updateVideo(Long,Video)
+	{PATCH [/api/videos/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateVideo(Long,Video)
 	{GET [/api/videos/{id}]}: getVideo(Long)
 	{POST [/api/videos]}: createVideo(Video)
 	{GET [/api/videos]}: getAllVideos(boolean)
 	{DELETE [/api/videos/{id}]}: deleteVideo(Long)
-	{PUT [/api/videos/{id}]}: updateVideo(Long,Video)
-	{PATCH [/api/videos/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateVideo(Long,Video)
-2022-01-21 11:42:47.667 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.548 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	c.c.c.w.r.WatchHistoryResource:
+	{PUT [/api/watch-histories/{id}]}: updateWatchHistory(Long,WatchHistory)
+	{PATCH [/api/watch-histories/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateWatchHistory(Long,WatchHistory)
 	{POST [/api/watch-histories]}: createWatchHistory(WatchHistory)
 	{GET [/api/watch-histories]}: getAllWatchHistories(boolean)
 	{GET [/api/watch-histories/{id}]}: getWatchHistory(Long)
 	{DELETE [/api/watch-histories/{id}]}: deleteWatchHistory(Long)
-	{PUT [/api/watch-histories/{id}]}: updateWatchHistory(Long,WatchHistory)
-	{PATCH [/api/watch-histories/{id}], consumes [application/json || application/merge-patch+json]}: partialUpdateWatchHistory(Long,WatchHistory)
-2022-01-21 11:42:47.670 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.550 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	o.s.b.a.w.s.e.BasicErrorController:
 	{ [/error]}: error(HttpServletRequest)
 	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
-2022-01-21 11:42:47.674 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
+2022-01-21 12:04:20.554 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 
 	o.s.w.a.OpenApiWebMvcResource:
 	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String,Locale)
 	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String,Locale)
-2022-01-21 11:42:47.713 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 'beanNameHandlerMapping' {}
-2022-01-21 11:42:47.736 DEBUG 3729 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
-2022-01-21 11:42:48.446  INFO 3729 --- [           main] c.camp.campr.web.rest.AccountResourceIT  : Started AccountResourceIT in 9.247 seconds (JVM running for 48.563)
-2022-01-21 11:42:48.785  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.saveAccount(com.camp.campr.service.dto.AdminUserDTO): [Field error in object 'adminUserDTO' on field 'email': rejected value [invalid email]; codes [Email.adminUserDTO.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adminUserDTO.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@2da8b675,.*]; default message [must be a well-formed email address]] 
+2022-01-21 12:04:20.618 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 'beanNameHandlerMapping' {}
+2022-01-21 12:04:20.640 DEBUG 4353 --- [           main] _.s.web.servlet.HandlerMapping.Mappings  : 'resourceHandlerMapping' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]], /**=ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]}
+2022-01-21 12:04:21.393  INFO 4353 --- [           main] c.camp.campr.web.rest.AccountResourceIT  : Started AccountResourceIT in 4.143 seconds (JVM running for 48.106)
+2022-01-21 12:04:21.712  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.saveAccount(com.camp.campr.service.dto.AdminUserDTO): [Field error in object 'adminUserDTO' on field 'email': rejected value [invalid email]; codes [Email.adminUserDTO.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [adminUserDTO.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@37d230f4,.*]; default message [must be a well-formed email address]] 
 ]]></system-out>
   </testcase>
-  <testcase name="testRequestPasswordReset" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.036"/>
-  <testcase name="testFinishPasswordResetTooSmall" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.036">
-    <system-out><![CDATA[2022-01-21 11:42:48.932  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
-2022-01-21 11:42:48.944  WARN 3729 --- [           main] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+  <testcase name="testRequestPasswordReset" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.034"/>
+  <testcase name="testFinishPasswordResetTooSmall" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.037">
+    <system-out><![CDATA[2022-01-21 12:04:21.866  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
+2022-01-21 12:04:21.876  WARN 4353 --- [           main] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
 ]]></system-out>
   </testcase>
-  <testcase name="testSaveExistingEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.038">
-    <system-out><![CDATA[2022-01-21 11:42:48.972 ERROR 3729 --- [           main] tech.jhipster.web.util.HeaderUtil        : Entity processing failed, Email is already in use!
-2022-01-21 11:42:48.972  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Email is already in use!
+  <testcase name="testSaveExistingEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.051">
+    <system-out><![CDATA[2022-01-21 12:04:21.917 ERROR 4353 --- [           main] tech.jhipster.web.util.HeaderUtil        : Entity processing failed, Email is already in use!
+2022-01-21 12:04:21.919  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Email is already in use!
 ]]></system-out>
   </testcase>
-  <testcase name="testSaveExistingEmailAndLogin" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.035"/>
-  <testcase name="testRegisterInvalidEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.034">
-    <system-out><![CDATA[2022-01-21 11:42:49.050  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.registerAccount(com.camp.campr.web.rest.vm.ManagedUserVM): [Field error in object 'managedUserVM' on field 'email': rejected value [invalid]; codes [Email.managedUserVM.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [managedUserVM.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@2da8b675,.*]; default message [must be a well-formed email address]] 
+  <testcase name="testSaveExistingEmailAndLogin" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.046"/>
+  <testcase name="testRegisterInvalidEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.028">
+    <system-out><![CDATA[2022-01-21 12:04:22.004  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.registerAccount(com.camp.campr.web.rest.vm.ManagedUserVM): [Field error in object 'managedUserVM' on field 'email': rejected value [invalid]; codes [Email.managedUserVM.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [managedUserVM.email,email]; arguments []; default message [email],[Ljavax.validation.constraints.Pattern$Flag;@37d230f4,.*]; default message [must be a well-formed email address]] 
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterInvalidLogin" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.024">
-    <system-out><![CDATA[2022-01-21 11:42:49.073  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.registerAccount(com.camp.campr.web.rest.vm.ManagedUserVM): [Field error in object 'managedUserVM' on field 'login': rejected value [funky-log(n]; codes [Pattern.managedUserVM.login,Pattern.login,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [managedUserVM.login,login]; arguments []; default message [login],[Ljavax.validation.constraints.Pattern$Flag;@730c723b,^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$]; default message [must match "^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$"]] 
+  <testcase name="testRegisterInvalidLogin" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.035">
+    <system-out><![CDATA[2022-01-21 12:04:22.028  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.registerAccount(com.camp.campr.web.rest.vm.ManagedUserVM): [Field error in object 'managedUserVM' on field 'login': rejected value [funky-log(n]; codes [Pattern.managedUserVM.login,Pattern.login,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [managedUserVM.login,login]; arguments []; default message [login],[Ljavax.validation.constraints.Pattern$Flag;@37cdb8e,^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$]; default message [must match "^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$"]] 
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterInvalidPassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.019">
-    <system-out><![CDATA[2022-01-21 11:42:49.101  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.registerAccount(com.camp.campr.web.rest.vm.ManagedUserVM): [Field error in object 'managedUserVM' on field 'password': rejected value [123]; codes [Size.managedUserVM.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [managedUserVM.password,password]; arguments []; default message [password],100,4]; default message [size must be between 4 and 100]] 
+  <testcase name="testRegisterInvalidPassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.043">
+    <system-out><![CDATA[2022-01-21 12:04:22.064  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Validation failed for argument [0] in public void com.camp.campr.web.rest.AccountResource.registerAccount(com.camp.campr.web.rest.vm.ManagedUserVM): [Field error in object 'managedUserVM' on field 'password': rejected value [123]; codes [Size.managedUserVM.password,Size.password,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [managedUserVM.password,password]; arguments []; default message [password],100,4]; default message [size must be between 4 and 100]] 
 ]]></system-out>
   </testcase>
-  <testcase name="testSaveAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.056"/>
-  <testcase name="testFinishPasswordReset" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.251"/>
-  <testcase name="testRegisterNullPassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.013">
-    <system-out><![CDATA[2022-01-21 11:42:49.427  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
+  <testcase name="testSaveAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.059"/>
+  <testcase name="testFinishPasswordReset" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.223"/>
+  <testcase name="testRegisterNullPassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.014">
+    <system-out><![CDATA[2022-01-21 12:04:22.386  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
 ]]></system-out>
   </testcase>
   <testcase name="testRequestPasswordResetUpperCaseEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.016"/>
-  <testcase name="testRegisterAdminIsIgnored" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.151"/>
-  <testcase name="testActivateAccountWithWrongKey" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.038">
-    <system-out><![CDATA[2022-01-21 11:42:49.632 ERROR 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Internal Server Error
+  <testcase name="testRegisterAdminIsIgnored" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.163"/>
+  <testcase name="testActivateAccountWithWrongKey" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.035">
+    <system-out><![CDATA[2022-01-21 12:04:22.604 ERROR 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Internal Server Error
 
 com.camp.campr.web.rest.AccountResource$AccountResourceException: No user was found for this activation key
 	at com.camp.campr.web.rest.AccountResource.activateAccount(AccountResource.java:78)
@@ -364,8 +364,8 @@ com.camp.campr.web.rest.AccountResource$AccountResourceException: No user was fo
 
 ]]></system-out>
   </testcase>
-  <testcase name="testGetUnknownAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.068">
-    <system-out><![CDATA[2022-01-21 11:42:49.665 ERROR 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Internal Server Error
+  <testcase name="testGetUnknownAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.028">
+    <system-out><![CDATA[2022-01-21 12:04:22.628 ERROR 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Internal Server Error
 
 com.camp.campr.web.rest.AccountResource$AccountResourceException: User could not be found
 	at com.camp.campr.web.rest.AccountResource.lambda$getAccount$0(AccountResource.java:105)
@@ -520,44 +520,44 @@ com.camp.campr.web.rest.AccountResource$AccountResourceException: User could not
 
 ]]></system-out>
   </testcase>
-  <testcase name="testChangePassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.677"/>
-  <testcase name="testChangePasswordTooSmall" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.19">
-    <system-out><![CDATA[2022-01-21 11:42:50.574  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
+  <testcase name="testChangePassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.576"/>
+  <testcase name="testChangePasswordTooSmall" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.206">
+    <system-out><![CDATA[2022-01-21 12:04:23.408  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
 ]]></system-out>
   </testcase>
-  <testcase name="testChangePasswordTooLong" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.197">
-    <system-out><![CDATA[2022-01-21 11:42:50.753  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
+  <testcase name="testChangePasswordTooLong" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.224">
+    <system-out><![CDATA[2022-01-21 12:04:23.620  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
 ]]></system-out>
   </testcase>
-  <testcase name="testChangePasswordEmpty" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.197">
-    <system-out><![CDATA[2022-01-21 11:42:50.971  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
+  <testcase name="testChangePasswordEmpty" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.252">
+    <system-out><![CDATA[2022-01-21 12:04:23.888  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterDuplicateEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.456">
-    <system-out><![CDATA[2022-01-21 11:42:51.436 ERROR 3729 --- [           main] tech.jhipster.web.util.HeaderUtil        : Entity processing failed, Email is already in use!
-2022-01-21 11:42:51.437  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Email is already in use!
+  <testcase name="testRegisterDuplicateEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.49">
+    <system-out><![CDATA[2022-01-21 12:04:24.410 ERROR 4353 --- [           main] tech.jhipster.web.util.HeaderUtil        : Entity processing failed, Email is already in use!
+2022-01-21 12:04:24.411  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Email is already in use!
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterDuplicateLogin" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.276">
-    <system-out><![CDATA[2022-01-21 11:42:51.712 ERROR 3729 --- [           main] tech.jhipster.web.util.HeaderUtil        : Entity processing failed, Login name already used!
-2022-01-21 11:42:51.712  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Login name already used!
+  <testcase name="testRegisterDuplicateLogin" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.258">
+    <system-out><![CDATA[2022-01-21 12:04:24.667 ERROR 4353 --- [           main] tech.jhipster.web.util.HeaderUtil        : Entity processing failed, Login name already used!
+2022-01-21 12:04:24.668  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Login name already used!
 ]]></system-out>
   </testcase>
-  <testcase name="testAuthenticatedUser" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.013"/>
-  <testcase name="testActivateAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.031"/>
-  <testcase name="testRequestPasswordResetWrongEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.013">
-    <system-out><![CDATA[2022-01-21 11:42:51.775  WARN 3729 --- [           main] com.camp.campr.web.rest.AccountResource  : Password reset requested for non existing mail
+  <testcase name="testAuthenticatedUser" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.019"/>
+  <testcase name="testActivateAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.034"/>
+  <testcase name="testRequestPasswordResetWrongEmail" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.011">
+    <system-out><![CDATA[2022-01-21 12:04:24.739  WARN 4353 --- [           main] com.camp.campr.web.rest.AccountResource  : Password reset requested for non existing mail
 ]]></system-out>
   </testcase>
-  <testcase name="testRegisterValid" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.198"/>
-  <testcase name="testNonAuthenticatedUser" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.014"/>
-  <testcase name="testChangePasswordWrongExistingPassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.43">
-    <system-out><![CDATA[2022-01-21 11:42:52.231  WARN 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
+  <testcase name="testRegisterValid" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.115"/>
+  <testcase name="testNonAuthenticatedUser" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.009"/>
+  <testcase name="testChangePasswordWrongExistingPassword" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.395">
+    <system-out><![CDATA[2022-01-21 12:04:25.071  WARN 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Bad Request: Incorrect password
 ]]></system-out>
   </testcase>
-  <testcase name="testGetExistingAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.212"/>
-  <testcase name="testFinishPasswordResetWrongKey" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.016">
-    <system-out><![CDATA[2022-01-21 11:42:52.652 ERROR 3729 --- [           main] o.z.problem.spring.common.AdviceTraits   : Internal Server Error
+  <testcase name="testGetExistingAccount" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.201"/>
+  <testcase name="testFinishPasswordResetWrongKey" classname="com.camp.campr.web.rest.AccountResourceIT" time="0.014">
+    <system-out><![CDATA[2022-01-21 12:04:25.475 ERROR 4353 --- [           main] o.z.problem.spring.common.AdviceTraits   : Internal Server Error
 
 com.camp.campr.web.rest.AccountResource$AccountResourceException: No user was found for this reset key
 	at com.camp.campr.web.rest.AccountResource.finishPasswordReset(AccountResource.java:183)

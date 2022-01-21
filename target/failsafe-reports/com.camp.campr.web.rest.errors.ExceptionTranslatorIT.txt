@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.camp.campr.web.rest.errors.ExceptionTranslatorIT
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in com.camp.campr.web.rest.errors.ExceptionTranslatorIT
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.391 s - in com.camp.campr.web.rest.errors.ExceptionTranslatorIT

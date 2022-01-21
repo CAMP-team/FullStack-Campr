@@ -112,7 +112,7 @@ src/main/webapp/app/shared/error/error-boundary-route.tsx,2b6719b06c0401bc8dbd30
 src/main/webapp/app/shared/error/error-boundary.spec.tsx,b5dd5cd4c7fa6fa4c98b10de97d5001a507991e6
 src/main/webapp/app/shared/error/error-boundary.tsx,7bda36518a017ef6d9996d2579e015a536a30caf
 src/main/webapp/app/shared/error/page-not-found.tsx,2146f2bbf74a95025ef17db2920d028ee378ebb0
-src/main/webapp/app/shared/layout/footer/footer.scss,d11263a1016eed80db6cc6f06726f5e7c0d1bd85
+src/main/webapp/app/shared/layout/footer/footer.scss,a496197089ea05947acfe38ae511e4e758209636
 src/main/webapp/app/shared/layout/footer/footer.tsx,6c1946be0dd957efafc25d1fb0180ac257ef5c98
 src/main/webapp/app/shared/layout/header/header-components.tsx,a9b4518aba00cb4dbaadbcec951bdbb105a99453
 src/main/webapp/app/shared/layout/header/header.scss,92452dda27f8db4104c5709ab285a27360b0bdf0
