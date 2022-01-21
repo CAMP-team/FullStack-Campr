@@ -3,6 +3,10 @@
   color: white;
 }
 
+h5 {
+  color: white;
+}
+
 .header {
   display: flex;
   justify-content: flex-end;
@@ -20,15 +24,9 @@
 }
 
 .container {
-  padding: 0px;
-  background-color: #ffffff;
-
+  background: transparent;
   display: grid;
-
-  margin-top: 50px;
-  margin-bottom: 100px;
-  margin-right: 140px;
-  margin-left: 45px;
+  margin: 50px 140px 100px 45px;
   gap: 50px;
   grid-template-columns: 2fr 2fr 2fr 2fr;
 }
@@ -43,7 +41,6 @@
   color: white;
   display: flex;
   justify-content: center;
-  align-items: left;
 }
 
 .imageHeader {
@@ -69,10 +66,32 @@
 .btnPlay-Close {
   background-color: rgb(73, 73, 72);
   color: white;
-  border: none;
   outline: none;
   border: 1px solid white;
   padding: 5px 5px;
   cursor: pointer;
   margin-right: 100px;
+}
+
+.videoapp {
+  background: #191919;
+  padding: 5px;
+}
+
+img:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffc300;
+}
+
+img:hover {
+  color: #ffc300;
+  box-shadow: 0 0 5px #ffc300;
+}
+
+input {
+  color: white;
+  background-color: transparent;
+  border: #ffffff 1px solid;
+  width: 400px;
+  border-radius: 2px;
 }

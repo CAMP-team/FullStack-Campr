@@ -13,35 +13,38 @@ a {
   font-weight: bold;
 }
 
-// * {
-//   -moz-box-sizing: border-box;
-//   box-sizing: border-box;
-//   &:after,
-//   &::before {
-//     -moz-box-sizing: border-box;
-//     box-sizing: border-box;
-//   }
-// }
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &:after,
+  &::before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
 
-// .app-container {
-//   box-sizing: border-box;
-//   .view-container {
-//     width: 100%;
-//     height: calc(100% - 40px);
-//     overflow-y: auto;
-//     overflow-x: auto;
-//     padding: 1rem;
-//     .card {
-//       padding: 1rem;
-//     }
-//     .view-routes {
-//       height: 100%;
-//       > div {
-//         height: 100%;
-//       }
-//     }
-//   }
-// }
+.app-container {
+  box-sizing: border-box;
+  .view-container {
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 4rem;
+    .card {
+      padding: 0.5rem;
+      border-radius: 3px;
+      background-color: #191919;
+      color: #ffffff;
+    }
+    .view-routes {
+      height: 100%;
+      > div {
+        height: 100%;
+      }
+    }
+  }
+}
 
 .fullscreen {
   position: fixed;
