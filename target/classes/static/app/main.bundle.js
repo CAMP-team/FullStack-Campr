@@ -38,7 +38,7 @@ var ___CSS_LOADER_URL_IMPORT_12___ = new URL(/* asset import */ __webpack_requir
 var ___CSS_LOADER_URL_IMPORT_13___ = new URL(/* asset import */ __webpack_require__(/*! data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23000%27%3e%3cpath d=%27M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z%27/%3e%3c/svg%3e */ "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23000%27%3e%3cpath d=%27M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z%27/%3e%3c/svg%3e"), __webpack_require__.b);
 var ___CSS_LOADER_URL_IMPORT_14___ = new URL(/* asset import */ __webpack_require__(/*! data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z%27/%3e%3c/svg%3e */ "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z%27/%3e%3c/svg%3e"), __webpack_require__.b);
 var ___CSS_LOADER_URL_IMPORT_15___ = new URL(/* asset import */ __webpack_require__(/*! data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e */ "data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23fff%27%3e%3cpath d=%27M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_16___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../../src/main/resources/forest-forest-path-trees-light.jpg */ "./src/main/resources/forest-forest-path-trees-light.jpg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_16___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../src/main/resources/forest-forest-path-trees-light.jpg */ "./src/main/resources/forest-forest-path-trees-light.jpg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -112,7 +112,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid white;\n  border-radius: 4px;\n  height: 360px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}\n\n/*may need to switch out row in order to be able to move favorite button into videotile*/\n.faveButton {\n  position: absolute;\n  bottom: 10px;\n  display: none;\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px #494848;\n}\n\n.videoTile__img.show .faveButton {\n  display: block;\n}\n\n/**TODO\n-set up favorite button functionality\n  -override default button functionality\n-have proper right and left bordering on faveButton\n-have favorite button only show for the tile you're moused into\n*/", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/VideoTile.css"],"names":[],"mappings":"AAAA;EACE,eAAA;EACA,0CAAA;AACF;;AAEA;EACE,WAAA;EACA,oBAAA;KAAA,iBAAA;EACA,kBAAA;EACA,uBAAA;EACA,kBAAA;EACA,aAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB;;AADA,wFAAA;AAEA;EACE,kBAAA;EACA,YAAA;EACA,aAAA;AAGF;;AAAA;EACE,+BAAA;AAGF;;AAAA;EACE,cAAA;AAGF;;AAAA;;;;;CAAA","sourcesContent":[".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  width: 100%;\n  object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid rgb(255, 255, 255);\n  border-radius: 4px;\n  height: 360px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n/*may need to switch out row in order to be able to move favorite button into videotile*/\n\n.faveButton {\n  position: absolute;\n  bottom: 10px;\n  display: none;\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px rgb(73, 72, 72);\n}\n\n.videoTile__img.show .faveButton {\n  display: block;\n}\n\n/**TODO\n-set up favorite button functionality\n  -override default button functionality\n-have proper right and left bordering on faveButton\n-have favorite button only show for the tile you're moused into\n*/\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid white;\n  border-radius: 4px;\n  height: 360px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px;\n  /*half of the width */\n  margin-top: -48px;\n  /*half of the height */\n}\n\n/*may need to switch out row in order to be able to move favorite button into videotile*/\n.faveButton {\n  background-color: #494948;\n  color: white;\n  outline: none;\n  border: 1px solid white;\n  padding: 5px 5px;\n  cursor: pointer;\n  display: block;\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px #494848;\n}\n\n/**TODO\n-set up favorite button functionality\n  -override default button functionality\n-have proper right and left bordering on faveButton\n-have favorite button only show for the tile you're moused into\n*/", "",{"version":3,"sources":["webpack://./src/main/webapp/app/modules/home/VideoTile.css"],"names":[],"mappings":"AAAA;EACE,eAAA;EACA,0CAAA;AACF;;AAEA;EACE,WAAA;EACA,oBAAA;KAAA,iBAAA;EACA,kBAAA;EACA,uBAAA;EACA,kBAAA;EACA,aAAA;AACF;;AAEA;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,SAAA;EACA,QAAA;EACA,kBAAA;EAAoB,qBAAA;EACpB,iBAAA;EAAmB,sBAAA;AAGrB;;AADA,wFAAA;AAEA;EACE,yBAAA;EACA,YAAA;EACA,aAAA;EACA,uBAAA;EACA,gBAAA;EACA,eAAA;EACA,cAAA;AAGF;;AAAA;EACE,+BAAA;AAGF;;AAAA;;;;;CAAA","sourcesContent":[".videoTile {\n  cursor: pointer;\n  /* // add cursor over photos for weblink */\n}\n\n.videoTile__img {\n  width: 100%;\n  object-fit: cover;\n  border-radius: 8px;\n  border: 5px solid rgb(255, 255, 255);\n  border-radius: 4px;\n  height: 360px;\n}\n\n.playBtn {\n  position: absolute;\n  width: 96px;\n  height: 96px;\n  left: 50%;\n  top: 50%;\n  margin-left: -48px; /*half of the width */\n  margin-top: -48px; /*half of the height */\n}\n/*may need to switch out row in order to be able to move favorite button into videotile*/\n\n.faveButton {\n  background-color: rgb(73, 73, 72);\n  color: white;\n  outline: none;\n  border: 1px solid white;\n  padding: 5px 5px;\n  cursor: pointer;\n  display: block;\n}\n\n.videoTile__img:hover {\n  box-shadow: 0 0 5px 2px rgb(73, 72, 72);\n}\n\n/**TODO\n-set up favorite button functionality\n  -override default button functionality\n-have proper right and left bordering on faveButton\n-have favorite button only show for the tile you're moused into\n*/\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -166,7 +166,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".footer, a {\n  height: 50px;\n  color: #fff;\n  font-size: 12px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/shared/layout/footer/footer.scss"],"names":[],"mappings":"AAAA;EACE,YAAA;EACA,WAAA;EACA,eAAA;AACF","sourcesContent":[".footer, a {\n  height: 50px;\n  color: #fff;\n  font-size: 12px;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".footer,\na {\n  height: 50px;\n  color: #fff;\n  font-size: 12px;\n}", "",{"version":3,"sources":["webpack://./src/main/webapp/app/shared/layout/footer/footer.scss"],"names":[],"mappings":"AAAA;;EAEE,YAAA;EACA,WAAA;EACA,eAAA;AACF","sourcesContent":[".footer,\na {\n  height: 50px;\n  color: #fff;\n  font-size: 12px;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5750,41 +5750,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-<<<<<<< HEAD
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-jhipster */ "./node_modules/react-jhipster/lib/index.js");
-/* harmony import */ var react_jhipster__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jhipster__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.modern.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
-/* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
-/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
-
-
-// where we at now: need to match users json to only display id and login
-// my best guess is leveraging the user-favorites-update way of getting the user and trying to understand that
-// future stuff: might need to switch the url to the favorite making one in order for the json to go thru
-
-=======
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var app_config_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/config/store */ "./src/main/webapp/app/config/store.ts");
-/* harmony import */ var _VideoCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./VideoCard */ "./src/main/webapp/app/modules/home/VideoCard.tsx");
-/* harmony import */ var react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/Modal */ "./node_modules/react-bootstrap/esm/Modal.js");
-/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
-/* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
-/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
+/* harmony import */ var app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/entities/user-favorites/user-favorites.reducer */ "./src/main/webapp/app/entities/user-favorites/user-favorites.reducer.ts");
+/* harmony import */ var app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/shared/util/date-utils */ "./src/main/webapp/app/shared/util/date-utils.ts");
+/* harmony import */ var _VideoCard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VideoCard */ "./src/main/webapp/app/modules/home/VideoCard.tsx");
+/* harmony import */ var react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap/Modal */ "./node_modules/react-bootstrap/esm/Modal.js");
+/* harmony import */ var _VideoTile_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./VideoTile.css */ "./src/main/webapp/app/modules/home/VideoTile.css");
+/* harmony import */ var _home_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home.scss */ "./src/main/webapp/app/modules/home/home.scss");
+/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./App.css */ "./src/main/webapp/app/modules/home/App.css");
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 /* eslint-disable */
->>>>>>> f8d2c05d883597453e2fa47eb871bcb30b9e56be
 
 
 
@@ -5793,116 +5773,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-<<<<<<< HEAD
-/* eslint-disable */
-function posterSearch() {
-    const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppDispatch)();
-    // json friendly video list
-    const favors = [];
-    const userFavorites = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.userFavorites.entity);
-    const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''); // use state is updating the value in the frontend
-    const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-    const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    const [videoTileEnabled, setVideoTileEnabled] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
-    const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_4__.useAppSelector)(state => state.authentication.account);
-    // json friendly user formatter
-    const user = (id, login) => {
-        return { id: id, login: login };
-    };
-    // json friendly video formatter
-    const video = id => {
-        return { id: id };
-    };
-    const addToFavorites = (event, videoId) => {
-        // if user is logged in
-        // must map video to a new object with a singular attrib: its id
-        if (account == null) {
-            console.log('You need to log in first!');
-        }
-        else if (account.login) {
-            const favor = video(videoId);
-            const you = user(account.id, account.login);
-            favors.push(favor);
-            const entity = Object.assign(Object.assign({}, userFavorites), { dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_6__.displayCurrentDateTime)(), user: you, videos: favors });
-            dispatch((0,app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_5__.createEntity)(entity));
-            // resets favors after it is added in to favorites
-            // resets users after fave added in
-            //setUsers([]);
-            // maybe a seperate attribute indicating whether video is in faves or not?
-            // no need just use (isNew) (maybe not?)
-            // const favorites = useAppSelector(state => account-favorites.entities);
-            // how to access favorites for just one user
-            // the reducer for the user-favorites
-            // how to get the update?
-            // how to make sure the user matches the favorites
-            // user-favorites.createEntity(videoId);
-            // set addedTofavorites to true
-            // 1/16/22: 6:57
-            //may be getting a 500 error because video is not in database
-        }
-        else {
-            console.log('You need to log in first!');
-        }
-        // submit form to add video to favorites
-        // confirmation will be that the button changes to "remove from favorites"
-        console.log('Added to favorites!');
-    };
-    const posterUrl = `https://api.themoviedb.org/3/search/movie?&api_key=616093e66ab252685ad921e5c4680152&query=${query}`;
-    function getPoster() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
-            const result = yield axios__WEBPACK_IMPORTED_MODULE_3___default().get(posterUrl);
-            setvideos(result.data.results);
-            // console.log(result.data);
-        });
-    }
-    const onSubmit = e => {
-        e.preventDefault(); // prevent page from reloading
-        getPoster();
-    };
-    const disableVideoTile = () => setVideoTileEnabled(false);
-    const enableVideoTile = () => setVideoTileEnabled(true);
-    const videoTileEnter = () => setShowButton(true);
-    const videoTileLeave = () => setShowButton(false);
-    return (react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Row, null,
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "3", className: "pad" }),
-        react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "9" },
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement("h2", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.title" }, "Welcome to Campr")),
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: "lead" },
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_jhipster__WEBPACK_IMPORTED_MODULE_2__.Translate, { contentKey: "home.subtitle" })),
-            react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", null,
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Col, { md: "5" },
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app" },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement("form", { className: "app__searchForm", onSubmit: onSubmit },
-                            react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { type: "text", className: "app__input", placeholder: "Find Videos", value: query, onChange: e => setquery(e.target.value) }),
-                            react__WEBPACK_IMPORTED_MODULE_1__.createElement("input", { className: "app__submit", type: "submit", value: "Search" }))),
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "app__videos" }, videos.map(video => {
-                        const value = video.id;
-                        const url = `https://api.themoviedb.org/3/movie/${value}/videos?api_key=616093e66ab252685ad921e5c4680152`;
-                        var videoDisplay;
-                        fetch(url)
-                            .then(res => res.json())
-                            .then(data => (videoDisplay = data))
-                            .then(() => console.log(videoDisplay));
-                        return (react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { key: video.id, className: "VideoTile", 
-                            //if videoid not in favorites list already render remove from favorites button
-                            //onMouseEnter={videoTileEnter}
-                            //onMouseLeave={videoTileLeave}
-                            onClick: () => {
-                                {
-                                    if (videoTileEnabled) {
-                                        video.poster_path == null
-                                            ? window.open(`https://www.youtube.com/results?search_query=${query}`)
-                                            : window.open(`https://www.youtube.com/watch?v=${videoDisplay.results[0].key}`);
-                                    }
-                                }
-                            } },
-                            react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "row", style: { position: 'relative' } },
-                                video.poster_path == null ? (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://c.tenor.com/0bN9L54PMmsAAAAC/coming-soon-see-it-soon.gif`, alt: "card image", style: { width: '100%', height: 360 } })) : (react__WEBPACK_IMPORTED_MODULE_1__.createElement("img", { className: "videoTile__img", src: `https://image.tmdb.org/t/p/w185${video.poster_path}`, alt: "card image", onMouseEnter: videoTileEnter, onMouseLeave: videoTileLeave, style: { width: '100%', height: 360 } })),
-                                showButton && video.poster_path != null && (react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { type: "submit", onMouseEnter: disableVideoTile, onMouseLeave: enableVideoTile, className: "FaveButton", style: { position: 'absolute', bottom: 10 }, onClick: e => addToFavorites(e, video.id) }, "Favorite")))));
-                    }))),
-                react__WEBPACK_IMPORTED_MODULE_1__.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_10__.Alert, { color: "light" })))));
-=======
+
+
 
 // @ts-ignore
 function Home() {
@@ -5914,7 +5786,25 @@ function Home() {
     const [playTrailer, setPlayTrailer] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
     const [show, setShow] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const dispatch = (0,app_config_store__WEBPACK_IMPORTED_MODULE_2__.useAppDispatch)();
-    const getFirstVideoFetch = (searchKey) => (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+        getFirstVideoFetch();
+    }, []);
+    // json friendly video list
+    const favors = [];
+    const userFavorites = (0,app_config_store__WEBPACK_IMPORTED_MODULE_2__.useAppSelector)(state => state.userFavorites.entity);
+    const [query, setquery] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''); // use state is updating the value in the frontend
+    const [videos, setvideos] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+    const [showButton, setShowButton] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const [videoTileEnabled, setVideoTileEnabled] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
+    const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_2__.useAppSelector)(state => state.authentication.account);
+    // json friendly user formatter
+    const user = (id, login) => {
+        return { id: id, login: login };
+    };
+    const favor = (id) => {
+        return { id: id };
+    };
+    const getFirstVideoFetch = (searchKey) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
         const type = searchKey ? 'search' : 'discover';
         const { data: { results }, } = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`${API_URL}/${type}/movie`, {
             params: {
@@ -5925,7 +5815,7 @@ function Home() {
         setSelectedVideo(results[0]);
         setVideo(results);
     });
-    const getSecondVideoFetch = (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
+    const getSecondVideoFetch = (id) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
         const { data } = yield axios__WEBPACK_IMPORTED_MODULE_0___default().get(`${API_URL}/movie/${id}`, {
             params: {
                 api_key: '616093e66ab252685ad921e5c4680152',
@@ -5934,18 +5824,48 @@ function Home() {
         });
         return data;
     });
-    const selectVideo = (video) => (0,tslib__WEBPACK_IMPORTED_MODULE_7__.__awaiter)(this, void 0, void 0, function* () {
+    const selectVideo = (video) => (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
         const data = yield getSecondVideoFetch(video.id);
         setSelectedVideo(data);
     });
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-        getFirstVideoFetch();
-    }, []);
-    const renderPosters = () => video.map(video => react__WEBPACK_IMPORTED_MODULE_1__.createElement(_VideoCard__WEBPACK_IMPORTED_MODULE_3__["default"], { key: video.id, video: video, selectVideo: selectVideo }));
-    const account = (0,app_config_store__WEBPACK_IMPORTED_MODULE_2__.useAppSelector)(state => state.authentication.account);
+    const renderPosters = () => video.map(video => react__WEBPACK_IMPORTED_MODULE_1__.createElement(_VideoCard__WEBPACK_IMPORTED_MODULE_5__["default"], { key: video.id, video: video, selectVideo: selectVideo }));
     const searchVideos = e => {
         e.preventDefault();
         getFirstVideoFetch(searchKey);
+    };
+    const addToFavorites = (event, videoId) => {
+        // if user is logged in
+        // must map video to a new object with a singular attrib: its id
+        if (account == null) {
+            console.log('You need to log in first!');
+        }
+        else if (account.login) {
+            const favorite = favor(videoId);
+            const you = user(account.id, account.login);
+            favors.push(favorite);
+            const entity = Object.assign(Object.assign({}, userFavorites), { dateAdded: (0,app_shared_util_date_utils__WEBPACK_IMPORTED_MODULE_4__.displayCurrentDateTime)(), user: you, videos: favors });
+            dispatch((0,app_entities_user_favorites_user_favorites_reducer__WEBPACK_IMPORTED_MODULE_3__.createEntity)(entity));
+            // resets favors after it is added in to favorites
+            // resets users after fave added in
+            //setUsers([]);
+            // maybe a seperate attribute indicating whether video is in faves or not?
+            // no need just use (isNew) (maybe not?)
+            // const favorites = useAppSelector(state => account-favorites.entities);
+            // how to access favorites for just one user
+            // the reducer for the user-favorites
+            // how to get the update?
+            // how to make sure the user matches the favorites
+            // set addedTofavorites to true
+            // 1/16/22: 6:57
+            //may be getting a 500 error because video is not in database
+            //setFavors([]);
+        }
+        else {
+            console.log('You need to log in first!');
+        }
+        // submit form to add video to favorites
+        // confirmation will be that the button changes to "remove from favorites"
+        console.log('Added to favorites!');
     };
     const renderTrailer = () => {
         const trailer = selectedVideo.videos.results[0];
@@ -5953,6 +5873,8 @@ function Home() {
         const trailerKey = trailer.key;
         return (react__WEBPACK_IMPORTED_MODULE_1__.createElement("iframe", { width: "760", height: "500", src: `https://www.youtube.com/embed/${trailer.key}?enablejsapi=1&origin=https://camp-r.herokuapp.com*`, title: "YouTube video player", frameBorder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowFullScreen: true }));
     };
+    const disableVideoTile = () => setVideoTileEnabled(false);
+    const enableVideoTile = () => setVideoTileEnabled(true);
     const videoTileEnter = () => setShowButton(true);
     const videoTileLeave = () => setShowButton(false);
     const handleClose = () => setShow(false);
@@ -5969,12 +5891,12 @@ function Home() {
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("h1", { className: 'imageHeader-title' }, selectedVideo.title),
                     selectedVideo.overview ? react__WEBPACK_IMPORTED_MODULE_1__.createElement("p", { className: 'imageHeader-overview' }, selectedVideo.overview) : null,
                     react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { className: 'btnPlay-Close', onClick: handleShow }, "Play Trailer"),
-                    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_8__["default"], { size: "lg", show: show, onHide: handleClose },
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_8__["default"].Header, { closeButton: true },
-                            react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_8__["default"].Title, null, selectedVideo.title)),
-                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_8__["default"].Body, null, selectedVideo.videos && playTrailer ? renderTrailer() : null)))),
+                    react__WEBPACK_IMPORTED_MODULE_1__.createElement("button", { className: "faveButton", onClick: e => addToFavorites(e, selectedVideo.id) }, "Add To Favorites"),
+                    react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"], { size: "lg", show: show, onHide: handleClose },
+                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Header, { closeButton: true },
+                            react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Title, null, selectedVideo)),
+                        react__WEBPACK_IMPORTED_MODULE_1__.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Body, null, selectedVideo.videos && playTrailer ? renderTrailer() : null)))),
             react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", { className: "container" }, renderPosters()))));
->>>>>>> f8d2c05d883597453e2fa47eb871bcb30b9e56be
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
@@ -7815,11 +7737,7 @@ module.exports = __webpack_require__.p + "dd0281fa1b34e3382fbf.jpg";
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = () => ("6205c111a6c0a355f4c9")
-=======
-/******/ 		__webpack_require__.h = () => ("ae016cb3c8b2b006502d")
->>>>>>> f8d2c05d883597453e2fa47eb871bcb30b9e56be
+/******/ 		__webpack_require__.h = () => ("dcf4d1ffbc059f59b79c")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */

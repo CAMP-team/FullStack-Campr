@@ -24,17 +24,17 @@
 /*may need to switch out row in order to be able to move favorite button into videotile*/
 
 .faveButton {
-  position: absolute;
-  bottom: 10px;
-  display: none;
+  background-color: rgb(73, 73, 72);
+  color: white;
+  outline: none;
+  border: 1px solid white;
+  padding: 5px 5px;
+  cursor: pointer;
+  display: block;
 }
 
 .videoTile__img:hover {
   box-shadow: 0 0 5px 2px rgb(73, 72, 72);
-}
-
-.videoTile__img.show .faveButton {
-  display: block;
 }
 
 /**TODO
