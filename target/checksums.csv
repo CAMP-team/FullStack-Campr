@@ -98,7 +98,7 @@ src/main/webapp/app/modules/home/App.css,eaa733d021b70e7a075635c81050282775d1ad5
 src/main/webapp/app/modules/home/VideoCard.tsx,ba07ab69c3e69061e106d4e47710549fb43590c9
 src/main/webapp/app/modules/home/VideoTile.css,dc79f09a8cb34376a8751a3dfe70354a80a19b90
 src/main/webapp/app/modules/home/home.scss,fc1404b5b6683b715c72745bdec02a031344072d
-src/main/webapp/app/modules/home/home.tsx,39b677bb6e81759267d1e8f17bd486ae859729f7
+src/main/webapp/app/modules/home/home.tsx,3fc342e9109267a239dfb86f38bc11752e4590a5
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -112,11 +112,7 @@ src/main/webapp/app/shared/error/error-boundary-route.tsx,2b6719b06c0401bc8dbd30
 src/main/webapp/app/shared/error/error-boundary.spec.tsx,b5dd5cd4c7fa6fa4c98b10de97d5001a507991e6
 src/main/webapp/app/shared/error/error-boundary.tsx,7bda36518a017ef6d9996d2579e015a536a30caf
 src/main/webapp/app/shared/error/page-not-found.tsx,2146f2bbf74a95025ef17db2920d028ee378ebb0
-<<<<<<< HEAD
-src/main/webapp/app/shared/layout/footer/footer.scss,e4bd517b512187f15091c566b0b0ac2082739c53
-=======
 src/main/webapp/app/shared/layout/footer/footer.scss,a496197089ea05947acfe38ae511e4e758209636
->>>>>>> 87885dbf39efdf8b0b4032c42053a76a29ccd2b6
 src/main/webapp/app/shared/layout/footer/footer.tsx,6c1946be0dd957efafc25d1fb0180ac257ef5c98
 src/main/webapp/app/shared/layout/header/header-components.tsx,a9b4518aba00cb4dbaadbcec951bdbb105a99453
 src/main/webapp/app/shared/layout/header/header.scss,92452dda27f8db4104c5709ab285a27360b0bdf0
@@ -180,13 +176,18 @@ src/main/webapp/manifest.webapp,9d4828c1c911fbdcdaa1be9d534f634130ef8eff
 src/main/webapp/robots.txt,85dff18c84fe266335d06b070f89d291c46290e3
 src/main/webapp/swagger-ui/dist/images/throbber.gif,4defd79f66e824ab7a3dc0e179904cc71a363439
 src/main/webapp/swagger-ui/index.html,216283504f756edcd51ff6a569747f8444c1eeda
-target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327ad1f
-target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
-target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
-target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-target/classes/static/app/main.bundle.js,e0e8eddf075e2bcd038c0387797488bf8c53378a
-target/classes/static/app/main.bundle.js.map,cc4025cad532abdcb699a88c20c456130c2d4de6
-target/classes/static/app/vendors.bundle.js,8bfcca279780bf3864ac08f7d0610e24e2847eab
+target/classes/static/app/main.bundle.js,c47684ec101fa3811d8cf556f233160b75e6ce47
+target/classes/static/app/main.bundle.js.map,ebbfd030a65e31c348fd10aaadccdb2ebb1542b3
+target/classes/static/dd0281fa1b34e3382fbf.jpg,bd36b47d1696950dfe05cb9cbcdbc6ee5fcad292
+target/classes/static/i18n/en.json,ab475aaa2696e71099fbd408b91a8802b7318343
+tsconfig.json,b71cf99af53e48c3bb8330b827375ce264a0c6d2
+webpack/environment.js,542bd9c73e5d1b7ec452c0df9a1d9a8bbb7aa863
+webpack/logo-jhipster.png,f1671a819ca95d37e86e20da335b66ac67dd6210
+webpack/utils.js,4da91113a5b225f04139fe0648fb940d22b15a36
+webpack/webpack.common.js,e1c70762927f8b7b7555637a9142563def1aa04c
+webpack/webpack.dev.js,614be77c9b468078d8d54d5dbee3afc41bbb2a1b
+webpack/webpack.prod.js,b6adf43c4ecaea73b6f1bc49d4e4888eef0f44f3
+ab
 target/classes/static/app/vendors.bundle.js.map,6869099cd2f99145299f138720a9ecd4f31787bf
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
 target/classes/static/dd0281fa1b34e3382fbf.jpg,bd36b47d1696950dfe05cb9cbcdbc6ee5fcad292

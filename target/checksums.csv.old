@@ -98,7 +98,7 @@ src/main/webapp/app/modules/home/App.css,eaa733d021b70e7a075635c81050282775d1ad5
 src/main/webapp/app/modules/home/VideoCard.tsx,ba07ab69c3e69061e106d4e47710549fb43590c9
 src/main/webapp/app/modules/home/VideoTile.css,dc79f09a8cb34376a8751a3dfe70354a80a19b90
 src/main/webapp/app/modules/home/home.scss,fc1404b5b6683b715c72745bdec02a031344072d
-src/main/webapp/app/modules/home/home.tsx,39b677bb6e81759267d1e8f17bd486ae859729f7
+src/main/webapp/app/modules/home/home.tsx,3fc342e9109267a239dfb86f38bc11752e4590a5
 src/main/webapp/app/modules/login/login-modal.tsx,eb054698f4a7ea08fc934ab9057eaeb83189b57b
 src/main/webapp/app/modules/login/login.tsx,1b670294b3a297039bd38daeac33b2a45a401feb
 src/main/webapp/app/modules/login/logout.tsx,596a325811870a3f7fd090b3c6f580c7d033c8b4
@@ -112,11 +112,7 @@ src/main/webapp/app/shared/error/error-boundary-route.tsx,2b6719b06c0401bc8dbd30
 src/main/webapp/app/shared/error/error-boundary.spec.tsx,b5dd5cd4c7fa6fa4c98b10de97d5001a507991e6
 src/main/webapp/app/shared/error/error-boundary.tsx,7bda36518a017ef6d9996d2579e015a536a30caf
 src/main/webapp/app/shared/error/page-not-found.tsx,2146f2bbf74a95025ef17db2920d028ee378ebb0
-<<<<<<< HEAD
-src/main/webapp/app/shared/layout/footer/footer.scss,e4bd517b512187f15091c566b0b0ac2082739c53
-=======
 src/main/webapp/app/shared/layout/footer/footer.scss,a496197089ea05947acfe38ae511e4e758209636
->>>>>>> 87885dbf39efdf8b0b4032c42053a76a29ccd2b6
 src/main/webapp/app/shared/layout/footer/footer.tsx,6c1946be0dd957efafc25d1fb0180ac257ef5c98
 src/main/webapp/app/shared/layout/header/header-components.tsx,a9b4518aba00cb4dbaadbcec951bdbb105a99453
 src/main/webapp/app/shared/layout/header/header.scss,92452dda27f8db4104c5709ab285a27360b0bdf0
@@ -184,13 +180,8 @@ target/classes/static/app/account.chunk.js,e3b2aae4b4ec3439744266c02497c1754327a
 target/classes/static/app/account.chunk.js.map,4e859c3814bb54d8f6a858a82ac370a3ecb8b3df
 target/classes/static/app/administration.chunk.js,e2ad45bbe2e61ad4c76daca4f3b493a715215dd1
 target/classes/static/app/administration.chunk.js.map,4e47abb458fd392f5b0a38eea36416062f47c643
-<<<<<<< HEAD
-target/classes/static/app/main.bundle.js,b7a4f44a072a1d86f372b8f6ceddc24a57f82f1c
-target/classes/static/app/main.bundle.js.map,bb4d1eba73e503c77f9a92b1f0afe0fc3b497049
-=======
-target/classes/static/app/main.bundle.js,7fd2aea70f94f14ff90affc2b170ccbb1af7c073
-target/classes/static/app/main.bundle.js.map,5dd04fd3cd089583b87070185e5831ed5d403184
->>>>>>> 87885dbf39efdf8b0b4032c42053a76a29ccd2b6
+target/classes/static/app/main.bundle.js,f88c5d0d26e754672287921950105293097a17fd
+target/classes/static/app/main.bundle.js.map,dea2f81efe08d144c99c5ab7795f848f595f1e54
 target/classes/static/app/vendors.bundle.js,8bfcca279780bf3864ac08f7d0610e24e2847eab
 target/classes/static/app/vendors.bundle.js.map,6869099cd2f99145299f138720a9ecd4f31787bf
 target/classes/static/content/css/loading.css,013e341c9cb1e6abb93f94924af393026311511d
@@ -215,6 +206,13 @@ target/classes/static/swagger-ui/swagger-ui-standalone-preset.js,3c30528c8730ecd
 target/classes/static/swagger-ui/swagger-ui.css,32238fe48731eca0de7f376970d84c9872f3a645
 target/classes/static/swagger-ui/swagger-ui.js,634ef16e69c7da56cb126d6279c8c98badd8d540
 tsconfig.json,b71cf99af53e48c3bb8330b827375ce264a0c6d2
+webpack/environment.js,542bd9c73e5d1b7ec452c0df9a1d9a8bbb7aa863
+webpack/logo-jhipster.png,f1671a819ca95d37e86e20da335b66ac67dd6210
+webpack/utils.js,4da91113a5b225f04139fe0648fb940d22b15a36
+webpack/webpack.common.js,e1c70762927f8b7b7555637a9142563def1aa04c
+webpack/webpack.dev.js,614be77c9b468078d8d54d5dbee3afc41bbb2a1b
+webpack/webpack.prod.js,b6adf43c4ecaea73b6f1bc49d4e4888eef0f44f3
+27375ce264a0c6d2
 webpack/environment.js,542bd9c73e5d1b7ec452c0df9a1d9a8bbb7aa863
 webpack/logo-jhipster.png,f1671a819ca95d37e86e20da335b66ac67dd6210
 webpack/utils.js,4da91113a5b225f04139fe0648fb940d22b15a36
